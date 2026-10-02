@@ -3,6 +3,7 @@ import Header from './components/Header';
 import Footer from './components/Footer';
 import MobileBottomNav from './components/MobileBottomNav';
 import Home from './pages/Home';
+import AboutPage from './pages/AboutPage';
 import TestsCatalogue from './pages/TestsCatalogue';
 import PackagesCatalogue from './pages/PackagesCatalogue';
 import CentresPage from './pages/CentresPage';
@@ -88,7 +89,7 @@ export default function App() {
 
       {/* Main View Router */}
       <main style={{ flex: 1, position: 'relative', zIndex: 1 }}>
-        {(currentTab === 'home' || currentTab === 'about') && (
+        {currentTab === 'home' && (
           <Home 
             setCurrentTab={setCurrentTab}
             onSelectTest={(item) => setSelectedTest(item)}
@@ -99,6 +100,13 @@ export default function App() {
             comparedPackages={comparedPackages}
             onToggleCompare={handleToggleCompare}
             openCompareModal={() => setIsCompareOpen(true)}
+          />
+        )}
+
+        {currentTab === 'about' && (
+          <AboutPage 
+            setCurrentTab={setCurrentTab}
+            openBookingWizard={() => setIsBookingOpen(true)}
           />
         )}
 

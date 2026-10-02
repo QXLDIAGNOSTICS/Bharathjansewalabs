@@ -28,6 +28,7 @@ export default function PackageCard({
             <img 
               src={pkg.image} 
               alt={pkg.name} 
+              onError={(e) => { e.currentTarget.src = '/images/banners/main-banner.webp'; }}
               style={{ width: '100%', height: '100%', objectFit: 'cover', transition: 'transform 0.5s ease' }} 
               onMouseEnter={(e) => e.currentTarget.style.transform = 'scale(1.05)'}
               onMouseLeave={(e) => e.currentTarget.style.transform = 'scale(1)'}
