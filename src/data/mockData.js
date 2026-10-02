@@ -716,7 +716,11 @@ export const FAQS = [
   },
   {
     question: 'What payment options are available for test bookings?',
-    answer: 'You can pay conveniently via UPI (Google Pay, PhonePe, Paytm), Credit/Debit Cards, Net Banking online, or Cash to the phlebotomist at the texport const BLOG_POSTS = [
+    answer: 'You can pay conveniently via UPI (Google Pay, PhonePe, Paytm), Credit/Debit Cards, Net Banking online, or Cash to the phlebotomist at the time of sample collection.'
+  }
+];
+
+export const BLOG_POSTS = [
   {
     id: 'hba1c-guide',
     slug: 'understanding-hba1c-blood-sugar-levels',
