@@ -156,18 +156,6 @@ export default function PackagesCatalogue({
           </div>
         </div>
 
-        {/* Comparison Alert Banner */}
-        {comparedPackages.length > 0 && (
-          <div style={{ background: '#FFF1F2', border: '1px solid #FECDD3', padding: '1.25rem 1.75rem', borderRadius: '18px', display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '2.5rem', flexWrap: 'wrap', gap: '1rem' }}>
-            <span style={{ fontSize: '0.95rem', fontWeight: 800, color: '#991B1B' }}>
-              📊 You have selected {comparedPackages.length} package(s) for comparison.
-            </span>
-            <button onClick={openCompareModal} className="btn-red-solid" style={{ padding: '0.6rem 1.4rem', fontSize: '0.85rem' }}>
-              Compare Selected Packages <ArrowRight size={16} />
-            </button>
-          </div>
-        )}
-
         {/* Packages Cards Grid */}
         <div className="card-grid" style={{ gridTemplateColumns: 'repeat(auto-fill, minmax(340px, 1fr))', gap: '2rem', marginBottom: '4rem' }}>
           {sortedPackages.map(pkg => (

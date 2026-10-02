@@ -133,7 +133,7 @@ export default function PackageCard({
 
       {/* Action Buttons */}
       <div>
-        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '0.75rem', marginBottom: '0.85rem' }}>
+        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '0.75rem' }}>
           <button 
             onClick={() => onSelect(pkg)} 
             className="btn-red-outline" 
@@ -149,18 +149,6 @@ export default function PackageCard({
             Book Now <ArrowRight size={15} />
           </button>
         </div>
-
-        {onToggleCompare && (
-          <label style={{ fontSize: '0.8rem', fontWeight: 700, color: 'var(--text-secondary)', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '6px', cursor: 'pointer' }}>
-            <input 
-              type="checkbox" 
-              checked={isCompared} 
-              onChange={() => onToggleCompare(pkg)} 
-              style={{ accentColor: '#EF4444', width: '16px', height: '16px', cursor: 'pointer' }}
-            />
-            Add to Compare
-          </label>
-        )}
       </div>
     </div>
   );

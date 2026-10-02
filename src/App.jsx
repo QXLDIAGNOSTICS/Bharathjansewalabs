@@ -41,7 +41,7 @@ export default function App() {
   const [legalModalType, setLegalModalType] = useState(null);
 
   // Package Comparison Array
-  const [comparedPackages, setComparedPackages] = useState([HEALTH_PACKAGES[0], HEALTH_PACKAGES[1]]);
+  const [comparedPackages, setComparedPackages] = useState([]);
 
   // Add item to cart and launch booking wizard
   const handleBookTest = (item) => {
