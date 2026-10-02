@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 540 250" width="100%" height="100%">
+  <!-- Pixel dispersion squares -->
+  <rect x="272" y="52" width="12" height="12" fill="#475569" />
+  <rect x="290" y="38" width="13" height="13" fill="#EF4444" />
+  <rect x="307" y="38" width="13" height="13" fill="#EF4444" />
+  <rect x="325" y="55" width="16" height="16" fill="#FFFFFF" stroke="#475569" stroke-width="1.5" />
+  <rect x="282" y="67" width="13" height="13" fill="#EF4444" />
+  <rect x="300" y="62" width="13" height="13" fill="#EF4444" />
+  <rect x="290" y="83" width="13" height="13" fill="#475569" />
+  <rect x="278" y="100" width="14" height="14" fill="#EF4444" />
+  <rect x="300" y="100" width="14" height="14" fill="#EF4444" />
+  <rect x="300" y="118" width="16" height="16" fill="#EF4444" />
+  <rect x="318" y="105" width="20" height="20" fill="#EF4444" />
+
+  <!-- Blood Drop Shape -->
+  <path d="M 360 22 C 360 22, 425 105, 425 148 C 425 188, 395 215, 355 215 C 315 215, 290 185, 302 148 C 310 125, 360 22, 360 22 Z" fill="#EF4444" />
+  <!-- Inner White Reflection Crescent -->
+  <path d="M 382 110 C 404 138, 404 175, 378 198 C 396 180, 400 144, 382 110 Z" fill="#FFFFFF" />
+
+  <!-- BHARATH -->
+  <text x="55" y="140" font-family="'Plus Jakarta Sans', system-ui, -apple-system, sans-serif" font-weight="900" font-size="34" fill="#000000" letter-spacing="4">BHARATH</text>
+  
+  <!-- JAN SEWA LABS -->
+  <text x="0" y="196" font-family="'Plus Jakarta Sans', system-ui, -apple-system, sans-serif" font-weight="900" font-size="52" fill="#EF4444" letter-spacing="-1">JAN SEWA</text>
+  <text x="365" y="196" font-family="'Plus Jakarta Sans', system-ui, -apple-system, sans-serif" font-weight="900" font-size="52" fill="#000000" letter-spacing="-1">LABS</text>
+  
+  <!-- Tagline -->
+  <text x="52" y="235" font-family="'Plus Jakarta Sans', system-ui, -apple-system, sans-serif" font-weight="800" font-size="20" fill="#000000" letter-spacing="0.5">Affordable <tspan fill="#EF4444">+</tspan> Accessible <tspan fill="#EF4444">+</tspan> Accurate</text>
+</svg>

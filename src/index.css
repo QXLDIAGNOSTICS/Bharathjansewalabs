@@ -1,0 +1,794 @@
+/* Bharath Jan Sewa Labs (BJSL) - Ultra Modern Apollo Liquid Glass Design System */
+
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400&family=Outfit:wght@400;600;700;800;900&display=swap');
+
+:root {
+  --bg-main: #F8FAFC;
+  --bg-white: #FFFFFF;
+
+  /* White Liquid Glass System */
+  --glass-surface: rgba(255, 255, 255, 0.82);
+  --glass-surface-hover: rgba(255, 255, 255, 0.96);
+  --glass-border: rgba(255, 255, 255, 0.9);
+  --glass-border-subtle: rgba(226, 232, 240, 0.85);
+  --glass-border-red: rgba(239, 68, 68, 0.5);
+  --glass-blur-amount: 28px;
+  --glass-blur: blur(var(--glass-blur-amount)) saturate(200%);
+  --glass-shadow: 0 20px 40px -12px rgba(15, 23, 42, 0.08), inset 0 2px 0 0 rgba(255, 255, 255, 1), inset 0 -1.5px 0 0 rgba(0, 0, 0, 0.04);
+  --glass-shadow-hover: 0 30px 60px -15px rgba(239, 68, 68, 0.22), inset 0 2px 0 0 rgba(255, 255, 255, 1), inset 0 -1.5px 0 0 rgba(239, 68, 68, 0.2);
+
+  /* Brand Red & Dark Containers */
+  --brand-red: #EF4444;
+  --brand-red-hover: #DC2626;
+  --brand-red-dark: #991B1B;
+  --brand-red-light: rgba(254, 242, 242, 0.9);
+  --brand-red-glow: 0 14px 32px rgba(239, 68, 68, 0.4);
+
+  --container-black: #0F172A;
+  --container-dark: #1E293B;
+
+  --text-primary: #0F172A;
+  --text-secondary: #475569;
+  --text-muted: #94A3B8;
+
+  --font-main: 'Plus Jakarta Sans', -apple-system, sans-serif;
+  --font-heading: 'Outfit', 'Plus Jakarta Sans', sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-main);
+  background-color: var(--bg-main);
+  color: var(--text-primary);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+  position: relative;
+  transition: background-color 0.4s ease, color 0.4s ease;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+  border: none;
+  background: none;
+  outline: none;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.container {
+  max-width: 1260px;
+  margin: 0 auto;
+  padding: 0 1.25rem;
+}
+
+/* ==========================================================================
+   DYNAMIC AMBIENT LIQUID ORBS (BACKGROUND)
+   ========================================================================== */
+.liquid-bg-container {
+  position: fixed;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.liquid-bg-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(90px);
+  opacity: 0.5;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
+  will-change: transform;
+}
+
+.liquid-orb-1 {
+  width: 550px;
+  height: 550px;
+  background: radial-gradient(circle, rgba(239, 68, 68, 0.22) 0%, rgba(220, 38, 38, 0.05) 70%, transparent 100%);
+  top: -120px;
+  left: -100px;
+  animation: liquidFloat1 18s ease-in-out infinite alternate;
+}
+
+.liquid-orb-2 {
+  width: 650px;
+  height: 650px;
+  background: radial-gradient(circle, rgba(56, 189, 248, 0.18) 0%, rgba(14, 165, 233, 0.04) 70%, transparent 100%);
+  top: 35%;
+  right: -160px;
+  animation: liquidFloat2 22s ease-in-out infinite alternate;
+}
+
+.liquid-orb-3 {
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(245, 158, 11, 0.16) 0%, rgba(239, 68, 68, 0.05) 70%, transparent 100%);
+  bottom: -100px;
+  left: 25%;
+  animation: liquidFloat3 20s ease-in-out infinite alternate;
+}
+
+@keyframes liquidFloat1 {
+  0% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(70px, 90px) scale(1.18); }
+  100% { transform: translate(-40px, 50px) scale(0.95); }
+}
+
+@keyframes liquidFloat2 {
+  0% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(-90px, -70px) scale(1.22); }
+  100% { transform: translate(50px, -40px) scale(0.92); }
+}
+
+@keyframes liquidFloat3 {
+  0% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(80px, -60px) scale(1.12); }
+  100% { transform: translate(-60px, 40px) scale(0.98); }
+}
+
+/* ==========================================================================
+   FULL-WIDTH APOLLO HERO SLIDER CAROUSEL WITH LIQUID GLASS OVERLAYS
+   ========================================================================== */
+.hero-slider-wrapper {
+  position: relative;
+  height: calc(100vh - 73px);
+  min-height: 620px;
+  width: 100%;
+  overflow: hidden;
+  background: #0F172A;
+}
+
+.hero-slide {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.8s ease-in-out, visibility 0.8s ease-in-out, transform 1.2s ease-out;
+  transform: scale(1.05);
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+}
+
+.hero-slide.active {
+  opacity: 1;
+  visibility: visible;
+  transform: scale(1);
+  z-index: 2;
+}
+
+.hero-slide-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(15, 23, 42, 0.45) 0%, rgba(15, 23, 42, 0.85) 100%);
+  z-index: 3;
+}
+
+/* FLOATING DARK LIQUID GLASS SEARCH OVERLAY (APOLLO STYLE) */
+.hero-liquid-search {
+  position: absolute;
+  bottom: 100px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: calc(100% - 2.5rem);
+  max-width: 860px;
+  z-index: 10;
+  background: rgba(15, 23, 42, 0.75);
+  backdrop-filter: blur(28px) saturate(200%);
+  -webkit-backdrop-filter: blur(28px) saturate(200%);
+  border: 1.5px solid rgba(255, 255, 255, 0.3);
+  border-radius: 99px;
+  padding: 8px 10px 8px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.45), inset 0 1.5px 0 rgba(255, 255, 255, 0.4);
+  cursor: pointer;
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.hero-liquid-search:hover {
+  background: rgba(15, 23, 42, 0.9);
+  border-color: rgba(239, 68, 68, 0.7);
+  box-shadow: 0 30px 70px rgba(239, 68, 68, 0.35), inset 0 1.5px 0 rgba(255, 255, 255, 0.6);
+  transform: translateX(-50%) translateY(-2px);
+}
+
+/* FLOATING APOLLO HERO PILL TABS BAR */
+.hero-floating-tabs {
+  position: absolute;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: calc(100% - 2.5rem);
+  max-width: 980px;
+  z-index: 10;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(24px) saturate(190%);
+  -webkit-backdrop-filter: blur(24px) saturate(190%);
+  border-radius: 99px;
+  padding: 6px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.35), inset 0 1.5px 0 rgba(255, 255, 255, 1);
+  border: 1.5px solid rgba(255, 255, 255, 0.9);
+}
+
+.hero-tab-pill {
+  padding: 12px 18px;
+  border-radius: 99px;
+  font-size: 0.925rem;
+  font-weight: 800;
+  color: #0F172A;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  cursor: pointer;
+}
+
+.hero-tab-pill:hover {
+  background: #FFF1F2;
+  color: #EF4444;
+}
+
+.hero-tab-arrow {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  border: 1.5px solid #0F172A;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.85rem;
+  transition: all 0.3s ease;
+}
+
+.hero-tab-pill:hover .hero-tab-arrow {
+  background: #EF4444;
+  border-color: #EF4444;
+  color: white;
+  transform: translateX(4px);
+}
+
+/* ==========================================================================
+   GLASSMORPHISM & LIQUID GLASS CARDS / PANELS
+   ========================================================================== */
+
+.white-liquid-card,
+.liquid-glass-card {
+  background: var(--glass-surface);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border: 1.5px solid var(--glass-border);
+  box-shadow: var(--glass-shadow);
+  border-radius: 24px;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), background 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease;
+  transform-style: preserve-3d;
+}
+
+/* Specular Ray Highlight Sweep */
+.white-liquid-card::before,
+.liquid-glass-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2.5px;
+  background: linear-gradient(90deg, transparent, rgba(239, 68, 68, 0.8), rgba(255, 255, 255, 1), rgba(239, 68, 68, 0.8), transparent);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  z-index: 2;
+}
+
+.white-liquid-card::after,
+.liquid-glass-card::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -120%;
+  width: 80%;
+  height: 200%;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.45) 50%,
+    transparent 100%
+  );
+  transform: rotate(25deg);
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: 1;
+}
+
+.white-liquid-card:hover,
+.liquid-glass-card:hover {
+  transform: translateY(-8px) scale(1.02);
+  background: var(--glass-surface-hover);
+  border-color: rgba(239, 68, 68, 0.5);
+  box-shadow: var(--glass-shadow-hover);
+}
+
+.white-liquid-card:hover::before,
+.liquid-glass-card:hover::before {
+  opacity: 1;
+}
+
+.white-liquid-card:hover::after,
+.liquid-glass-card:hover::after {
+  opacity: 1;
+  animation: liquidSheen 1.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes liquidSheen {
+  0% { left: -120%; }
+  100% { left: 180%; }
+}
+
+/* Dark Container Liquid Glass Cards */
+.dark-liquid-container {
+  background: rgba(15, 23, 42, 0.82);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  color: white;
+  border-radius: 28px;
+  padding: 2.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.4), inset 0 1.5px 0 rgba(255, 255, 255, 0.3);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Specular Glass Button Styles */
+.liquid-glass-btn {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.9);
+  color: var(--text-primary);
+  font-weight: 800;
+  border-radius: 14px;
+  padding: 0.75rem 1.5rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  box-shadow: 0 8px 20px rgba(15, 23, 42, 0.06), inset 0 1px 0 rgba(255, 255, 255, 0.9);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.liquid-glass-btn:hover {
+  background: white;
+  transform: translateY(-3px);
+  border-color: var(--brand-red);
+  color: var(--brand-red);
+  box-shadow: 0 12px 28px rgba(239, 68, 68, 0.2), inset 0 1px 0 rgba(255, 255, 255, 1);
+}
+
+/* Glowing Red Liquid Glass Solid Button */
+.btn-red-solid {
+  background: linear-gradient(135deg, #EF4444 0%, #DC2626 100%);
+  color: white;
+  font-weight: 900;
+  font-size: 0.925rem;
+  padding: 0.85rem 1.75rem;
+  border-radius: 99px;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  box-shadow: var(--brand-red-glow), inset 0 1.5px 0 rgba(255, 255, 255, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  position: relative;
+  overflow: hidden;
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  cursor: pointer;
+}
+
+.btn-red-solid:hover {
+  transform: translateY(-3px) scale(1.03);
+  box-shadow: 0 18px 40px rgba(239, 68, 68, 0.55), inset 0 1.5px 0 rgba(255, 255, 255, 0.7);
+}
+
+.btn-red-outline {
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  color: var(--brand-red);
+  font-weight: 800;
+  font-size: 0.9rem;
+  padding: 0.75rem 1.5rem;
+  border-radius: 14px;
+  border: 1.5px solid var(--brand-red);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  box-shadow: 0 4px 14px rgba(239, 68, 68, 0.08);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.btn-red-outline:hover {
+  background: var(--brand-red-light);
+  transform: translateY(-3px);
+  box-shadow: 0 10px 24px rgba(239, 68, 68, 0.2);
+}
+
+/* Badges */
+.badge-safe-green {
+  background: rgba(236, 253, 245, 0.9);
+  color: #059669;
+  border: 1px solid #A7F3D0;
+  font-size: 0.725rem;
+  font-weight: 800;
+  padding: 3px 10px;
+  border-radius: 8px;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  backdrop-filter: blur(8px);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.8);
+}
+
+/* Organ Circle Badge */
+.organ-badge-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.6rem;
+  cursor: pointer;
+  transition: transform 0.25s ease;
+}
+
+.organ-badge-circle {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  background: rgba(255, 241, 242, 0.85);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1.5px solid rgba(254, 205, 211, 0.9);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.2rem;
+  box-shadow: 0 10px 24px rgba(239, 68, 68, 0.1), inset 0 1.5px 0 rgba(255, 255, 255, 1);
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.organ-badge-item:hover .organ-badge-circle {
+  transform: scale(1.12) translateY(-4px);
+  background: var(--brand-red);
+  color: white;
+  border-color: var(--brand-red);
+  box-shadow: var(--brand-red-glow);
+}
+
+.organ-badge-label {
+  font-size: 0.925rem;
+  font-weight: 800;
+  color: var(--text-primary);
+}
+
+/* Card Grid Layout */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
+  gap: 1.75rem;
+}
+
+/* Dynamic Glass Apollo Header */
+.apollo-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(24px) saturate(190%);
+  -webkit-backdrop-filter: blur(24px) saturate(190%);
+  border-bottom: 1px solid rgba(226, 232, 240, 0.8);
+  box-shadow: 0 8px 30px rgba(15, 23, 42, 0.05);
+}
+
+/* Modal Overlays in Glassmorphism */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  background: rgba(15, 23, 42, 0.68);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+}
+
+.modal-card-white,
+.liquid-glass-modal {
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(32px) saturate(200%);
+  -webkit-backdrop-filter: blur(32px) saturate(200%);
+  border-radius: 28px;
+  max-width: 840px;
+  width: 100%;
+  max-height: 92vh;
+  overflow-y: auto;
+  border: 1px solid rgba(255, 255, 255, 0.9);
+  box-shadow: 0 30px 80px rgba(15, 23, 42, 0.35), inset 0 1.5px 0 rgba(255, 255, 255, 1);
+}
+
+.desktop-nav {
+  display: flex;
+}
+
+/* Animated Desktop Call Button */
+@keyframes callGlowPulse {
+  0% { box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.5); }
+  70% { box-shadow: 0 0 0 10px rgba(239, 68, 68, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(239, 68, 68, 0); }
+}
+
+.desktop-call-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: linear-gradient(135deg, #EF4444 0%, #DC2626 100%);
+  color: white !important;
+  padding: 7px 18px;
+  border-radius: 99px;
+  font-size: 0.875rem;
+  font-weight: 800;
+  text-decoration: none;
+  margin-left: 10px;
+  box-shadow: 0 4px 16px rgba(239, 68, 68, 0.35);
+  animation: callGlowPulse 2.2s infinite;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.desktop-call-btn:hover {
+  transform: translateY(-2px) scale(1.04);
+}
+
+@media (min-width: 769px) {
+  .mobile-only-header-icon {
+    display: none !important;
+  }
+}
+
+.mobile-menu-btn {
+  display: none;
+}
+
+.mobile-bottom-nav {
+  display: none;
+}
+
+@keyframes mobileSlideDown {
+  0% { opacity: 0; transform: translateY(-10px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes marqueeScrollLeft {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+@keyframes marqueeScrollRight {
+  0% { transform: translateX(-50%); }
+  100% { transform: translateX(0); }
+}
+
+.reviews-marquee-container,
+.gallery-marquee-container {
+  overflow: hidden;
+  width: 100%;
+  position: relative;
+  mask-image: linear-gradient(to right, transparent 0%, black 4%, black 96%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, black 4%, black 96%, transparent 100%);
+}
+
+.reviews-marquee-track {
+  display: flex;
+  gap: 1.75rem;
+  width: max-content;
+  animation: marqueeScrollLeft 32s linear infinite;
+}
+
+.gallery-marquee-track {
+  display: flex;
+  gap: 1.5rem;
+  width: max-content;
+  animation: marqueeScrollRight 40s linear infinite;
+}
+
+.reviews-marquee-container:hover .reviews-marquee-track,
+.gallery-marquee-container:hover .gallery-marquee-track {
+  animation-play-state: paused;
+}
+
+/* ==========================================================================
+   MOBILE RESPONSIVE UI DESIGN SYSTEM (MAX-WIDTH: 768px)
+   ========================================================================== */
+@media (max-width: 768px) {
+  body {
+    padding-bottom: 70px; /* Leave space for bottom nav bar */
+  }
+
+  .container {
+    padding: 0 1rem;
+  }
+
+  .desktop-nav,
+  .desktop-book-btn {
+    display: none !important;
+  }
+
+  .mobile-menu-btn {
+    display: flex !important;
+  }
+
+  /* Prevent iOS Safari auto-zoom on input focus */
+  input, select, textarea {
+    font-size: 16px !important;
+  }
+
+  /* Hero Slider on Mobile - Fills 100% of initial screen height so next section is hidden until scroll */
+  .hero-slider-wrapper { 
+    height: calc(100vh - 65px) !important;
+    min-height: 540px !important; 
+  }
+
+  .hero-slide-content {
+    margin-top: -55px !important;
+    padding: 0 1rem !important;
+  }
+
+  .hero-slide-badge {
+    padding: 5px 16px !important;
+    font-size: 0.775rem !important;
+    margin-bottom: 0.75rem !important;
+  }
+
+  .hero-slide h1 {
+    font-size: 1.55rem !important;
+    line-height: 1.25 !important;
+    margin-bottom: 0.6rem !important;
+  }
+
+  .hero-slide p {
+    font-size: 0.825rem !important;
+    margin-bottom: 1rem !important;
+    line-height: 1.4 !important;
+  }
+
+  .hero-action-btns {
+    gap: 8px !important;
+    justify-content: center !important;
+  }
+
+  .hero-action-btns button {
+    padding: 8px 16px !important;
+    font-size: 0.8rem !important;
+    border-radius: 99px !important;
+    white-space: nowrap !important;
+  }
+
+  /* Reposition arrows to upper badge level on mobile so they never hide content */
+  .hero-arrow-btn {
+    top: 30% !important;
+    width: 38px !important;
+    height: 38px !important;
+    opacity: 0.85 !important;
+    transform: translateY(-50%) !important;
+  }
+  .hero-arrow-left { left: 10px !important; right: auto !important; }
+  .hero-arrow-right { right: 10px !important; left: auto !important; }
+
+  /* Carousel dots positioned above search bar */
+  .hero-dots-container {
+    bottom: 125px !important;
+  }
+
+  /* Search bar fixed ABOVE mobile bottom navigation bar (Image 2 match) */
+  .hero-liquid-search { 
+    bottom: 72px !important; 
+    width: calc(100% - 1.25rem) !important;
+    padding: 5px 6px 5px 14px !important;
+    z-index: 15 !important;
+  }
+
+  .hero-liquid-search input {
+    font-size: 0.85rem !important;
+  }
+
+  /* Mobile Floating Action Buttons (Hidden on mobile as per user request) */
+  .desktop-floating-actions {
+    display: none !important;
+  }
+
+  /* Card Grids on Mobile */
+  .card-grid {
+    grid-template-columns: 1fr !important;
+    gap: 1.25rem !important;
+  }
+
+  /* Modals on Mobile */
+  .modal-overlay {
+    padding: 0;
+    align-items: flex-end;
+  }
+
+  .modal-card-white,
+  .liquid-glass-modal,
+  .modal-card {
+    border-radius: 24px 24px 0 0 !important;
+    max-height: 92vh !important;
+  }
+
+  /* Mobile Bottom Navigation Bar */
+  .mobile-bottom-nav {
+    display: flex;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 170;
+    background: rgba(255, 255, 255, 0.96);
+    backdrop-filter: blur(24px) saturate(200%);
+    -webkit-backdrop-filter: blur(24px) saturate(200%);
+    border-top: 1px solid rgba(226, 232, 240, 0.9);
+    padding: 8px 12px;
+    justify-content: space-around;
+    align-items: center;
+    box-shadow: 0 -8px 24px rgba(15, 23, 42, 0.12);
+  }
+
+  .mobile-nav-btn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 3px;
+    font-size: 0.725rem;
+    font-weight: 800;
+    text-decoration: none;
+    border: none;
+    background: transparent;
+    padding: 4px;
+    cursor: pointer;
+    touch-action: manipulation;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-slide h1 {
+    font-size: 1.8rem !important;
+  }
+  .hero-floating-tabs {
+    display: none; /* Hide dense pill tabs on ultra-small screens for cleanliness */
+  }
+  .hero-liquid-search {
+    bottom: 30px;
+  }
+}
