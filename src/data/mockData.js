@@ -881,9 +881,6 @@ export const BLOG_POSTS = [
     `,
     image: '🛵',
     relatedTests: ['chirayu-prime', 'cbc-test']
-  }
-];
-e', 'chirayu-master', 'chirayu-advanced']
   },
   {
     id: 'cbc-report-guide',
