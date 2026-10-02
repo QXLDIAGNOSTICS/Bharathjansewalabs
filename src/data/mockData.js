@@ -716,22 +716,30 @@ export const FAQS = [
   },
   {
     question: 'What payment options are available for test bookings?',
-    answer: 'You can pay conveniently via UPI (Google Pay, PhonePe, Paytm), Credit/Debit Cards, Net Banking online, or Cash to the phlebotomist at the time of sample collection.'
-  }
-];
-
-export const BLOG_POSTS = [
+    answer: 'You can pay conveniently via UPI (Google Pay, PhonePe, Paytm), Credit/Debit Cards, Net Banking online, or Cash to the phlebotomist at the texport const BLOG_POSTS = [
   {
     id: 'hba1c-guide',
     slug: 'understanding-hba1c-blood-sugar-levels',
     title: 'Understanding Your HbA1c Results: What Do Your Blood Sugar Numbers Mean?',
-    category: 'Diabetes & Metabolism',
+    category: 'Diabetes & Sugar',
     author: 'Dr. Ananya Rao, MD (Pathology)',
     date: TODAY_FORMATTED,
     readTime: '5 min read',
     excerpt: 'Glycated Hemoglobin (HbA1c) measures your average blood sugar levels over 2-3 months. Learn what normal, prediabetic, and diabetic ranges mean for your long-term health.',
     content: `
-      <p>Glycated hemoglobin (HbA1c) is the gold standard diagnostic test used by physicians worldwide to screen for and monitor diabetes management. Unlike a random blood sugar test which provides a single snapshot in time, HbA1c evaluates glucose attached to red blood cells over their average 120-day lifespan.</p>
+      <div class="at-a-glance-box" style="background:#F8FAFC; padding:1.25rem; border-radius:14px; border:1px solid #E2E8F0; margin-bottom:1.5rem">
+        <h4 style="margin-bottom:0.75rem; color:#0F172A; font-weight:800">📋 HbA1c Test At a Glance</h4>
+        <table style="width:100%; border-collapse:collapse; font-size:0.9rem">
+          <tr style="border-bottom:1px solid #E2E8F0"><td style="padding:4px 0; font-weight:700">Sample Required:</td><td>Whole Blood (EDTA)</td></tr>
+          <tr style="border-bottom:1px solid #E2E8F0"><td style="padding:4px 0; font-weight:700">Fasting Needed:</td><td>No Fasting Required (Can be taken anytime)</td></tr>
+          <tr style="border-bottom:1px solid #E2E8F0"><td style="padding:4px 0; font-weight:700">Report Turnaround:</td><td>Same Day (4 to 8 hours)</td></tr>
+          <tr style="border-bottom:1px solid #E2E8F0"><td style="padding:4px 0; font-weight:700">Home Collection:</td><td>Available across Bengaluru</td></tr>
+          <tr><td style="padding:4px 0; font-weight:700">Test Price:</td><td>₹349 (NABL Accredited Lab Processing)</td></tr>
+        </table>
+      </div>
+
+      <h3>What Is an HbA1c Test?</h3>
+      <p>Glycated hemoglobin (HbA1c) is a standardized blood test evaluating the percentage of hemoglobin proteins coated with sugar (glucose). Because red blood cells live for approximately 120 days, the HbA1c test reflects your average blood sugar control over the preceding 2 to 3 months.</p>
       
       <h3>Key HbA1c Reference Ranges:</h3>
       <ul>
@@ -740,59 +748,138 @@ export const BLOG_POSTS = [
         <li><strong>Diabetes Diagnostic Threshold:</strong> 6.5% or higher</li>
       </ul>
 
-      <h3>Why Routine HbA1c Testing Matters:</h3>
-      <p>Elevated blood sugar levels often remain completely asymptomatic during the early prediabetic stage. Regular screening every 3 to 6 months enables timely lifestyle interventions, dietary adjustments, and preventive medical guidance before irreversible vascular or nerve complications develop.</p>
+      <h3>Does an HbA1c Test Require Fasting?</h3>
+      <p>No fasting is required. Food intake on the day of the test does not alter glycated hemoglobin levels, making it convenient to schedule at any time of day.</p>
+
+      <h3>HbA1c vs Fasting Blood Sugar:</h3>
+      <p>While Fasting Blood Sugar measures glucose at a single moment after an 8-hour fast, HbA1c provides a cumulative 90-day average. Physicians frequently order both tests together for comprehensive diabetes screening.</p>
     `,
     image: '🩸',
     relatedTests: ['hba1c-test', 'chirayu-prime']
   },
   {
-    id: 'vitamin-d-b12-deficiency',
-    slug: 'vitamin-d-b12-deficiency-urban-lifestyle',
-    title: 'Vitamin D & B12 Deficiency in Urban India: Symptoms, Testing & Prevention',
-    category: 'Vitamins & Immunity',
+    id: 'cbc-blood-test-guide',
+    slug: 'cbc-blood-test-complete-guide',
+    title: 'What Is a Complete Blood Count (CBC)? Uses, Preparation & Reading Your Results',
+    category: 'Blood Tests',
     author: 'Dr. Rajesh Vardhan, Consultant Pathologist',
     date: TODAY_FORMATTED,
     readTime: '6 min read',
-    excerpt: 'Over 70% of urban Indians suffer from hidden Vitamin D and B12 deficiencies due to indoor desk jobs and dietary gaps. Discover the signs and why blood screening is vital.',
+    excerpt: 'CBC is the most common blood test prescribed by doctors. Learn what Hemoglobin, WBC, Platelets, and RBC indices indicate about your health.',
     content: `
-      <p>Despite living in sunny climates, over 70% of urban working professionals in India test deficient for Vitamin D 25-Hydroxy. Furthermore, Vitamin B12 deficiency is widespread due to vegetarian dietary patterns and reduced intestinal absorption.</p>
+      <div class="at-a-glance-box" style="background:#F8FAFC; padding:1.25rem; border-radius:14px; border:1px solid #E2E8F0; margin-bottom:1.5rem">
+        <h4 style="margin-bottom:0.75rem; color:#0F172A; font-weight:800">📋 CBC Blood Test At a Glance</h4>
+        <table style="width:100%; border-collapse:collapse; font-size:0.9rem">
+          <tr style="border-bottom:1px solid #E2E8F0"><td style="padding:4px 0; font-weight:700">Sample Required:</td><td>Blood (EDTA Vacuum Tube)</td></tr>
+          <tr style="border-bottom:1px solid #E2E8F0"><td style="padding:4px 0; font-weight:700">Fasting Needed:</td><td>No Fasting Required</td></tr>
+          <tr style="border-bottom:1px solid #E2E8F0"><td style="padding:4px 0; font-weight:700">Parameters Measured:</td><td>29 Cellular Parameters</td></tr>
+          <tr style="border-bottom:1px solid #E2E8F0"><td style="padding:4px 0; font-weight:700">Report Turnaround:</td><td>Same Day (4-6 Hours)</td></tr>
+          <tr><td style="padding:4px 0; font-weight:700">Test Price:</td><td>₹299</td></tr>
+        </table>
+      </div>
 
-      <h3>Common Symptoms of Deficiency:</h3>
+      <h3>What Does a CBC Test Measure?</h3>
+      <p>A Complete Blood Count evaluates three main types of cells circulating in your bloodstream:</p>
       <ul>
-        <li>Persistent muscle fatigue, bone aches, and low energy levels</li>
-        <li>Unexplained mood fluctuations, brain fog, and poor concentration</li>
-        <li>Tingling sensation or numbness in hands and feet (B12 neuropathy indicator)</li>
-        <li>Weakened immune system and frequent seasonal infections</li>
+        <li><strong>Red Blood Cells (RBC) & Hemoglobin:</strong> Carries oxygen from lungs to body tissues. Low levels indicate anemia.</li>
+        <li><strong>White Blood Cells (WBC / TLC):</strong> Key component of immune defense. Elevated counts signal active bacterial or viral infection.</li>
+        <li><strong>Platelets:</strong> Cell fragments responsible for blood clotting and wound healing.</li>
       </ul>
 
-      <h3>Diagnostic Precision:</h3>
-      <p>A simple serum blood test accurate to picogram levels can quantify your exact Vitamin D and B12 reserves. Based on your laboratory values, your physician can prescribe targeted therapeutic supplementation to restore optimal vitality.</p>
+      <h3>Why Is a CBC Prescribed?</h3>
+      <p>Physicians order CBC tests during routine health checkups, or when patients experience unexplained fatigue, fever, bruising, weakness, or inflammation.</p>
+    `,
+    image: '🔬',
+    relatedTests: ['cbc-test', 'chirayu-prime']
+  },
+  {
+    id: 'thyroid-profile-guide',
+    slug: 'thyroid-profile-t3-t4-tsh-explained',
+    title: 'Thyroid Profile Test (TSH, T3, T4): Symptoms, Preparation & Results Guide',
+    category: 'Thyroid Care',
+    author: 'Dr. Suresh Kumar, Senior Clinical Advisor',
+    date: TODAY_FORMATTED,
+    readTime: '5 min read',
+    excerpt: 'Thyroid hormones control your metabolism, energy, and weight. Learn how TSH, T3, and T4 tests detect hypothyroidism and hyperthyroidism.',
+    content: `
+      <div class="at-a-glance-box" style="background:#F8FAFC; padding:1.25rem; border-radius:14px; border:1px solid #E2E8F0; margin-bottom:1.5rem">
+        <h4 style="margin-bottom:0.75rem; color:#0F172A; font-weight:800">📋 Thyroid Profile At a Glance</h4>
+        <table style="width:100%; border-collapse:collapse; font-size:0.9rem">
+          <tr style="border-bottom:1px solid #E2E8F0"><td style="padding:4px 0; font-weight:700">Sample Required:</td><td>Blood Serum</td></tr>
+          <tr style="border-bottom:1px solid #E2E8F0"><td style="padding:4px 0; font-weight:700">Fasting Needed:</td><td>8-10 Hours Morning Fasting Preferred</td></tr>
+          <tr style="border-bottom:1px solid #E2E8F0"><td style="padding:4px 0; font-weight:700">Parameters:</td><td>Total T3, Total T4, TSH Ultrasensitive</td></tr>
+          <tr><td style="padding:4px 0; font-weight:700">Test Price:</td><td>₹399</td></tr>
+        </table>
+      </div>
+
+      <h3>Understanding Thyroid Hormones:</h3>
+      <p>The thyroid gland situated in your neck produces T3 (Triiodothyronine) and T4 (Thyroxine) hormones regulated by TSH (Thyroid Stimulating Hormone) from the pituitary gland.</p>
+      <ul>
+        <li><strong>Hypothyroidism (Underactive):</strong> High TSH with low T3/T4 levels, causing weight gain, lethargy, cold intolerance, and dry skin.</li>
+        <li><strong>Hyperthyroidism (Overactive):</strong> Low TSH with high T3/T4 levels, causing rapid heartbeat, anxiety, and weight loss.</li>
+      </ul>
+    `,
+    image: '🫁',
+    relatedTests: ['thyroid-profile', 'chirayu-master']
+  },
+  {
+    id: 'lipid-profile-heart-guide',
+    slug: 'lipid-profile-cholesterol-test-guide',
+    title: 'Lipid Profile & Heart Health: Understanding Good vs Bad Cholesterol',
+    category: 'Heart & Lipids',
+    author: 'Dr. Ananya Rao, MD (Pathology)',
+    date: TODAY_FORMATTED,
+    readTime: '6 min read',
+    excerpt: 'Comprehensive cholesterol screening evaluates your cardiac risk. Learn how HDL, LDL, VLDL, and Triglycerides impact heart health.',
+    content: `
+      <div class="at-a-glance-box" style="background:#F8FAFC; padding:1.25rem; border-radius:14px; border:1px solid #E2E8F0; margin-bottom:1.5rem">
+        <h4 style="margin-bottom:0.75rem; color:#0F172A; font-weight:800">📋 Lipid Profile At a Glance</h4>
+        <table style="width:100%; border-collapse:collapse; font-size:0.9rem">
+          <tr style="border-bottom:1px solid #E2E8F0"><td style="padding:4px 0; font-weight:700">Fasting Needed:</td><td>10-12 Hours Overnight Fasting Mandatory</td></tr>
+          <tr style="border-bottom:1px solid #E2E8F0"><td style="padding:4px 0; font-weight:700">Parameters:</td><td>14 Parameters (HDL, LDL, Triglycerides, Ratios)</td></tr>
+          <tr><td style="padding:4px 0; font-weight:700">Test Price:</td><td>₹450</td></tr>
+        </table>
+      </div>
+
+      <h3>Why Fasting Is Mandatory for Lipid Profiles:</h3>
+      <p>Consuming meals right before a lipid test dramatically spikes serum triglyceride levels. 10 to 12 hours of overnight fasting ensures precise baseline measurement of arterial plaque risk factors.</p>
+    `,
+    image: '🫀',
+    relatedTests: ['lipid-profile', 'chirayu-prime']
+  },
+  {
+    id: 'vitamin-d-b12-deficiency',
+    slug: 'vitamin-d-b12-deficiency-urban-lifestyle',
+    title: 'Vitamin D & B12 Deficiency: Symptoms, Testing & Prevention in Adults',
+    category: 'Vitamins & Minerals',
+    author: 'Dr. Rajesh Vardhan, Consultant Pathologist',
+    date: TODAY_FORMATTED,
+    readTime: '6 min read',
+    excerpt: 'Over 70% of urban Indians suffer from hidden Vitamin D and B12 deficiencies due to indoor desk jobs and dietary gaps.',
+    content: `
+      <p>Vitamin D and B12 are critical micronutrients controlling bone mineralization, nerve signal transmission, and red blood cell formation. Blood testing quantifies exact serum levels to guide targeted physician supplementation.</p>
     `,
     image: '☀️',
     relatedTests: ['vitamin-d-test', 'chirayu-master']
   },
   {
-    id: 'full-body-checkup-frequency',
-    slug: 'how-often-should-you-get-full-body-checkup',
-    title: 'Full Body Health Checkups: How Often Should You Get Screened?',
-    category: 'Preventive Healthcare',
-    author: 'Dr. Suresh Kumar, Senior Clinical Advisor',
+    id: 'home-sample-collection-guide',
+    slug: 'how-home-sample-collection-works',
+    title: 'How Home Sample Collection Works: Sterile Vacutainer Procedures & Cold-Chain Transport',
+    category: 'Home Collection',
+    author: 'BJSL Quality Assurance Team',
     date: TODAY_FORMATTED,
     readTime: '4 min read',
-    excerpt: 'Early diagnosis saves lives. Find out the recommended frequency for preventive blood screening based on your age, family history, and lifestyle risk factors.',
+    excerpt: 'Step-by-step guide to booking certified phlebotomists for free doorstep blood collection across Bangalore.',
     content: `
-      <p>Preventive healthcare is shifting from reactive disease treatment to proactive wellness management. Full body health checkup packages like Chirayu PRIME (71 parameters) provide a comprehensive baseline evaluation of your liver, kidneys, heart, thyroid, and blood counts.</p>
-
-      <h3>Recommended Screening Guidelines by Age Group:</h3>
-      <ul>
-        <li><strong>Age 18 to 35:</strong> Annual baseline screening focusing on CBC, HbA1c, Lipids, and Vitamins.</li>
-        <li><strong>Age 35 to 50:</strong> Comprehensive biannual checkup including organ panels, thyroid, and Apolipoproteins.</li>
-        <li><strong>Age 50+ Senior Citizens:</strong> Bi-annual specialized checkup covering bone density, cardiac risk, prostate/tumor markers, and organ function.</li>
-      </ul>
+      <h3>Safe, Hygienic Doorstep Phlebotomy:</h3>
+      <p>All BJSL home collection visits utilize sterile, single-use disposable Vacutainer needle systems opened right in front of the patient. Samples are immediately sealed in temperature-controlled cold-chain carrier boxes to maintain specimen integrity en route to NABL-accredited processing labs.</p>
     `,
-    image: '📦',
-    relatedTests: ['chirayu-prime', 'chirayu-master', 'chirayu-advanced']
+    image: '🛵',
+    relatedTests: ['chirayu-prime', 'cbc-test']
+  }
+];
+e', 'chirayu-master', 'chirayu-advanced']
   },
   {
     id: 'cbc-report-guide',
