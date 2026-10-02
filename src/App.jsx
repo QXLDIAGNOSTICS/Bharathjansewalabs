@@ -4,6 +4,7 @@ import Footer from './components/Footer';
 import MobileBottomNav from './components/MobileBottomNav';
 import Home from './pages/Home';
 import AboutPage from './pages/AboutPage';
+import LegalPage from './pages/LegalPage';
 import TestsCatalogue from './pages/TestsCatalogue';
 import PackagesCatalogue from './pages/PackagesCatalogue';
 import CentresPage from './pages/CentresPage';
@@ -26,6 +27,7 @@ import { Bot, MessageSquare, Phone, Sparkles } from 'lucide-react';
 
 export default function App() {
   const [currentTab, setCurrentTab] = useState('home');
+  const [legalTab, setLegalTab] = useState('promo');
   
   // Cart & Booking
   const [cart, setCart] = useState([HEALTH_PACKAGES[0]]); // Pre-load Chirayu Prime for demonstration
@@ -67,6 +69,12 @@ export default function App() {
     setComparedPackages(comparedPackages.filter(p => p.id !== pkgId));
   };
 
+  const handleOpenLegalPage = (type) => {
+    setLegalTab(type || 'promo');
+    setCurrentTab('legal');
+    window.scrollTo(0, 0);
+  };
+
   return (
     <div style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column', position: 'relative' }}>
       
@@ -105,6 +113,15 @@ export default function App() {
 
         {currentTab === 'about' && (
           <AboutPage 
+            setCurrentTab={setCurrentTab}
+            openBookingWizard={() => setIsBookingOpen(true)}
+          />
+        )}
+
+        {currentTab === 'legal' && (
+          <LegalPage 
+            activeTab={legalTab}
+            setActiveTab={setLegalTab}
             setCurrentTab={setCurrentTab}
             openBookingWizard={() => setIsBookingOpen(true)}
           />
@@ -156,7 +173,7 @@ export default function App() {
       </main>
 
       {/* Footer */}
-      <Footer setCurrentTab={setCurrentTab} openLegal={(type) => setLegalModalType(type)} />
+      <Footer setCurrentTab={setCurrentTab} openLegal={handleOpenLegalPage} />
 
       {/* Floating Action Buttons: AI Assistant & WhatsApp Chat (Bottom Right - Hidden on Mobile) */}
       <div className="desktop-floating-actions" style={{ position: 'fixed', bottom: '24px', right: '24px', zIndex: 180, display: 'flex', flexDirection: 'column', alignItems: 'flex-end', gap: '14px' }}>

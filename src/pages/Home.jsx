@@ -35,7 +35,9 @@ import {
   INDIVIDUAL_TESTS, 
   CENTRES,
   GOOGLE_REVIEWS,
-  FAQS
+  FAQS,
+  BLOG_POSTS,
+  TODAY_FORMATTED
 } from '../data/mockData';
 
 export default function Home({ 
@@ -1209,6 +1211,82 @@ export default function Home({
                 </div>
               ))}
             </div>
+          </div>
+
+        </div>
+      </section>
+
+      {/* SECTION 11.5: HEALTH BLOGS & DIAGNOSTIC ARTICLES (RIGHT ABOVE FAQ) */}
+      <section style={{ padding: '5rem 0 3rem', background: '#FFFFFF', borderTop: '1px solid #E2E8F0' }}>
+        <div className="container">
+          
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', marginBottom: '3rem', flexWrap: 'wrap', gap: '1rem' }}>
+            <div>
+              <span className="badge-pink-tag" style={{ marginBottom: '0.75rem', display: 'inline-block' }}>
+                MEDICAL KNOWLEDGE & HEALTH BLOGS
+              </span>
+              <h2 style={{ fontSize: '2.5rem', fontWeight: 900, color: '#0F172A', lineHeight: 1.2 }}>
+                Diagnostic Articles & Health Guides
+              </h2>
+              <p style={{ fontSize: '1rem', color: '#64748B', marginTop: '0.5rem' }}>
+                Authored by certified Pathologists & Medical Advisors. Published <strong>{TODAY_FORMATTED}</strong>.
+              </p>
+            </div>
+
+            <button 
+              onClick={() => { setCurrentTab('blogs'); window.scrollTo(0,0); }}
+              className="btn-red-outline" 
+              style={{ padding: '0.75rem 1.75rem', fontSize: '0.9rem', display: 'flex', alignItems: 'center', gap: '8px' }}
+            >
+              View All Health Articles <ArrowRight size={16} />
+            </button>
+          </div>
+
+          <div className="card-grid" style={{ gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '2rem' }}>
+            {BLOG_POSTS.slice(0, 3).map(post => (
+              <article 
+                key={post.id}
+                className="white-liquid-card"
+                style={{ 
+                  padding: '1.75rem',
+                  cursor: 'pointer', 
+                  display: 'flex', 
+                  flexDirection: 'column', 
+                  justifyContent: 'space-between',
+                  gap: '1.25rem'
+                }}
+                onClick={() => { setCurrentTab('blogs'); window.scrollTo(0,0); }}
+              >
+                <div>
+                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1.25rem', gap: '8px' }}>
+                    <span className="badge-pink-tag" style={{ fontSize: '0.75rem', padding: '4px 10px' }}>{post.category}</span>
+                    <span style={{ fontSize: '0.8rem', color: '#64748B', display: 'flex', alignItems: 'center', gap: '4px', fontWeight: 600, flexShrink: 0 }}>
+                      <Clock size={14} color="#EF4444" /> {post.readTime}
+                    </span>
+                  </div>
+
+                  <div style={{ fontSize: '2.5rem', marginBottom: '1rem', lineHeight: 1 }}>{post.image}</div>
+
+                  <h3 style={{ fontSize: '1.2rem', fontWeight: 900, color: '#0F172A', marginBottom: '0.75rem', lineHeight: 1.35 }}>
+                    {post.title}
+                  </h3>
+
+                  <p style={{ fontSize: '0.875rem', color: '#64748B', lineHeight: 1.6 }}>
+                    {post.excerpt}
+                  </p>
+                </div>
+
+                <div style={{ borderTop: '1px solid #F1F5F9', paddingTop: '1rem', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+                  <div style={{ fontSize: '0.8rem', color: '#0F172A', fontWeight: 700, display: 'flex', alignItems: 'center', gap: '6px' }}>
+                    <span>📅</span>
+                    <span>{post.date}</span>
+                  </div>
+                  <span style={{ color: '#EF4444', fontWeight: 800, fontSize: '0.85rem', display: 'flex', alignItems: 'center', gap: '4px' }}>
+                    Read Guide →
+                  </span>
+                </div>
+              </article>
+            ))}
           </div>
 
         </div>
