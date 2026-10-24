@@ -45,11 +45,11 @@ export default function Home({
   const [prescriptionFile, setPrescriptionFile] = useState(null);
   const [patientPhone, setPatientPhone] = useState('');
   const [uploadSuccess, setUploadSuccess] = useState(false);
-  const [currentSlide, setCurrentSlide] = useState(0);
 
   const checkupsScrollRef = useRef(null);
   const testsScrollRef = useRef(null);
   const conditionsScrollRef = useRef(null);
+  const desktopSliderRef = useRef(null);
 
   const scrollCarousel = (ref, distance) => {
     if (ref.current) {
@@ -61,135 +61,6 @@ export default function Home({
 
   const handleToggleCartItem = (item) => {
     onBookTest(item);
-  };
-
-  // Doctor-Led NABL Hero Slide Banner (Image 2)
-  const heroSlides = [
-    {
-      id: 'doctor-led-nabl',
-      badge1: 'DOCTOR-LED DIAGNOSTICS · NABL MC-6849',
-      badge2: 'NABL MC-6849',
-      titlePrefix: 'Doctor-Led NABL Accredited Diagnostic Lab',
-      titleHighlight: 'in Bengaluru',
-      subtitle: 'Advanced diagnostic testing with qualified medical oversight, home sample collection across Bengaluru and reliable turnaround times.',
-      trustBadges: [
-        { icon: '🩺', line1: '★ 5.0 Google', line2: 'Rating' },
-        { icon: '🔒', line1: 'Consultant', line2: 'Doctor Sign-off' },
-        { icon: '🛡️', line1: 'Free Doorstep', line2: 'Pickup' },
-        { icon: '⚡', line1: 'Same-Day', line2: 'Reports' }
-      ],
-      primaryAction: {
-        label: 'BOOK A TEST',
-        onClick: () => {
-          const el = document.querySelector('#popular-tests');
-          if (el) el.scrollIntoView({ behavior: 'smooth' });
-        }
-      },
-      secondaryAction: {
-        label: 'BOOK HOME COLLECTION',
-        onClick: () => openBookingWizard()
-      },
-      image: '/images/banners/doctors.webp',
-      fallbackImage: 'https://images.unsplash.com/photo-1622253692010-333f2da6031d?w=900&auto=format&fit=crop&q=80',
-      imageAlt: 'Doctor-Led NABL Team of Doctors in Bengaluru'
-    },
-    {
-      id: 'chirayu-full-body',
-      badge1: 'AFFORDABLE HEALTHCARE · CHIRAYU PRIME',
-      badge2: '50-70% LOWER RATES',
-      titlePrefix: 'Comprehensive Full Body Health Checkups',
-      titleHighlight: 'in Bengaluru',
-      subtitle: 'Preventive healthcare packages curated by MD pathologists. 71+ vital parameters tested including HbA1c, Thyroid, Liver, Kidney & CBC at ₹796.',
-      trustBadges: [
-        { icon: '🔬', line1: '71 Vital', line2: 'Parameters' },
-        { icon: '📋', line1: '6-Hour Digital', line2: 'Reports' },
-        { icon: '✅', line1: 'NABL Certified', line2: 'In-House Lab' },
-        { icon: '🏷️', line1: 'At ₹796 Only', line2: 'Zero Hidden Fees' }
-      ],
-      primaryAction: {
-        label: 'EXPLORE CHIRAYU (₹796)',
-        onClick: () => handleToggleCartItem(HEALTH_PACKAGES[0])
-      },
-      secondaryAction: {
-        label: 'COMPARE ALL PACKAGES',
-        onClick: () => {
-          const el = document.querySelector('#checkups');
-          if (el) el.scrollIntoView({ behavior: 'smooth' });
-        }
-      },
-      image: '/images/gallery/gallery-1.jpg',
-      fallbackImage: '/images/gallery/gallery-3.jpg',
-      imageAlt: 'NABL In-House Diagnostic Lab Automated Testing Equipment'
-    },
-    {
-      id: 'doorstep-collection',
-      badge1: '60-MINUTE DOORSTEP PHLEBOTOMY',
-      badge2: 'STERILE VACUTAINERS',
-      titlePrefix: 'Free Sample Collection at Your Doorstep',
-      titleHighlight: 'in 60 Mins',
-      subtitle: 'Certified phlebotomists arrive on bikes with temperature-controlled 4°C cool bags and sterile single-use vacutainers across Bengaluru.',
-      trustBadges: [
-        { icon: '🛵', line1: '60-Min Instant', line2: 'Arrival' },
-        { icon: '🧪', line1: 'Sterile Single-Use', line2: 'Tubes' },
-        { icon: '❄️', line1: '4°C Cold-Chain', line2: 'Maintained' },
-        { icon: '📱', line1: 'WhatsApp PDF', line2: 'Delivery' }
-      ],
-      primaryAction: {
-        label: 'BOOK SAMPLE PICKUP',
-        onClick: () => openBookingWizard()
-      },
-      secondaryAction: {
-        label: 'CALL LAB: 98055 43143',
-        onClick: () => window.open('tel:9805543143', '_self')
-      },
-      image: '/images/gallery/gallery-10.jpg',
-      fallbackImage: '/images/gallery/gallery-7.jpg',
-      imageAlt: 'Sterile Vacutainers & Doorstep Phlebotomy Sample Processing'
-    },
-    {
-      id: 'accurate-pathology',
-      badge1: 'ROUTINE & SPECIALIZED PATHOLOGY',
-      badge2: 'DIRECT LAB PRICING',
-      titlePrefix: 'Transparent Blood Testing With Expert MD',
-      titleHighlight: 'Doctor Guidance',
-      subtitle: 'Essential tests starting at ₹299 (CBC, HbA1c, Thyroid Profile, Lipid Profile, Vitamin D). Free post-test physician telephone consultation.',
-      trustBadges: [
-        { icon: '🩸', line1: 'CBC Blood Test', line2: 'At ₹299 Only' },
-        { icon: '🩺', line1: 'HbA1c Diabetes', line2: 'At ₹399 Only' },
-        { icon: '👨‍⚕️', line1: 'MD Doctor Review', line2: 'Included Free' },
-        { icon: '⚡', line1: 'Same-Day Fast', line2: 'Turnaround' }
-      ],
-      primaryAction: {
-        label: 'EXPLORE ALL 80+ TESTS',
-        onClick: () => {
-          const el = document.querySelector('#popular-tests');
-          if (el) el.scrollIntoView({ behavior: 'smooth' });
-        }
-      },
-      secondaryAction: {
-        label: 'UPLOAD PRESCRIPTION',
-        onClick: () => setIsPrescriptionModalOpen(true)
-      },
-      image: '/images/gallery/gallery-2.jpg',
-      fallbackImage: '/images/slides/hero-slide1.jpg',
-      imageAlt: 'Clinical Pathologist Conducting Diagnostic Blood Tests'
-    }
-  ];
-
-  // Auto-advance slides every 5.5 seconds
-  useEffect(() => {
-    const slideTimer = setInterval(() => {
-      setCurrentSlide((prev) => (prev + 1) % heroSlides.length);
-    }, 5500);
-    return () => clearInterval(slideTimer);
-  }, [heroSlides.length]);
-
-  const handlePrevSlide = () => {
-    setCurrentSlide((prev) => (prev === 0 ? heroSlides.length - 1 : prev - 1));
-  };
-
-  const handleNextSlide = () => {
-    setCurrentSlide((prev) => (prev + 1) % heroSlides.length);
   };
 
   // Health Conditions (Full Width Left-to-Right Slider)
@@ -691,145 +562,205 @@ export default function Home({
         </div>
       </div>
 
-      {/* 1. DOCTOR-LED NABL HERO SLIDE BANNER (Desktop View - 100% Preserved) */}
-      <section className="doctor-hero-banner-section">
-        <div className="container doctor-hero-container">
-          
-          <div className="doctor-hero-slider-wrapper">
+      {/* 1. DESKTOP HERO LIFESTYLE CAROUSEL (Replacing doctor banner with 4-card reference) */}
+      <section className="desktop-lifestyle-hero-section">
+        <div className="container">
+          <div className="desktop-lifestyle-carousel-container">
             
-            {/* Left Nav Arrow Button (Positioned safely outside card boundary, no overlap) */}
+            {/* Left Nav Arrow Button */}
             <button 
               type="button" 
-              onClick={handlePrevSlide}
-              className="doctor-hero-nav-arrow doctor-hero-nav-prev"
-              aria-label="Previous Hero Slide"
+              onClick={() => scrollCarousel(desktopSliderRef, -320)}
+              className="desktop-lifestyle-nav-arrow nav-arrow-prev"
+              aria-label="Previous checkup slide"
             >
-              <ChevronLeft size={24} />
+              <ChevronLeft size={22} />
             </button>
 
-            <div className="doctor-hero-slider-card">
-
-              {/* Slide Content Track */}
-              <div className="doctor-hero-slide-inner">
-                
-                {/* Left Column: Badges, Title, Subtitle, Trust Grid, Actions & Dots */}
-                <div className="doctor-hero-content">
-                  {/* Badges Row */}
-                  <div className="doctor-hero-badges-row">
-                    <span className="doctor-badge-blue">
-                      {heroSlides[currentSlide].badge1}
-                    </span>
-                    <span className="doctor-badge-green">
-                      <Check size={14} strokeWidth={3} /> {heroSlides[currentSlide].badge2}
-                    </span>
-                  </div>
-
-                  {/* Headline */}
-                  <h1 className="doctor-hero-title">
-                    {heroSlides[currentSlide].titlePrefix}{' '}
-                    <span className="doctor-hero-title-highlight">{heroSlides[currentSlide].titleHighlight}</span>
-                  </h1>
-
-                  {/* Subtitle */}
-                  <p className="doctor-hero-subtitle">
-                    {heroSlides[currentSlide].subtitle}
-                  </p>
-
-                  {/* 4 Trust Badges Grid (Pills in a row) */}
-                  <div className="doctor-hero-trust-grid">
-                    {heroSlides[currentSlide].trustBadges.map((badge, idx) => (
-                      <div key={idx} className="doctor-hero-trust-pill">
-                        <span className="doctor-trust-icon">{badge.icon}</span>
-                        <div className="doctor-trust-text">
-                          <span className="doctor-trust-line1">{badge.line1}</span>
-                          <span className="doctor-trust-line2">{badge.line2}</span>
-                        </div>
-                      </div>
-                    ))}
-                  </div>
-
-                  {/* Actions Row & Slide Indicator Dots */}
-                  <div className="doctor-hero-footer-row">
-                    <div className="doctor-hero-actions-row">
-                      <button 
-                        type="button"
-                        onClick={heroSlides[currentSlide].primaryAction.onClick}
-                        className="doctor-hero-btn-primary"
-                      >
-                        {heroSlides[currentSlide].primaryAction.label} <ArrowRight size={16} />
-                      </button>
-                      <button 
-                        type="button"
-                        onClick={heroSlides[currentSlide].secondaryAction.onClick}
-                        className="doctor-hero-btn-secondary"
-                      >
-                        {heroSlides[currentSlide].secondaryAction.label}
-                      </button>
-                    </div>
-
-                    {/* Indicator Controls (Dots + Mini Chevrons for instant intuitive sliding) */}
-                    <div className="doctor-hero-slider-dots">
-                      <button
-                        type="button"
-                        onClick={handlePrevSlide}
-                        className="doctor-hero-inline-nav-btn"
-                        aria-label="Previous slide"
-                      >
-                        <ChevronLeft size={16} />
-                      </button>
-                      {heroSlides.map((_, idx) => (
-                        <button
-                          key={idx}
-                          type="button"
-                          onClick={() => setCurrentSlide(idx)}
-                          className={`doctor-hero-dot ${idx === currentSlide ? 'active' : ''}`}
-                          aria-label={`Go to slide ${idx + 1}`}
-                        />
-                      ))}
-                      <button
-                        type="button"
-                        onClick={handleNextSlide}
-                        className="doctor-hero-inline-nav-btn"
-                        aria-label="Next slide"
-                      >
-                        <ChevronRight size={16} />
-                      </button>
+            {/* Scrollable Carousel Track */}
+            <div className="desktop-lifestyle-carousel-track" ref={desktopSliderRef}>
+              
+              {/* Card 1: India's Most Comprehensive Checkup - ULTRA (Reference Screenshot Card 1) */}
+              <div 
+                className="desktop-lifestyle-card lifestyle-card-ultra"
+                onClick={() => {
+                  const el = document.querySelector('#checkups');
+                  if (el) el.scrollIntoView({ behavior: 'smooth' });
+                }}
+                role="button"
+                tabIndex={0}
+              >
+                <img 
+                  src="/images/slides/hero_ultra.jpg" 
+                  alt="India's Most Comprehensive Checkup ULTRA" 
+                  className="desktop-lifestyle-bg-img"
+                  style={{ objectPosition: 'center 15%' }}
+                />
+                <div className="desktop-lifestyle-scrim scrim-ultra" />
+                <div className="desktop-lifestyle-content">
+                  <div>
+                    <h3 className="desktop-lifestyle-headline headline-ultra">
+                      India’s Most<br />Comprehensive<br />Checkup
+                    </h3>
+                    <div className="badge-ultra">
+                      ULTRA
                     </div>
                   </div>
-
+                  <div className="desktop-lifestyle-bottom-pill bottom-pill-ultra">
+                    <span className="pill-title">Get Ultra Full Body Checkup</span>
+                    <div className="pill-price-btn">
+                      <span>₹ 14,999</span>
+                      <ArrowRight size={13} />
+                    </div>
+                  </div>
                 </div>
+              </div>
 
-                {/* Right Column: High Quality Image */}
-                <div className="doctor-hero-media">
-                  <img 
-                    key={currentSlide}
-                    src={heroSlides[currentSlide].image} 
-                    alt={heroSlides[currentSlide].imageAlt}
-                    className="doctor-hero-img"
-                    onError={(e) => {
-                      e.currentTarget.src = heroSlides[currentSlide].fallbackImage;
-                    }}
-                  />
+              {/* Card 2: Lifestyle Impacts Health (Reference Screenshot Card 2) */}
+              <div 
+                className="desktop-lifestyle-card lifestyle-card-lifestyle"
+                onClick={() => {
+                  const el = document.querySelector('#checkups');
+                  if (el) el.scrollIntoView({ behavior: 'smooth' });
+                }}
+                role="button"
+                tabIndex={0}
+              >
+                <img 
+                  src="/images/slides/lifestyle_hero.jpg" 
+                  alt="Your lifestyle impacts your health" 
+                  className="desktop-lifestyle-bg-img"
+                />
+                <div className="desktop-lifestyle-scrim scrim-lifestyle" />
+                <div className="desktop-lifestyle-content">
+                  <div>
+                    <h3 className="desktop-lifestyle-headline headline-lifestyle">
+                      Your lifestyle impacts<br />your health.
+                    </h3>
+                  </div>
+                  <div className="desktop-lifestyle-bottom-pill bottom-pill-lifestyle">
+                    <span className="pill-title">Track it with a Full Body Checkup</span>
+                    <div className="pill-price-btn">
+                      <span>Starts at ₹1599</span>
+                      <ArrowRight size={13} />
+                    </div>
+                  </div>
                 </div>
+              </div>
 
+              {/* Card 3: Hair Fall Checkup (Reference Screenshot Card 3) */}
+              <div 
+                className="desktop-lifestyle-card lifestyle-card-hairfall"
+                onClick={() => {
+                  const el = document.querySelector('#health-conditions');
+                  if (el) el.scrollIntoView({ behavior: 'smooth' });
+                }}
+                role="button"
+                tabIndex={0}
+              >
+                <img 
+                  src="/images/slides/hairfall_hero.jpg" 
+                  alt="Stop treating the hair. Find the trigger." 
+                  className="desktop-lifestyle-bg-img"
+                />
+                <div className="desktop-lifestyle-scrim scrim-hairfall" />
+                <div className="desktop-lifestyle-content">
+                  <div>
+                    <h3 className="desktop-lifestyle-headline headline-hairfall">
+                      Stop treating the hair.<br />Find the trigger.
+                    </h3>
+                  </div>
+                  <div className="desktop-lifestyle-bottom-pill bottom-pill-hairfall">
+                    <span className="pill-title">Hair Fall Checkups</span>
+                    <div className="pill-price-btn">
+                      <span>Starts at ₹2399</span>
+                      <ArrowRight size={13} />
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Card 4: Vitamin Levels (Reference Screenshot Card 4) */}
+              <div 
+                className="desktop-lifestyle-card lifestyle-card-vitamin"
+                onClick={() => {
+                  const el = document.querySelector('#checkups');
+                  if (el) el.scrollIntoView({ behavior: 'smooth' });
+                }}
+                role="button"
+                tabIndex={0}
+              >
+                <img 
+                  src="/images/slides/vitamin_hero.jpg" 
+                  alt="Your vitamin levels directly affect energy, focus and mood" 
+                  className="desktop-lifestyle-bg-img"
+                  style={{ objectPosition: 'center 20%' }}
+                />
+                <div className="desktop-lifestyle-scrim scrim-vitamin" />
+                <div className="desktop-lifestyle-content">
+                  <div>
+                    <h3 className="desktop-lifestyle-headline headline-vitamin">
+                      Your vitamin levels<br />directly affect energy,<br />focus and mood
+                    </h3>
+                  </div>
+                  <div className="desktop-lifestyle-bottom-pill bottom-pill-vitamin">
+                    <span className="pill-title">Get a Vitamin Checkup</span>
+                    <div className="pill-price-btn">
+                      <span>At ₹1299</span>
+                      <ArrowRight size={13} />
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Card 5: Senior & Family Care */}
+              <div 
+                className="desktop-lifestyle-card"
+                onClick={() => {
+                  const el = document.querySelector('#checkups');
+                  if (el) el.scrollIntoView({ behavior: 'smooth' });
+                }}
+                role="button"
+                tabIndex={0}
+              >
+                <img 
+                  src="/images/slides/senior_hero.jpg" 
+                  alt="Protect Your Elders & Family" 
+                  className="desktop-lifestyle-bg-img"
+                />
+                <div className="desktop-lifestyle-scrim" />
+                <div className="desktop-lifestyle-content">
+                  <div>
+                    <h3 className="desktop-lifestyle-headline" style={{ color: '#0F172A' }}>
+                      Protect your elders<br />& beloved family.
+                    </h3>
+                  </div>
+                  <div className="desktop-lifestyle-bottom-pill" style={{ background: 'rgba(15, 23, 42, 0.85)', border: '1px solid rgba(255,255,255,0.22)' }}>
+                    <span className="pill-title">Geriatric Senior Citizen Care</span>
+                    <div className="pill-price-btn">
+                      <span>Starts at ₹999</span>
+                      <ArrowRight size={13} />
+                    </div>
+                  </div>
+                </div>
               </div>
 
             </div>
 
-            {/* Right Nav Arrow Button (Positioned safely outside card boundary, no overlap) */}
+            {/* Right Nav Arrow Button */}
             <button 
               type="button" 
-              onClick={handleNextSlide}
-              className="doctor-hero-nav-arrow doctor-hero-nav-next"
-              aria-label="Next Hero Slide"
+              onClick={() => scrollCarousel(desktopSliderRef, 320)}
+              className="desktop-lifestyle-nav-arrow nav-arrow-next"
+              aria-label="Next checkup slide"
             >
-              <ChevronRight size={24} />
+              <ChevronRight size={22} />
             </button>
 
           </div>
-
         </div>
       </section>
+
 
       {/* 1.5 QUICK ACTION CARDS (Screenshot 2) */}
       <section className="quick-actions-section">
