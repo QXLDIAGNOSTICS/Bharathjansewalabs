@@ -520,9 +520,45 @@ export default function Home({
           <div className="mobile-lifestyle-slider-wrapper">
             <div className="mobile-lifestyle-scroll-track">
               
-              {/* Card 1: Lifestyle (Generated New Image) */}
+              {/* Card 1: India's Most Comprehensive Checkup - ULTRA (Reference Screenshot Card 1) */}
               <div 
-                className="mobile-lifestyle-card"
+                className="mobile-lifestyle-card lifestyle-card-ultra"
+                onClick={() => {
+                  const el = document.querySelector('#checkups');
+                  if (el) el.scrollIntoView({ behavior: 'smooth' });
+                }}
+                role="button"
+                tabIndex={0}
+              >
+                <img 
+                  src="/images/slides/hero_ultra.jpg" 
+                  alt="India's Most Comprehensive Checkup ULTRA" 
+                  className="mobile-lifestyle-bg-img"
+                  style={{ objectPosition: 'center 15%' }}
+                />
+                <div className="mobile-lifestyle-scrim scrim-ultra" />
+                <div className="mobile-lifestyle-content">
+                  <div>
+                    <h3 className="mobile-lifestyle-headline headline-ultra">
+                      India’s Most<br />Comprehensive<br />Checkup
+                    </h3>
+                    <div className="badge-ultra">
+                      ULTRA
+                    </div>
+                  </div>
+                  <div className="mobile-lifestyle-tag-pill bottom-pill-ultra">
+                    <span className="pill-title">Get Ultra Full Body Checkup</span>
+                    <div className="pill-price-btn">
+                      <span>₹ 14,999</span>
+                      <ArrowRight size={13} />
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Card 2: Lifestyle Impacts Health (Reference Screenshot Card 2) */}
+              <div 
+                className="mobile-lifestyle-card lifestyle-card-lifestyle"
                 onClick={() => {
                   const el = document.querySelector('#checkups');
                   if (el) el.scrollIntoView({ behavior: 'smooth' });
@@ -535,24 +571,26 @@ export default function Home({
                   alt="Your lifestyle impacts your health" 
                   className="mobile-lifestyle-bg-img"
                 />
-                <div className="mobile-lifestyle-scrim" />
+                <div className="mobile-lifestyle-scrim scrim-lifestyle" />
                 <div className="mobile-lifestyle-content">
-                  <h3 className="mobile-lifestyle-headline">
-                    Your lifestyle impacts<br />your health.
-                  </h3>
-                  <div className="mobile-lifestyle-tag-pill">
-                    <span>Track it with a Full Body Checkup</span>
-                    <div className="mobile-lifestyle-price-row">
+                  <div>
+                    <h3 className="mobile-lifestyle-headline headline-lifestyle">
+                      Your lifestyle impacts<br />your health.
+                    </h3>
+                  </div>
+                  <div className="mobile-lifestyle-tag-pill bottom-pill-lifestyle">
+                    <span className="pill-title">Track it with a Full Body Checkup</span>
+                    <div className="pill-price-btn">
                       <span>Starts at ₹1599</span>
-                      <ArrowRight size={14} />
+                      <ArrowRight size={13} />
                     </div>
                   </div>
                 </div>
               </div>
 
-              {/* Card 2: Hair Fall (Generated New Image) */}
+              {/* Card 3: Hair Fall Checkup (Reference Screenshot Card 3) */}
               <div 
-                className="mobile-lifestyle-card"
+                className="mobile-lifestyle-card lifestyle-card-hairfall"
                 onClick={() => {
                   const el = document.querySelector('#health-conditions');
                   if (el) el.scrollIntoView({ behavior: 'smooth' });
@@ -562,25 +600,60 @@ export default function Home({
               >
                 <img 
                   src="/images/slides/hairfall_hero.jpg" 
-                  alt="Stop treating symptoms. Find the trigger." 
+                  alt="Stop treating the hair. Find the trigger." 
                   className="mobile-lifestyle-bg-img"
                 />
-                <div className="mobile-lifestyle-scrim" />
+                <div className="mobile-lifestyle-scrim scrim-hairfall" />
                 <div className="mobile-lifestyle-content">
-                  <h3 className="mobile-lifestyle-headline">
-                    Stop treating symptoms.<br />Find the trigger.
-                  </h3>
-                  <div className="mobile-lifestyle-tag-pill">
-                    <span>Hair Fall Screening Profile</span>
-                    <div className="mobile-lifestyle-price-row">
-                      <span>Starts at ₹399</span>
-                      <ArrowRight size={14} />
+                  <div>
+                    <h3 className="mobile-lifestyle-headline headline-hairfall">
+                      Stop treating the hair.<br />Find the trigger.
+                    </h3>
+                  </div>
+                  <div className="mobile-lifestyle-tag-pill bottom-pill-hairfall">
+                    <span className="pill-title">Hair Fall Checkups</span>
+                    <div className="pill-price-btn">
+                      <span>Starts at ₹2399</span>
+                      <ArrowRight size={13} />
                     </div>
                   </div>
                 </div>
               </div>
 
-              {/* Card 3: Senior & Family Care (Generated New Image) */}
+              {/* Card 4: Vitamin Levels (Reference Screenshot Card 4) */}
+              <div 
+                className="mobile-lifestyle-card lifestyle-card-vitamin"
+                onClick={() => {
+                  const el = document.querySelector('#checkups');
+                  if (el) el.scrollIntoView({ behavior: 'smooth' });
+                }}
+                role="button"
+                tabIndex={0}
+              >
+                <img 
+                  src="/images/slides/vitamin_hero.jpg" 
+                  alt="Your vitamin levels directly affect energy, focus and mood" 
+                  className="mobile-lifestyle-bg-img"
+                  style={{ objectPosition: 'center 20%' }}
+                />
+                <div className="mobile-lifestyle-scrim scrim-vitamin" />
+                <div className="mobile-lifestyle-content">
+                  <div>
+                    <h3 className="mobile-lifestyle-headline headline-vitamin">
+                      Your vitamin levels<br />directly affect energy,<br />focus and mood
+                    </h3>
+                  </div>
+                  <div className="mobile-lifestyle-tag-pill bottom-pill-vitamin">
+                    <span className="pill-title">Get a Vitamin Checkup</span>
+                    <div className="pill-price-btn">
+                      <span>At ₹1299</span>
+                      <ArrowRight size={13} />
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Card 5: Senior & Family Care */}
               <div 
                 className="mobile-lifestyle-card"
                 onClick={() => {
@@ -597,14 +670,16 @@ export default function Home({
                 />
                 <div className="mobile-lifestyle-scrim" />
                 <div className="mobile-lifestyle-content">
-                  <h3 className="mobile-lifestyle-headline">
-                    Protect your elders<br />& beloved family.
-                  </h3>
+                  <div>
+                    <h3 className="mobile-lifestyle-headline">
+                      Protect your elders<br />& beloved family.
+                    </h3>
+                  </div>
                   <div className="mobile-lifestyle-tag-pill">
-                    <span>Geriatric Senior Citizen Care</span>
-                    <div className="mobile-lifestyle-price-row">
+                    <span className="pill-title">Geriatric Senior Citizen Care</span>
+                    <div className="pill-price-btn">
                       <span>Starts at ₹999</span>
-                      <ArrowRight size={14} />
+                      <ArrowRight size={13} />
                     </div>
                   </div>
                 </div>

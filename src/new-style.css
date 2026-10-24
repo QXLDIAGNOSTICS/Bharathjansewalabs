@@ -3732,7 +3732,24 @@ img, svg {
   .mobile-lifestyle-scrim {
     position: absolute;
     inset: 0;
-    background: linear-gradient(180deg, rgba(0,0,0,0.12) 0%, rgba(0,0,0,0.45) 55%, rgba(15,23,42,0.92) 100%);
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.88) 0%, rgba(255, 255, 255, 0.3) 38%, rgba(0, 0, 0, 0.2) 65%, rgba(15, 23, 42, 0.9) 100%);
+    pointer-events: none;
+  }
+
+  .scrim-ultra {
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.88) 0%, rgba(255, 255, 255, 0.25) 36%, rgba(30, 27, 75, 0.25) 65%, rgba(30, 27, 75, 0.92) 100%) !important;
+  }
+
+  .scrim-lifestyle {
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.88) 0%, rgba(255, 255, 255, 0.2) 36%, rgba(15, 23, 42, 0.2) 65%, rgba(15, 23, 42, 0.92) 100%) !important;
+  }
+
+  .scrim-hairfall {
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.88) 0%, rgba(255, 255, 255, 0.15) 36%, rgba(69, 26, 3, 0.25) 65%, rgba(69, 26, 3, 0.92) 100%) !important;
+  }
+
+  .scrim-vitamin {
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.88) 0%, rgba(255, 255, 255, 0.2) 36%, rgba(28, 25, 23, 0.25) 65%, rgba(28, 25, 23, 0.92) 100%) !important;
   }
 
   .mobile-lifestyle-content {
@@ -3741,38 +3758,97 @@ img, svg {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    padding: 20px 18px;
+    padding: 20px 18px 16px;
     z-index: 2;
   }
 
   .mobile-lifestyle-headline {
-    color: #FFFFFF;
-    font-size: 20px;
+    font-size: 20.5px;
     font-weight: 850;
-    line-height: 1.2;
-    text-shadow: 0 2px 8px rgba(0,0,0,0.5);
+    line-height: 1.18;
+    letter-spacing: -0.02em;
     margin: 0;
   }
 
-  .mobile-lifestyle-tag-pill {
-    background: rgba(15, 23, 42, 0.78);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    border: 1px solid rgba(255, 255, 255, 0.3);
-    border-radius: 16px;
-    padding: 12px 14px;
-    color: #FFFFFF;
-    font-size: 12px;
-    font-weight: 600;
+  .headline-ultra {
+    color: #1E1B4B !important;
   }
 
-  .mobile-lifestyle-price-row {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin-top: 6px;
-    font-weight: 800;
-    color: #38BDF8;
+  .badge-ultra {
+    display: inline-block !important;
+    background: linear-gradient(135deg, #F97316 0%, #EA580C 100%) !important;
+    color: #FFFFFF !important;
+    font-weight: 800 !important;
+    font-size: 11.5px !important;
+    letter-spacing: 0.16em !important;
+    padding: 3.5px 13px !important;
+    border-radius: 9999px !important;
+    margin-top: 8px !important;
+    box-shadow: 0 2px 8px rgba(234, 88, 12, 0.35) !important;
+    text-transform: uppercase !important;
+  }
+
+  .headline-lifestyle {
+    color: #0C4A6E !important;
+  }
+
+  .headline-hairfall {
+    color: #3E180C !important;
+  }
+
+  .headline-vitamin {
+    color: #292524 !important;
+  }
+
+  .mobile-lifestyle-tag-pill {
+    background: rgba(15, 23, 42, 0.82);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    border-radius: 18px;
+    padding: 12px 14px;
+    color: #FFFFFF;
+  }
+
+  .bottom-pill-ultra {
+    background: rgba(30, 27, 75, 0.85) !important;
+    border: 1px solid rgba(255, 255, 255, 0.22) !important;
+  }
+
+  .bottom-pill-lifestyle {
+    background: rgba(15, 23, 42, 0.85) !important;
+    border: 1px solid rgba(255, 255, 255, 0.22) !important;
+  }
+
+  .bottom-pill-hairfall {
+    background: rgba(85, 38, 14, 0.88) !important;
+    border: 1px solid rgba(255, 255, 255, 0.22) !important;
+  }
+
+  .bottom-pill-vitamin {
+    background: rgba(41, 37, 36, 0.86) !important;
+    border: 1px solid rgba(255, 255, 255, 0.22) !important;
+  }
+
+  .mobile-lifestyle-tag-pill .pill-title {
+    display: block !important;
+    font-size: 13.5px !important;
+    font-weight: 600 !important;
+    color: #FFFFFF !important;
+    margin-bottom: 8px !important;
+    line-height: 1.25 !important;
+  }
+
+  .mobile-lifestyle-tag-pill .pill-price-btn {
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 6px !important;
+    background: rgba(0, 0, 0, 0.38) !important;
+    border-radius: 9999px !important;
+    padding: 4px 11px !important;
+    color: #FFFFFF !important;
+    font-size: 12.5px !important;
+    font-weight: 700 !important;
   }
 
   /* Horizontal Product Carousels on Mobile (Checkups & Popular Tests): Cards Peek on Right! */
