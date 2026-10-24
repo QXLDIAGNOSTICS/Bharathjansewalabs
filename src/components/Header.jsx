@@ -136,7 +136,7 @@ export default function Header({
               <img 
                 src="/logo.webp" 
                 alt="Bharath Jan Sewa Labs" 
-                style={{ height: '42px', width: 'auto', objectFit: 'contain' }}
+                style={{ height: '50px', width: 'auto', objectFit: 'contain' }}
               />
             </a>
 
@@ -281,7 +281,7 @@ export default function Header({
                 <img 
                   src="/logo.webp" 
                   alt="Bharath Jan Sewa Labs" 
-                  style={{ height: '58px', width: 'auto', objectFit: 'contain' }}
+                  style={{ height: '72px', width: 'auto', objectFit: 'contain' }}
                   onError={(e) => {
                     // Fallback to stylized text badge if image fails
                     e.currentTarget.style.display = 'none';

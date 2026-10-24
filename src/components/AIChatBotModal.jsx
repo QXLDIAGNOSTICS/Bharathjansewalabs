@@ -186,7 +186,7 @@ export default function AIChatBotModal({ isOpen, onClose, onBookTest }) {
         <div style={{ display: 'flex', alignItems: 'center', gap: '11px' }}>
           <div className="bjsl-ai-avatar-ring">
             <div className="bjsl-ai-avatar-inner">
-              <Sparkles size={18} color="#2563EB" />
+              <Sparkles size={18} color="#DC2626" />
             </div>
           </div>
           <div>
@@ -244,8 +244,8 @@ export default function AIChatBotModal({ isOpen, onClose, onBookTest }) {
                     setIsLangDropdownOpen(false);
                   }}
                   style={{
-                    background: selectedLang === lang.code ? '#EFF6FF' : 'transparent',
-                    color: selectedLang === lang.code ? '#2563EB' : '#1E293B',
+                    background: selectedLang === lang.code ? '#FEF2F2' : 'transparent',
+                    color: selectedLang === lang.code ? '#DC2626' : '#1E293B',
                     border: 'none',
                     borderRadius: '8px',
                     padding: '6px 10px',
@@ -259,7 +259,7 @@ export default function AIChatBotModal({ isOpen, onClose, onBookTest }) {
                   }}
                 >
                   <span>{lang.flag} {lang.label}</span>
-                  {selectedLang === lang.code && <Check size={13} color="#2563EB" />}
+                  {selectedLang === lang.code && <Check size={13} color="#DC2626" />}
                 </button>
               ))}
             </div>
@@ -338,12 +338,12 @@ export default function AIChatBotModal({ isOpen, onClose, onBookTest }) {
                 maxWidth: '85%',
                 padding: '11px 15px',
                 borderRadius: msg.sender === 'user' ? '18px 18px 2px 18px' : '18px 18px 18px 2px',
-                background: msg.sender === 'user' ? 'linear-gradient(135deg, #2563EB 0%, #1D4ED8 100%)' : '#FFFFFF',
+                background: msg.sender === 'user' ? 'linear-gradient(135deg, #DC2626 0%, #B91C1C 100%)' : '#FFFFFF',
                 color: msg.sender === 'user' ? '#FFFFFF' : '#0F172A',
                 fontSize: '13.5px',
                 lineHeight: 1.5,
                 boxShadow: msg.sender === 'user' 
-                  ? '0 4px 14px rgba(37, 99, 235, 0.25)' 
+                  ? '0 4px 14px rgba(220, 38, 38, 0.25)' 
                   : '0 2px 10px rgba(15, 23, 42, 0.05)',
                 border: msg.sender === 'user' ? 'none' : '1px solid #E2E8F0',
                 wordBreak: 'break-word'
@@ -356,8 +356,8 @@ export default function AIChatBotModal({ isOpen, onClose, onBookTest }) {
             {msg.recommendedPkg && (
               <div 
                 style={{
-                  background: '#EFF6FF',
-                  border: '1.5px solid #BFDBFE',
+                  background: '#FEF2F2',
+                  border: '1.5px solid #FECACA',
                   borderRadius: '16px',
                   padding: '12px 14px',
                   maxWidth: '85%',
@@ -365,14 +365,14 @@ export default function AIChatBotModal({ isOpen, onClose, onBookTest }) {
                   alignItems: 'center',
                   justifyContent: 'space-between',
                   gap: '12px',
-                  boxShadow: '0 2px 8px rgba(37, 99, 235, 0.08)'
+                  boxShadow: '0 2px 8px rgba(220, 38, 38, 0.08)'
                 }}
               >
                 <div>
-                  <div style={{ fontWeight: 800, fontSize: '12.5px', color: '#1E3A8A' }}>
+                  <div style={{ fontWeight: 800, fontSize: '12.5px', color: '#991B1B' }}>
                     {msg.recommendedPkg.name}
                   </div>
-                  <div style={{ fontSize: '12px', color: '#2563EB', fontWeight: 850, marginTop: '2px' }}>
+                  <div style={{ fontSize: '12px', color: '#DC2626', fontWeight: 850, marginTop: '2px' }}>
                     ₹{msg.recommendedPkg.price} <span style={{ textDecoration: 'line-through', color: '#94A3B8', fontWeight: 500 }}>₹{msg.recommendedPkg.mrp}</span>
                   </div>
                 </div>
@@ -383,7 +383,7 @@ export default function AIChatBotModal({ isOpen, onClose, onBookTest }) {
                     onBookTest(msg.recommendedPkg);
                   }}
                   style={{
-                    background: '#2563EB',
+                    background: '#DC2626',
                     color: '#ffffff',
                     border: 'none',
                     borderRadius: '9999px',
@@ -394,7 +394,7 @@ export default function AIChatBotModal({ isOpen, onClose, onBookTest }) {
                     display: 'inline-flex',
                     alignItems: 'center',
                     gap: '4px',
-                    boxShadow: '0 2px 8px rgba(37, 99, 235, 0.3)'
+                    boxShadow: '0 2px 8px rgba(220, 38, 38, 0.3)'
                   }}
                 >
                   Book Now <ArrowRight size={12} />

@@ -544,7 +544,41 @@ img, svg {
 .desktop-lifestyle-scrim {
   position: absolute;
   inset: 0;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.92) 0%, rgba(255, 255, 255, 0.35) 42%, rgba(0, 0, 0, 0.25) 68%, rgba(15, 23, 42, 0.92) 100%);
   pointer-events: none;
+}
+
+/* Specific Card Scrim Overlays for Superior Contrast & Matching Reference */
+.scrim-ultra {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.92) 0%, rgba(255, 255, 255, 0.3) 38%, rgba(30, 27, 75, 0.28) 65%, rgba(30, 27, 75, 0.94) 100%) !important;
+}
+
+.scrim-lifestyle {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.92) 0%, rgba(255, 255, 255, 0.25) 38%, rgba(15, 23, 42, 0.25) 65%, rgba(15, 23, 42, 0.94) 100%) !important;
+}
+
+.scrim-hairfall {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.92) 0%, rgba(255, 255, 255, 0.2) 38%, rgba(69, 26, 3, 0.28) 65%, rgba(69, 26, 3, 0.94) 100%) !important;
+}
+
+.scrim-vitamin {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.92) 0%, rgba(255, 255, 255, 0.25) 38%, rgba(28, 25, 23, 0.28) 65%, rgba(28, 25, 23, 0.94) 100%) !important;
+}
+
+.scrim-senior {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.92) 0%, rgba(255, 255, 255, 0.22) 38%, rgba(19, 78, 74, 0.28) 65%, rgba(19, 78, 74, 0.94) 100%) !important;
+}
+
+.scrim-cardiac {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.92) 0%, rgba(255, 255, 255, 0.22) 38%, rgba(153, 27, 27, 0.25) 65%, rgba(153, 27, 27, 0.94) 100%) !important;
+}
+
+.scrim-fever {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.92) 0%, rgba(255, 255, 255, 0.22) 38%, rgba(22, 70, 94, 0.25) 65%, rgba(22, 70, 94, 0.94) 100%) !important;
+}
+
+.scrim-fullbody {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.92) 0%, rgba(255, 255, 255, 0.25) 38%, rgba(55, 48, 163, 0.25) 65%, rgba(55, 48, 163, 0.94) 100%) !important;
 }
 
 .desktop-lifestyle-content {
@@ -553,26 +587,90 @@ img, svg {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  padding: 22px 20px 16px;
+  padding: 22px 20px 18px;
   z-index: 2;
 }
 
+/* Header Zone: Fixed height ensures all card titles and badges align in a horizontal row */
+.desktop-lifestyle-header-zone,
+.mobile-lifestyle-header-zone {
+  min-height: 112px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
 .desktop-lifestyle-headline {
-  font-size: 21px;
+  font-size: 20px;
   font-weight: 850;
-  line-height: 1.18;
+  line-height: 1.2;
   letter-spacing: -0.02em;
   margin: 0;
 }
 
+/* Headline Color Classes for Perfect Contrast */
+.headline-ultra {
+  color: #1E1B4B !important;
+}
+
+.headline-lifestyle {
+  color: #0C4A6E !important;
+}
+
+.headline-hairfall {
+  color: #3E180C !important;
+}
+
+.headline-vitamin {
+  color: #292524 !important;
+}
+
+.headline-senior {
+  color: #042F2E !important;
+}
+
+.headline-cardiac {
+  color: #450A0A !important;
+}
+
+.headline-fever {
+  color: #0C4A6E !important;
+}
+
+.headline-fullbody {
+  color: #1E1B4B !important;
+}
+
+/* Global Ultra Badge - Visible and Styled Uniformly on Both Desktop and Mobile */
+.badge-ultra {
+  display: inline-block !important;
+  background: linear-gradient(135deg, #F97316 0%, #EA580C 100%) !important;
+  color: #FFFFFF !important;
+  font-weight: 850 !important;
+  font-size: 11px !important;
+  letter-spacing: 0.16em !important;
+  padding: 3.5px 12px !important;
+  border-radius: 9999px !important;
+  margin-top: 6px !important;
+  box-shadow: 0 2px 8px rgba(234, 88, 12, 0.38) !important;
+  text-transform: uppercase !important;
+}
+
+/* Bottom Pill: Fixed height and flex layout aligns all pills and price buttons */
 .desktop-lifestyle-bottom-pill {
   border-radius: 18px;
   padding: 12px 14px;
   color: #FFFFFF;
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.18);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
   transition: transform 0.2s ease;
+  height: 84px;
+  min-height: 84px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .desktop-lifestyle-card:hover .desktop-lifestyle-bottom-pill {
@@ -580,30 +678,76 @@ img, svg {
 }
 
 .desktop-lifestyle-bottom-pill .pill-title {
-  display: block;
-  font-size: 13.5px;
-  font-weight: 600;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  font-size: 13px;
+  font-weight: 650;
   color: #FFFFFF;
-  margin-bottom: 8px;
+  margin-bottom: 4px;
   line-height: 1.25;
+  height: 33px;
 }
 
 .desktop-lifestyle-bottom-pill .pill-price-btn {
   display: inline-flex;
   align-items: center;
+  align-self: flex-start;
   gap: 6px;
-  background: rgba(0, 0, 0, 0.38);
+  background: rgba(0, 0, 0, 0.42);
   border-radius: 9999px;
-  padding: 4px 11px;
+  padding: 4px 12px;
   color: #FFFFFF;
   font-size: 12.5px;
-  font-weight: 700;
+  font-weight: 750;
   transition: background 0.2s ease, transform 0.2s ease;
 }
 
 .desktop-lifestyle-card:hover .pill-price-btn {
-  background: rgba(0, 0, 0, 0.6);
+  background: rgba(0, 0, 0, 0.65);
   transform: translateX(2px);
+}
+
+/* Distinctive Themed Card Bottom Pill Backdrops */
+.bottom-pill-ultra {
+  background: rgba(30, 27, 75, 0.88) !important;
+  border: 1px solid rgba(255, 255, 255, 0.22) !important;
+}
+
+.bottom-pill-lifestyle {
+  background: rgba(15, 23, 42, 0.88) !important;
+  border: 1px solid rgba(255, 255, 255, 0.22) !important;
+}
+
+.bottom-pill-hairfall {
+  background: rgba(85, 38, 14, 0.9) !important;
+  border: 1px solid rgba(255, 255, 255, 0.22) !important;
+}
+
+.bottom-pill-vitamin {
+  background: rgba(41, 37, 36, 0.88) !important;
+  border: 1px solid rgba(255, 255, 255, 0.22) !important;
+}
+
+.bottom-pill-senior {
+  background: rgba(19, 78, 74, 0.9) !important;
+  border: 1px solid rgba(255, 255, 255, 0.22) !important;
+}
+
+.bottom-pill-cardiac {
+  background: rgba(127, 29, 29, 0.9) !important;
+  border: 1px solid rgba(255, 255, 255, 0.22) !important;
+}
+
+.bottom-pill-fever {
+  background: rgba(22, 70, 94, 0.9) !important;
+  border: 1px solid rgba(255, 255, 255, 0.22) !important;
+}
+
+.bottom-pill-fullbody {
+  background: rgba(49, 46, 129, 0.9) !important;
+  border: 1px solid rgba(255, 255, 255, 0.22) !important;
 }
 
 /* Floating Navigation Arrows Matching Reference Screenshot */
@@ -2767,13 +2911,13 @@ img, svg {
 
 /* AI Header */
 .bjsl-ai-header {
-  background: linear-gradient(135deg, #1D4ED8 0%, #2563EB 55%, #3B82F6 100%);
+  background: linear-gradient(135deg, #991B1B 0%, #DC2626 55%, #E11D48 100%) !important;
   color: #ffffff;
   padding: 14px 18px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  box-shadow: 0 4px 16px rgba(37, 99, 235, 0.25);
+  box-shadow: 0 4px 16px rgba(220, 38, 38, 0.28) !important;
   position: relative;
   z-index: 5;
 }
@@ -2783,7 +2927,7 @@ img, svg {
   height: 44px;
   border-radius: 50%;
   padding: 2.5px;
-  background: conic-gradient(#EF4444, #F59E0B, #10B981, #3B82F6, #8B5CF6, #EC4899, #EF4444);
+  background: conic-gradient(#EF4444, #F59E0B, #10B981, #DC2626, #8B5CF6, #EC4899, #EF4444);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -2828,7 +2972,7 @@ img, svg {
 
 .bjsl-ai-status {
   font-size: 11.5px;
-  color: rgba(255, 255, 255, 0.85);
+  color: rgba(255, 255, 255, 0.9);
   display: flex;
   align-items: center;
   gap: 6px;
@@ -2845,8 +2989,8 @@ img, svg {
 }
 
 .bjsl-ai-lang-btn {
-  background: rgba(255, 255, 255, 0.18);
-  border: 1px solid rgba(255, 255, 255, 0.32);
+  background: rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.35);
   color: #ffffff;
   padding: 5px 11px;
   border-radius: 9999px;
@@ -2860,7 +3004,7 @@ img, svg {
 }
 
 .bjsl-ai-lang-btn:hover {
-  background: rgba(255, 255, 255, 0.28);
+  background: rgba(255, 255, 255, 0.3);
 }
 
 .bjsl-ai-close-btn {
@@ -2884,20 +3028,20 @@ img, svg {
 
 /* GPS Strip */
 .bjsl-ai-gps-strip {
-  background: #EFF6FF;
-  border-bottom: 1px solid #DBEAFE;
+  background: #FEF2F2 !important;
+  border-bottom: 1px solid #FECACA !important;
   padding: 8px 16px;
   display: flex;
   align-items: center;
   justify-content: space-between;
   font-size: 11.5px;
-  color: #1E3A8A;
+  color: #991B1B !important;
 }
 
 .bjsl-ai-gps-btn {
-  background: #93C5FD;
-  color: #1E40AF;
-  border: none;
+  background: #FEE2E2 !important;
+  color: #991B1B !important;
+  border: 1px solid #FECACA !important;
   border-radius: 9999px;
   padding: 3px 9px;
   font-size: 10.5px;
@@ -2907,8 +3051,8 @@ img, svg {
 }
 
 .bjsl-ai-gps-btn:hover {
-  background: #60A5FA;
-  color: #ffffff;
+  background: #DC2626 !important;
+  color: #ffffff !important;
 }
 
 /* Greeting Card inside Chat */
@@ -2938,9 +3082,9 @@ img, svg {
 }
 
 .bjsl-ai-voice-btn {
-  background: #EFF6FF;
-  color: #2563EB;
-  border: 1.5px solid #BFDBFE;
+  background: #FEF2F2 !important;
+  color: #DC2626 !important;
+  border: 1.5px solid #FECACA !important;
   border-radius: 9999px;
   padding: 7px 15px;
   font-size: 12px;
@@ -3032,8 +3176,8 @@ img, svg {
 }
 
 .bjsl-ai-input:focus {
-  border-color: #2563EB;
-  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.12);
+  border-color: #DC2626 !important;
+  box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.12) !important;
 }
 
 .bjsl-ai-send-btn {
@@ -3041,7 +3185,7 @@ img, svg {
   height: 42px;
   border-radius: 50%;
   border: none;
-  background: #93C5FD;
+  background: #FCA5A5 !important;
   color: #ffffff;
   display: flex;
   align-items: center;
@@ -3052,12 +3196,12 @@ img, svg {
 }
 
 .bjsl-ai-send-btn.active {
-  background: #2563EB;
-  box-shadow: 0 4px 14px rgba(37, 99, 235, 0.35);
+  background: #DC2626 !important;
+  box-shadow: 0 4px 14px rgba(220, 38, 38, 0.35) !important;
 }
 
 .bjsl-ai-send-btn.active:hover {
-  background: #1D4ED8;
+  background: #B91C1C !important;
   transform: scale(1.06);
 }
 
@@ -3113,7 +3257,7 @@ img, svg {
   }
 
   .logo-link img {
-    height: 38px !important;
+    height: 48px !important;
     width: auto !important;
     flex-shrink: 0 !important;
   }

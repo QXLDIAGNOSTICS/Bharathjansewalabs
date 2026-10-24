@@ -391,7 +391,7 @@ export default function Home({
           <div className="mobile-lifestyle-slider-wrapper">
             <div className="mobile-lifestyle-scroll-track">
               
-              {/* Card 1: India's Most Comprehensive Checkup - ULTRA (Reference Screenshot Card 1) */}
+              {/* Card 1: India's Most Comprehensive Checkup - ULTRA (Chirayu Master 109 Tests) */}
               <div 
                 className="mobile-lifestyle-card lifestyle-card-ultra"
                 onClick={() => {
@@ -409,7 +409,7 @@ export default function Home({
                 />
                 <div className="mobile-lifestyle-scrim scrim-ultra" />
                 <div className="mobile-lifestyle-content">
-                  <div>
+                  <div className="mobile-lifestyle-header-zone">
                     <h3 className="mobile-lifestyle-headline headline-ultra">
                       India’s Most<br />Comprehensive<br />Checkup
                     </h3>
@@ -418,16 +418,16 @@ export default function Home({
                     </div>
                   </div>
                   <div className="mobile-lifestyle-tag-pill bottom-pill-ultra">
-                    <span className="pill-title">Get Ultra Full Body Checkup</span>
+                    <span className="pill-title">Chirayu Master Checkup (109 Tests)</span>
                     <div className="pill-price-btn">
-                      <span>₹ 14,999</span>
+                      <span>₹ 1,566</span>
                       <ArrowRight size={13} />
                     </div>
                   </div>
                 </div>
               </div>
 
-              {/* Card 2: Lifestyle Impacts Health (Reference Screenshot Card 2) */}
+              {/* Card 2: Lifestyle Impacts Health (Chirayu Prime 71 Tests) */}
               <div 
                 className="mobile-lifestyle-card lifestyle-card-lifestyle"
                 onClick={() => {
@@ -444,22 +444,22 @@ export default function Home({
                 />
                 <div className="mobile-lifestyle-scrim scrim-lifestyle" />
                 <div className="mobile-lifestyle-content">
-                  <div>
+                  <div className="mobile-lifestyle-header-zone">
                     <h3 className="mobile-lifestyle-headline headline-lifestyle">
                       Your lifestyle impacts<br />your health.
                     </h3>
                   </div>
                   <div className="mobile-lifestyle-tag-pill bottom-pill-lifestyle">
-                    <span className="pill-title">Track it with a Full Body Checkup</span>
+                    <span className="pill-title">Chirayu Prime Checkup (71 Tests)</span>
                     <div className="pill-price-btn">
-                      <span>Starts at ₹1599</span>
+                      <span>Starts at ₹796</span>
                       <ArrowRight size={13} />
                     </div>
                   </div>
                 </div>
               </div>
 
-              {/* Card 3: Hair Fall Checkup (Reference Screenshot Card 3) */}
+              {/* Card 3: Hair Fall Checkup (Hair Fall & Thyroid) */}
               <div 
                 className="mobile-lifestyle-card lifestyle-card-hairfall"
                 onClick={() => {
@@ -476,22 +476,22 @@ export default function Home({
                 />
                 <div className="mobile-lifestyle-scrim scrim-hairfall" />
                 <div className="mobile-lifestyle-content">
-                  <div>
+                  <div className="mobile-lifestyle-header-zone">
                     <h3 className="mobile-lifestyle-headline headline-hairfall">
                       Stop treating the hair.<br />Find the trigger.
                     </h3>
                   </div>
                   <div className="mobile-lifestyle-tag-pill bottom-pill-hairfall">
-                    <span className="pill-title">Hair Fall Checkups</span>
+                    <span className="pill-title">Hair Fall & Thyroid Profile</span>
                     <div className="pill-price-btn">
-                      <span>Starts at ₹2399</span>
+                      <span>Starts at ₹399</span>
                       <ArrowRight size={13} />
                     </div>
                   </div>
                 </div>
               </div>
 
-              {/* Card 4: Vitamin Levels (Reference Screenshot Card 4) */}
+              {/* Card 4: Vitamin Levels (Vitamin D & Minerals) */}
               <div 
                 className="mobile-lifestyle-card lifestyle-card-vitamin"
                 onClick={() => {
@@ -509,22 +509,22 @@ export default function Home({
                 />
                 <div className="mobile-lifestyle-scrim scrim-vitamin" />
                 <div className="mobile-lifestyle-content">
-                  <div>
+                  <div className="mobile-lifestyle-header-zone">
                     <h3 className="mobile-lifestyle-headline headline-vitamin">
                       Your vitamin levels<br />directly affect energy,<br />focus and mood
                     </h3>
                   </div>
                   <div className="mobile-lifestyle-tag-pill bottom-pill-vitamin">
-                    <span className="pill-title">Get a Vitamin Checkup</span>
+                    <span className="pill-title">Vitamin D & Mineral Screen</span>
                     <div className="pill-price-btn">
-                      <span>At ₹1299</span>
+                      <span>At ₹699</span>
                       <ArrowRight size={13} />
                     </div>
                   </div>
                 </div>
               </div>
 
-              {/* Card 5: Senior & Family Care */}
+              {/* Card 5: Senior Citizen Care */}
               <div 
                 className="mobile-lifestyle-card"
                 onClick={() => {
@@ -539,17 +539,113 @@ export default function Home({
                   alt="Protect Your Elders & Family" 
                   className="mobile-lifestyle-bg-img"
                 />
-                <div className="mobile-lifestyle-scrim" />
+                <div className="mobile-lifestyle-scrim scrim-senior" />
                 <div className="mobile-lifestyle-content">
-                  <div>
-                    <h3 className="mobile-lifestyle-headline">
-                      Protect your elders<br />& beloved family.
+                  <div className="mobile-lifestyle-header-zone">
+                    <h3 className="mobile-lifestyle-headline headline-senior">
+                      Protect your elders<br />with dedicated care.
                     </h3>
                   </div>
-                  <div className="mobile-lifestyle-tag-pill">
-                    <span className="pill-title">Geriatric Senior Citizen Care</span>
+                  <div className="mobile-lifestyle-tag-pill bottom-pill-senior">
+                    <span className="pill-title">Senior Citizen Health (110 Tests)</span>
                     <div className="pill-price-btn">
-                      <span>Starts at ₹999</span>
+                      <span>Starts at ₹1,999</span>
+                      <ArrowRight size={13} />
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Card 6: Cardiac & Lipid Health */}
+              <div 
+                className="mobile-lifestyle-card"
+                onClick={() => {
+                  const el = document.querySelector('#checkups');
+                  if (el) el.scrollIntoView({ behavior: 'smooth' });
+                }}
+                role="button"
+                tabIndex={0}
+              >
+                <img 
+                  src="/images/slides/cardiac_hero.jpg" 
+                  alt="Cardiac & Cholesterol Health" 
+                  className="mobile-lifestyle-bg-img"
+                />
+                <div className="mobile-lifestyle-scrim scrim-cardiac" />
+                <div className="mobile-lifestyle-content">
+                  <div className="mobile-lifestyle-header-zone">
+                    <h3 className="mobile-lifestyle-headline headline-cardiac">
+                      Monitor cardiac safety<br />& vital cholesterol.
+                    </h3>
+                  </div>
+                  <div className="mobile-lifestyle-tag-pill bottom-pill-cardiac">
+                    <span className="pill-title">Lipid Profile (14 Heart Tests)</span>
+                    <div className="pill-price-btn">
+                      <span>Starts at ₹450</span>
+                      <ArrowRight size={13} />
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Card 7: Active Fever & Infection Assessment */}
+              <div 
+                className="mobile-lifestyle-card"
+                onClick={() => {
+                  const el = document.querySelector('#checkups');
+                  if (el) el.scrollIntoView({ behavior: 'smooth' });
+                }}
+                role="button"
+                tabIndex={0}
+              >
+                <img 
+                  src="/images/banners/fever_season.jpg" 
+                  alt="Fever & Infection Screening" 
+                  className="mobile-lifestyle-bg-img"
+                />
+                <div className="mobile-lifestyle-scrim scrim-fever" />
+                <div className="mobile-lifestyle-content">
+                  <div className="mobile-lifestyle-header-zone">
+                    <h3 className="mobile-lifestyle-headline headline-fever">
+                      Active fever or<br />seasonal infection?
+                    </h3>
+                  </div>
+                  <div className="mobile-lifestyle-tag-pill bottom-pill-fever">
+                    <span className="pill-title">Complete Blood Count (CBC 29 Tests)</span>
+                    <div className="pill-price-btn">
+                      <span>At ₹299</span>
+                      <ArrowRight size={13} />
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Card 8: Complete Family Care */}
+              <div 
+                className="mobile-lifestyle-card"
+                onClick={() => {
+                  const el = document.querySelector('#checkups');
+                  if (el) el.scrollIntoView({ behavior: 'smooth' });
+                }}
+                role="button"
+                tabIndex={0}
+              >
+                <img 
+                  src="/images/slides/fullbody_pair_hero.jpg" 
+                  alt="Complete Preventive Health" 
+                  className="mobile-lifestyle-bg-img"
+                />
+                <div className="mobile-lifestyle-scrim scrim-fullbody" />
+                <div className="mobile-lifestyle-content">
+                  <div className="mobile-lifestyle-header-zone">
+                    <h3 className="mobile-lifestyle-headline headline-fullbody">
+                      Full body shield for<br />couples & families.
+                    </h3>
+                  </div>
+                  <div className="mobile-lifestyle-tag-pill bottom-pill-fullbody">
+                    <span className="pill-title">Chirayu Advanced Checkup (88 Tests)</span>
+                    <div className="pill-price-btn">
+                      <span>Starts at ₹1,366</span>
                       <ArrowRight size={13} />
                     </div>
                   </div>
@@ -580,7 +676,7 @@ export default function Home({
             {/* Scrollable Carousel Track */}
             <div className="desktop-lifestyle-carousel-track" ref={desktopSliderRef}>
               
-              {/* Card 1: India's Most Comprehensive Checkup - ULTRA (Reference Screenshot Card 1) */}
+              {/* Card 1: India's Most Comprehensive Checkup - ULTRA (Chirayu Master 109 Tests) */}
               <div 
                 className="desktop-lifestyle-card lifestyle-card-ultra"
                 onClick={() => {
@@ -598,7 +694,7 @@ export default function Home({
                 />
                 <div className="desktop-lifestyle-scrim scrim-ultra" />
                 <div className="desktop-lifestyle-content">
-                  <div>
+                  <div className="desktop-lifestyle-header-zone">
                     <h3 className="desktop-lifestyle-headline headline-ultra">
                       India’s Most<br />Comprehensive<br />Checkup
                     </h3>
@@ -607,16 +703,16 @@ export default function Home({
                     </div>
                   </div>
                   <div className="desktop-lifestyle-bottom-pill bottom-pill-ultra">
-                    <span className="pill-title">Get Ultra Full Body Checkup</span>
+                    <span className="pill-title">Chirayu Master Checkup (109 Tests)</span>
                     <div className="pill-price-btn">
-                      <span>₹ 14,999</span>
+                      <span>₹ 1,566</span>
                       <ArrowRight size={13} />
                     </div>
                   </div>
                 </div>
               </div>
 
-              {/* Card 2: Lifestyle Impacts Health (Reference Screenshot Card 2) */}
+              {/* Card 2: Lifestyle Impacts Health (Chirayu Prime 71 Tests) */}
               <div 
                 className="desktop-lifestyle-card lifestyle-card-lifestyle"
                 onClick={() => {
@@ -633,22 +729,22 @@ export default function Home({
                 />
                 <div className="desktop-lifestyle-scrim scrim-lifestyle" />
                 <div className="desktop-lifestyle-content">
-                  <div>
+                  <div className="desktop-lifestyle-header-zone">
                     <h3 className="desktop-lifestyle-headline headline-lifestyle">
                       Your lifestyle impacts<br />your health.
                     </h3>
                   </div>
                   <div className="desktop-lifestyle-bottom-pill bottom-pill-lifestyle">
-                    <span className="pill-title">Track it with a Full Body Checkup</span>
+                    <span className="pill-title">Chirayu Prime Checkup (71 Tests)</span>
                     <div className="pill-price-btn">
-                      <span>Starts at ₹1599</span>
+                      <span>Starts at ₹796</span>
                       <ArrowRight size={13} />
                     </div>
                   </div>
                 </div>
               </div>
 
-              {/* Card 3: Hair Fall Checkup (Reference Screenshot Card 3) */}
+              {/* Card 3: Hair Fall Checkup (Hair Fall & Thyroid Profile) */}
               <div 
                 className="desktop-lifestyle-card lifestyle-card-hairfall"
                 onClick={() => {
@@ -665,22 +761,22 @@ export default function Home({
                 />
                 <div className="desktop-lifestyle-scrim scrim-hairfall" />
                 <div className="desktop-lifestyle-content">
-                  <div>
+                  <div className="desktop-lifestyle-header-zone">
                     <h3 className="desktop-lifestyle-headline headline-hairfall">
                       Stop treating the hair.<br />Find the trigger.
                     </h3>
                   </div>
                   <div className="desktop-lifestyle-bottom-pill bottom-pill-hairfall">
-                    <span className="pill-title">Hair Fall Checkups</span>
+                    <span className="pill-title">Hair Fall & Thyroid Profile</span>
                     <div className="pill-price-btn">
-                      <span>Starts at ₹2399</span>
+                      <span>Starts at ₹399</span>
                       <ArrowRight size={13} />
                     </div>
                   </div>
                 </div>
               </div>
 
-              {/* Card 4: Vitamin Levels (Reference Screenshot Card 4) */}
+              {/* Card 4: Vitamin Levels (Vitamin D & Essential Minerals) */}
               <div 
                 className="desktop-lifestyle-card lifestyle-card-vitamin"
                 onClick={() => {
@@ -698,22 +794,22 @@ export default function Home({
                 />
                 <div className="desktop-lifestyle-scrim scrim-vitamin" />
                 <div className="desktop-lifestyle-content">
-                  <div>
+                  <div className="desktop-lifestyle-header-zone">
                     <h3 className="desktop-lifestyle-headline headline-vitamin">
                       Your vitamin levels<br />directly affect energy,<br />focus and mood
                     </h3>
                   </div>
                   <div className="desktop-lifestyle-bottom-pill bottom-pill-vitamin">
-                    <span className="pill-title">Get a Vitamin Checkup</span>
+                    <span className="pill-title">Vitamin D & Mineral Screen</span>
                     <div className="pill-price-btn">
-                      <span>At ₹1299</span>
+                      <span>At ₹699</span>
                       <ArrowRight size={13} />
                     </div>
                   </div>
                 </div>
               </div>
 
-              {/* Card 5: Senior & Family Care */}
+              {/* Card 5: Senior Citizen Care (110 Tests) */}
               <div 
                 className="desktop-lifestyle-card"
                 onClick={() => {
@@ -728,17 +824,113 @@ export default function Home({
                   alt="Protect Your Elders & Family" 
                   className="desktop-lifestyle-bg-img"
                 />
-                <div className="desktop-lifestyle-scrim" />
+                <div className="desktop-lifestyle-scrim scrim-senior" />
                 <div className="desktop-lifestyle-content">
-                  <div>
-                    <h3 className="desktop-lifestyle-headline" style={{ color: '#0F172A' }}>
-                      Protect your elders<br />& beloved family.
+                  <div className="desktop-lifestyle-header-zone">
+                    <h3 className="desktop-lifestyle-headline headline-senior">
+                      Protect your elders<br />with dedicated care.
                     </h3>
                   </div>
-                  <div className="desktop-lifestyle-bottom-pill" style={{ background: 'rgba(15, 23, 42, 0.85)', border: '1px solid rgba(255,255,255,0.22)' }}>
-                    <span className="pill-title">Geriatric Senior Citizen Care</span>
+                  <div className="desktop-lifestyle-bottom-pill bottom-pill-senior">
+                    <span className="pill-title">Senior Citizen Health (110 Tests)</span>
                     <div className="pill-price-btn">
-                      <span>Starts at ₹999</span>
+                      <span>Starts at ₹1,999</span>
+                      <ArrowRight size={13} />
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Card 6: Cardiac & Lipid Health */}
+              <div 
+                className="desktop-lifestyle-card"
+                onClick={() => {
+                  const el = document.querySelector('#checkups');
+                  if (el) el.scrollIntoView({ behavior: 'smooth' });
+                }}
+                role="button"
+                tabIndex={0}
+              >
+                <img 
+                  src="/images/slides/cardiac_hero.jpg" 
+                  alt="Cardiac & Cholesterol Health" 
+                  className="desktop-lifestyle-bg-img"
+                />
+                <div className="desktop-lifestyle-scrim scrim-cardiac" />
+                <div className="desktop-lifestyle-content">
+                  <div className="desktop-lifestyle-header-zone">
+                    <h3 className="desktop-lifestyle-headline headline-cardiac">
+                      Monitor cardiac safety<br />& vital cholesterol.
+                    </h3>
+                  </div>
+                  <div className="desktop-lifestyle-bottom-pill bottom-pill-cardiac">
+                    <span className="pill-title">Lipid Profile (14 Heart Tests)</span>
+                    <div className="pill-price-btn">
+                      <span>Starts at ₹450</span>
+                      <ArrowRight size={13} />
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Card 7: Active Fever & Infection Assessment */}
+              <div 
+                className="desktop-lifestyle-card"
+                onClick={() => {
+                  const el = document.querySelector('#checkups');
+                  if (el) el.scrollIntoView({ behavior: 'smooth' });
+                }}
+                role="button"
+                tabIndex={0}
+              >
+                <img 
+                  src="/images/banners/fever_season.jpg" 
+                  alt="Fever & Infection Screening" 
+                  className="desktop-lifestyle-bg-img"
+                />
+                <div className="desktop-lifestyle-scrim scrim-fever" />
+                <div className="desktop-lifestyle-content">
+                  <div className="desktop-lifestyle-header-zone">
+                    <h3 className="desktop-lifestyle-headline headline-fever">
+                      Active fever or<br />seasonal infection?
+                    </h3>
+                  </div>
+                  <div className="desktop-lifestyle-bottom-pill bottom-pill-fever">
+                    <span className="pill-title">Complete Blood Count (CBC 29 Tests)</span>
+                    <div className="pill-price-btn">
+                      <span>At ₹299</span>
+                      <ArrowRight size={13} />
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Card 8: Complete Family Care */}
+              <div 
+                className="desktop-lifestyle-card"
+                onClick={() => {
+                  const el = document.querySelector('#checkups');
+                  if (el) el.scrollIntoView({ behavior: 'smooth' });
+                }}
+                role="button"
+                tabIndex={0}
+              >
+                <img 
+                  src="/images/slides/fullbody_pair_hero.jpg" 
+                  alt="Complete Preventive Health" 
+                  className="desktop-lifestyle-bg-img"
+                />
+                <div className="desktop-lifestyle-scrim scrim-fullbody" />
+                <div className="desktop-lifestyle-content">
+                  <div className="desktop-lifestyle-header-zone">
+                    <h3 className="desktop-lifestyle-headline headline-fullbody">
+                      Full body shield for<br />couples & families.
+                    </h3>
+                  </div>
+                  <div className="desktop-lifestyle-bottom-pill bottom-pill-fullbody">
+                    <span className="pill-title">Chirayu Advanced Checkup (88 Tests)</span>
+                    <div className="pill-price-btn">
+                      <span>Starts at ₹1,366</span>
                       <ArrowRight size={13} />
                     </div>
                   </div>
@@ -750,7 +942,7 @@ export default function Home({
             {/* Right Nav Arrow Button */}
             <button 
               type="button" 
-              onClick={() => scrollCarousel(desktopSliderRef, 320)}
+              onClick={() => scrollCarousel(desktopSliderRef, 340)}
               className="desktop-lifestyle-nav-arrow nav-arrow-next"
               aria-label="Next checkup slide"
             >
