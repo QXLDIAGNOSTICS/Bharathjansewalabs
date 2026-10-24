@@ -424,10 +424,6 @@ export default function Home({
       <div className="mobile-top-experience">
         <div className="container">
           
-          {/* Discount Code Strip */}
-          <div className="mobile-promo-strip">
-            <span>Get <strong>10% OFF*</strong> | Use code: <strong style={{ color: '#EF4444' }}>BJSLHEALTH</strong></span>
-          </div>
 
           {/* 2 Primary Action Cards (Book Lab Tests / Book Checkups) */}
           <div className="mobile-action-cards-grid">

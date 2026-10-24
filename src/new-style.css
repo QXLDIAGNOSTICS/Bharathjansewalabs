@@ -3386,18 +3386,6 @@ img, svg {
     margin-bottom: 22px;
   }
 
-  .mobile-promo-strip {
-    text-align: center;
-    font-size: 12px;
-    font-weight: 700;
-    color: #475569;
-    padding: 7px 12px;
-    background: #FFF1F2;
-    border-radius: 9999px;
-    margin-bottom: 12px;
-    border: 1px dashed #FECDD3;
-  }
-
   /* 2 Primary Action Cards (Book Lab Tests / Book Checkups) */
   .mobile-action-cards-grid {
     display: grid !important;
