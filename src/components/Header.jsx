@@ -1,351 +1,533 @@
-import React, { useState } from 'react';
-import { Calendar, Menu, X, ChevronRight, Home as HomeIcon, Package, MapPin, Building2, User, Phone } from 'lucide-react';
+import React, { useState, useEffect } from 'react';
+import { Search, MapPin, ChevronDown, ShoppingCart, User, Zap, X, Building2, Check } from 'lucide-react';
+import { CENTRES } from '../data/mockData';
 
 export default function Header({ 
   currentTab, 
   setCurrentTab, 
-  cart, 
+  cart = [], 
   openBookingWizard, 
-  openSearchModal
+  openSearchModal,
+  openPortal
 }) {
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+  const [typewriterIndex, setTypewriterIndex] = useState(0);
+  const [isCityModalOpen, setIsCityModalOpen] = useState(false);
+  const [locationSearchQuery, setLocationSearchQuery] = useState('');
+  const [selectedCity, setSelectedCity] = useState(() => {
+    return localStorage.getItem('bjsl_user_location') || 'Bangalore (All Hubs)';
+  });
+  const [loggedInUser, setLoggedInUser] = useState(() => {
+    try {
+      const s = localStorage.getItem('bjsl_patient_session');
+      return s ? JSON.parse(s) : null;
+    } catch (e) {
+      return null;
+    }
+  });
 
-  const handleNavClick = (tab) => {
-    setCurrentTab(tab);
-    setIsMobileMenuOpen(false);
-    window.scrollTo(0, 0);
+  const getHeaderInitials = (name) => {
+    if (!name) return 'PT';
+    const clean = name.replace(/^(Dr\.|Mr\.|Mrs\.|Ms\.)\s+/i, '').trim();
+    const parts = clean.split(/\s+/).filter(Boolean);
+    if (parts.length === 0) return 'PT';
+    if (parts.length === 1) return parts[0].slice(0, 2).toUpperCase();
+    return (parts[0][0] + parts[parts.length - 1][0]).toUpperCase();
   };
 
+  const typewriterWords = ['tests', 'checkups', 'cbc', 'hba1c', 'thyroid', 'chirayu prime'];
+
+  useEffect(() => {
+    const checkAuth = () => {
+      try {
+        const s = localStorage.getItem('bjsl_patient_session');
+        setLoggedInUser(s ? JSON.parse(s) : null);
+      } catch (e) {
+        setLoggedInUser(null);
+      }
+    };
+    window.addEventListener('bjsl_auth_change', checkAuth);
+    window.addEventListener('storage', checkAuth);
+    return () => {
+      window.removeEventListener('bjsl_auth_change', checkAuth);
+      window.removeEventListener('storage', checkAuth);
+    };
+  }, []);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 130) {
+        setIsScrolled(true);
+      } else {
+        setIsScrolled(false);
+      }
+    };
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setTypewriterIndex((prev) => (prev + 1) % typewriterWords.length);
+    }, 2400);
+    return () => clearInterval(interval);
+  }, [typewriterWords.length]);
+
+  const handleNav = (tab, hash) => {
+    setCurrentTab(tab);
+    if (hash) {
+      setTimeout(() => {
+        const el = document.querySelector(hash);
+        if (el) el.scrollIntoView({ behavior: 'smooth' });
+      }, 80);
+    } else {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  };
+
+  const allOperationalLocations = [
+    {
+      id: 'blr-all',
+      name: 'Bengaluru (All Areas)',
+      area: 'Entire Bengaluru Urban',
+      pincode: 'All Pincodes',
+      address: 'Citywide 60-Minute Doorstep Blood & Urine Sample Collection Dispatch',
+      coverage: 'Hebbal, Whitefield, Indiranagar, Jayanagar, Koramangala, Yelahanka, Electronic City & all Bengaluru zones',
+      tag: '⚡ 60-min Live',
+      displayName: 'Bangalore (All Hubs)'
+    },
+    ...CENTRES.map((c) => ({
+      id: c.id,
+      name: c.name.replace('BJSL Centre – ', ''),
+      area: c.area,
+      pincode: c.pincode,
+      address: c.address,
+      coverage: c.homeCollectionCoverage ? c.homeCollectionCoverage.join(', ') : '',
+      tag: '⚡ 60-min Live Hub',
+      displayName: `${c.area}, Bangalore`
+    }))
+  ];
+
+  const filteredLocations = allOperationalLocations.filter((loc) => {
+    if (!locationSearchQuery.trim()) return true;
+    const q = locationSearchQuery.toLowerCase();
+    return (
+      loc.name.toLowerCase().includes(q) ||
+      loc.area.toLowerCase().includes(q) ||
+      loc.pincode.toLowerCase().includes(q) ||
+      loc.address.toLowerCase().includes(q) ||
+      (loc.coverage && loc.coverage.toLowerCase().includes(q))
+    );
+  });
+
   return (
-    <header style={{ position: 'sticky', top: 0, zIndex: 100, background: '#FFFFFF' }}>
-      
-      {/* Navigation Header Bar */}
-      <div style={{
-        padding: '0.75rem 1.25rem',
-        background: '#FFFFFF',
-        borderBottom: '1px solid #E2E8F0',
-        boxShadow: '0 2px 10px rgba(0, 0, 0, 0.03)'
-      }}>
-        <div className="container" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: '0.75rem' }}>
-          
-          {/* Logo */}
-          <a href="#" onClick={(e) => { e.preventDefault(); handleNavClick('home'); }} style={{ display: 'flex', alignItems: 'center', marginLeft: '-4px' }}>
-            <img src="/logo.webp" alt="Bharath Jan Sewa Labs" className="header-logo-img" style={{ height: '52px', objectFit: 'contain' }} />
-          </a>
-
-          {/* Desktop Navigation Links */}
-          <nav className="desktop-nav" style={{ alignItems: 'center', gap: '6px' }}>
-            <button 
-              onClick={() => handleNavClick('home')}
-              style={{
-                fontSize: '0.875rem',
-                fontWeight: 800,
-                color: currentTab === 'home' ? '#EF4444' : '#0F172A',
-                background: currentTab === 'home' ? '#FFF1F2' : 'transparent',
-                border: 'none',
-                padding: '6px 16px',
-                borderRadius: '99px',
-                cursor: 'pointer'
-              }}
-            >
-              Home
-            </button>
-
-            <button 
-              onClick={() => handleNavClick('about')}
-              style={{
-                fontSize: '0.875rem',
-                fontWeight: 800,
-                color: currentTab === 'about' ? '#EF4444' : '#0F172A',
-                background: currentTab === 'about' ? '#FFF1F2' : 'transparent',
-                border: 'none',
-                padding: '6px 16px',
-                borderRadius: '99px',
-                cursor: 'pointer'
-              }}
-            >
-              About Us
-            </button>
-
-            <button 
-              onClick={() => handleNavClick('packages')}
-              style={{
-                fontSize: '0.875rem',
-                fontWeight: 800,
-                color: currentTab === 'packages' ? '#EF4444' : '#0F172A',
-                background: currentTab === 'packages' ? '#FFF1F2' : 'transparent',
-                border: 'none',
-                padding: '6px 16px',
-                borderRadius: '99px',
-                cursor: 'pointer'
-              }}
-            >
-              Health Checkup
-            </button>
-
-            <button 
-              onClick={() => handleNavClick('franchise')}
-              style={{
-                fontSize: '0.875rem',
-                fontWeight: 800,
-                color: currentTab === 'franchise' ? '#EF4444' : '#0F172A',
-                background: currentTab === 'franchise' ? '#FFF1F2' : 'transparent',
-                border: 'none',
-                padding: '6px 16px',
-                borderRadius: '99px',
-                cursor: 'pointer'
-              }}
-            >
-              Why Franchise
-            </button>
-
-            <button 
-              onClick={() => handleNavClick('centres')}
-              style={{
-                fontSize: '0.875rem',
-                fontWeight: 800,
-                color: currentTab === 'centres' ? '#EF4444' : '#0F172A',
-                background: currentTab === 'centres' ? '#FFF1F2' : 'transparent',
-                border: 'none',
-                padding: '6px 16px',
-                borderRadius: '99px',
-                cursor: 'pointer'
-              }}
-            >
-              Our Centres
-            </button>
-
-            {/* Desktop Animated Call Number Button (After Our Centres) */}
+    <>
+      {/* Sticky Header on Scroll (Screenshot 2) */}
+      <header className={`site-header-sticky ${isScrolled ? 'is-visible' : ''}`} role="banner">
+        <div className="container sticky-header-wrapper">
+          <div className="sticky-left">
             <a 
-              href="tel:+919805543143" 
-              className="desktop-call-btn"
-              title="Call BJSL: +91 98055 43143"
+              href="#" 
+              onClick={(e) => { e.preventDefault(); handleNav('home'); }} 
+              className="sticky-logo-circle"
+              title="Bharath Jan Sewa Labs"
+              style={{ display: 'flex', alignItems: 'center' }}
             >
-              <Phone size={15} color="white" />
-              <span>+91 98055 43143</span>
-            </a>
-          </nav>
-
-          {/* Right Action Tools */}
-          <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-            
-            {/* Phone Call Quick Button (Mobile Only) */}
-            <a 
-              href="tel:+919805543143"
-              className="mobile-only-header-icon"
-              style={{
-                width: '36px',
-                height: '36px',
-                borderRadius: '50%',
-                background: '#FFF1F2',
-                border: '1.5px solid #FECDD3',
-                color: '#EF4444',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                boxShadow: '0 2px 8px rgba(239, 68, 68, 0.15)',
-                textDecoration: 'none',
-                flexShrink: 0
-              }}
-              title="Call BJSL: +91 98055 43143"
-            >
-              <Phone size={18} color="#EF4444" />
+              <img 
+                src="/logo.webp" 
+                alt="Bharath Jan Sewa Labs" 
+                style={{ height: '42px', width: 'auto', objectFit: 'contain' }}
+              />
             </a>
 
-            {/* WhatsApp Quick Button (Mobile Only) */}
-            <a 
-              href="https://wa.me/919805543143?text=Hi%20BJSL,%20I%20want%20to%20book%20a%20health%20test"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="mobile-only-header-icon"
-              style={{
-                width: '36px',
-                height: '36px',
-                borderRadius: '50%',
-                background: '#DCFCE7',
-                border: '1.5px solid #BBF7D0',
-                color: '#16A34A',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                boxShadow: '0 2px 8px rgba(22, 163, 74, 0.15)',
-                textDecoration: 'none',
-                flexShrink: 0
-              }}
-              title="WhatsApp Chat with BJSL"
-            >
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="#16A34A">
-                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414-.074-.124-.272-.198-.57-.347m-5.421 7.461c-1.926 0-3.715-.514-5.267-1.408l-.377-.217-3.916 1.027 1.045-3.817-.247-.393c-1.002-1.59-1.532-3.433-1.531-5.32 0-5.419 4.408-9.827 9.829-9.827 2.624 0 5.091 1.023 6.947 2.88 1.857 1.858 2.879 4.325 2.878 6.95 0 5.421-4.409 9.827-9.828 9.827m0-21.848C5.463 0 0 5.463 0 12c0 2.094.545 4.137 1.58 5.938L0 24l6.236-1.635C8.003 23.364 10.024 24 12.051 24c6.537 0 11.949-5.412 11.949-11.95 0-3.193-1.243-6.195-3.501-8.453C18.241 1.339 15.24 0 12.051 0z"/>
-              </svg>
-            </a>
-
-            {/* Black Pill "Book a Test" Button (Desktop/Mobile) */}
             <button 
-              className="desktop-book-btn"
-              onClick={openBookingWizard}
-              style={{
-                background: '#0F172A',
-                color: 'white',
-                padding: '8px 18px',
-                borderRadius: '99px',
-                fontSize: '0.85rem',
-                fontWeight: 700,
-                display: 'flex',
-                alignItems: 'center',
-                gap: '8px',
-                border: 'none',
-                cursor: 'pointer',
-                boxShadow: '0 4px 14px rgba(15, 23, 42, 0.25)'
-              }}
+              type="button" 
+              onClick={() => setIsCityModalOpen(true)}
+              className="location-pill-btn"
             >
-              <Calendar size={16} color="white" />
-              <span>Book a Test</span>
+              <span className="location-lightning-icon">
+                <Zap size={18} fill="#0284C7" stroke="#0284C7" />
+              </span>
+              <div className="location-pill-text">
+                <span className="location-pill-city">{selectedCity}</span>
+                <span className="location-pill-change">
+                  Change location <ChevronDown size={12} />
+                </span>
+              </div>
             </button>
-
-            {/* Red 3-Line Hamburger Icon Button */}
-            <button
-              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              style={{
-                background: 'transparent',
-                border: 'none',
-                padding: '6px',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                cursor: 'pointer'
-              }}
-              aria-label="Toggle Menu"
-            >
-              {isMobileMenuOpen ? (
-                <X size={26} color="#EF4444" />
-              ) : (
-                <div style={{ display: 'flex', flexDirection: 'column', gap: '5px', width: '22px' }}>
-                  <div style={{ height: '2.5px', background: '#EF4444', borderRadius: '4px', width: '100%' }} />
-                  <div style={{ height: '2.5px', background: '#EF4444', borderRadius: '4px', width: '100%' }} />
-                  <div style={{ height: '2.5px', background: '#EF4444', borderRadius: '4px', width: '100%' }} />
-                </div>
-              )}
-            </button>
-
           </div>
 
+          <div 
+            className="sticky-search-bar" 
+            onClick={openSearchModal}
+            role="button"
+            tabIndex={0}
+          >
+            <span style={{ fontSize: '14px', color: 'var(--ink-500)', display: 'flex', alignItems: 'center', gap: '4px' }}>
+              Search for <span style={{ color: 'var(--brand-500)', fontWeight: 700 }}>{typewriterWords[typewriterIndex]}</span>
+            </span>
+            <Search size={18} style={{ color: 'var(--ink-800)' }} />
+          </div>
+
+          <nav className="sticky-nav-links">
+            <button 
+              type="button"
+              onClick={() => handleNav('home', '#popular-tests')} 
+              className="sticky-nav-link"
+              style={{ background: 'none', border: 'none', cursor: 'pointer' }}
+            >
+              Tests
+            </button>
+            <button 
+              type="button"
+              onClick={() => handleNav('home', '#checkups')} 
+              className="sticky-nav-link"
+              style={{ background: 'none', border: 'none', cursor: 'pointer' }}
+            >
+              Checkups
+            </button>
+            <button 
+              type="button"
+              onClick={() => handleNav('home', '#centres')} 
+              className="sticky-nav-link"
+              style={{ background: 'none', border: 'none', cursor: 'pointer' }}
+            >
+              Centres
+            </button>
+            <button 
+              type="button"
+              onClick={() => handleNav('franchise')} 
+              className="sticky-nav-link"
+              style={{ background: 'none', border: 'none', cursor: 'pointer' }}
+            >
+              Franchise
+            </button>
+          </nav>
+
+          <div className="header-right-group">
+            <button 
+              type="button" 
+              onClick={openBookingWizard}
+              className="circle-icon-btn btn-open-cart" 
+              aria-label="View Shopping Cart"
+            >
+              <ShoppingCart size={20} />
+              {cart.length > 0 && (
+                <span className="cart-counter-badge">{cart.length}</span>
+              )}
+            </button>
+            <button 
+              type="button" 
+              onClick={openPortal}
+              className="circle-icon-btn btn-open-profile" 
+              aria-label={loggedInUser ? `Patient Account: ${loggedInUser.name}` : "Patient Sign In"}
+              title={loggedInUser ? `Logged in: ${loggedInUser.name} (${loggedInUser.phone})` : "Patient Sign In / Lab Portal"}
+              style={loggedInUser ? { background: '#E0F2FE', borderColor: '#38BDF8', color: '#0284C7', fontWeight: 900 } : {}}
+            >
+              {loggedInUser ? (
+                <span style={{ fontSize: '0.8rem', fontWeight: 900, letterSpacing: '0.02em' }}>
+                  {getHeaderInitials(loggedInUser.name)}
+                </span>
+              ) : (
+                <User size={20} />
+              )}
+            </button>
+          </div>
         </div>
-      </div>
+      </header>
 
-      {/* Mobile Menu Drawer Overlay */}
-      {isMobileMenuOpen && (
-        <div style={{
-          background: 'rgba(255, 255, 255, 0.98)',
-          backdropFilter: 'blur(20px)',
-          WebkitBackdropFilter: 'blur(20px)',
-          borderBottom: '2px solid #E2E8F0',
-          padding: '1.25rem',
-          boxShadow: '0 20px 40px rgba(15, 23, 42, 0.15)',
-          animation: 'mobileSlideDown 0.3s cubic-bezier(0.16, 1, 0.3, 1)'
-        }}>
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
-            <button 
-              onClick={() => handleNavClick('home')}
-              style={{
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'space-between',
-                padding: '12px 16px',
-                borderRadius: '12px',
-                background: currentTab === 'home' ? '#FFF1F2' : '#F8FAFC',
-                color: currentTab === 'home' ? '#EF4444' : '#0F172A',
-                fontWeight: 800,
-                fontSize: '0.95rem'
-              }}
+      {/* Unpinned Top Header (Screenshot 1) */}
+      <header className="site-header-unpinned">
+        <div className="container">
+          <div className="header-top-row">
+            
+            {/* Brand Logo & Location Pill */}
+            <div className="header-left-group">
+              <a 
+                href="#" 
+                onClick={(e) => { e.preventDefault(); handleNav('home'); }} 
+                className="logo-link" 
+                aria-label="Bharath Jan Sewa Labs"
+                style={{ display: 'flex', alignItems: 'center', gap: '10px' }}
+              >
+                <img 
+                  src="/logo.webp" 
+                  alt="Bharath Jan Sewa Labs" 
+                  style={{ height: '58px', width: 'auto', objectFit: 'contain' }}
+                  onError={(e) => {
+                    // Fallback to stylized text badge if image fails
+                    e.currentTarget.style.display = 'none';
+                    if (e.currentTarget.nextElementSibling) {
+                      e.currentTarget.nextElementSibling.style.display = 'flex';
+                    }
+                  }}
+                />
+                <div style={{ display: 'none', alignItems: 'center', gap: '10px' }}>
+                  <div style={{
+                    width: '42px',
+                    height: '42px',
+                    borderRadius: '50%',
+                    background: '#E11D48',
+                    color: '#fff',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    fontWeight: 900,
+                    fontSize: '18px'
+                  }}>
+                    BJ
+                  </div>
+                  <span style={{ fontFamily: 'var(--font-display)', fontSize: '26px', fontWeight: 800, color: 'var(--ink-950)' }}>
+                    Bharath<span style={{ color: 'var(--brand-500)' }}>JanSewa</span><span style={{ color: 'var(--green-500)' }}>Labs</span>
+                  </span>
+                </div>
+              </a>
+
+              <button 
+                type="button" 
+                onClick={() => setIsCityModalOpen(true)}
+                className="location-pill-btn"
+                id="header-location-btn"
+              >
+                <span className="location-lightning-icon">
+                  <Zap size={20} fill="#0284C7" stroke="#0284C7" />
+                </span>
+                <div className="location-pill-text">
+                  <span className="location-pill-city">{selectedCity}</span>
+                  <span className="location-pill-change">
+                    Change location <ChevronDown size={12} />
+                  </span>
+                </div>
+              </button>
+            </div>
+
+            {/* Right Side Cart & Profile */}
+            <div className="header-right-group">
+              <button 
+                type="button" 
+                onClick={openBookingWizard}
+                className="circle-icon-btn btn-open-cart" 
+                aria-label="View Shopping Cart"
+              >
+                <ShoppingCart size={20} />
+                {cart.length > 0 && (
+                  <span className="cart-counter-badge">{cart.length}</span>
+                )}
+              </button>
+              <button 
+                type="button" 
+                onClick={openPortal}
+                className="circle-icon-btn btn-open-profile" 
+                aria-label={loggedInUser ? `Patient Account: ${loggedInUser.name}` : "Patient Sign In"}
+                title={loggedInUser ? `Logged in: ${loggedInUser.name} (${loggedInUser.phone})` : "Patient Sign In / Lab Portal"}
+                style={loggedInUser ? { background: '#E0F2FE', borderColor: '#38BDF8', color: '#0284C7', fontWeight: 900 } : {}}
+              >
+                {loggedInUser ? (
+                  <span style={{ fontSize: '0.8rem', fontWeight: 900, letterSpacing: '0.02em' }}>
+                    {getHeaderInitials(loggedInUser.name)}
+                  </span>
+                ) : (
+                  <User size={20} />
+                )}
+              </button>
+            </div>
+          </div>
+
+          {/* Floating Rounded Search Capsule Shelf (Screenshot 1) */}
+          <div className="search-capsule-shelf" role="search">
+            
+            {/* Search Input Pill with Typewriter */}
+            <div 
+              className="search-input-pill" 
+              onClick={openSearchModal}
+              role="button"
+              tabIndex={0}
             >
-              <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-                <HomeIcon size={18} color="#EF4444" /> Home
+              <div className="search-typewriter-box">
+                <span>Search for</span>
+                <span className="typewriter-word">{typewriterWords[typewriterIndex]}</span>
               </div>
-              <ChevronRight size={16} color="#94A3B8" />
+              <span className="search-pill-icon">
+                <Search size={18} />
+              </span>
+            </div>
+
+            {/* Quick Pill: Tests */}
+            <button 
+              type="button" 
+              onClick={() => handleNav('home', '#popular-tests')}
+              className="quick-shelf-pill pill-tests"
+            >
+              <span className="pill-3d-icon">🔬</span>
+              <span>Tests</span>
             </button>
 
+            {/* Quick Pill: Checkups */}
             <button 
-              onClick={() => handleNavClick('packages')}
-              style={{
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'space-between',
-                padding: '12px 16px',
-                borderRadius: '12px',
-                background: currentTab === 'packages' ? '#FFF1F2' : '#F8FAFC',
-                color: currentTab === 'packages' ? '#EF4444' : '#0F172A',
-                fontWeight: 800,
-                fontSize: '0.95rem'
-              }}
+              type="button" 
+              onClick={() => handleNav('home', '#checkups')}
+              className="quick-shelf-pill pill-checkups"
             >
-              <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-                <Package size={18} color="#0284C7" /> Health Checkup Packages
-              </div>
-              <ChevronRight size={16} color="#94A3B8" />
+              <span className="pill-3d-icon">🧰</span>
+              <span>Checkups</span>
             </button>
+          </div>
+        </div>
+      </header>
 
-            <button 
-              onClick={() => handleNavClick('centres')}
-              style={{
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'space-between',
-                padding: '12px 16px',
-                borderRadius: '12px',
-                background: currentTab === 'centres' ? '#FFF1F2' : '#F8FAFC',
-                color: currentTab === 'centres' ? '#EF4444' : '#0F172A',
-                fontWeight: 800,
-                fontSize: '0.95rem'
-              }}
-            >
+      {/* Real Location & Centre Selector Modal */}
+      {isCityModalOpen && (
+        <div className="modal-backdrop" onClick={() => setIsCityModalOpen(false)}>
+          <div className="modal-dialog" style={{ maxWidth: '680px', width: '92%' }} onClick={(e) => e.stopPropagation()}>
+            <div className="modal-header" style={{ padding: '1.25rem 1.5rem', borderBottom: '1px solid #E2E8F0', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
               <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-                <MapPin size={18} color="#059669" /> Our Diagnostic Centres (10)
+                <div style={{
+                  width: '38px',
+                  height: '38px',
+                  borderRadius: '10px',
+                  background: '#E0F2FE',
+                  color: '#0284C7',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  flexShrink: 0
+                }}>
+                  <MapPin size={22} />
+                </div>
+                <div>
+                  <h3 className="modal-title" style={{ fontSize: '1.2rem', fontWeight: 800, color: '#071E33', margin: 0 }}>
+                    Select Operational Location & Lab Hub
+                  </h3>
+                  <div style={{ fontSize: '0.8rem', color: '#64748B', marginTop: '2px' }}>
+                    10 Certified Diagnostic Centres & 60-min Doorstep Collection across Bengaluru
+                  </div>
+                </div>
               </div>
-              <ChevronRight size={16} color="#94A3B8" />
-            </button>
+              <button 
+                type="button" 
+                onClick={() => setIsCityModalOpen(false)}
+                className="circle-icon-btn"
+                style={{ width: '32px', height: '32px' }}
+                aria-label="Close"
+              >
+                <X size={16} />
+              </button>
+            </div>
 
-            <button 
-              onClick={() => handleNavClick('franchise')}
-              style={{
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'space-between',
-                padding: '12px 16px',
-                borderRadius: '12px',
-                background: currentTab === 'franchise' ? '#FFF1F2' : '#F8FAFC',
-                color: currentTab === 'franchise' ? '#EF4444' : '#0F172A',
-                fontWeight: 800,
-                fontSize: '0.95rem'
-              }}
-            >
-              <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-                <Building2 size={18} color="#EF4444" /> Why Franchise with BJSL
+            <div className="modal-body" style={{ padding: '1.25rem 1.5rem', maxHeight: '72vh', overflowY: 'auto' }}>
+              
+              {/* Search input for area or pincode */}
+              <div style={{ position: 'relative', marginBottom: '1.25rem' }}>
+                <Search size={18} style={{ position: 'absolute', left: '14px', top: '50%', transform: 'translateY(-50%)', color: '#94A3B8' }} />
+                <input 
+                  type="text" 
+                  placeholder="Search by area or pincode (e.g. Sanjaynagar, Kengeri, Peenya, 560094...)"
+                  value={locationSearchQuery}
+                  onChange={(e) => setLocationSearchQuery(e.target.value)}
+                  style={{
+                    width: '100%',
+                    padding: '0.8rem 1rem 0.8rem 2.5rem',
+                    borderRadius: '12px',
+                    border: '1.5px solid #CBD5E1',
+                    fontSize: '0.9rem',
+                    color: '#0F172A',
+                    outline: 'none',
+                    background: '#F8FAFC'
+                  }}
+                  onFocus={(e) => e.target.style.borderColor = '#0284C7'}
+                  onBlur={(e) => e.target.style.borderColor = '#CBD5E1'}
+                />
               </div>
-              <ChevronRight size={16} color="#94A3B8" />
-            </button>
 
-            <button 
-              onClick={() => handleNavClick('about')}
-              style={{
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'space-between',
-                padding: '12px 16px',
-                borderRadius: '12px',
-                background: currentTab === 'about' ? '#FFF1F2' : '#F8FAFC',
-                color: currentTab === 'about' ? '#EF4444' : '#0F172A',
-                fontWeight: 800,
-                fontSize: '0.95rem'
-              }}
-            >
-              <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-                <User size={18} color="#6366F1" /> About Us & Mission
+              {/* Grid of Real Locations */}
+              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '12px' }}>
+                {filteredLocations.map((loc) => {
+                  const isSelected = selectedCity === loc.displayName;
+                  return (
+                    <div 
+                      key={loc.id} 
+                      onClick={() => {
+                        setSelectedCity(loc.displayName);
+                        localStorage.setItem('bjsl_user_location', loc.displayName);
+                        setIsCityModalOpen(false);
+                      }}
+                      style={{
+                        padding: '14px 16px',
+                        borderRadius: '14px',
+                        border: isSelected ? '2px solid #0284C7' : '1.5px solid #E2E8F0',
+                        background: isSelected ? '#F0F9FF' : '#FFFFFF',
+                        cursor: 'pointer',
+                        transition: 'all 0.15s ease',
+                        boxShadow: isSelected ? '0 4px 12px rgba(2, 132, 199, 0.12)' : '0 1px 3px rgba(0,0,0,0.02)',
+                        display: 'flex',
+                        flexDirection: 'column',
+                        justifyContent: 'space-between'
+                      }}
+                    >
+                      <div>
+                        <div style={{ display: 'flex', alignItems: 'flex-start', justifyContent: 'space-between', gap: '8px', marginBottom: '6px' }}>
+                          <div style={{ fontWeight: 800, fontSize: '0.98rem', color: isSelected ? '#0284C7' : '#0F172A' }}>
+                            {loc.name}
+                          </div>
+                          <span style={{
+                            fontSize: '11px',
+                            fontWeight: 800,
+                            color: '#059669',
+                            background: '#D1FAE5',
+                            padding: '2px 8px',
+                            borderRadius: '99px',
+                            whiteSpace: 'nowrap'
+                          }}>
+                            {loc.tag}
+                          </span>
+                        </div>
+
+                        <div style={{ fontSize: '0.8rem', color: '#64748B', lineHeight: 1.45, marginBottom: '6px' }}>
+                          {loc.address}
+                        </div>
+
+                        {loc.coverage && (
+                          <div style={{ fontSize: '0.75rem', color: '#0369A1', fontWeight: 600, background: '#E0F2FE', padding: '3px 8px', borderRadius: '6px', display: 'inline-block' }}>
+                            📍 Serves: {loc.coverage}
+                          </div>
+                        )}
+                      </div>
+
+                      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginTop: '10px', paddingTop: '8px', borderTop: '1px solid #F1F5F9', fontSize: '0.75rem', color: '#94A3B8' }}>
+                        <span>Pincode: <strong style={{ color: '#475569' }}>{loc.pincode}</strong></span>
+                        {isSelected && (
+                          <span style={{ color: '#0284C7', fontWeight: 800, display: 'flex', alignItems: 'center', gap: '4px' }}>
+                            <Check size={14} /> Selected Location
+                          </span>
+                        )}
+                      </div>
+                    </div>
+                  );
+                })}
               </div>
-              <ChevronRight size={16} color="#94A3B8" />
-            </button>
+
+              {filteredLocations.length === 0 && (
+                <div style={{ textAlign: 'center', padding: '2.5rem 1rem', color: '#64748B' }}>
+                  <p style={{ fontWeight: 700, color: '#0F172A', marginBottom: '4px', fontSize: '1rem' }}>No exact match found for "{locationSearchQuery}"</p>
+                  <p style={{ fontSize: '0.875rem' }}>Our 60-min doorstep sample collection covers all Bengaluru pincodes.</p>
+                  <button 
+                    onClick={() => {
+                      setSelectedCity('Bangalore (All Hubs)');
+                      localStorage.setItem('bjsl_user_location', 'Bangalore (All Hubs)');
+                      setIsCityModalOpen(false);
+                    }}
+                    className="btn-primary" 
+                    style={{ marginTop: '14px', padding: '8px 16px', fontSize: '0.85rem' }}
+                  >
+                    Select Bangalore (All Localities)
+                  </button>
+                </div>
+              )}
+
+            </div>
           </div>
         </div>
       )}
-    </header>
+    </>
   );
 }

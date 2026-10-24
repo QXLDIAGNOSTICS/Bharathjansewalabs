@@ -687,36 +687,64 @@ export const GOOGLE_REVIEWS = [
 
 export const FAQS = [
   {
+    question: 'What are the service hours for at-home collection?',
+    q: 'What are the service hours for at-home collection?',
+    answer: 'Our certified phlebotomists are available 7 days a week, from 6:00 AM to 8:00 PM. You can choose a 30-minute arrival slot convenient to your schedule, including early morning fasting appointments across Bangalore.',
+    a: 'Our certified phlebotomists are available 7 days a week, from 6:00 AM to 8:00 PM. You can choose a 30-minute arrival slot convenient to your schedule, including early morning fasting appointments across Bangalore.'
+  },
+  {
+    question: 'Can I cancel or reschedule a booking?',
+    q: 'Can I cancel or reschedule a booking?',
+    answer: 'Yes, you can easily reschedule or cancel your test booking at zero fee anytime up to 1 hour prior to your scheduled slot directly from your account or by WhatsApp / calling our Bangalore care desk.',
+    a: 'Yes, you can easily reschedule or cancel your test booking at zero fee anytime up to 1 hour prior to your scheduled slot directly from your account or by WhatsApp / calling our Bangalore care desk.'
+  },
+  {
     question: 'How does Bharath Jan Sewa Labs provide tests at 50–70% lower prices?',
-    answer: 'BJSL operates on a lean, high-volume centralized laboratory model. By eliminating marketing overheads and passing operational scale directly to patients, we deliver high-grade diagnostic testing at transparent, affordable prices.'
+    q: 'How does Bharath Jan Sewa Labs provide tests at 50–70% lower prices?',
+    answer: 'BJSL operates on a lean, high-volume centralized laboratory model. By eliminating marketing overheads and passing operational scale directly to patients, we deliver high-grade diagnostic testing at transparent, affordable prices.',
+    a: 'BJSL operates on a lean, high-volume centralized laboratory model. By eliminating marketing overheads and passing operational scale directly to patients, we deliver high-grade diagnostic testing at transparent, affordable prices.'
   },
   {
     question: 'Where are blood samples processed and tested?',
-    answer: 'Samples collected through BJSL collection centres and home visits across Bangalore are safely transported under temperature-controlled cold chains to associated, fully NABL-accredited reference laboratory facilities with automated robotics.'
+    q: 'Where are blood samples processed and tested?',
+    answer: 'Samples collected through BJSL collection centres and home visits across Bangalore are safely transported under temperature-controlled cold chains to associated, fully NABL-accredited reference laboratory facilities with automated robotics.',
+    a: 'Samples collected through BJSL collection centres and home visits across Bangalore are safely transported under temperature-controlled cold chains to associated, fully NABL-accredited reference laboratory facilities with automated robotics.'
   },
   {
     question: 'Is doorstep home sample collection really free?',
-    answer: 'Yes! Home sample collection is completely FREE for test bookings of ₹499 or above across all covered Bangalore localities including Sanjaynagar, Peenya, Kengeri, Banashankari, Hebbal, and Subramanyapura.'
+    q: 'Is doorstep home sample collection really free?',
+    answer: 'Yes! Home sample collection is completely FREE for test bookings of ₹499 or above across all covered Bangalore localities including Sanjaynagar, Peenya, Kengeri, Banashankari, Hebbal, and Subramanyapura.',
+    a: 'Yes! Home sample collection is completely FREE for test bookings of ₹499 or above across all covered Bangalore localities including Sanjaynagar, Peenya, Kengeri, Banashankari, Hebbal, and Subramanyapura.'
   },
   {
     question: 'How fast will I receive my test reports?',
-    answer: 'Routine blood tests and health checkup packages are delivered on the SAME DAY within 4 to 8 hours of sample collection directly to your registered WhatsApp number, Email ID, and patient portal.'
+    q: 'How fast will I receive my test reports?',
+    answer: 'Routine blood tests and health checkup packages are delivered on the SAME DAY within 4 to 8 hours of sample collection directly to your registered WhatsApp number, Email ID, and patient portal.',
+    a: 'Routine blood tests and health checkup packages are delivered on the SAME DAY within 4 to 8 hours of sample collection directly to your registered WhatsApp number, Email ID, and patient portal.'
   },
   {
     question: 'Do I need to fast before taking a health checkup?',
-    answer: 'For Diabetic profiles (Fasting Blood Sugar, HbA1c) and Lipid Profiles, 10 to 12 hours of overnight fasting is mandatory (water is allowed). Routine CBC, Vitamin D, and Thyroid tests do not require fasting.'
+    q: 'Do I need to fast before taking a health checkup?',
+    answer: 'For Diabetic profiles (Fasting Blood Sugar, HbA1c) and Lipid Profiles, 10 to 12 hours of overnight fasting is mandatory (water is allowed). Routine CBC, Vitamin D, and Thyroid tests do not require fasting.',
+    a: 'For Diabetic profiles (Fasting Blood Sugar, HbA1c) and Lipid Profiles, 10 to 12 hours of overnight fasting is mandatory (water is allowed). Routine CBC, Vitamin D, and Thyroid tests do not require fasting.'
   },
   {
     question: 'Are sample collection phlebotomists trained and safe?',
-    answer: 'All BJSL phlebotomists are DMLT-certified medical professionals equipped with sterile single-use disposable vacuum tubes (Vacutainers), ice-pack cold-chain carrier boxes, and strict infection control protocols.'
+    q: 'Are sample collection phlebotomists trained and safe?',
+    answer: 'All BJSL phlebotomists are DMLT-certified medical professionals equipped with sterile single-use disposable vacuum tubes (Vacutainers), ice-pack cold-chain carrier boxes, and strict infection control protocols.',
+    a: 'All BJSL phlebotomists are DMLT-certified medical professionals equipped with sterile single-use disposable vacuum tubes (Vacutainers), ice-pack cold-chain carrier boxes, and strict infection control protocols.'
   },
   {
     question: 'Which areas in Bangalore are covered for home collection?',
-    answer: 'We provide free doorstep collection across Sanjaynagar, Peenya 2nd Stage, Kengeri BDA Town, Banashankari, Ittamadu, Jaraganahalli, Hebbal, RMV 2nd Stage, Malleshwaram, Rajajinagar, and surrounding PIN codes.'
+    q: 'Which areas in Bangalore are covered for home collection?',
+    answer: 'We provide free doorstep collection across Sanjaynagar, Peenya 2nd Stage, Kengeri BDA Town, Banashankari, Ittamadu, Jaraganahalli, Hebbal, RMV 2nd Stage, Malleshwaram, Rajajinagar, and surrounding PIN codes.',
+    a: 'We provide free doorstep collection across Sanjaynagar, Peenya 2nd Stage, Kengeri BDA Town, Banashankari, Ittamadu, Jaraganahalli, Hebbal, RMV 2nd Stage, Malleshwaram, Rajajinagar, and surrounding PIN codes.'
   },
   {
     question: 'What payment options are available for test bookings?',
-    answer: 'You can pay conveniently via UPI (Google Pay, PhonePe, Paytm), Credit/Debit Cards, Net Banking online, or Cash to the phlebotomist at the time of sample collection.'
+    q: 'What payment options are available for test bookings?',
+    answer: 'You can pay conveniently via UPI (Google Pay, PhonePe, Paytm), Credit/Debit Cards, Net Banking online, or Cash to the phlebotomist at the time of sample collection.',
+    a: 'You can pay conveniently via UPI (Google Pay, PhonePe, Paytm), Credit/Debit Cards, Net Banking online, or Cash to the phlebotomist at the time of sample collection.'
   }
 ];
 
@@ -941,7 +969,7 @@ export const MOCK_USER_REPORTS = [
     id: 'BJSL-REP-88210',
     date: '24 Sep 2026',
     testName: 'Chirayu Full Body Check MASTER (109 Parameters)',
-    patientName: 'Afi Kumar',
+    patientName: 'Patient Record',
     age: 34,
     gender: 'Male',
     status: 'Report Ready (NABL Verified)',
@@ -961,7 +989,7 @@ export const MOCK_USER_REPORTS = [
     id: 'BJSL-REP-77492',
     date: '12 Aug 2026',
     testName: 'Complete Blood Count (CBC) + Vitamin D Panel',
-    patientName: 'Afi Kumar',
+    patientName: 'Patient Record',
     age: 34,
     gender: 'Male',
     status: 'Report Ready (NABL Verified)',

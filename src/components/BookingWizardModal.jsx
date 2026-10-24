@@ -34,12 +34,12 @@ export default function BookingWizardModal({
   const [selectedDate, setSelectedDate] = useState('2026-09-28');
   const [selectedTimeSlot, setSelectedTimeSlot] = useState(TODAY_SLOTS[0]);
 
-  const [patientName, setPatientName] = useState('Afi Kumar');
-  const [patientPhone, setPatientPhone] = useState('9805543143');
-  const [patientAge, setPatientAge] = useState('34');
+  const [patientName, setPatientName] = useState('');
+  const [patientPhone, setPatientPhone] = useState('');
+  const [patientAge, setPatientAge] = useState('');
   const [patientGender, setPatientGender] = useState('Male');
-  const [address, setAddress] = useState('Flat 402, Sunshine Heights, 80 Feet Road');
-  const [landmark, setLandmark] = useState('Near RMV 2nd Stage Park');
+  const [address, setAddress] = useState('');
+  const [landmark, setLandmark] = useState('');
   
   const [addedSearch, setAddedSearch] = useState('');
 
@@ -278,12 +278,16 @@ export default function BookingWizardModal({
                     onChange={(e) => setSelectedCentre(e.target.value)}
                     style={{ width: '100%', padding: '0.85rem 1rem', borderRadius: '12px', border: '1px solid #CBD5E1', fontSize: '0.95rem', fontWeight: 700, background: 'white' }}
                   >
-                    <option value="Sanjaynagar Centre">BJSL Sanjaynagar (RMV Hospital Road)</option>
-                    <option value="Peenya Centre">BJSL Peenya 2nd Stage (Industrial Area)</option>
-                    <option value="Kengeri Centre">BJSL BDA Complex Kengeri Satellite Town</option>
-                    <option value="Ittamadu Centre">BJSL Ittamadu / Banashankari 3rd Stage</option>
-                    <option value="Subramanyapura Centre">BJSL Subramanyapura (Jayanagar Society)</option>
-                    <option value="Jaraganahalli Centre">BJSL Jaraganahalli (JP Nagar 6th Phase)</option>
+                    <option value="Sanjaynagar Centre">BJSL Sanjaynagar (RMV Hospital Road, 560094)</option>
+                    <option value="Kengeri Centre">BJSL BDA Complex Kengeri Satellite Town (560059)</option>
+                    <option value="Peenya Centre">BJSL Peenya 2nd Stage (Industrial Area, 560091)</option>
+                    <option value="Ittamadu Centre">BJSL Ittamadu / Banashankari 3rd Stage (560085)</option>
+                    <option value="Jaraganahalli Centre">BJSL Jaraganahalli (JP Nagar 6th Phase, 560078)</option>
+                    <option value="Subramanyapura Centre">BJSL Subramanyapura (Jayanagar Society, 560061)</option>
+                    <option value="KR Market Centre">BJSL KR Market / Opp. Victoria Hospital (560002)</option>
+                    <option value="VV Puram Centre">BJSL VASAVI Clinic VV Puram / Basavanagudi (560004)</option>
+                    <option value="Srirampura Centre">BJSL Ambedkar Tapasana Kendra Srirampura (560021)</option>
+                    <option value="Basaveshwara Nagar Centre">BJSL Basaveshwara Nagar (Netaji Clinic Desk, 560079)</option>
                   </select>
                 </div>
               )}

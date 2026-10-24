@@ -1,1374 +1,1711 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { 
-  ShieldCheck, 
-  MapPin, 
-  CheckCircle2, 
+  ChevronRight, 
+  ChevronLeft, 
+  Search, 
   Star, 
-  ArrowRight, 
-  Phone,
-  Clock,
-  Heart,
-  Calendar,
-  ChevronDown,
-  ChevronUp,
-  FileText,
-  User,
-  Mail,
-  Award,
-  Users,
-  Activity,
-  ChevronLeft,
-  ChevronRight,
-  Sparkles,
-  Search,
-  Bot,
-  Play,
-  Pause,
-  X,
-  Droplet,
-  Globe
+  Award, 
+  Heart, 
+  Zap, 
+  Dna, 
+  FileText, 
+  Clock, 
+  Check, 
+  Plus, 
+  MapPin, 
+  Phone, 
+  Navigation, 
+  ShieldCheck, 
+  ChevronDown, 
+  ArrowRight,
+  Building2,
+  MessageSquare,
+  Upload,
+  X
 } from 'lucide-react';
-import PackageCard from '../components/PackageCard';
-import TestCard from '../components/TestCard';
 import { 
   HEALTH_PACKAGES, 
   INDIVIDUAL_TESTS, 
-  CENTRES,
-  GOOGLE_REVIEWS,
-  FAQS,
-  BLOG_POSTS,
-  TODAY_FORMATTED
+  CENTRES, 
+  FAQS, 
+  COMPANY_INFO 
 } from '../data/mockData';
 
 export default function Home({ 
   setCurrentTab, 
-  onSelectTest, 
+  cart = [], 
   onBookTest, 
   openSearchModal,
   openBookingWizard,
-  openFranchiseModal,
-  comparedPackages,
-  onToggleCompare
+  openFranchiseModal
 }) {
   const [activeFaq, setActiveFaq] = useState(0);
-  const [currentReviewIndex, setCurrentReviewIndex] = useState(0);
-  const [currentSlideIndex, setCurrentSlideIndex] = useState(0);
-  const [isSlideAutoPlaying, setIsSlideAutoPlaying] = useState(true);
-  const [lightboxImage, setLightboxImage] = useState(null);
-  const [homepageSearch, setHomepageSearch] = useState('');
+  const [selectedOrganFilter, setSelectedOrganFilter] = useState(null);
+  const [isPrescriptionModalOpen, setIsPrescriptionModalOpen] = useState(false);
+  const [prescriptionFile, setPrescriptionFile] = useState(null);
+  const [patientPhone, setPatientPhone] = useState('');
+  const [uploadSuccess, setUploadSuccess] = useState(false);
+  const [currentSlide, setCurrentSlide] = useState(0);
 
-  // Gallery WhatsApp Images
-  const galleryImages = [
-    { src: '/images/gallery/gallery-1.jpg', title: 'BJSL NABL Automated Blood Analyzer Desk' },
-    { src: '/images/gallery/gallery-2.jpg', title: 'Phlebotomist Sample Collection Training Camp' },
-    { src: '/images/gallery/gallery-3.jpg', title: 'Community Health Checkup & Blood Screening' },
-    { src: '/images/gallery/gallery-4.jpg', title: 'High Precision Centrifuge & Temperature Cold Chain' },
-    { src: '/images/gallery/gallery-5.jpg', title: 'BJSL Mobile Diagnostic Van Outreach Hub' },
-    { src: '/images/gallery/gallery-6.jpg', title: 'NABL Certified Reference Laboratory Facilities' },
-    { src: '/images/gallery/gallery-7.jpg', title: 'Free Doorstep Sample Collection Phlebotomy Unit' },
-    { src: '/images/gallery/gallery-8.jpg', title: 'Senior Citizen Health Screening Camp' },
-    { src: '/images/gallery/gallery-9.jpg', title: 'HPLC Automated Diabetes & HbA1c Analyzer' },
-    { src: '/images/gallery/gallery-10.jpg', title: 'BJSL Sanjaynagar Central Collection Centre' },
-    { src: '/images/gallery/gallery-11.jpg', title: 'Patient Diagnostics with Dignity Service Desk' },
-    { src: '/images/gallery/gallery-12.jpg', title: 'Free Blood Grouping & Health Awareness Drive' }
-  ];
+  const checkupsScrollRef = useRef(null);
+  const testsScrollRef = useRef(null);
+  const conditionsScrollRef = useRef(null);
 
-  // Hero Slider Images
+  const scrollCarousel = (ref, distance) => {
+    if (ref.current) {
+      ref.current.scrollBy({ left: distance, behavior: 'smooth' });
+    }
+  };
+
+  const isInCart = (id) => cart.some(item => item.id === id);
+
+  const handleToggleCartItem = (item) => {
+    onBookTest(item);
+  };
+
+  // Doctor-Led NABL Hero Slide Banner (Image 2)
   const heroSlides = [
     {
-      id: 1,
-      image: '/images/slides/hero-slide3.jpg',
-      badge: 'DIAGNOSTICS WITH DIGNITY',
-      title: 'Reaching Every Bharatiya with Affordable Healthcare',
-      subtitle: 'Over 200,000 patients served across Karnataka with affordable, accessible, and dignified diagnostic care.'
+      id: 'doctor-led-nabl',
+      badge1: 'DOCTOR-LED DIAGNOSTICS · NABL MC-6849',
+      badge2: 'NABL MC-6849',
+      titlePrefix: 'Doctor-Led NABL Accredited Diagnostic Lab',
+      titleHighlight: 'in Bengaluru',
+      subtitle: 'Advanced diagnostic testing with qualified medical oversight, home sample collection across Bengaluru and reliable turnaround times.',
+      trustBadges: [
+        { icon: '🩺', line1: '★ 5.0 Google', line2: 'Rating' },
+        { icon: '🔒', line1: 'Consultant', line2: 'Doctor Sign-off' },
+        { icon: '🛡️', line1: 'Free Doorstep', line2: 'Pickup' },
+        { icon: '⚡', line1: 'Same-Day', line2: 'Reports' }
+      ],
+      primaryAction: {
+        label: 'BOOK A TEST',
+        onClick: () => {
+          const el = document.querySelector('#popular-tests');
+          if (el) el.scrollIntoView({ behavior: 'smooth' });
+        }
+      },
+      secondaryAction: {
+        label: 'BOOK HOME COLLECTION',
+        onClick: () => openBookingWizard()
+      },
+      image: '/images/banners/doctors.webp',
+      fallbackImage: 'https://images.unsplash.com/photo-1622253692010-333f2da6031d?w=900&auto=format&fit=crop&q=80',
+      imageAlt: 'Doctor-Led NABL Team of Doctors in Bengaluru'
     },
     {
-      id: 2,
-      image: '/images/slides/hero-slide1.jpg',
-      badge: 'NABL ACCREDITED DIAGNOSTICS',
-      title: 'Advanced Diagnostic Intelligence & Precision Testing',
-      subtitle: 'State-of-the-art automated systems delivering NABL-certified diagnostic accuracy at 50–70% lower rates.'
-    },
-    {
-      id: 3,
+      id: 'chirayu-full-body',
+      badge1: 'AFFORDABLE HEALTHCARE · CHIRAYU PRIME',
+      badge2: '50-70% LOWER RATES',
+      titlePrefix: 'Comprehensive Full Body Health Checkups',
+      titleHighlight: 'in Bengaluru',
+      subtitle: 'Preventive healthcare packages curated by MD pathologists. 71+ vital parameters tested including HbA1c, Thyroid, Liver, Kidney & CBC at ₹796.',
+      trustBadges: [
+        { icon: '🔬', line1: '71 Vital', line2: 'Parameters' },
+        { icon: '📋', line1: '6-Hour Digital', line2: 'Reports' },
+        { icon: '✅', line1: 'NABL Certified', line2: 'In-House Lab' },
+        { icon: '🏷️', line1: 'At ₹796 Only', line2: 'Zero Hidden Fees' }
+      ],
+      primaryAction: {
+        label: 'EXPLORE CHIRAYU (₹796)',
+        onClick: () => handleToggleCartItem(HEALTH_PACKAGES[0])
+      },
+      secondaryAction: {
+        label: 'COMPARE ALL PACKAGES',
+        onClick: () => {
+          const el = document.querySelector('#checkups');
+          if (el) el.scrollIntoView({ behavior: 'smooth' });
+        }
+      },
       image: '/images/gallery/gallery-1.jpg',
-      badge: 'REAL BJSL LAB FACILITIES',
-      title: 'NABL Certified Automated Sample Analyzers',
-      subtitle: 'High precision robotics and cold-chain sample preservation ensuring 100% reliable test results.'
+      fallbackImage: '/images/gallery/gallery-3.jpg',
+      imageAlt: 'NABL In-House Diagnostic Lab Automated Testing Equipment'
     },
     {
-      id: 4,
-      image: '/images/slides/hero-slide2.jpg',
-      badge: 'FREE DOORSTEP SAMPLE COLLECTION',
-      title: 'Free Home Sample Collection Across Bangalore',
-      subtitle: 'Book certified phlebotomist sample collection right at your doorstep with fast same-day digital reports.'
+      id: 'doorstep-collection',
+      badge1: '60-MINUTE DOORSTEP PHLEBOTOMY',
+      badge2: 'STERILE VACUTAINERS',
+      titlePrefix: 'Free Sample Collection at Your Doorstep',
+      titleHighlight: 'in 60 Mins',
+      subtitle: 'Certified phlebotomists arrive on bikes with temperature-controlled 4°C cool bags and sterile single-use vacutainers across Bengaluru.',
+      trustBadges: [
+        { icon: '🛵', line1: '60-Min Instant', line2: 'Arrival' },
+        { icon: '🧪', line1: 'Sterile Single-Use', line2: 'Tubes' },
+        { icon: '❄️', line1: '4°C Cold-Chain', line2: 'Maintained' },
+        { icon: '📱', line1: 'WhatsApp PDF', line2: 'Delivery' }
+      ],
+      primaryAction: {
+        label: 'BOOK SAMPLE PICKUP',
+        onClick: () => openBookingWizard()
+      },
+      secondaryAction: {
+        label: 'CALL LAB: 98055 43143',
+        onClick: () => window.open('tel:9805543143', '_self')
+      },
+      image: '/images/gallery/gallery-10.jpg',
+      fallbackImage: '/images/gallery/gallery-7.jpg',
+      imageAlt: 'Sterile Vacutainers & Doorstep Phlebotomy Sample Processing'
     },
     {
-      id: 5,
-      image: '/images/gallery/gallery-3.jpg',
-      badge: 'COMMUNITY HEALTH CAMPS',
-      title: 'Free Health Screening & Outreach Drives',
-      subtitle: 'Organizing blood donation, diabetes screening, and diagnostic awareness camps for all sections of society.'
-    },
-    {
-      id: 6,
-      image: '/images/gallery/gallery-5.jpg',
-      badge: 'MOBILE DIAGNOSTIC VANS',
-      title: 'Mobile Healthcare Vans & Doorstep Phlebotomy',
-      subtitle: 'Bringing specialized laboratory testing to rural districts, remote villages, and underserved outskirts.'
-    },
-    {
-      id: 7,
-      image: '/images/banners/main-banner.webp',
-      badge: 'CHIRAYU FULL BODY PACKAGES',
-      title: 'Comprehensive Health Screening from ₹796',
-      subtitle: 'Screen up to 154 vital parameters covering heart, liver, kidneys, thyroid, and full vitamin profiles.'
-    },
-    {
-      id: 8,
-      image: '/images/gallery/gallery-7.jpg',
-      badge: 'DOORSTEP PHLEBOTOMY HUB',
-      title: 'Sterile Single-Use Vacutainer Blood Collection',
-      subtitle: 'Equipped with DMLT-certified phlebotomists trained for gentle and hygienic pediatric and geriatric sampling.'
+      id: 'accurate-pathology',
+      badge1: 'ROUTINE & SPECIALIZED PATHOLOGY',
+      badge2: 'DIRECT LAB PRICING',
+      titlePrefix: 'Transparent Blood Testing With Expert MD',
+      titleHighlight: 'Doctor Guidance',
+      subtitle: 'Essential tests starting at ₹299 (CBC, HbA1c, Thyroid Profile, Lipid Profile, Vitamin D). Free post-test physician telephone consultation.',
+      trustBadges: [
+        { icon: '🩸', line1: 'CBC Blood Test', line2: 'At ₹299 Only' },
+        { icon: '🩺', line1: 'HbA1c Diabetes', line2: 'At ₹399 Only' },
+        { icon: '👨‍⚕️', line1: 'MD Doctor Review', line2: 'Included Free' },
+        { icon: '⚡', line1: 'Same-Day Fast', line2: 'Turnaround' }
+      ],
+      primaryAction: {
+        label: 'EXPLORE ALL 80+ TESTS',
+        onClick: () => {
+          const el = document.querySelector('#popular-tests');
+          if (el) el.scrollIntoView({ behavior: 'smooth' });
+        }
+      },
+      secondaryAction: {
+        label: 'UPLOAD PRESCRIPTION',
+        onClick: () => setIsPrescriptionModalOpen(true)
+      },
+      image: '/images/gallery/gallery-2.jpg',
+      fallbackImage: '/images/slides/hero-slide1.jpg',
+      imageAlt: 'Clinical Pathologist Conducting Diagnostic Blood Tests'
     }
   ];
 
-  // Auto rotate hero slides
+  // Auto-advance slides every 5.5 seconds
   useEffect(() => {
-    if (!isSlideAutoPlaying) return;
-    const interval = setInterval(() => {
-      setCurrentSlideIndex((prev) => (prev + 1) % heroSlides.length);
+    const slideTimer = setInterval(() => {
+      setCurrentSlide((prev) => (prev + 1) % heroSlides.length);
     }, 5500);
-    return () => clearInterval(interval);
-  }, [isSlideAutoPlaying, heroSlides.length]);
+    return () => clearInterval(slideTimer);
+  }, [heroSlides.length]);
 
-  // Auto rotate Google Reviews slider
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentReviewIndex((prev) => (prev + 1) % GOOGLE_REVIEWS.length);
-    }, 4500);
-    return () => clearInterval(interval);
-  }, []);
+  const handlePrevSlide = () => {
+    setCurrentSlide((prev) => (prev === 0 ? heroSlides.length - 1 : prev - 1));
+  };
 
-  // Form State for "Book Your Health Test" Banner
-  const [formPackage, setFormPackage] = useState('Chirayu Full Body Check (PRIME)');
-  const [formName, setFormName] = useState('');
-  const [formEmail, setFormEmail] = useState('');
-  const [formPhone, setFormPhone] = useState('');
-  const [formLocation, setFormLocation] = useState('Sanjaynagar');
-  const [formDate, setFormDate] = useState('2026-09-28');
-  const [formTime, setFormTime] = useState('08:00 AM');
-  const [formAgree, setFormAgree] = useState(true);
+  const handleNextSlide = () => {
+    setCurrentSlide((prev) => (prev + 1) % heroSlides.length);
+  };
 
-  const handleFormSubmit = (e) => {
-    e.preventDefault();
-    if (!formName || !formPhone) {
-      alert('Please enter your Name and Phone Number.');
-      return;
+  // Health Conditions (Full Width Left-to-Right Slider)
+  const conditionsList = [
+    { 
+      id: 'hair-fall', 
+      name: 'Hair Fall', 
+      tag: 'Trichology',
+      icon: '💇',
+      testsText: 'Ferritin, TSH, Iron, Biotin',
+      price: '₹399',
+      image: '/images/slides/hero_hairfall.jpg',
+      fallbackImage: 'https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=600&auto=format&fit=crop&q=80', 
+      testId: 'thyroid-profile' 
+    },
+    { 
+      id: 'joint-pain', 
+      name: 'Joint Pain', 
+      tag: 'Orthopedics',
+      icon: '🦴',
+      testsText: 'Vit D, Calcium, RA, Uric Acid',
+      price: '₹499',
+      image: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=600&auto=format&fit=crop&q=80', 
+      fallbackImage: '/images/slides/hero-slide2.jpg',
+      testId: 'vit-d' 
+    },
+    { 
+      id: 'allergy', 
+      name: 'Allergy', 
+      tag: 'Immunity',
+      icon: '🌿',
+      testsText: 'Total IgE, Absolute Eosinophils',
+      price: '₹499',
+      image: 'https://images.unsplash.com/photo-1584515979956-d9f6e5d09982?w=600&auto=format&fit=crop&q=80', 
+      fallbackImage: '/images/slides/hero_lifestyle.jpg',
+      testId: 'cbc-test' 
+    },
+    { 
+      id: 'thyroid', 
+      name: 'Thyroid', 
+      tag: 'Hormonal Care',
+      icon: '🦋',
+      testsText: 'TSH, Total T3, Total T4',
+      price: '₹399',
+      image: 'https://images.unsplash.com/photo-1579684385127-1ef15d508118?w=600&auto=format&fit=crop&q=80', 
+      fallbackImage: '/images/packages/chirayu-master.webp',
+      testId: 'thyroid-profile' 
+    },
+    { 
+      id: 'diabetes', 
+      name: 'Diabetes', 
+      tag: 'Sugar Care',
+      icon: '🩸',
+      testsText: 'HbA1c, Fasting Sugar, Urine',
+      price: '₹299',
+      image: 'https://images.unsplash.com/photo-1505751172876-fa1923c5c528?w=600&auto=format&fit=crop&q=80', 
+      fallbackImage: '/images/slides/hero-slide1.jpg',
+      testId: 'hba1c-test' 
+    },
+    { 
+      id: 'cardiac', 
+      name: 'Heart Care', 
+      tag: 'Lipid Profile',
+      icon: '❤️',
+      testsText: 'Cholesterol, HDL, LDL, Triglycerides',
+      price: '₹399',
+      image: 'https://images.unsplash.com/photo-1628348068343-c6a848d2b6dd?w=600&auto=format&fit=crop&q=80', 
+      fallbackImage: '/images/packages/chirayu-prime.webp',
+      testId: 'lipid-profile' 
+    },
+    { 
+      id: 'fever', 
+      name: 'Fever & Infection', 
+      tag: 'Infection Care',
+      icon: '🌡️',
+      testsText: 'CBC, ESR, Dengue NS1, Widal',
+      price: '₹499',
+      image: 'https://images.unsplash.com/photo-1584036561566-baf8f5f1b144?w=600&auto=format&fit=crop&q=80', 
+      fallbackImage: '/images/slides/hero_fever.jpg',
+      testId: 'cbc-test' 
+    },
+    { 
+      id: 'vitamins', 
+      name: 'Vitamins & Minerals', 
+      tag: 'Vital Nutrition',
+      icon: '💊',
+      testsText: 'Vitamin D3 & Vitamin B12, Calcium',
+      price: '₹799',
+      image: 'https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=600&auto=format&fit=crop&q=80', 
+      fallbackImage: '/images/slides/hero-slide2.jpg',
+      testId: 'vit-d' 
+    },
+    { 
+      id: 'liver-kidney', 
+      name: 'Liver & Kidney', 
+      tag: 'Organ Function',
+      icon: '🧪',
+      testsText: 'SGOT, SGPT, Creatinine, Urea, Uric Acid',
+      price: '₹699',
+      image: 'https://images.unsplash.com/photo-1532938911079-1b06ac7ceec7?w=600&auto=format&fit=crop&q=80', 
+      fallbackImage: '/images/packages/chirayu-master.webp',
+      testId: 'lft-test' 
     }
-    const selectedPkg = HEALTH_PACKAGES.find(p => p.name.includes(formPackage)) || HEALTH_PACKAGES[0];
-    onBookTest(selectedPkg);
-  };
+  ];
 
-  const nextReview = () => {
-    setCurrentReviewIndex((prev) => (prev + 1) % GOOGLE_REVIEWS.length);
-  };
+  // Vital Body Systems (Screenshot 4)
+  const vitalOrgans = [
+    { id: 'blood', name: 'Blood', image: 'https://d1wi3p9y2i20go.cloudfront.net/patient-app/10x-expirence/3X3+Vital+Organs/Blood.png' },
+    { id: 'heart', name: 'Heart', image: 'https://d1wi3p9y2i20go.cloudfront.net/patient-app/10x-expirence/3X3+Vital+Organs/Heart.png' },
+    { id: 'kidney', name: 'Kidney', image: 'https://d1wi3p9y2i20go.cloudfront.net/patient-app/10x-expirence/3X3+Vital+Organs/Kidney.png' },
+    { id: 'liver', name: 'Liver', image: 'https://d1wi3p9y2i20go.cloudfront.net/patient-app/10x-expirence/3X3+Vital+Organs/Liver.png' },
+    { id: 'thyroid', name: 'Thyroid', image: 'https://cdn-icons-png.flaticon.com/512/2864/2864273.png' },
+    { id: 'hormonal', name: 'Hormonal', image: 'https://cdn-icons-png.flaticon.com/512/3209/3209074.png' },
+    { id: 'nutrition', name: 'Nutrition', image: 'https://cdn-icons-png.flaticon.com/512/3050/3050212.png' },
+    { id: 'bone', name: 'Bone', image: 'https://d1wi3p9y2i20go.cloudfront.net/patient-app/10x-expirence/3X3+Vital+Organs/Bone.png' },
+    { id: 'immunity', name: 'Immunity', image: 'https://cdn-icons-png.flaticon.com/512/2966/2966327.png' },
+    { id: 'aerobic', name: 'Aerobic', image: 'https://cdn-icons-png.flaticon.com/512/2864/2864277.png' },
+    { id: 'genetics', name: 'Genetics', image: 'https://d1wi3p9y2i20go.cloudfront.net/patient-app/10x-expirence/3X3+Vital+Organs/Genetics.png' }
+  ];
 
-  const prevReview = () => {
-    setCurrentReviewIndex((prev) => (prev - 1 + GOOGLE_REVIEWS.length) % GOOGLE_REVIEWS.length);
-  };
+  // Fever Season Packages (Screenshot 5)
+  const feverPackages = [
+    {
+      id: 'dengue-cbc',
+      name: 'Dengue Profile - Rapid with CBC',
+      parametersCount: 27,
+      tat: '6 hours',
+      mrp: 660,
+      price: 600,
+      discount: '9% Off'
+    },
+    {
+      id: 'fever-comp',
+      name: 'Fever Profile - Comprehensive',
+      parametersCount: 69,
+      tat: 'tomorrow 10pm',
+      mrp: 5470,
+      price: 1999,
+      discount: '63% Off'
+    },
+    {
+      id: 'monsoon-panel',
+      name: 'Monsoon Fever Panel',
+      parametersCount: 68,
+      tat: '12 hours',
+      mrp: 4720,
+      price: 1599,
+      discount: '66% Off'
+    }
+  ];
 
-  const visibleReviews = [
-    GOOGLE_REVIEWS[currentReviewIndex % GOOGLE_REVIEWS.length],
-    GOOGLE_REVIEWS[(currentReviewIndex + 1) % GOOGLE_REVIEWS.length],
-    GOOGLE_REVIEWS[(currentReviewIndex + 2) % GOOGLE_REVIEWS.length]
+  // Most Booked Individual Tests
+  const bookedTests = [
+    {
+      id: 'cbc-test',
+      name: 'Complete Blood Count (CBC)',
+      parametersCount: 29,
+      tat: '6 hours',
+      mrp: 600,
+      price: 299,
+      discount: '50% Off'
+    },
+    {
+      id: 'hba1c-test',
+      name: 'Glycosylated Haemoglobin (HbA1c)',
+      parametersCount: 3,
+      tat: '6 hours',
+      mrp: 750,
+      price: 349,
+      discount: '53% Off'
+    },
+    {
+      id: 'thyroid-profile',
+      name: 'Thyroid Function Test (TFT)',
+      parametersCount: 3,
+      tat: '6 hours',
+      mrp: 850,
+      price: 399,
+      discount: '53% Off'
+    },
+    {
+      id: 'vit-b12',
+      name: 'Vitamin B12',
+      parametersCount: 1,
+      tat: '6 hours',
+      mrp: 1400,
+      price: 699,
+      discount: '50% Off'
+    },
+    {
+      id: 'vit-d',
+      name: 'Vitamin D, Total',
+      parametersCount: 1,
+      tat: '6 hours',
+      mrp: 1500,
+      price: 699,
+      discount: '53% Off'
+    },
+    {
+      id: 'lipid-profile',
+      name: 'Lipid Profile (Cholesterol)',
+      parametersCount: 14,
+      tat: '6 hours',
+      mrp: 950,
+      price: 499,
+      discount: '47% Off'
+    },
+    {
+      id: 'lft-test',
+      name: 'Liver Function Test (LFT)',
+      parametersCount: 14,
+      tat: '6 hours',
+      mrp: 950,
+      price: 499,
+      discount: '47% Off'
+    },
+    {
+      id: 'kft-test',
+      name: 'Kidney Function Test (KFT)',
+      parametersCount: 9,
+      tat: '6 hours',
+      mrp: 950,
+      price: 499,
+      discount: '47% Off'
+    }
   ];
 
   return (
-    <div>
-
-      {/* SECTION 1: FULL-WIDTH APOLLO HERO SLIDER CAROUSEL WITH DYNAMIC SLIDES & CONTROLS */}
-      <section className="hero-slider-wrapper">
-        
-        {/* Slides */}
-        {heroSlides.map((slide, index) => (
-          <div
-            key={slide.id}
-            className={`hero-slide ${index === currentSlideIndex ? 'active' : ''}`}
-            style={{ backgroundImage: `url(${slide.image})` }}
-          >
-            <div className="hero-slide-overlay" />
-            
-            {/* Slide Content */}
-            <div className="hero-slide-content" style={{ position: 'relative', zIndex: 5, textAlign: 'center', maxWidth: '900px', padding: '0 1.5rem', marginTop: '-70px' }}>
-              <div className="hero-slide-badge" style={{
-                background: 'rgba(239, 68, 68, 0.9)',
-                backdropFilter: 'blur(16px)',
-                WebkitBackdropFilter: 'blur(16px)',
-                border: '1px solid rgba(255, 255, 255, 0.4)',
-                color: 'white',
-                padding: '6px 22px',
-                borderRadius: '99px',
-                fontSize: '0.85rem',
-                fontWeight: 900,
-                display: 'inline-flex',
-                alignItems: 'center',
-                gap: '8px',
-                marginBottom: '1.25rem',
-                boxShadow: '0 8px 24px rgba(239, 68, 68, 0.4)'
-              }}>
-                <Sparkles size={16} color="white" /> {slide.badge}
-              </div>
-
-              <h1 style={{ fontSize: '3.3rem', fontWeight: 900, color: 'white', lineHeight: 1.15, marginBottom: '1.25rem', textShadow: '0 4px 20px rgba(0,0,0,0.6)' }}>
-                {slide.title}
-              </h1>
-
-              <p style={{ fontSize: '1.2rem', color: '#E2E8F0', fontWeight: 600, textShadow: '0 2px 10px rgba(0,0,0,0.6)', maxWidth: '780px', margin: '0 auto 2rem' }}>
-                {slide.subtitle}
-              </p>
-
-              <div className="hero-action-btns" style={{ display: 'flex', justifyContent: 'center', gap: '1rem' }}>
-                <button 
-                  onClick={openBookingWizard}
-                  className="btn-red-solid"
-                  style={{ padding: '0.9rem 2.2rem', fontSize: '1rem', borderRadius: '99px' }}
-                >
-                  Book Free Home Collection <ArrowRight size={18} />
-                </button>
-                <button 
-                  onClick={() => setCurrentTab('packages')}
-                  className="liquid-glass-btn"
-                  style={{ padding: '0.9rem 2.2rem', fontSize: '1rem', borderRadius: '99px', background: 'rgba(255,255,255,0.2)', color: 'white', borderColor: 'rgba(255,255,255,0.4)' }}
-                >
-                  Explore Packages
-                </button>
-              </div>
-            </div>
-          </div>
-        ))}
-
-        {/* Carousel Slider Controls (Left/Right Arrows, Indicators, Play/Pause) */}
-        <button 
-          onClick={() => setCurrentSlideIndex((prev) => (prev - 1 + heroSlides.length) % heroSlides.length)}
-          className="hero-arrow-btn hero-arrow-left"
-          style={{ 
-            position: 'absolute', 
-            top: '50%', 
-            left: '2rem', 
-            transform: 'translateY(-50%)', 
-            zIndex: 12,
-            width: '48px', 
-            height: '48px', 
-            borderRadius: '50%', 
-            background: 'rgba(15, 23, 42, 0.65)', 
-            backdropFilter: 'blur(12px)', 
-            border: '1px solid rgba(255,255,255,0.3)', 
-            color: 'white', 
-            display: 'flex', 
-            alignItems: 'center', 
-            justifyContent: 'center', 
-            cursor: 'pointer', 
-            boxShadow: '0 8px 20px rgba(0,0,0,0.3)' 
-          }}
-          aria-label="Previous Slide"
-        >
-          <ChevronLeft size={24} />
-        </button>
-
-        <button 
-          onClick={() => setCurrentSlideIndex((prev) => (prev + 1) % heroSlides.length)}
-          className="hero-arrow-btn hero-arrow-right"
-          style={{ 
-            position: 'absolute', 
-            top: '50%', 
-            right: '2rem', 
-            transform: 'translateY(-50%)', 
-            zIndex: 12,
-            width: '48px', 
-            height: '48px', 
-            borderRadius: '50%', 
-            background: 'rgba(15, 23, 42, 0.65)', 
-            backdropFilter: 'blur(12px)', 
-            border: '1px solid rgba(255,255,255,0.3)', 
-            color: 'white', 
-            display: 'flex', 
-            alignItems: 'center', 
-            justifyContent: 'center', 
-            cursor: 'pointer', 
-            boxShadow: '0 8px 20px rgba(0,0,0,0.3)' 
-          }}
-          aria-label="Next Slide"
-        >
-          <ChevronRight size={24} />
-        </button>
-
-        {/* Bottom Slide Indicators */}
-        <div className="hero-dots-container" style={{ position: 'absolute', bottom: '160px', left: '50%', transform: 'translateX(-50%)', zIndex: 12, display: 'flex', alignItems: 'center', gap: '8px' }}>
-          {heroSlides.map((_, idx) => (
-            <button
-              key={idx}
-              onClick={() => setCurrentSlideIndex(idx)}
-              style={{
-                width: currentSlideIndex === idx ? '32px' : '10px',
-                height: '10px',
-                borderRadius: '99px',
-                background: currentSlideIndex === idx ? '#EF4444' : 'rgba(255,255,255,0.4)',
-                border: 'none',
-                transition: 'all 0.3s ease',
-                cursor: 'pointer'
-              }}
-            />
-          ))}
-          <button
-            onClick={() => setIsSlideAutoPlaying(!isSlideAutoPlaying)}
-            style={{ background: 'rgba(0,0,0,0.4)', color: 'white', border: 'none', borderRadius: '50%', width: '24px', height: '24px', display: 'flex', alignItems: 'center', justifyContent: 'center', marginLeft: '6px', cursor: 'pointer' }}
-            title={isSlideAutoPlaying ? 'Pause Slideshow' : 'Play Slideshow'}
-          >
-            {isSlideAutoPlaying ? <Pause size={12} /> : <Play size={12} />}
-          </button>
-        </div>
-
-        {/* FLOATING DARK LIQUID GLASS INLINE SEARCH BAR */}
-        <div 
-          className="hero-liquid-search"
-          style={{ cursor: 'text', padding: '6px 10px 6px 20px', display: 'flex', alignItems: 'center' }}
-        >
-          <input 
-            type="text"
-            placeholder="Search For Doctors, Specialities And Health Check Packages..."
-            value={homepageSearch}
-            onChange={(e) => setHomepageSearch(e.target.value)}
-            style={{
-              flex: 1,
-              background: 'transparent',
-              border: 'none',
-              outline: 'none',
-              color: 'white',
-              fontSize: '0.95rem',
-              fontWeight: 700,
-              fontFamily: 'inherit'
-            }}
-          />
-          {homepageSearch && (
-            <button 
-              onClick={() => setHomepageSearch('')}
-              style={{ color: '#94A3B8', border: 'none', background: 'transparent', padding: '0 8px', cursor: 'pointer', display: 'flex', alignItems: 'center' }}
-              title="Clear Search"
-            >
-              <X size={18} color="#CBD5E1" />
-            </button>
-          )}
-          <div style={{
-            background: 'linear-gradient(135deg, #EF4444 0%, #DC2626 100%)',
-            color: 'white',
-            width: '42px',
-            height: '42px',
-            borderRadius: '50%',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            boxShadow: '0 6px 20px rgba(239, 68, 68, 0.4)',
-            flexShrink: 0
-          }}>
-            <Search size={20} color="white" />
-          </div>
-        </div>
-
-        {/* FLOATING WHITE LIQUID GLASS PILL TABS BAR */}
-        <div className="hero-floating-tabs">
-          <div 
-            className="hero-tab-pill"
-            onClick={openBookingWizard}
-          >
-            <span>Book Appointment</span>
-            <div className="hero-tab-arrow">➔</div>
-          </div>
-
-          <div 
-            className="hero-tab-pill"
-            onClick={() => setCurrentTab('centres')}
-          >
-            <span>Find Centre</span>
-            <div className="hero-tab-arrow">➔</div>
-          </div>
-
-          <div 
-            className="hero-tab-pill"
-            onClick={() => setCurrentTab('packages')}
-          >
-            <span>Book Health Checkup</span>
-            <div className="hero-tab-arrow">➔</div>
-          </div>
-
-          <div 
-            className="hero-tab-pill"
-            onClick={() => setCurrentTab('doctors')}
-          >
-            <span>Get Expert Opinion</span>
-            <div className="hero-tab-arrow">➔</div>
-          </div>
-        </div>
-
-      </section>
-
-      {/* LIVE HOMEPAGE SEARCH RESULTS PANEL */}
-      {homepageSearch.trim() && (() => {
-        const query = homepageSearch.toLowerCase().trim();
-        const filteredPkgs = HEALTH_PACKAGES.filter(p => 
-          p.name.toLowerCase().includes(query) || 
-          p.description?.toLowerCase().includes(query) || 
-          p.parameters?.some(param => param.toLowerCase().includes(query))
-        );
-        const filteredTsts = INDIVIDUAL_TESTS.filter(t => 
-          t.name.toLowerCase().includes(query) || 
-          t.category?.toLowerCase().includes(query) ||
-          t.description?.toLowerCase().includes(query)
-        );
-
-        return (
-          <section id="homepage-search-results" style={{ padding: '3.5rem 0', background: '#FFFFFF', borderBottom: '2px solid #F1F5F9' }}>
-            <div className="container">
-              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '2rem', flexWrap: 'wrap', gap: '1rem' }}>
-                <div>
-                  <h2 style={{ fontSize: '2rem', fontWeight: 900, color: '#0F172A' }}>
-                    Search Results for "{homepageSearch}"
-                  </h2>
-                  <p style={{ fontSize: '0.9rem', color: '#64748B', fontWeight: 600 }}>
-                    Found {filteredPkgs.length} Health Packages & {filteredTsts.length} Blood Tests
-                  </p>
-                </div>
-                <button 
-                  onClick={() => setHomepageSearch('')}
-                  style={{ background: '#FFF1F2', color: '#EF4444', border: '1.5px solid #FECDD3', padding: '8px 20px', borderRadius: '99px', fontWeight: 800, fontSize: '0.875rem', cursor: 'pointer' }}
-                >
-                  Clear Search ✕
-                </button>
-              </div>
-
-              {filteredPkgs.length > 0 && (
-                <div style={{ marginBottom: '3rem' }}>
-                  <h3 style={{ fontSize: '1.3rem', fontWeight: 800, color: '#EF4444', marginBottom: '1.25rem', display: 'flex', alignItems: 'center', gap: '8px' }}>
-                    <Sparkles size={18} /> Matching Health Packages ({filteredPkgs.length})
-                  </h3>
-                  <div className="card-grid">
-                    {filteredPkgs.map(pkg => (
-                      <PackageCard 
-                        key={pkg.id}
-                        pkg={pkg}
-                        onSelect={(p) => onSelectTest(p)}
-                        onBook={(p) => onBookTest(p)}
-                      />
-                    ))}
-                  </div>
-                </div>
-              )}
-
-              {filteredTsts.length > 0 && (
-                <div>
-                  <h3 style={{ fontSize: '1.3rem', fontWeight: 800, color: '#0284C7', marginBottom: '1.25rem', display: 'flex', alignItems: 'center', gap: '8px' }}>
-                    <Activity size={18} /> Matching Blood Tests ({filteredTsts.length})
-                  </h3>
-                  <div className="card-grid">
-                    {filteredTsts.map(test => (
-                      <TestCard 
-                        key={test.id}
-                        item={test}
-                        onSelect={(t) => onSelectTest(t)}
-                        onBook={(t) => onBookTest(t)}
-                      />
-                    ))}
-                  </div>
-                </div>
-              )}
-
-              {filteredPkgs.length === 0 && filteredTsts.length === 0 && (
-                <div style={{ textAlign: 'center', padding: '3.5rem 1.5rem', background: '#F8FAFC', borderRadius: '24px', border: '1.5px dashed #CBD5E1' }}>
-                  <p style={{ fontSize: '1.2rem', color: '#0F172A', fontWeight: 800, marginBottom: '6px' }}>No direct matches found for "{homepageSearch}"</p>
-                  <p style={{ fontSize: '0.9rem', color: '#64748B', maxWidth: '500px', margin: '0 auto 1.5rem' }}>Try typing "Chirayu", "Glucose", "Thyroid", "Lipid", "CBC", "Liver", or "Vitamin".</p>
-                  <button 
-                    onClick={() => setHomepageSearch('Chirayu')}
-                    style={{ background: '#EF4444', color: 'white', padding: '8px 20px', borderRadius: '99px', fontWeight: 800, fontSize: '0.85rem' }}
-                  >
-                    View Popular Full Body Checks
-                  </button>
-                </div>
-              )}
-            </div>
-          </section>
-        );
-      })()}
-
-      {/* SECTION 2: ORGAN & HEALTH SPECIALITIES BADGES CAROUSEL */}
-      <section style={{ padding: '4.5rem 0 3.5rem', background: '#FFFFFF' }}>
+    <div style={{ backgroundColor: 'var(--bg-cream)', minHeight: '100vh', paddingBottom: '40px' }}>
+      
+      {/* MOBILE-ONLY TOP PROMO & ACTION HUBS (Screenshot 1) */}
+      <div className="mobile-top-experience">
         <div className="container">
           
-          <div style={{ textAlign: 'center', marginBottom: '2.5rem' }}>
-            <h2 style={{ fontSize: '2.4rem', fontWeight: 900, color: '#0F172A', marginBottom: '6px' }}>
-              Explore Health Checkups by Speciality
-            </h2>
-            <p style={{ fontSize: '1rem', color: '#64748B' }}>
-              Targeted diagnostic screenings formulated by medical specialists
-            </p>
+          {/* Discount Code Strip */}
+          <div className="mobile-promo-strip">
+            <span>Get <strong>10% OFF*</strong> | Use code: <strong style={{ color: '#EF4444' }}>BJSLHEALTH</strong></span>
           </div>
 
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(130px, 1fr))', gap: '1.5rem', justifyContent: 'items-center' }}>
-            
-            <div className="organ-badge-item" onClick={() => setHomepageSearch('Lipid')}>
-              <div className="organ-badge-circle">🫀</div>
-              <span className="organ-badge-label">Heart & Lipid</span>
-            </div>
-
-            <div className="organ-badge-item" onClick={() => setHomepageSearch('Diabetes')}>
-              <div className="organ-badge-circle">🧬</div>
-              <span className="organ-badge-label">Diabetes HbA1c</span>
-            </div>
-
-            <div className="organ-badge-item" onClick={() => setHomepageSearch('Liver')}>
-              <div className="organ-badge-circle">🧪</div>
-              <span className="organ-badge-label">Liver (LFT)</span>
-            </div>
-
-            <div className="organ-badge-item" onClick={() => setHomepageSearch('Renal')}>
-              <div className="organ-badge-circle">🩸</div>
-              <span className="organ-badge-label">Renal (KFT)</span>
-            </div>
-
-            <div className="organ-badge-item" onClick={() => setHomepageSearch('Thyroid')}>
-              <div className="organ-badge-circle">🫁</div>
-              <span className="organ-badge-label">Thyroid Profile</span>
-            </div>
-
-            <div className="organ-badge-item" onClick={() => setHomepageSearch('Women')}>
-              <div className="organ-badge-circle">👩</div>
-              <span className="organ-badge-label">Women Care</span>
-            </div>
-
-            <div className="organ-badge-item" onClick={() => setHomepageSearch('Senior')}>
-              <div className="organ-badge-circle">👴</div>
-              <span className="organ-badge-label">Senior Citizen</span>
-            </div>
-
-          </div>
-
-        </div>
-      </section>
-
-      {/* SECTION 3: BRIDGING THE DIAGNOSTIC DIVIDE (ABOUT / MISSION SECTION) */}
-      <section style={{ padding: '5rem 0', background: '#FFF5F5' }}>
-        <div className="container">
-          
-          <div style={{ textAlign: 'center', maxWidth: '840px', margin: '0 auto 3.5rem' }}>
-            <h2 style={{ fontSize: '2.8rem', fontWeight: 900, color: '#0F172A', marginBottom: '0.5rem' }}>
-              Bridging the Diagnostic Divide
-            </h2>
-            <h3 style={{ fontSize: '1.4rem', fontWeight: 800, color: '#EF4444' }}>
-              The Mission of Bharath Jan Seva Labs
-            </h3>
-          </div>
-
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(340px, 1fr))', gap: '3.5rem', alignItems: 'center' }}>
-            
-            {/* Left Photo */}
-            <div className="white-liquid-card" style={{ padding: '10px' }}>
-              <img 
-                src="/images/banners/bridging-divide.webp" 
-                alt="Bridging the Diagnostic Divide" 
-                style={{ width: '100%', borderRadius: '20px', objectFit: 'cover' }}
-              />
-            </div>
-
-            {/* Right Story & Feature Badges */}
-            <div>
-              <p style={{ fontSize: '1.05rem', color: '#475569', lineHeight: 1.7, marginBottom: '1.25rem' }}>
-                India is home to world-class hospitals and advanced medical technology – yet <strong>millions still struggle to access even basic diagnostic tests</strong>.
-              </p>
-              <p style={{ fontSize: '1.05rem', color: '#475569', lineHeight: 1.7, marginBottom: '1.25rem' }}>
-                For families in rural districts, remote villages, and low-income urban outskirts, a simple blood test can mean long travel, high cost, and delayed results. And <em>delayed diagnosis often costs lives</em>.
-              </p>
-              <p style={{ fontSize: '1.05rem', color: '#0F172A', fontWeight: 800, marginBottom: '2rem' }}>
-                Bharath Jan Seva Labs (BJSL) steps in as more than just a diagnostic centre – it is a movement for health equity, committed to ensuring:
-              </p>
-
-              {/* 3 Circle Liquid Feature Badges */}
-              <div style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem', marginBottom: '2rem' }}>
-                <div className="white-liquid-card" style={{ display: 'flex', alignItems: 'center', gap: '1.25rem', padding: '1rem 1.25rem' }}>
-                  <div style={{ width: '48px', height: '48px', borderRadius: '50%', background: 'rgba(254, 242, 242, 0.9)', color: '#EF4444', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0, boxShadow: 'inset 0 1px 0 rgba(255,255,255,1)' }}>
-                    <Heart size={24} />
-                  </div>
-                  <div>
-                    <div style={{ fontSize: '1.1rem', fontWeight: 800, color: '#0F172A' }}>Affordable testing</div>
-                    <div style={{ fontSize: '0.9rem', color: '#64748B' }}>for every household</div>
-                  </div>
-                </div>
-
-                <div className="white-liquid-card" style={{ display: 'flex', alignItems: 'center', gap: '1.25rem', padding: '1rem 1.25rem' }}>
-                  <div style={{ width: '48px', height: '48px', borderRadius: '50%', background: 'rgba(240, 249, 255, 0.9)', color: '#0284C7', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0, boxShadow: 'inset 0 1px 0 rgba(255,255,255,1)' }}>
-                    <MapPin size={24} />
-                  </div>
-                  <div>
-                    <div style={{ fontSize: '1.1rem', fontWeight: 800, color: '#0F172A' }}>Accessible services</div>
-                    <div style={{ fontSize: '0.9rem', color: '#64748B' }}>across underserved regions</div>
-                  </div>
-                </div>
-
-                <div className="white-liquid-card" style={{ display: 'flex', alignItems: 'center', gap: '1.25rem', padding: '1rem 1.25rem' }}>
-                  <div style={{ width: '48px', height: '48px', borderRadius: '50%', background: 'rgba(236, 253, 245, 0.9)', color: '#059669', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0, boxShadow: 'inset 0 1px 0 rgba(255,255,255,1)' }}>
-                    <Clock size={24} />
-                  </div>
-                  <div>
-                    <div style={{ fontSize: '1.1rem', fontWeight: 800, color: '#0F172A' }}>Timely, reliable diagnostics</div>
-                    <div style={{ fontSize: '0.9rem', color: '#64748B' }}>without financial burden</div>
-                  </div>
-                </div>
-              </div>
-
-              <p style={{ fontSize: '1rem', color: '#0F172A', fontWeight: 700 }}>
-                BJSL is transforming the way India experiences healthcare – bringing dignity, trust, and accessibility to every Indian who needs it.
-              </p>
-            </div>
-
-          </div>
-        </div>
-      </section>
-
-      {/* SECTION 4: POPULAR HEALTH CHECK-UPS CONTAINER WITH ACTUAL PACKAGE IMAGES */}
-      <section style={{ padding: '4rem 0 5rem', background: '#F8FAFC' }}>
-        <div className="container">
-          
-          <div style={{ textAlign: 'center', maxWidth: '900px', margin: '0 auto 3.5rem' }}>
-            <h2 style={{ fontSize: '2.8rem', fontWeight: 900, color: '#0F172A', marginBottom: '1rem' }}>
-              Popular Health Check-ups
-            </h2>
-            <p style={{ fontSize: '1.05rem', color: '#64748B', lineHeight: 1.7 }}>
-              All our tests are conducted at <strong>NABL-accredited laboratories</strong> using fully automated systems to ensure accuracy and reliability. We follow international standard methods to maintain high-quality results while keeping costs affordable for every section of society. With advanced technology and strict quality control, we provide trustworthy diagnostic services at <strong>50–70% lower than market prices</strong>.
-            </p>
-          </div>
-
-          <div className="card-grid" style={{ gridTemplateColumns: 'repeat(auto-fill, minmax(340px, 1fr))', gap: '2rem' }}>
-            {HEALTH_PACKAGES.slice(0, 6).map(pkg => (
-              <PackageCard 
-                key={pkg.id}
-                pkg={pkg}
-                onSelect={onSelectTest}
-                onBook={onBookTest}
-                isCompared={comparedPackages.some(p => p.id === pkg.id)}
-                onToggleCompare={onToggleCompare}
-              />
-            ))}
-          </div>
-
-          {/* Full Width Red CTA Banner */}
-          <div 
-            style={{
-              background: 'linear-gradient(135deg, #EF4444 0%, #DC2626 100%)',
-              color: 'white',
-              borderRadius: '20px',
-              marginTop: '3.5rem',
-              textAlign: 'center',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              gap: '1rem',
-              cursor: 'pointer',
-              padding: '1.75rem 2rem',
-              boxShadow: '0 15px 35px rgba(239, 68, 68, 0.35)'
-            }} 
-            onClick={() => setCurrentTab('packages')}
-          >
-            <span style={{ fontSize: '1.2rem', fontWeight: 900 }}>
-              Want to Explore All Our Healthcare & Checkup packages? Click here
-            </span>
-            <ArrowRight size={24} color="white" />
-          </div>
-
-        </div>
-      </section>
-
-      {/* SECTION 5: TRUST STATS BAR & DOCTORS TRUST BANNER */}
-      <section style={{ padding: '4rem 0', background: '#FFFFFF' }}>
-        <div className="container">
-          
-          {/* Top 3 Stat Cards */}
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: '1.5rem', marginBottom: '3.5rem' }}>
-            <div className="white-liquid-card" style={{ padding: '2rem', display: 'flex', alignItems: 'center', gap: '1.25rem' }}>
-              <div style={{ fontSize: '3.2rem', fontWeight: 900, color: '#EF4444' }}>200k</div>
-              <div style={{ fontSize: '0.95rem', color: '#475569', fontWeight: 600, lineHeight: 1.4 }}>Patients served by us in BJSL Laboratories</div>
-            </div>
-
-            <div className="white-liquid-card" style={{ padding: '2rem', display: 'flex', alignItems: 'center', gap: '1.25rem' }}>
-              <div style={{ fontSize: '3.2rem', fontWeight: 900, color: '#EF4444' }}>100%</div>
-              <div style={{ fontSize: '0.95rem', color: '#475569', fontWeight: 600, lineHeight: 1.4 }}>Client Satisfaction achieved by BJSL</div>
-            </div>
-
-            <div className="white-liquid-card" style={{ padding: '2rem', display: 'flex', alignItems: 'center', gap: '1.25rem' }}>
-              <div style={{ fontSize: '3.2rem', fontWeight: 900, color: '#EF4444' }}>100+</div>
-              <div style={{ fontSize: '0.95rem', color: '#475569', fontWeight: 600, lineHeight: 1.4 }}>Kinds of diagnostic tests available in laboratory</div>
-            </div>
-          </div>
-
-          {/* Large Red Doctors & Clinics Banner with Background Image */}
-          <div style={{
-            background: `linear-gradient(135deg, rgba(239, 68, 68, 0.95) 0%, rgba(220, 38, 38, 0.98) 100%), url('/images/banners/doctors.webp')`,
-            backgroundSize: 'cover',
-            backgroundPosition: 'center',
-            color: 'white',
-            borderRadius: '28px',
-            padding: '3.5rem 3rem',
-            position: 'relative',
-            overflow: 'hidden',
-            boxShadow: '0 25px 60px rgba(239, 68, 68, 0.3), inset 0 1.5px 0 rgba(255, 255, 255, 0.4)'
-          }}>
-            <div style={{ maxWidth: '680px', position: 'relative', zIndex: 5 }}>
-              <h2 style={{ fontSize: '2.6rem', fontWeight: 900, color: 'white', marginBottom: '1rem', lineHeight: 1.2 }}>
-                Thousands of Renowned Doctors & Clinics trusted Us
-              </h2>
-              <p style={{ fontSize: '1.1rem', color: '#FFE4E6', lineHeight: 1.6, marginBottom: '2rem' }}>
-                Dedicated professionals committed to providing you with accurate and reliable diagnostic services. Get BJSL services today from the best lab experts & make a visit to our laboratory.
-              </p>
-
-              <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
-                <button 
-                  onClick={() => setCurrentTab('doctors')}
-                  style={{
-                    background: 'white',
-                    color: '#EF4444',
-                    fontWeight: 900,
-                    fontSize: '1rem',
-                    padding: '0.9rem 2.2rem',
-                    borderRadius: '99px',
-                    boxShadow: '0 10px 25px rgba(0,0,0,0.15)',
-                    border: 'none',
-                    cursor: 'pointer'
-                  }}
-                >
-                  Get BJSL Services
-                </button>
-                <button 
-                  onClick={openBookingWizard}
-                  style={{
-                    background: 'rgba(15, 23, 42, 0.8)',
-                    backdropFilter: 'blur(12px)',
-                    color: 'white',
-                    fontWeight: 900,
-                    fontSize: '1rem',
-                    padding: '0.9rem 2.2rem',
-                    borderRadius: '99px',
-                    border: '1px solid rgba(255,255,255,0.4)',
-                    boxShadow: '0 10px 25px rgba(0,0,0,0.2)',
-                    cursor: 'pointer'
-                  }}
-                >
-                  Book a Test
-                </button>
-              </div>
-            </div>
-          </div>
-
-        </div>
-      </section>
-
-      {/* SECTION 6: SALIENT FEATURES OF BHARATH JAN SEWA LABS (EXACT SCREENSHOT 5) */}
-      <section style={{ padding: '5rem 0', background: '#F8FAFC' }}>
-        <div className="container">
-          
-          <div style={{ textAlign: 'center', maxWidth: '860px', margin: '0 auto 3.5rem' }}>
-            <h2 style={{ fontSize: '2.6rem', fontWeight: 900, color: '#0F172A', marginBottom: '0.5rem' }}>
-              Salient Features of Bharath Jan Seva Labs (BJSL)
-            </h2>
-            <h3 style={{ fontSize: '1.35rem', fontWeight: 800, color: '#EF4444' }}>
-              Diagnostics with Dignity – For Every Bharatiya
-            </h3>
-          </div>
-
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '2rem' }}>
-            
-            {/* Feature 1 */}
+          {/* 2 Primary Action Cards (Book Lab Tests / Book Checkups) */}
+          <div className="mobile-action-cards-grid">
             <div 
-              style={{
-                background: '#FFFFFF',
-                borderRadius: '20px',
-                padding: '2.25rem 2rem',
-                borderLeft: '5px solid #EF4444',
-                borderTop: '1px solid #E2E8F0',
-                borderRight: '1px solid #E2E8F0',
-                borderBottom: '1px solid #E2E8F0',
-                boxShadow: '0 10px 30px rgba(15, 23, 42, 0.05)',
-                display: 'flex',
-                gap: '1.25rem'
+              className="mobile-action-card"
+              onClick={() => {
+                const el = document.querySelector('#popular-tests');
+                if (el) el.scrollIntoView({ behavior: 'smooth' });
+                else if (openSearchModal) openSearchModal();
               }}
+              role="button"
+              tabIndex={0}
             >
-              <div style={{ width: '56px', height: '56px', borderRadius: '16px', background: '#FFF1F2', color: '#EF4444', border: '1.5px solid #FECDD3', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
-                <User size={28} />
+              <div className="mobile-action-icon-box" style={{ background: '#EFF6FF', color: '#2563EB' }}>
+                <span style={{ fontSize: '24px' }}>🔬</span>
               </div>
-              <div>
-                <h4 style={{ fontSize: '1.2rem', fontWeight: 800, color: '#0F172A', marginBottom: '8px' }}>
-                  Mission-Driven & Patient-First
-                </h4>
-                <p style={{ fontSize: '0.95rem', color: '#64748B', lineHeight: 1.6 }}>
-                  Every patient is treated with dignity, and every community gets access to essential diagnostics without barriers.
-                </p>
+              <div className="mobile-action-text">
+                <span className="mobile-action-sub">Book</span>
+                <span className="mobile-action-title">Lab Tests</span>
               </div>
             </div>
 
-            {/* Feature 2 */}
             <div 
-              style={{
-                background: '#FFFFFF',
-                borderRadius: '20px',
-                padding: '2.25rem 2rem',
-                borderLeft: '5px solid #EF4444',
-                borderTop: '1px solid #E2E8F0',
-                borderRight: '1px solid #E2E8F0',
-                borderBottom: '1px solid #E2E8F0',
-                boxShadow: '0 10px 30px rgba(15, 23, 42, 0.05)',
-                display: 'flex',
-                gap: '1.25rem'
+              className="mobile-action-card"
+              onClick={() => {
+                const el = document.querySelector('#checkups');
+                if (el) el.scrollIntoView({ behavior: 'smooth' });
+                else if (setCurrentTab) setCurrentTab('packages');
               }}
+              role="button"
+              tabIndex={0}
             >
-              <div style={{ width: '56px', height: '56px', borderRadius: '16px', background: '#FFF1F2', color: '#EF4444', border: '1.5px solid #FECDD3', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
-                <Globe size={28} />
+              <div className="mobile-action-icon-box" style={{ background: '#FDF2F8', color: '#DB2777' }}>
+                <span style={{ fontSize: '24px' }}>🧰</span>
               </div>
-              <div>
-                <h4 style={{ fontSize: '1.2rem', fontWeight: 800, color: '#0F172A', marginBottom: '8px' }}>
-                  Widespread Access Across India
-                </h4>
-                <p style={{ fontSize: '0.95rem', color: '#64748B', lineHeight: 1.6 }}>
-                  Local collection centers and mobile diagnostic vans extend services to rural, remote, and underserved regions.
-                </p>
+              <div className="mobile-action-text">
+                <span className="mobile-action-sub">Book</span>
+                <span className="mobile-action-title">Checkups</span>
               </div>
             </div>
+          </div>
 
-            {/* Feature 3 */}
+          {/* 4 Quick Circular Utility Buttons */}
+          <div className="mobile-utility-icons-row">
+            <a href="tel:919805543143" className="mobile-util-item">
+              <div className="mobile-util-circle" style={{ background: '#FEF3C7', color: '#D97706' }}>
+                <Phone size={18} />
+              </div>
+              <span className="mobile-util-label">Call Us</span>
+            </a>
+
+            <a 
+              href="https://wa.me/919805543143?text=Namaste%20BJSL,%20I%20would%20like%20to%20book%20a%20blood%20test."
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="mobile-util-item"
+            >
+              <div className="mobile-util-circle" style={{ background: '#DCFCE7', color: '#16A34A' }}>
+                <MessageSquare size={18} />
+              </div>
+              <span className="mobile-util-label">WhatsApp</span>
+            </a>
+
             <div 
-              style={{
-                background: '#FFFFFF',
-                borderRadius: '20px',
-                padding: '2.25rem 2rem',
-                borderLeft: '5px solid #EF4444',
-                borderTop: '1px solid #E2E8F0',
-                borderRight: '1px solid #E2E8F0',
-                borderBottom: '1px solid #E2E8F0',
-                boxShadow: '0 10px 30px rgba(15, 23, 42, 0.05)',
-                display: 'flex',
-                gap: '1.25rem'
-              }}
+              className="mobile-util-item"
+              onClick={() => setIsPrescriptionModalOpen(true)}
+              role="button"
+              tabIndex={0}
             >
-              <div style={{ width: '56px', height: '56px', borderRadius: '16px', background: '#FFF1F2', color: '#EF4444', border: '1.5px solid #FECDD3', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
-                <MapPin size={28} />
+              <div className="mobile-util-circle" style={{ background: '#EDE9FE', color: '#7C3AED' }}>
+                <FileText size={18} />
               </div>
-              <div>
-                <h4 style={{ fontSize: '1.2rem', fontWeight: 800, color: '#0F172A', marginBottom: '8px' }}>
-                  Affordable, Transparent Pricing
-                </h4>
-                <p style={{ fontSize: '0.95rem', color: '#64748B', lineHeight: 1.6 }}>
-                  We follow a clear flat-rate packages priced 50–70% lower than market rates, with clear, honest pricing and no hidden charges.
-                </p>
-              </div>
+              <span className="mobile-util-label">Prescription</span>
             </div>
 
-            {/* Feature 4 */}
             <div 
-              style={{
-                background: '#FFFFFF',
-                borderRadius: '20px',
-                padding: '2.25rem 2rem',
-                borderLeft: '5px solid #EF4444',
-                borderTop: '1px solid #E2E8F0',
-                borderRight: '1px solid #E2E8F0',
-                borderBottom: '1px solid #E2E8F0',
-                boxShadow: '0 10px 30px rgba(15, 23, 42, 0.05)',
-                display: 'flex',
-                gap: '1.25rem'
+              className="mobile-util-item"
+              onClick={() => {
+                const el = document.querySelector('#centres');
+                if (el) el.scrollIntoView({ behavior: 'smooth' });
+                else if (setCurrentTab) setCurrentTab('centres');
               }}
+              role="button"
+              tabIndex={0}
             >
-              <div style={{ width: '56px', height: '56px', borderRadius: '16px', background: '#FFF1F2', color: '#EF4444', border: '1.5px solid #FECDD3', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
-                <ShieldCheck size={28} />
+              <div className="mobile-util-circle" style={{ background: '#FFE4E6', color: '#E11D48' }}>
+                <Building2 size={18} />
               </div>
-              <div>
-                <h4 style={{ fontSize: '1.2rem', fontWeight: 800, color: '#0F172A', marginBottom: '8px' }}>
-                  NABL-Accredited Accuracy & Reliability
-                </h4>
-                <p style={{ fontSize: '0.95rem', color: '#64748B', lineHeight: 1.6 }}>
-                  All tests are processed at centralized NABL-accredited laboratories, ensuring precision, reliability, and fast turnaround times.
-                </p>
-              </div>
-            </div>
-
-          </div>
-
-        </div>
-      </section>
-
-      {/* SECTION 7: OUR ACCREDITATIONS BANNER (EXACT SCREENSHOT 4) */}
-      <section style={{ padding: '2rem 0', background: '#FFFFFF' }}>
-        <div className="container">
-          <div style={{
-            background: 'linear-gradient(135deg, #EF4444 0%, #DC2626 100%)',
-            color: 'white',
-            borderRadius: '24px',
-            padding: '2.5rem 3rem',
-            textAlign: 'center',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            gap: '1.5rem',
-            flexWrap: 'wrap',
-            boxShadow: '0 20px 50px rgba(239, 68, 68, 0.35)'
-          }}>
-            <h2 style={{ fontSize: '2.5rem', fontWeight: 900, margin: 0, letterSpacing: '-0.02em' }}>
-              Our Accreditations
-            </h2>
-            <div style={{ width: '2px', height: '40px', background: 'rgba(255,255,255,0.4)', display: 'inline-block' }} />
-            <div style={{ fontSize: '1.2rem', fontWeight: 800, maxWidth: '480px', textAlign: 'left', lineHeight: 1.3 }}>
-              ( Bharath Jan Sewa Labs send tests to NABL-accredited labs )
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* SECTION 8: OUR PREMIUM TESTS GRID (EXACT SCREENSHOT 3) */}
-      <section style={{ padding: '5rem 0', background: '#F8FAFC' }}>
-        <div className="container">
-          
-          <div style={{ textAlign: 'center', maxWidth: '840px', margin: '0 auto 3.5rem' }}>
-            <h2 style={{ fontSize: '2.8rem', fontWeight: 900, color: '#0F172A', marginBottom: '0.75rem' }}>
-              Our Premium Tests
-            </h2>
-            <p style={{ fontSize: '1.05rem', color: '#64748B', lineHeight: 1.6 }}>
-              Our mission is to provide the highest standard of clinical laboratory service to physicians, clinics, hospitals, and our beloved people.
-            </p>
-          </div>
-
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: '1.5rem' }}>
-            {[
-              'General Diagnostic Testing',
-              'Allergy & Sensitivity Testing',
-              'Specialized Genetic Testing',
-              'Hormone Insights Testing',
-              'Complete Health Checkup',
-              'Clinical Microbiology Tests',
-              'Clinical Biochemistry Tests',
-              'Clinical Histopatology Tests'
-            ].map((testTitle, idx) => (
-              <div 
-                key={idx}
-                style={{
-                  background: '#FFFFFF',
-                  borderRadius: '99px',
-                  padding: '1.15rem 1.75rem',
-                  display: 'flex',
-                  alignItems: 'center',
-                  gap: '1rem',
-                  border: '1px solid #E2E8F0',
-                  boxShadow: '0 4px 15px rgba(15, 23, 42, 0.04)',
-                  transition: 'all 0.25s ease',
-                  cursor: 'pointer'
-                }}
-                onClick={() => setCurrentTab('tests')}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.transform = 'translateY(-3px)';
-                  e.currentTarget.style.borderColor = '#EF4444';
-                  e.currentTarget.style.boxShadow = '0 10px 25px rgba(239, 68, 68, 0.15)';
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.transform = 'translateY(0)';
-                  e.currentTarget.style.borderColor = '#E2E8F0';
-                  e.currentTarget.style.boxShadow = '0 4px 15px rgba(15, 23, 42, 0.04)';
-                }}
-              >
-                <div style={{ width: '42px', height: '42px', borderRadius: '50%', background: '#EF4444', color: 'white', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0, boxShadow: '0 4px 12px rgba(239, 68, 68, 0.3)' }}>
-                  <CheckCircle2 size={22} />
-                </div>
-                <span style={{ fontSize: '1rem', fontWeight: 800, color: '#0F172A' }}>
-                  {testTitle}
-                </span>
-              </div>
-            ))}
-          </div>
-
-        </div>
-      </section>
-
-      {/* SECTION 9: GOOGLE REVIEWS RED SLIDER (EXACT SCREENSHOT 2) */}
-      <section style={{ padding: '5rem 0', background: '#FFFFFF' }}>
-        <div className="container">
-          
-          <div style={{
-            background: 'linear-gradient(135deg, rgba(239, 68, 68, 0.98) 0%, rgba(220, 38, 38, 0.98) 100%)',
-            backdropFilter: 'blur(20px)',
-            color: 'white',
-            borderRadius: '28px',
-            padding: '3.5rem 3rem',
-            position: 'relative',
-            boxShadow: '0 25px 60px rgba(239, 68, 68, 0.35), inset 0 1.5px 0 rgba(255, 255, 255, 0.4)'
-          }}>
-            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '2.5rem', flexWrap: 'wrap', gap: '1rem' }}>
-              <h2 style={{ fontSize: '2.8rem', fontWeight: 900, color: 'white' }}>Google Reviews</h2>
-              <div style={{ display: 'flex', gap: '12px' }}>
-                <button onClick={prevReview} style={{ width: '48px', height: '48px', borderRadius: '50%', border: '2px solid white', color: 'white', display: 'flex', alignItems: 'center', justifyContent: 'center', background: 'rgba(255,255,255,0.15)', cursor: 'pointer' }}>
-                  <ChevronLeft size={24} />
-                </button>
-                <button onClick={nextReview} style={{ width: '48px', height: '48px', borderRadius: '50%', border: '2px solid white', color: 'white', display: 'flex', alignItems: 'center', justifyContent: 'center', background: 'rgba(255,255,255,0.15)', cursor: 'pointer' }}>
-                  <ChevronRight size={24} />
-                </button>
-              </div>
-            </div>
-
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(290px, 1fr))', gap: '1.5rem', padding: '0.5rem 0' }}>
-              {GOOGLE_REVIEWS.slice(0, 6).map((rev) => (
-                <div 
-                  key={rev.id} 
-                  style={{ 
-                    background: '#FFFFFF', 
-                    borderRadius: '24px', 
-                    padding: '1.75rem', 
-                    color: '#0F172A', 
-                    boxShadow: '0 15px 35px rgba(0,0,0,0.15)',
-                    display: 'flex',
-                    flexDirection: 'column',
-                    justifyContent: 'space-between'
-                  }}
-                >
-                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '1rem' }}>
-                    <div>
-                      <div style={{ fontSize: '1.1rem', fontWeight: 900, color: '#0F172A' }}>{rev.author}</div>
-                      <div style={{ fontSize: '0.8rem', color: '#64748B', fontWeight: 600 }}>📍 {rev.centre}</div>
-                    </div>
-                    <div style={{ color: '#F59E0B', fontWeight: 900, fontSize: '1rem' }}>★★★★★</div>
-                  </div>
-                  <p style={{ fontSize: '0.925rem', color: '#475569', lineHeight: 1.6 }}>
-                    "{rev.text}"
-                  </p>
-                </div>
-              ))}
+              <span className="mobile-util-label">Centres</span>
             </div>
           </div>
 
-        </div>
-      </section>
-
-      {/* SECTION 10: BOOK YOUR HEALTH TEST FORM BANNER WITH DOCTOR PHOTO (EXACT SCREENSHOT 1) */}
-      <section style={{ padding: '5rem 0', background: '#F8FAFC' }}>
-        <div className="container">
-          
-          <div style={{
-            background: 'linear-gradient(135deg, rgba(239, 68, 68, 0.98) 0%, rgba(220, 38, 38, 0.98) 100%)',
-            color: 'white',
-            borderRadius: '28px',
-            padding: '3.5rem 3rem',
-            position: 'relative',
-            boxShadow: '0 25px 60px rgba(239, 68, 68, 0.35), inset 0 1.5px 0 rgba(255, 255, 255, 0.4)',
-            overflow: 'hidden'
-          }}>
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '3rem', alignItems: 'center' }}>
+          {/* Mobile Lifestyle Peeking Cards Slider (Screenshot 1) */}
+          <div className="mobile-lifestyle-slider-wrapper">
+            <div className="mobile-lifestyle-scroll-track">
               
-              {/* Left Side: Masked Doctor Photo */}
-              <div style={{ textAlign: 'center', position: 'relative' }}>
+              {/* Card 1: Lifestyle (Generated New Image) */}
+              <div 
+                className="mobile-lifestyle-card"
+                onClick={() => {
+                  const el = document.querySelector('#checkups');
+                  if (el) el.scrollIntoView({ behavior: 'smooth' });
+                }}
+                role="button"
+                tabIndex={0}
+              >
                 <img 
-                  src="/images/banners/doctors.webp" 
-                  alt="BJSL Doctor holding blood sample" 
-                  style={{ width: '100%', maxHeight: '420px', objectFit: 'cover', borderRadius: '24px', boxShadow: '0 15px 35px rgba(0,0,0,0.3)', border: '2px solid rgba(255,255,255,0.4)' }}
+                  src="/images/slides/lifestyle_hero.jpg" 
+                  alt="Your lifestyle impacts your health" 
+                  className="mobile-lifestyle-bg-img"
                 />
-              </div>
-
-              {/* Right Side: Form */}
-              <div>
-                <h2 style={{ fontSize: '2.8rem', fontWeight: 900, color: 'white', marginBottom: '2rem' }}>
-                  Book Your Health Test
-                </h2>
-
-                <form onSubmit={handleFormSubmit} style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1.25rem' }}>
-                  <div style={{ gridColumn: '1 / -1' }}>
-                    <label style={{ display: 'block', fontSize: '0.85rem', fontWeight: 800, color: 'white', marginBottom: '6px' }}>Select Package*</label>
-                    <select value={formPackage} onChange={(e) => setFormPackage(e.target.value)} style={{ width: '100%', padding: '0.85rem 1.25rem', borderRadius: '99px', border: 'none', background: 'rgba(255,255,255,0.92)', fontSize: '0.95rem', fontWeight: 800, color: '#0F172A' }}>
-                      <option value="Chirayu Full Body Check (PRIME)">Chirayu Full Body Check (PRIME) - ₹796</option>
-                      <option value="Chirayu Full Body Check (MASTER)">Chirayu Full Body Check (MASTER) - ₹1566</option>
-                      <option value="Chirayu Full Body Check (ADVANCED)">Chirayu Full Body Check (ADVANCED) - ₹1366</option>
-                      <option value="Chirayu Full Body Check (MEN)">Chirayu Full Body Check (MEN) - ₹2199</option>
-                      <option value="Chirayu Full Body Check (WOMEN)">Chirayu Full Body Check (WOMEN) - ₹2166</option>
-                      <option value="Chirayu Senior Citizen MALE">Chirayu Senior Citizen MALE - ₹1999</option>
-                    </select>
-                  </div>
-
-                  <div>
-                    <label style={{ display: 'block', fontSize: '0.85rem', fontWeight: 800, color: 'white', marginBottom: '6px' }}>Full Name*</label>
-                    <input type="text" required placeholder="Afi Kumar" value={formName} onChange={(e) => setFormName(e.target.value)} style={{ width: '100%', padding: '0.85rem 1.25rem', borderRadius: '99px', border: 'none', background: 'rgba(255,255,255,0.92)', fontSize: '0.95rem', color: '#0F172A' }} />
-                  </div>
-
-                  <div>
-                    <label style={{ display: 'block', fontSize: '0.85rem', fontWeight: 800, color: 'white', marginBottom: '6px' }}>Email Address*</label>
-                    <input type="email" required placeholder="contact@example.com" value={formEmail} onChange={(e) => setFormEmail(e.target.value)} style={{ width: '100%', padding: '0.85rem 1.25rem', borderRadius: '99px', border: 'none', background: 'rgba(255,255,255,0.92)', fontSize: '0.95rem', color: '#0F172A' }} />
-                  </div>
-
-                  <div>
-                    <label style={{ display: 'block', fontSize: '0.85rem', fontWeight: 800, color: 'white', marginBottom: '6px' }}>Phone No*</label>
-                    <input type="tel" required placeholder="9805543143" value={formPhone} onChange={(e) => setFormPhone(e.target.value)} style={{ width: '100%', padding: '0.85rem 1.25rem', borderRadius: '99px', border: 'none', background: 'rgba(255,255,255,0.92)', fontSize: '0.95rem', color: '#0F172A' }} />
-                  </div>
-
-                  <div>
-                    <label style={{ display: 'block', fontSize: '0.85rem', fontWeight: 800, color: 'white', marginBottom: '6px' }}>Select Location*</label>
-                    <select value={formLocation} onChange={(e) => setFormLocation(e.target.value)} style={{ width: '100%', padding: '0.85rem 1.25rem', borderRadius: '99px', border: 'none', background: 'rgba(255,255,255,0.92)', fontSize: '0.95rem', fontWeight: 800, color: '#0F172A' }}>
-                      <option value="Sanjaynagar">Sanjaynagar Hub</option>
-                      <option value="Peenya">Peenya 2nd Stage</option>
-                      <option value="Kengeri">Kengeri BDA Complex</option>
-                      <option value="Ittamadu">Ittamadu / Banashankari</option>
-                      <option value="Subramanyapura">Subramanyapura Hub</option>
-                      <option value="Jaraganahalli">Jaraganahalli Hub</option>
-                    </select>
-                  </div>
-
-                  <div>
-                    <label style={{ display: 'block', fontSize: '0.85rem', fontWeight: 800, color: 'white', marginBottom: '6px' }}>Preferred Date</label>
-                    <input type="date" value={formDate} onChange={(e) => setFormDate(e.target.value)} style={{ width: '100%', padding: '0.85rem 1.25rem', borderRadius: '99px', border: 'none', background: 'rgba(255,255,255,0.92)', fontSize: '0.95rem', color: '#0F172A' }} />
-                  </div>
-
-                  <div>
-                    <label style={{ display: 'block', fontSize: '0.85rem', fontWeight: 800, color: 'white', marginBottom: '6px' }}>Appointment Time*</label>
-                    <select value={formTime} onChange={(e) => setFormTime(e.target.value)} style={{ width: '100%', padding: '0.85rem 1.25rem', borderRadius: '99px', border: 'none', background: 'rgba(255,255,255,0.92)', fontSize: '0.95rem', fontWeight: 800, color: '#0F172A' }}>
-                      <option value="07:00 AM">07:00 AM - 09:00 AM</option>
-                      <option value="09:00 AM">09:00 AM - 11:00 AM</option>
-                      <option value="11:00 AM">11:00 AM - 01:00 PM</option>
-                      <option value="02:00 PM">02:00 PM - 05:00 PM</option>
-                    </select>
-                  </div>
-
-                  <div style={{ gridColumn: '1 / -1', marginTop: '0.5rem' }}>
-                    <label style={{ fontSize: '0.85rem', color: 'white', display: 'inline-flex', alignItems: 'center', gap: '8px', marginBottom: '1.25rem', cursor: 'pointer' }}>
-                      <input type="checkbox" checked={formAgree} onChange={(e) => setFormAgree(e.target.checked)} style={{ accentColor: '#0F172A', width: '16px', height: '16px' }} />
-                      I agree to the Terms of Use and Privacy Policy
-                    </label>
-                    <br />
-                    <button type="submit" style={{ background: 'white', color: '#EF4444', fontWeight: 900, fontSize: '1.05rem', padding: '1rem 3rem', borderRadius: '99px', boxShadow: '0 12px 30px rgba(0,0,0,0.2)', border: 'none', cursor: 'pointer' }}>
-                      Make Appointment
-                    </button>
-                  </div>
-                </form>
-              </div>
-
-            </div>
-          </div>
-
-        </div>
-      </section>
-
-      {/* SECTION 11: WHATSAPP LABORATORY & OUTREACH GALLERY SLIDER */}
-      <section style={{ padding: '5rem 0', background: '#FFFFFF' }}>
-        <div className="container">
-          
-          <div style={{ textAlign: 'center', maxWidth: '840px', margin: '0 auto 3.5rem' }}>
-            <div style={{
-              background: '#FFF1F2',
-              color: '#EF4444',
-              padding: '6px 18px',
-              borderRadius: '99px',
-              fontSize: '0.85rem',
-              fontWeight: 900,
-              display: 'inline-flex',
-              alignItems: 'center',
-              gap: '6px',
-              marginBottom: '1rem'
-            }}>
-              <Sparkles size={16} /> REAL LAB ACTIVITIES & OUTREACH
-            </div>
-            <h2 style={{ fontSize: '2.8rem', fontWeight: 900, color: '#0F172A', marginBottom: '0.5rem' }}>
-              BJSL Diagnostic Facility Gallery
-            </h2>
-            <p style={{ fontSize: '1.05rem', color: '#64748B' }}>
-              Explore our NABL reference laboratories, automated sample processors, phlebotomy training hubs, and community health camps across Bangalore.
-            </p>
-          </div>
-
-          <div className="gallery-marquee-container" style={{ padding: '0.5rem 0' }}>
-            <div className="gallery-marquee-track">
-              {[...galleryImages, ...galleryImages].map((img, idx) => (
-                <div 
-                  key={idx}
-                  className="white-liquid-card"
-                  style={{ 
-                    width: '320px', 
-                    flexShrink: 0, 
-                    borderRadius: '20px', 
-                    overflow: 'hidden', 
-                    cursor: 'pointer', 
-                    padding: 0 
-                  }}
-                  onClick={() => setLightboxImage(img.src)}
-                >
-                  <div style={{ height: '220px', overflow: 'hidden', position: 'relative' }}>
-                    <img 
-                      src={img.src} 
-                      alt={img.title} 
-                      style={{ width: '100%', height: '100%', objectFit: 'cover', transition: 'transform 0.5s ease' }}
-                      onMouseEnter={(e) => e.currentTarget.style.transform = 'scale(1.08)'}
-                      onMouseLeave={(e) => e.currentTarget.style.transform = 'scale(1)'}
-                    />
-                    <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(180deg, transparent 50%, rgba(15,23,42,0.85) 100%)' }} />
-                    <div style={{ position: 'absolute', bottom: '12px', left: '16px', right: '16px', color: 'white', fontSize: '0.875rem', fontWeight: 800 }}>
-                      {img.title}
+                <div className="mobile-lifestyle-scrim" />
+                <div className="mobile-lifestyle-content">
+                  <h3 className="mobile-lifestyle-headline">
+                    Your lifestyle impacts<br />your health.
+                  </h3>
+                  <div className="mobile-lifestyle-tag-pill">
+                    <span>Track it with a Full Body Checkup</span>
+                    <div className="mobile-lifestyle-price-row">
+                      <span>Starts at ₹1599</span>
+                      <ArrowRight size={14} />
                     </div>
                   </div>
                 </div>
-              ))}
+              </div>
+
+              {/* Card 2: Hair Fall (Generated New Image) */}
+              <div 
+                className="mobile-lifestyle-card"
+                onClick={() => {
+                  const el = document.querySelector('#health-conditions');
+                  if (el) el.scrollIntoView({ behavior: 'smooth' });
+                }}
+                role="button"
+                tabIndex={0}
+              >
+                <img 
+                  src="/images/slides/hairfall_hero.jpg" 
+                  alt="Stop treating symptoms. Find the trigger." 
+                  className="mobile-lifestyle-bg-img"
+                />
+                <div className="mobile-lifestyle-scrim" />
+                <div className="mobile-lifestyle-content">
+                  <h3 className="mobile-lifestyle-headline">
+                    Stop treating symptoms.<br />Find the trigger.
+                  </h3>
+                  <div className="mobile-lifestyle-tag-pill">
+                    <span>Hair Fall Screening Profile</span>
+                    <div className="mobile-lifestyle-price-row">
+                      <span>Starts at ₹399</span>
+                      <ArrowRight size={14} />
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Card 3: Senior & Family Care (Generated New Image) */}
+              <div 
+                className="mobile-lifestyle-card"
+                onClick={() => {
+                  const el = document.querySelector('#checkups');
+                  if (el) el.scrollIntoView({ behavior: 'smooth' });
+                }}
+                role="button"
+                tabIndex={0}
+              >
+                <img 
+                  src="/images/slides/senior_hero.jpg" 
+                  alt="Protect Your Elders & Family" 
+                  className="mobile-lifestyle-bg-img"
+                />
+                <div className="mobile-lifestyle-scrim" />
+                <div className="mobile-lifestyle-content">
+                  <h3 className="mobile-lifestyle-headline">
+                    Protect your elders<br />& beloved family.
+                  </h3>
+                  <div className="mobile-lifestyle-tag-pill">
+                    <span>Geriatric Senior Citizen Care</span>
+                    <div className="mobile-lifestyle-price-row">
+                      <span>Starts at ₹999</span>
+                      <ArrowRight size={14} />
+                    </div>
+                  </div>
+                </div>
+              </div>
+
             </div>
           </div>
 
         </div>
-      </section>
+      </div>
 
-      {/* SECTION 11.5: HEALTH BLOGS & DIAGNOSTIC ARTICLES (RIGHT ABOVE FAQ) */}
-      <section style={{ padding: '5rem 0 3rem', background: '#FFFFFF', borderTop: '1px solid #E2E8F0' }}>
-        <div className="container">
+      {/* 1. DOCTOR-LED NABL HERO SLIDE BANNER (Desktop View - 100% Preserved) */}
+      <section className="doctor-hero-banner-section">
+        <div className="container doctor-hero-container">
           
-          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', marginBottom: '3rem', flexWrap: 'wrap', gap: '1rem' }}>
-            <div>
-              <span className="badge-pink-tag" style={{ marginBottom: '0.75rem', display: 'inline-block' }}>
-                MEDICAL KNOWLEDGE & HEALTH BLOGS
-              </span>
-              <h2 style={{ fontSize: '2.5rem', fontWeight: 900, color: '#0F172A', lineHeight: 1.2 }}>
-                Diagnostic Articles & Health Guides
-              </h2>
-              <p style={{ fontSize: '1rem', color: '#64748B', marginTop: '0.5rem' }}>
-                Authored by certified Pathologists & Medical Advisors. Published <strong>{TODAY_FORMATTED}</strong>.
-              </p>
-            </div>
-
+          <div className="doctor-hero-slider-wrapper">
+            
+            {/* Left Nav Arrow Button (Positioned safely outside card boundary, no overlap) */}
             <button 
-              onClick={() => { setCurrentTab('blogs'); window.scrollTo(0,0); }}
-              className="btn-red-outline" 
-              style={{ padding: '0.75rem 1.75rem', fontSize: '0.9rem', display: 'flex', alignItems: 'center', gap: '8px' }}
+              type="button" 
+              onClick={handlePrevSlide}
+              className="doctor-hero-nav-arrow doctor-hero-nav-prev"
+              aria-label="Previous Hero Slide"
             >
-              View All Health Articles <ArrowRight size={16} />
+              <ChevronLeft size={24} />
             </button>
-          </div>
 
-          <div className="card-grid" style={{ gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '2rem' }}>
-            {BLOG_POSTS.slice(0, 3).map(post => (
-              <article 
-                key={post.id}
-                className="white-liquid-card"
-                style={{ 
-                  padding: '1.75rem',
-                  cursor: 'pointer', 
-                  display: 'flex', 
-                  flexDirection: 'column', 
-                  justifyContent: 'space-between',
-                  gap: '1.25rem'
-                }}
-                onClick={() => { setCurrentTab('blogs'); window.scrollTo(0,0); }}
-              >
-                <div>
-                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1.25rem', gap: '8px' }}>
-                    <span className="badge-pink-tag" style={{ fontSize: '0.75rem', padding: '4px 10px' }}>{post.category}</span>
-                    <span style={{ fontSize: '0.8rem', color: '#64748B', display: 'flex', alignItems: 'center', gap: '4px', fontWeight: 600, flexShrink: 0 }}>
-                      <Clock size={14} color="#EF4444" /> {post.readTime}
+            <div className="doctor-hero-slider-card">
+
+              {/* Slide Content Track */}
+              <div className="doctor-hero-slide-inner">
+                
+                {/* Left Column: Badges, Title, Subtitle, Trust Grid, Actions & Dots */}
+                <div className="doctor-hero-content">
+                  {/* Badges Row */}
+                  <div className="doctor-hero-badges-row">
+                    <span className="doctor-badge-blue">
+                      {heroSlides[currentSlide].badge1}
+                    </span>
+                    <span className="doctor-badge-green">
+                      <Check size={14} strokeWidth={3} /> {heroSlides[currentSlide].badge2}
                     </span>
                   </div>
 
-                  <div style={{ fontSize: '2.5rem', marginBottom: '1rem', lineHeight: 1 }}>{post.image}</div>
+                  {/* Headline */}
+                  <h1 className="doctor-hero-title">
+                    {heroSlides[currentSlide].titlePrefix}{' '}
+                    <span className="doctor-hero-title-highlight">{heroSlides[currentSlide].titleHighlight}</span>
+                  </h1>
 
-                  <h3 style={{ fontSize: '1.2rem', fontWeight: 900, color: '#0F172A', marginBottom: '0.75rem', lineHeight: 1.35 }}>
-                    {post.title}
-                  </h3>
-
-                  <p style={{ fontSize: '0.875rem', color: '#64748B', lineHeight: 1.6 }}>
-                    {post.excerpt}
+                  {/* Subtitle */}
+                  <p className="doctor-hero-subtitle">
+                    {heroSlides[currentSlide].subtitle}
                   </p>
+
+                  {/* 4 Trust Badges Grid (Pills in a row) */}
+                  <div className="doctor-hero-trust-grid">
+                    {heroSlides[currentSlide].trustBadges.map((badge, idx) => (
+                      <div key={idx} className="doctor-hero-trust-pill">
+                        <span className="doctor-trust-icon">{badge.icon}</span>
+                        <div className="doctor-trust-text">
+                          <span className="doctor-trust-line1">{badge.line1}</span>
+                          <span className="doctor-trust-line2">{badge.line2}</span>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+
+                  {/* Actions Row & Slide Indicator Dots */}
+                  <div className="doctor-hero-footer-row">
+                    <div className="doctor-hero-actions-row">
+                      <button 
+                        type="button"
+                        onClick={heroSlides[currentSlide].primaryAction.onClick}
+                        className="doctor-hero-btn-primary"
+                      >
+                        {heroSlides[currentSlide].primaryAction.label} <ArrowRight size={16} />
+                      </button>
+                      <button 
+                        type="button"
+                        onClick={heroSlides[currentSlide].secondaryAction.onClick}
+                        className="doctor-hero-btn-secondary"
+                      >
+                        {heroSlides[currentSlide].secondaryAction.label}
+                      </button>
+                    </div>
+
+                    {/* Indicator Controls (Dots + Mini Chevrons for instant intuitive sliding) */}
+                    <div className="doctor-hero-slider-dots">
+                      <button
+                        type="button"
+                        onClick={handlePrevSlide}
+                        className="doctor-hero-inline-nav-btn"
+                        aria-label="Previous slide"
+                      >
+                        <ChevronLeft size={16} />
+                      </button>
+                      {heroSlides.map((_, idx) => (
+                        <button
+                          key={idx}
+                          type="button"
+                          onClick={() => setCurrentSlide(idx)}
+                          className={`doctor-hero-dot ${idx === currentSlide ? 'active' : ''}`}
+                          aria-label={`Go to slide ${idx + 1}`}
+                        />
+                      ))}
+                      <button
+                        type="button"
+                        onClick={handleNextSlide}
+                        className="doctor-hero-inline-nav-btn"
+                        aria-label="Next slide"
+                      >
+                        <ChevronRight size={16} />
+                      </button>
+                    </div>
+                  </div>
+
                 </div>
 
-                <div style={{ borderTop: '1px solid #F1F5F9', paddingTop: '1rem', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-                  <div style={{ fontSize: '0.8rem', color: '#0F172A', fontWeight: 700, display: 'flex', alignItems: 'center', gap: '6px' }}>
-                    <span>📅</span>
-                    <span>{post.date}</span>
-                  </div>
-                  <span style={{ color: '#EF4444', fontWeight: 800, fontSize: '0.85rem', display: 'flex', alignItems: 'center', gap: '4px' }}>
-                    Read Guide →
-                  </span>
+                {/* Right Column: High Quality Image */}
+                <div className="doctor-hero-media">
+                  <img 
+                    key={currentSlide}
+                    src={heroSlides[currentSlide].image} 
+                    alt={heroSlides[currentSlide].imageAlt}
+                    className="doctor-hero-img"
+                    onError={(e) => {
+                      e.currentTarget.src = heroSlides[currentSlide].fallbackImage;
+                    }}
+                  />
                 </div>
-              </article>
-            ))}
+
+              </div>
+
+            </div>
+
+            {/* Right Nav Arrow Button (Positioned safely outside card boundary, no overlap) */}
+            <button 
+              type="button" 
+              onClick={handleNextSlide}
+              className="doctor-hero-nav-arrow doctor-hero-nav-next"
+              aria-label="Next Hero Slide"
+            >
+              <ChevronRight size={24} />
+            </button>
+
           </div>
 
         </div>
       </section>
 
-      {/* SECTION 12: FREQUENTLY ASKED QUESTIONS (FAQ ACCORDION) */}
-      <section style={{ padding: '5rem 0', background: '#F8FAFC' }}>
-        <div className="container" style={{ maxWidth: '840px' }}>
-          
-          <div style={{ textAlign: 'center', marginBottom: '3.5rem' }}>
-            <h2 style={{ fontSize: '2.6rem', fontWeight: 900, color: '#0F172A', marginBottom: '0.5rem' }}>
-              Frequently Asked Questions (FAQs)
-            </h2>
-            <p style={{ fontSize: '1rem', color: '#64748B' }}>
-              Everything you need to know about BJSL blood tests, NABL processing, and free doorstep sample collection.
-            </p>
+      {/* 1.5 QUICK ACTION CARDS (Screenshot 2) */}
+      <section className="quick-actions-section">
+        <div className="container">
+          <div className="quick-actions-grid">
+            
+            {/* 1. Upload Prescription */}
+            <div 
+              className="quick-action-card"
+              onClick={() => setIsPrescriptionModalOpen(true)}
+              role="button"
+              tabIndex={0}
+            >
+              <div className="quick-action-icon-circle" style={{ backgroundColor: '#EFF6FF', color: '#2563EB' }}>
+                <FileText size={24} />
+              </div>
+              <div className="quick-action-text">
+                <div className="quick-action-title">Upload Prescription</div>
+                <div className="quick-action-subtitle">Quick order lookup</div>
+              </div>
+              <div className="quick-action-arrow-btn">
+                <ChevronRight size={18} />
+              </div>
+            </div>
+
+            {/* 2. Home Sample Collection */}
+            <div 
+              className="quick-action-card"
+              onClick={() => openBookingWizard()}
+              role="button"
+              tabIndex={0}
+            >
+              <div className="quick-action-icon-circle" style={{ backgroundColor: '#ECFDF5', color: '#059669' }}>
+                <span style={{ fontSize: '26px' }}>🛵</span>
+              </div>
+              <div className="quick-action-text">
+                <div className="quick-action-title">Home Sample Collection</div>
+                <div className="quick-action-subtitle">Free sample pickup</div>
+              </div>
+              <div className="quick-action-arrow-btn" style={{ backgroundColor: '#ECFDF5', color: '#059669' }}>
+                <ChevronRight size={18} />
+              </div>
+            </div>
+
+            {/* 3. Doctor Enquiry */}
+            <a 
+              href="https://wa.me/919805543143?text=Namaste%20Bharath%20Jan%20Sewa%20Labs%2C%20I%20have%20a%20doctor%20enquiry%20regarding%20blood%20tests."
+              target="_blank"
+              rel="noopener noreferrer"
+              className="quick-action-card"
+            >
+              <div className="quick-action-icon-circle" style={{ backgroundColor: '#F0FDF4', color: '#16A34A' }}>
+                <MessageSquare size={24} />
+              </div>
+              <div className="quick-action-text">
+                <div className="quick-action-title">Doctor Enquiry</div>
+                <div className="quick-action-subtitle">Chat on WhatsApp</div>
+              </div>
+              <div className="quick-action-arrow-btn" style={{ backgroundColor: '#F0FDF4', color: '#16A34A' }}>
+                <ChevronRight size={18} />
+              </div>
+            </a>
+
+            {/* 4. Partner with us */}
+            <div 
+              className="quick-action-card"
+              onClick={() => {
+                if (openFranchiseModal) openFranchiseModal();
+                else setCurrentTab('franchise');
+              }}
+              role="button"
+              tabIndex={0}
+            >
+              <div className="quick-action-icon-circle" style={{ backgroundColor: '#FFF1F2', color: '#E11D48' }}>
+                <Building2 size={24} />
+              </div>
+              <div className="quick-action-text">
+                <div className="quick-action-title">Partner with us</div>
+                <div className="quick-action-subtitle">Lab or franchise</div>
+              </div>
+              <div className="quick-action-arrow-btn" style={{ backgroundColor: '#FFF1F2', color: '#E11D48' }}>
+                <ChevronRight size={18} />
+              </div>
+            </div>
+
           </div>
+        </div>
+      </section>
 
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
-            {FAQS.map((faq, idx) => (
-              <div 
-                key={idx}
-                className="white-liquid-card"
-                style={{
-                  borderRadius: '20px',
-                  overflow: 'hidden'
-                }}
-              >
-                <button
-                  onClick={() => setActiveFaq(activeFaq === idx ? -1 : idx)}
-                  style={{
-                    width: '100%',
-                    padding: '1.25rem 1.5rem',
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'space-between',
-                    textAlign: 'left',
-                    fontWeight: 800,
-                    fontSize: '1.05rem',
-                    color: '#0F172A'
-                  }}
-                >
-                  <span>{faq.question}</span>
-                  {activeFaq === idx ? <ChevronUp size={20} color="#EF4444" /> : <ChevronDown size={20} color="#64748B" />}
-                </button>
+      {/* 2. TRUST CARD BANNER (Screenshot 1) */}
+      <section className="trust-card-section">
+        <div className="container">
+          <div className="trust-card-banner">
+            
+            {/* 4.9 Rating */}
+            <div className="trust-rating-col">
+              <div className="trust-laurel-badge">
+                <span style={{ fontSize: '30px', color: '#8c827a' }}>🌿</span>
+                <span className="trust-rating-num">4.9</span>
+                <span style={{ fontSize: '30px', color: '#8c827a', transform: 'scaleX(-1)' }}>🌿</span>
+              </div>
+              <div className="trust-rating-headline">
+                Highest rated<br />diagnostics lab
+              </div>
+            </div>
 
-                {activeFaq === idx && (
-                  <div style={{ padding: '0 1.5rem 1.25rem', fontSize: '0.95rem', color: '#475569', lineHeight: 1.65, borderTop: '1px solid rgba(226, 232, 240, 0.8)', paddingTop: '1rem' }}>
-                    {faq.answer}
+            {/* 3 Trust Items */}
+            <div className="trust-items-group">
+              
+              <div className="trust-stat-item">
+                <div className="trust-stat-icon-wrapper" style={{ color: '#D97706' }}>
+                  <Award size={24} />
+                </div>
+                <div className="trust-stat-text">
+                  <span className="trust-stat-label">OWN LABS</span>
+                  <span className="trust-stat-value">NABL, ICMR accredited</span>
+                </div>
+              </div>
+
+              <div className="trust-stat-item">
+                <div className="trust-stat-icon-wrapper" style={{ color: '#E11D48' }}>
+                  <Heart size={24} fill="#E11D48" />
+                </div>
+                <div className="trust-stat-text">
+                  <span className="trust-stat-label">LOVED BY</span>
+                  <span className="trust-stat-value">200,000+ Bharatiyas</span>
+                </div>
+              </div>
+
+              <div className="trust-stat-item">
+                <div className="trust-stat-icon-wrapper" style={{ color: '#EF4444' }}>
+                  <Zap size={24} fill="#EF4444" />
+                </div>
+                <div className="trust-stat-text">
+                  <span className="trust-stat-label">COLLECTION IN MINUTES</span>
+                  <span className="trust-stat-value">Instant Sample Collection</span>
+                </div>
+              </div>
+
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      {/* 3. FULL BODY CHECKUPS CAROUSEL (Screenshot 2) */}
+      <section className="checkups-carousel-section" id="checkups">
+        <div className="container">
+          <h2 className="section-main-heading">Full Body Checkups</h2>
+
+          <div className="carousel-outer-wrapper">
+            <div className="horizontal-carousel" ref={checkupsScrollRef}>
+              {HEALTH_PACKAGES.map((pkg) => {
+                const inCart = isInCart(pkg.id);
+                return (
+                  <div key={pkg.id} className="checkup-product-card">
+                    <div>
+                      <h3 className="checkup-card-title">{pkg.name}</h3>
+
+                      <div className="checkup-card-meta-row">
+                        <div className="meta-col">
+                          <div className="meta-icon-box">
+                            <Dna size={18} style={{ color: 'var(--brand-500)' }} />
+                          </div>
+                          <div className="meta-col-text">
+                            <span className="meta-sub-label">INCLUDES</span>
+                            <span className="meta-bold-val">{pkg.parametersCount || 71} Parameters</span>
+                          </div>
+                        </div>
+
+                        <div className="meta-col">
+                          <div className="meta-icon-box">
+                            <FileText size={18} style={{ color: '#78716c' }} />
+                          </div>
+                          <div className="meta-col-text">
+                            <span className="meta-sub-label">REPORTS IN</span>
+                            <span className="meta-bold-val">{pkg.tat || '6 hours'}</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div className="checkup-card-price-row">
+                      <div className="price-left">
+                        <div className="price-top-meta">
+                          <span className="strikethrough-price">₹{pkg.mrp}</span>
+                          <span className="discount-green-badge">
+                            {pkg.discount || `${Math.round(((pkg.mrp - pkg.price) / pkg.mrp) * 100)}% Off`}
+                          </span>
+                        </div>
+                        <div className="main-price-val">₹{pkg.price}</div>
+                      </div>
+
+                      <button 
+                        type="button" 
+                        onClick={() => handleToggleCartItem(pkg)}
+                        className={`btn-brand-pill-add ${inCart ? 'in-cart' : ''}`}
+                        aria-label={`Add ${pkg.name} to cart`}
+                      >
+                        {inCart ? (
+                          <>
+                            <Check size={14} /> In cart
+                          </>
+                        ) : (
+                          <>
+                            <Plus size={14} /> Add
+                          </>
+                        )}
+                      </button>
+                    </div>
                   </div>
-                )}
+                );
+              })}
+            </div>
+
+            {/* Carousel Right Scroll Button */}
+            <button 
+              type="button" 
+              onClick={() => scrollCarousel(checkupsScrollRef, 340)}
+              className="carousel-nav-btn"
+              aria-label="Scroll checkups right"
+            >
+              <ChevronRight size={22} />
+            </button>
+          </div>
+        </div>
+      </section>
+
+      {/* MOBILE CIRCULAR CHECKUP CATEGORIES & NABL BADGE (Screenshot 2) */}
+      <section className="mobile-circular-categories-section">
+        <div className="container">
+          <h2 className="section-main-heading" style={{ marginBottom: '16px' }}>Checkup Categories</h2>
+          
+          <div className="mobile-circular-avatar-track">
+            {[
+              { id: 'full-body', name: 'Full Body', img: '/images/packages/cat_fullbody.jpg', tab: 'packages' },
+              { id: 'men', name: 'Men', img: '/images/packages/cat_men.jpg', tab: 'packages' },
+              { id: 'women', name: 'Women', img: '/images/packages/cat_women.jpg', tab: 'packages' },
+              { id: 'seniors', name: 'Seniors', img: '/images/packages/cat_seniors.jpg', tab: 'packages' },
+              { id: 'kids', name: 'Kids', img: '/images/packages/cat_kids.jpg', tab: 'packages' }
+            ].map(cat => (
+              <div 
+                key={cat.id} 
+                className="mobile-cat-avatar-item"
+                onClick={() => {
+                  if (setCurrentTab) setCurrentTab(cat.tab);
+                  window.scrollTo({ top: 0, behavior: 'smooth' });
+                }}
+                role="button"
+                tabIndex={0}
+              >
+                <div className="mobile-cat-avatar-circle">
+                  <img src={cat.img} alt={cat.name} className="mobile-cat-img" />
+                </div>
+                <span className="mobile-cat-name">{cat.name}</span>
               </div>
             ))}
           </div>
 
+          {/* NABL & EQAS Accredited Labs Banner Pill (Screenshot 2) */}
+          <div 
+            className="mobile-nabl-strip-pill" 
+            onClick={() => {
+              if (setCurrentTab) setCurrentTab('about');
+              window.scrollTo({ top: 0, behavior: 'smooth' });
+            }}
+            role="button"
+            tabIndex={0}
+          >
+            <div className="mobile-nabl-strip-left">
+              <span className="mobile-nabl-title">NABL & EQAS accredited labs</span>
+              <span className="mobile-nabl-sub">
+                6 advanced labs across 4 cities <ArrowRight size={13} style={{ display: 'inline', verticalAlign: 'middle', marginLeft: '4px' }} />
+              </span>
+            </div>
+            <div className="mobile-nabl-badge-icon">
+              <ShieldCheck size={28} color="#D97706" />
+            </div>
+          </div>
         </div>
       </section>
 
-      {/* LIGHTBOX MODAL FOR GALLERY IMAGES */}
-      {lightboxImage && (
-        <div 
-          style={{
-            position: 'fixed',
-            inset: 0,
-            zIndex: 400,
-            background: 'rgba(15, 23, 42, 0.92)',
-            backdropFilter: 'blur(16px)',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            padding: '2rem'
-          }}
-          onClick={() => setLightboxImage(null)}
-        >
-          <div style={{ position: 'relative', maxWidth: '900px', width: '100%' }} onClick={(e) => e.stopPropagation()}>
-            <img src={lightboxImage} alt="BJSL Gallery Preview" style={{ width: '100%', maxHeight: '82vh', objectFit: 'contain', borderRadius: '20px', boxShadow: '0 25px 60px rgba(0,0,0,0.5)' }} />
+      {/* 4. HEALTH CONDITIONS - FULL WIDTH LEFT-TO-RIGHT SLIDER */}
+      <section className="health-conditions-full-section" id="health-conditions">
+        <div className="container">
+          <div className="section-head-with-link" style={{ marginBottom: '22px' }}>
+            <div>
+              <span className="split-eyebrow">FOR YOUR</span>
+              <h2 className="section-main-heading" style={{ marginBottom: '4px' }}>Health Conditions</h2>
+              <p style={{ color: '#64748B', fontSize: '0.9rem', margin: 0, fontWeight: 500 }}>
+                Specialized diagnostic tests tailored to your symptoms & wellness needs
+              </p>
+            </div>
+            
+            <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
+              <button 
+                type="button" 
+                onClick={() => {
+                  if (setCurrentTab) setCurrentTab('packages');
+                  window.scrollTo({ top: 0, behavior: 'smooth' });
+                }}
+                className="section-view-all-link"
+                style={{ background: 'none', border: 'none', cursor: 'pointer' }}
+              >
+                <span>View checkup categories</span>
+                <ChevronRight size={16} />
+              </button>
+
+              <div className="conditions-nav-arrows">
+                <button 
+                  type="button" 
+                  onClick={() => scrollCarousel(conditionsScrollRef, -300)}
+                  className="cond-nav-btn prev-btn"
+                  aria-label="Previous Health Conditions"
+                >
+                  <ChevronLeft size={18} />
+                </button>
+                <button 
+                  type="button" 
+                  onClick={() => scrollCarousel(conditionsScrollRef, 300)}
+                  className="cond-nav-btn next-btn"
+                  aria-label="Next Health Conditions"
+                >
+                  <ChevronRight size={18} />
+                </button>
+              </div>
+            </div>
+          </div>
+          
+          <div className="conditions-scroll-track full-width-slider" ref={conditionsScrollRef}>
+            {conditionsList.map((cond) => (
+              <div 
+                key={cond.id} 
+                className="condition-glass-card full-width-card"
+                onClick={() => {
+                  const found = INDIVIDUAL_TESTS.find(t => t.id === cond.testId) || INDIVIDUAL_TESTS[0];
+                  handleToggleCartItem(found);
+                }}
+                role="button"
+                tabIndex={0}
+              >
+                {/* Background Photo */}
+                <img 
+                  src={cond.image} 
+                  alt={cond.name} 
+                  className="cond-glass-bg-img" 
+                  onError={(e) => { e.currentTarget.src = cond.fallbackImage; }}
+                />
+
+                {/* Gradient Scrim Overlay for 100% Text Readability */}
+                <div className="cond-glass-scrim" />
+
+                {/* Top Pill Badge */}
+                <div className="cond-glass-top">
+                  <span className="cond-tag-pill">
+                    <span>{cond.icon}</span> {cond.tag}
+                  </span>
+                </div>
+
+                {/* Bottom Content Info */}
+                <div className="cond-glass-bottom">
+                  <h4 className="cond-glass-title">{cond.name}</h4>
+                  <p className="cond-glass-tests">{cond.testsText}</p>
+                  <div className="cond-glass-price-row">
+                    <span className="cond-glass-price">From {cond.price}</span>
+                    <div className="cond-glass-btn-circle">
+                      <ArrowRight size={13} strokeWidth={2.5} />
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* 5. MOST BOOKED TESTS (Screenshot 4) */}
+      <section className="most-booked-tests-section" id="popular-tests">
+        <div className="container">
+          <div className="section-head-with-link">
+            <h2 className="section-main-heading" style={{ marginBottom: 0 }}>Most Booked Tests</h2>
             <button 
-              onClick={() => setLightboxImage(null)}
-              style={{ position: 'absolute', top: '-18px', right: '-18px', background: '#EF4444', color: 'white', width: '40px', height: '40px', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', border: 'none', cursor: 'pointer', boxShadow: '0 8px 20px rgba(0,0,0,0.3)' }}
+              type="button" 
+              onClick={openSearchModal}
+              className="section-view-all-link"
+              style={{ background: 'none', border: 'none' }}
             >
-              <X size={20} />
+              <span>View all</span>
+              <ChevronRight size={16} />
             </button>
+          </div>
+
+          <div className="carousel-outer-wrapper">
+            <div className="horizontal-carousel" ref={testsScrollRef}>
+              {bookedTests.map((test) => {
+                const inCart = isInCart(test.id);
+                return (
+                  <div key={test.id} className="checkup-product-card" style={{ width: '280px', minWidth: '280px' }}>
+                    <div>
+                      <h3 className="checkup-card-title" style={{ minHeight: '48px' }}>{test.name}</h3>
+
+                      <div className="checkup-card-meta-row">
+                        <div className="meta-col">
+                          <div className="meta-icon-box">
+                            <Dna size={18} style={{ color: 'var(--brand-500)' }} />
+                          </div>
+                          <div className="meta-col-text">
+                            <span className="meta-sub-label">INCLUDES</span>
+                            <span className="meta-bold-val">{test.parametersCount} Parameters</span>
+                          </div>
+                        </div>
+
+                        <div className="meta-col">
+                          <div className="meta-icon-box">
+                            <FileText size={18} style={{ color: '#78716c' }} />
+                          </div>
+                          <div className="meta-col-text">
+                            <span className="meta-sub-label">REPORTS IN</span>
+                            <span className="meta-bold-val">{test.tat}</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div className="checkup-card-price-row">
+                      <div className="price-left">
+                        <div className="price-top-meta">
+                          <span className="strikethrough-price">₹{test.mrp}</span>
+                          <span className="discount-green-badge">{test.discount}</span>
+                        </div>
+                        <div className="main-price-val">₹{test.price}</div>
+                      </div>
+
+                      <button 
+                        type="button" 
+                        onClick={() => handleToggleCartItem(test)}
+                        className={`btn-brand-pill-add ${inCart ? 'in-cart' : ''}`}
+                        aria-label={`Add ${test.name} to cart`}
+                      >
+                        {inCart ? (
+                          <>
+                            <Check size={14} /> In cart
+                          </>
+                        ) : (
+                          <>
+                            <Plus size={14} /> Add
+                          </>
+                        )}
+                      </button>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+
+            <button 
+              type="button" 
+              onClick={() => scrollCarousel(testsScrollRef, 320)}
+              className="carousel-nav-btn"
+              aria-label="Scroll tests right"
+            >
+              <ChevronRight size={22} />
+            </button>
+          </div>
+        </div>
+      </section>
+
+      {/* 6. FOR YOUR VITAL BODY SYSTEMS (Screenshot 4) */}
+      <section className="vital-systems-section">
+        <div className="container">
+          <div className="split-column-head" style={{ marginBottom: '16px' }}>
+            <span className="split-eyebrow">FOR YOUR</span>
+            <h3 className="split-heading">Vital Body Systems</h3>
+          </div>
+
+          <div className="vital-systems-carousel">
+            {vitalOrgans.map((organ) => (
+              <div 
+                key={organ.id} 
+                className={`vital-organ-item ${selectedOrganFilter === organ.id ? 'active' : ''}`}
+                onClick={() => {
+                  setSelectedOrganFilter(selectedOrganFilter === organ.id ? null : organ.id);
+                  const matched = INDIVIDUAL_TESTS.find(t => t.category?.toLowerCase() === organ.id) || INDIVIDUAL_TESTS[0];
+                  handleToggleCartItem(matched);
+                }}
+              >
+                <div className="vital-organ-icon-circle">
+                  <img src={organ.image} alt={organ.name} className="vital-organ-img" />
+                </div>
+                <span className="vital-organ-label">{organ.name}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* 7. STAY AHEAD OF FEVER SEASON (Screenshot 4) */}
+      <section className="fever-season-section">
+        <div className="container">
+          <div className="fever-season-card">
+            
+            {/* Left side: Heading & Patient photo */}
+            <div className="fever-season-left">
+              <img 
+                src="/images/banners/fever_season.jpg" 
+                alt="Stay Ahead of Fever Season Care" 
+                className="fever-patient-img" 
+                onError={(e) => { e.currentTarget.src = "https://images.unsplash.com/photo-1584515979956-d9f6e5d09982?w=500&auto=format&fit=crop&q=80"; }}
+              />
+              <div className="fever-season-text-col">
+                <span className="fever-eyebrow">STAY AHEAD OF</span>
+                <h3 className="fever-heading">Fever season</h3>
+              </div>
+            </div>
+
+            {/* Right side: Fever Packages Carousel */}
+            <div className="horizontal-carousel">
+              {feverPackages.map((pkg) => {
+                const inCart = isInCart(pkg.id);
+                return (
+                  <div key={pkg.id} className="checkup-product-card" style={{ width: '280px', minWidth: '280px' }}>
+                    <div>
+                      <h4 className="checkup-card-title">{pkg.name}</h4>
+
+                      <div className="checkup-card-meta-row">
+                        <div className="meta-col">
+                          <div className="meta-icon-box">
+                            <Dna size={18} style={{ color: 'var(--brand-500)' }} />
+                          </div>
+                          <div className="meta-col-text">
+                            <span className="meta-sub-label">INCLUDES</span>
+                            <span className="meta-bold-val">{pkg.parametersCount} Parameters</span>
+                          </div>
+                        </div>
+
+                        <div className="meta-col">
+                          <div className="meta-icon-box">
+                            <FileText size={18} style={{ color: '#78716c' }} />
+                          </div>
+                          <div className="meta-col-text">
+                            <span className="meta-sub-label">REPORTS IN</span>
+                            <span className="meta-bold-val">{pkg.tat}</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div className="checkup-card-price-row">
+                      <div className="price-left">
+                        <div className="price-top-meta">
+                          <span className="strikethrough-price">₹{pkg.mrp}</span>
+                          <span className="discount-green-badge">{pkg.discount}</span>
+                        </div>
+                        <div className="main-price-val">₹{pkg.price}</div>
+                      </div>
+
+                      <button 
+                        type="button" 
+                        onClick={() => handleToggleCartItem(pkg)}
+                        className={`btn-brand-pill-add ${inCart ? 'in-cart' : ''}`}
+                        aria-label={`Add ${pkg.name} to cart`}
+                      >
+                        {inCart ? (
+                          <>
+                            <Check size={14} /> In cart
+                          </>
+                        ) : (
+                          <>
+                            <Plus size={14} /> Add
+                          </>
+                        )}
+                      </button>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      {/* Screenshot 4: Precision at every step banner */}
+      <section className="precision-banner-section">
+        <div className="container">
+          <div 
+            className="precision-banner-card"
+            onClick={() => {
+              const el = document.getElementById('why-bjsl');
+              if (el) el.scrollIntoView({ behavior: 'smooth' });
+            }}
+            role="button"
+            tabIndex={0}
+          >
+            <div className="precision-banner-left">
+              <h3 className="precision-banner-title">Precision at every step</h3>
+              <div className="precision-banner-sub-row">
+                <span className="precision-banner-sub">from collection to reports</span>
+                <span className="precision-arrow-btn">
+                  <ArrowRight size={14} />
+                </span>
+              </div>
+            </div>
+            <div className="precision-banner-img-box">
+              <img 
+                src="/images/banners/precision_lab.jpg" 
+                alt="Precision Laboratory Optics" 
+                className="precision-banner-img"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Screenshot 4: Designed for Growing Kids banner */}
+      <section className="growing-kids-banner-section">
+        <div className="container">
+          <div 
+            className="growing-kids-banner-card"
+            onClick={() => {
+              const el = document.getElementById('checkups');
+              if (el) el.scrollIntoView({ behavior: 'smooth' });
+            }}
+            role="button"
+            tabIndex={0}
+          >
+            <div className="growing-kids-content">
+              <span className="growing-kids-eyebrow">Designed for</span>
+              <h3 className="growing-kids-heading">Growing Kids</h3>
+            </div>
+            <div className="growing-kids-img-box">
+              <img 
+                src="/images/banners/growing_kids.jpg" 
+                alt="Designed for Growing Kids" 
+                className="growing-kids-img"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 8. WALK INTO ANY OF OUR COLLECTION CENTRES (Screenshot 5) */}
+      <section className="centres-section" id="centres">
+        <div className="container">
+          <div className="centres-header-box">
+            <div className="centres-pin-icon" style={{ color: 'var(--brand-500)' }}>
+              <MapPin size={48} />
+            </div>
+            <h2 className="centres-main-title">Walk into any of our collection centres</h2>
+            <div className="centres-present-text">Present across</div>
+            <div className="centres-city-highlight">Bengaluru</div>
+            <button 
+              type="button" 
+              onClick={() => {
+                const el = document.getElementById('centres-grid-list');
+                if (el) el.scrollIntoView({ behavior: 'smooth' });
+              }}
+              className="btn-centres-nearest"
+            >
+              <span>Find the nearest collection centre</span>
+              <ArrowRight size={18} />
+            </button>
+          </div>
+
+          {/* Bengaluru Centre Lounges Grid */}
+          <div className="centres-cards-grid" id="centres-grid-list">
+            {CENTRES.slice(0, 6).map((centre) => (
+              <div key={centre.id} className="centre-loung-card">
+                <div>
+                  <h4 className="centre-loung-title">{centre.name}</h4>
+                  <p className="centre-loung-address">{centre.address}</p>
+                  <div className="centre-loung-hours">
+                    <Clock size={14} />
+                    <span>{centre.timings || 'Mon - Sat: 7:00 AM - 8:00 PM'}</span>
+                  </div>
+                </div>
+
+                <div className="centre-actions-row">
+                  <a href={`tel:${centre.phone || '+919805543143'}`} className="btn-centre-action">
+                    <Phone size={14} />
+                    <span>Call Lounge</span>
+                  </a>
+                  <a 
+                    href={`https://maps.google.com/?q=${encodeURIComponent(centre.name + ' ' + centre.address)}`} 
+                    target="_blank" 
+                    rel="noopener noreferrer" 
+                    className="btn-centre-action"
+                  >
+                    <Navigation size={14} />
+                    <span>Get Directions</span>
+                  </a>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* 9. WHY INDIA TRUSTS BHARATH JAN SEWA LABS */}
+      <section className="why-bjsl-section" id="why-bjsl">
+        <div className="container">
+          <div style={{ textAlign: 'center', marginBottom: '36px' }}>
+            <span className="split-eyebrow">THE BHARATH JAN SEWA STANDARDS</span>
+            <h2 className="section-main-heading">Why India Trusts Bharath Jan Sewa Labs</h2>
+          </div>
+
+          <div className="why-features-grid">
+            <div className="feature-box">
+              <div className="feature-icon-circle">
+                <Award size={24} />
+              </div>
+              <h4 className="feature-title">100% In-house NABL Labs</h4>
+              <p className="feature-text">
+                Every blood sample is processed in automated, ISO & NABL accredited laboratories with multi-stage QC controls.
+              </p>
+            </div>
+
+            <div className="feature-box">
+              <div className="feature-icon-circle">
+                <Zap size={24} />
+              </div>
+              <h4 className="feature-title">Free 60-Min Doorstep Phlebotomy</h4>
+              <p className="feature-text">
+                Certified, vaccinated eMedics arrive with sterile, single-use vacuum tubes across Bangalore within 60 minutes.
+              </p>
+            </div>
+
+            <div className="feature-box">
+              <div className="feature-icon-circle">
+                <Clock size={24} />
+              </div>
+              <h4 className="feature-title">Fast 6-Hour Digital Reports</h4>
+              <p className="feature-text">
+                Verified pathology reports delivered straight to your WhatsApp and registered email in just 6 hours.
+              </p>
+            </div>
+
+            <div className="feature-box">
+              <div className="feature-icon-circle">
+                <Heart size={24} />
+              </div>
+              <h4 className="feature-title">Affordable Direct Pricing</h4>
+              <p className="feature-text">
+                Non-profit public health model delivering authentic diagnostic screenings at 50% to 70% lower prices.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 10. FAQS ACCORDION */}
+      <section className="faqs-section" id="faqs">
+        <div className="container">
+          <div style={{ textAlign: 'center', marginBottom: '32px' }}>
+            <span className="split-eyebrow">COMMON QUERIES</span>
+            <h2 className="section-main-heading">Frequently Asked Questions</h2>
+          </div>
+
+          <div className="faq-list">
+            {FAQS.slice(0, 6).map((faq, idx) => (
+              <div key={idx} className={`faq-item ${activeFaq === idx ? 'open' : ''}`}>
+                <button 
+                  type="button" 
+                  onClick={() => setActiveFaq(activeFaq === idx ? -1 : idx)}
+                  className="faq-question-btn"
+                >
+                  <span style={{ fontSize: '1.02rem', fontWeight: 800, color: '#0F172A', flex: 1, paddingRight: '1rem' }}>
+                    {faq.question || faq.q}
+                  </span>
+                  <ChevronDown 
+                    size={20} 
+                    className="faq-icon-chevron" 
+                    style={{ 
+                      color: activeFaq === idx ? '#0284C7' : '#64748B', 
+                      flexShrink: 0 
+                    }} 
+                  />
+                </button>
+                <div 
+                  className="faq-answer-panel"
+                  style={{
+                    color: '#475569',
+                    fontSize: '0.95rem',
+                    lineHeight: 1.65,
+                    display: activeFaq === idx ? 'block' : 'none'
+                  }}
+                >
+                  {faq.answer || faq.a}
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* PRESCRIPTION UPLOAD MODAL */}
+      {isPrescriptionModalOpen && (
+        <div className="modal-backdrop" onClick={() => setIsPrescriptionModalOpen(false)}>
+          <div className="modal-dialog" onClick={(e) => e.stopPropagation()}>
+            <div className="modal-header">
+              <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+                <div style={{ width: '36px', height: '36px', borderRadius: '50%', backgroundColor: '#EFF6FF', color: '#2563EB', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                  <FileText size={20} />
+                </div>
+                <h3 className="modal-title">Upload Doctor's Prescription</h3>
+              </div>
+              <button 
+                type="button" 
+                onClick={() => setIsPrescriptionModalOpen(false)}
+                className="circle-icon-btn"
+                style={{ width: '32px', height: '32px' }}
+                aria-label="Close"
+              >
+                <X size={16} />
+              </button>
+            </div>
+
+            <div className="modal-body">
+              {uploadSuccess ? (
+                <div style={{ textAlign: 'center', padding: '24px 0' }}>
+                  <div style={{ width: '64px', height: '64px', borderRadius: '50%', backgroundColor: '#DCFCE7', color: '#16A34A', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 16px' }}>
+                    <Check size={32} />
+                  </div>
+                  <h4 style={{ fontSize: '18px', fontWeight: 800, color: 'var(--ink-950)', marginBottom: '8px' }}>
+                    Prescription Received!
+                  </h4>
+                  <p style={{ fontSize: '14px', color: 'var(--ink-600)', marginBottom: '24px' }}>
+                    Our certified pathologist desk will review your prescription, prepare the test panel, and call your phone within 15 minutes.
+                  </p>
+                  <button 
+                    type="button"
+                    onClick={() => {
+                      setUploadSuccess(false);
+                      setIsPrescriptionModalOpen(false);
+                    }}
+                    className="btn-checkout"
+                  >
+                    Done
+                  </button>
+                </div>
+              ) : (
+                <>
+                  <p style={{ fontSize: '13.5px', color: 'var(--ink-600)', marginBottom: '16px', lineHeight: '1.5' }}>
+                    Attach your doctor's prescription photo or PDF. We will automatically select the prescribed tests at 50-70% subsidized rates and schedule your 60-min home sample collection.
+                  </p>
+
+                  {/* Dropzone */}
+                  <label className="upload-dropzone" style={{ display: 'block' }}>
+                    <input 
+                      type="file" 
+                      accept="image/*,.pdf" 
+                      style={{ display: 'none' }}
+                      onChange={(e) => {
+                        if (e.target.files && e.target.files[0]) {
+                          setPrescriptionFile(e.target.files[0]);
+                        }
+                      }}
+                    />
+                    <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '10px' }}>
+                      <div style={{ width: '52px', height: '52px', borderRadius: '50%', backgroundColor: 'var(--brand-50)', color: 'var(--brand-500)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                        <Upload size={24} />
+                      </div>
+                      {prescriptionFile ? (
+                        <div>
+                          <div style={{ fontSize: '14px', fontWeight: 700, color: 'var(--brand-500)' }}>
+                            📄 {prescriptionFile.name}
+                          </div>
+                          <div style={{ fontSize: '12px', color: 'var(--ink-400)', marginTop: '2px' }}>
+                            Click to change file
+                          </div>
+                        </div>
+                      ) : (
+                        <div>
+                          <div style={{ fontSize: '14.5px', fontWeight: 700, color: 'var(--ink-900)' }}>
+                            Click to upload or drag & drop prescription
+                          </div>
+                          <div style={{ fontSize: '12px', color: 'var(--ink-400)', marginTop: '2px' }}>
+                            Supported formats: JPG, PNG, PDF (Max 10MB)
+                          </div>
+                        </div>
+                      )}
+                    </div>
+                  </label>
+
+                  {/* Phone input */}
+                  <div style={{ marginTop: '20px' }}>
+                    <label style={{ display: 'block', fontSize: '13px', fontWeight: 700, color: 'var(--ink-800)', marginBottom: '6px' }}>
+                      Your 10-Digit Mobile Number
+                    </label>
+                    <input 
+                      type="tel" 
+                      placeholder="e.g. 98765 43210" 
+                      value={patientPhone}
+                      onChange={(e) => setPatientPhone(e.target.value)}
+                      style={{
+                        width: '100%',
+                        padding: '12px 16px',
+                        borderRadius: 'var(--radius-md)',
+                        border: '1.5px solid var(--border-medium)',
+                        fontSize: '15px',
+                        outline: 'none'
+                      }}
+                    />
+                  </div>
+
+                  <div style={{ display: 'flex', flexDirection: 'column', gap: '10px', marginTop: '22px' }}>
+                    <button 
+                      type="button" 
+                      onClick={() => {
+                        if (!patientPhone.trim()) {
+                          alert('Please enter your mobile number so we can confirm your tests.');
+                          return;
+                        }
+                        setUploadSuccess(true);
+                      }}
+                      className="btn-checkout"
+                    >
+                      <span>Submit Prescription for Test Verification</span>
+                      <ArrowRight size={18} />
+                    </button>
+
+                    <a 
+                      href={`https://wa.me/919805543143?text=Namaste%20Bharath%20Jan%20Sewa%20Labs%2C%20I%20have%20attached%20my%20prescription%20for%20blood%20tests.`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      style={{
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        gap: '8px',
+                        background: '#25D366',
+                        color: '#fff',
+                        padding: '12px 18px',
+                        borderRadius: 'var(--radius-full)',
+                        fontSize: '14px',
+                        fontWeight: 700,
+                        textDecoration: 'none'
+                      }}
+                    >
+                      <MessageSquare size={18} />
+                      <span>Or Send Directly on WhatsApp</span>
+                    </a>
+                  </div>
+                </>
+              )}
+            </div>
           </div>
         </div>
       )}

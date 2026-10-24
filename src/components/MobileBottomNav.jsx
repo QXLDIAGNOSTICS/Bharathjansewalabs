@@ -84,9 +84,9 @@ export default function MobileBottomNav({ currentTab, setCurrentTab, openBooking
       <button 
         onClick={() => { openPortal ? openPortal() : setCurrentTab('portal'); }}
         className="mobile-nav-btn"
-        style={{ color: currentTab === 'portal' ? '#EF4444' : '#1E293B' }}
+        style={{ color: currentTab === 'portal' ? '#0284C7' : '#1E293B' }}
       >
-        <User size={22} color={currentTab === 'portal' ? '#EF4444' : '#1E293B'} />
+        <User size={22} color={currentTab === 'portal' ? '#0284C7' : '#1E293B'} />
         <span style={{ fontWeight: 700 }}>Profile</span>
       </button>
     </nav>

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import PackageCard from '../components/PackageCard';
 import { HEALTH_PACKAGES } from '../data/mockData';
-import { ArrowRight, SlidersHorizontal, ShieldCheck, Sparkles, CheckCircle2 } from 'lucide-react';
+import { ArrowRight, SlidersHorizontal, ShieldCheck, Sparkles, CheckCircle2, ChevronRight } from 'lucide-react';
 
 export default function PackagesCatalogue({ 
   onSelectTest, 
@@ -12,6 +12,54 @@ export default function PackagesCatalogue({
 }) {
   const [filterType, setFilterType] = useState('all');
   const [sortBy, setSortBy] = useState('popular');
+
+  // Checkup Categories (Moved from Home as requested)
+  const categoriesList = [
+    { 
+      id: 'women', 
+      name: 'Women', 
+      image: '/images/packages/cat_women.jpg',
+      fallbackImage: '/images/packages/chirayu-women.webp',
+      subtitle: '65+ Parameters',
+      price: 'From ₹796',
+      accentColor: '#F43F5E',
+      packageId: 'chirayu-women',
+      filterKey: 'women'
+    },
+    { 
+      id: 'seniors', 
+      name: 'Seniors', 
+      image: '/images/packages/cat_seniors.jpg',
+      fallbackImage: '/images/packages/senior-female.webp',
+      subtitle: 'Geriatric Care',
+      price: 'From ₹999',
+      accentColor: '#D97706',
+      packageId: 'senior-female',
+      filterKey: 'senior'
+    },
+    { 
+      id: 'men', 
+      name: 'Men', 
+      image: '/images/packages/cat_men.jpg',
+      fallbackImage: '/images/packages/chirayu-men.webp',
+      subtitle: 'Vital Organs & PSA',
+      price: 'From ₹796',
+      accentColor: '#2563EB',
+      packageId: 'chirayu-men',
+      filterKey: 'men'
+    },
+    { 
+      id: 'kids', 
+      name: 'Kids', 
+      image: '/images/packages/cat_kids.jpg',
+      fallbackImage: '/images/slides/hero-slide1.jpg',
+      subtitle: 'Growth & Immunity',
+      price: 'From ₹599',
+      accentColor: '#059669',
+      packageId: 'chirayu-prime',
+      filterKey: 'kids'
+    }
+  ];
 
   // Form State for "Book Your Health Test" Banner at the bottom
   const [formPackage, setFormPackage] = useState('Chirayu Full Body Check (PRIME)');
@@ -36,8 +84,10 @@ export default function PackagesCatalogue({
   const filteredPackages = HEALTH_PACKAGES.filter(pkg => {
     if (filterType === 'all') return true;
     if (filterType === 'senior') return pkg.id.includes('senior');
+    if (filterType === 'women') return pkg.id.includes('women');
+    if (filterType === 'men') return pkg.id.includes('men');
     if (filterType === 'gender') return pkg.id.includes('men') || pkg.id.includes('women');
-    if (filterType === 'prime') return pkg.id.includes('prime') || pkg.id.includes('master');
+    if (filterType === 'prime' || filterType === 'kids') return pkg.id.includes('prime') || pkg.id.includes('master');
     return true;
   });
 
@@ -80,6 +130,53 @@ export default function PackagesCatalogue({
             <p style={{ color: '#FFE4E6', fontSize: '1.05rem', lineHeight: 1.6 }}>
               All our tests are conducted at NABL-accredited laboratories using fully automated systems to ensure accuracy and reliability. Rates are 50–70% lower than market prices with free doorstep sample collection.
             </p>
+          </div>
+        </div>
+
+        {/* CHECKUP Categories (Moved from Home Page / Screenshot 2) */}
+        <div className="catalogue-categories-wrapper" style={{ marginBottom: '2.5rem' }}>
+          <div style={{ marginBottom: '18px' }}>
+            <span style={{ fontSize: '11.5px', fontWeight: 800, textTransform: 'uppercase', color: '#64748B', letterSpacing: '0.08em', display: 'block' }}>
+              CHECKUP
+            </span>
+            <h2 style={{ fontFamily: 'var(--font-display)', fontSize: '28px', fontWeight: 850, color: '#0F172A', margin: '2px 0 0' }}>
+              Categories
+            </h2>
+          </div>
+
+          <div className="catalogue-categories-grid">
+            {categoriesList.map((cat) => {
+              const isSelected = filterType === cat.filterKey;
+              return (
+                <div 
+                  key={cat.id} 
+                  className={`category-card-pill ${isSelected ? 'selected-category-card' : ''}`}
+                  onClick={() => {
+                    setFilterType(isSelected ? 'all' : cat.filterKey);
+                  }}
+                  role="button"
+                  tabIndex={0}
+                  style={isSelected ? { borderColor: cat.accentColor, boxShadow: `0 8px 24px ${cat.accentColor}25` } : {}}
+                >
+                  <div className="cat-img-wrapper" style={{ borderColor: cat.accentColor || '#E2E8F0' }}>
+                    <img 
+                      src={cat.image} 
+                      alt={cat.name} 
+                      className="cat-card-img" 
+                      onError={(e) => { e.currentTarget.src = cat.fallbackImage; }}
+                    />
+                  </div>
+                  <div className="cat-text-wrapper">
+                    <div className="cat-name-row">
+                      <span className="cat-card-name">{cat.name}</span>
+                      <ChevronRight size={15} className="cat-arrow-icon" />
+                    </div>
+                    <span className="cat-card-sub">{cat.subtitle}</span>
+                    <span className="cat-card-price" style={{ color: cat.accentColor }}>{cat.price}</span>
+                  </div>
+                </div>
+              );
+            })}
           </div>
         </div>
 
@@ -196,7 +293,7 @@ export default function PackagesCatalogue({
 
             <div>
               <label style={{ display: 'block', fontSize: '0.85rem', fontWeight: 800, color: 'white', marginBottom: '6px' }}>Full Name*</label>
-              <input type="text" required placeholder="Afi Kumar" value={formName} onChange={(e) => setFormName(e.target.value)} style={{ width: '100%', padding: '0.85rem 1.25rem', borderRadius: '99px', border: 'none', background: 'rgba(255,255,255,0.92)', fontSize: '0.95rem', color: '#0F172A' }} />
+              <input type="text" required placeholder="e.g. Ramesh Kumar" value={formName} onChange={(e) => setFormName(e.target.value)} style={{ width: '100%', padding: '0.85rem 1.25rem', borderRadius: '99px', border: 'none', background: 'rgba(255,255,255,0.92)', fontSize: '0.95rem', color: '#0F172A' }} />
             </div>
 
             <div>

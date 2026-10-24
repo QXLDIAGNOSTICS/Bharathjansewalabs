@@ -81,10 +81,15 @@ export default function ReportViewerModal({ report, onClose }) {
                 </tr>
               </thead>
               <tbody>
-                {report.highlights.map((item, idx) => (
+                {(report.highlights || (report.parameters ? report.parameters.map(p => ({
+                  name: p.name,
+                  value: p.result || p.value,
+                  normal: p.reference || p.normal,
+                  status: p.status
+                })) : [])).map((item, idx) => (
                   <tr key={idx} style={{ borderBottom: '1px solid #E2E8F0', background: idx % 2 === 0 ? 'white' : '#F8FAFC' }}>
                     <td style={{ padding: '10px 12px', fontWeight: 700, color: '#0F172A' }}>{item.name}</td>
-                    <td style={{ padding: '10px 12px', textAlign: 'center', fontWeight: 800, color: item.status.includes('Normal') ? '#071E33' : '#D97706' }}>
+                    <td style={{ padding: '10px 12px', textAlign: 'center', fontWeight: 800, color: item.status && item.status.includes('Normal') ? '#071E33' : '#D97706' }}>
                       {item.value}
                     </td>
                     <td style={{ padding: '10px 12px', textAlign: 'center', color: '#64748B' }}>{item.normal}</td>
@@ -94,8 +99,8 @@ export default function ReportViewerModal({ report, onClose }) {
                         fontWeight: 800,
                         padding: '2px 8px',
                         borderRadius: '99px',
-                        background: item.status.includes('Normal') ? '#D1FAE5' : '#FEF3C7',
-                        color: item.status.includes('Normal') ? '#059669' : '#D97706'
+                        background: item.status && item.status.includes('Normal') ? '#D1FAE5' : '#FEF3C7',
+                        color: item.status && item.status.includes('Normal') ? '#059669' : '#D97706'
                       }}>
                         {item.status}
                       </span>

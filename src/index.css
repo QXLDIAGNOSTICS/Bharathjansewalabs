@@ -1,5 +1,5 @@
 /* Bharath Jan Sewa Labs (BJSL) - Ultra Modern Apollo Liquid Glass Design System */
-
+@import './new-style.css';
 @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400&family=Outfit:wght@400;600;700;800;900&display=swap');
 
 :root {
@@ -142,76 +142,7 @@ button {
   100% { transform: translate(-60px, 40px) scale(0.98); }
 }
 
-/* ==========================================================================
-   FULL-WIDTH APOLLO HERO SLIDER CAROUSEL WITH LIQUID GLASS OVERLAYS
-   ========================================================================== */
-.hero-slider-wrapper {
-  position: relative;
-  height: calc(100vh - 73px);
-  min-height: 620px;
-  width: 100%;
-  overflow: hidden;
-  background: #0F172A;
-}
-
-.hero-slide {
-  position: absolute;
-  inset: 0;
-  opacity: 0;
-  visibility: hidden;
-  transition: opacity 0.8s ease-in-out, visibility 0.8s ease-in-out, transform 1.2s ease-out;
-  transform: scale(1.05);
-  background-size: cover;
-  background-position: center;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 1;
-}
-
-.hero-slide.active {
-  opacity: 1;
-  visibility: visible;
-  transform: scale(1);
-  z-index: 2;
-}
-
-.hero-slide-overlay {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(180deg, rgba(15, 23, 42, 0.45) 0%, rgba(15, 23, 42, 0.85) 100%);
-  z-index: 3;
-}
-
-/* FLOATING DARK LIQUID GLASS SEARCH OVERLAY (APOLLO STYLE) */
-.hero-liquid-search {
-  position: absolute;
-  bottom: 100px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: calc(100% - 2.5rem);
-  max-width: 860px;
-  z-index: 10;
-  background: rgba(15, 23, 42, 0.75);
-  backdrop-filter: blur(28px) saturate(200%);
-  -webkit-backdrop-filter: blur(28px) saturate(200%);
-  border: 1.5px solid rgba(255, 255, 255, 0.3);
-  border-radius: 99px;
-  padding: 8px 10px 8px 24px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.45), inset 0 1.5px 0 rgba(255, 255, 255, 0.4);
-  cursor: pointer;
-  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.hero-liquid-search:hover {
-  background: rgba(15, 23, 42, 0.9);
-  border-color: rgba(239, 68, 68, 0.7);
-  box-shadow: 0 30px 70px rgba(239, 68, 68, 0.35), inset 0 1.5px 0 rgba(255, 255, 255, 0.6);
-  transform: translateX(-50%) translateY(-2px);
-}
+/* Hero slider wrapper styling is handled by new-style.css */
 
 /* FLOATING APOLLO HERO PILL TABS BAR */
 .hero-floating-tabs {

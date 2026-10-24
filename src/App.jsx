@@ -21,6 +21,7 @@ import FranchiseModal from './components/FranchiseModal';
 import ReportViewerModal from './components/ReportViewerModal';
 import AIChatBotModal from './components/AIChatBotModal';
 import LegalModal from './components/LegalModal';
+import CartDrawer from './components/CartDrawer';
 
 import { INDIVIDUAL_TESTS, HEALTH_PACKAGES } from './data/mockData';
 import { Bot, MessageSquare, Phone, Sparkles } from 'lucide-react';
@@ -32,6 +33,7 @@ export default function App() {
   // Cart & Booking
   const [cart, setCart] = useState([HEALTH_PACKAGES[0]]); // Pre-load Chirayu Prime for demonstration
   const [isBookingOpen, setIsBookingOpen] = useState(false);
+  const [isCartDrawerOpen, setIsCartDrawerOpen] = useState(false);
   
   // Modals & Overlay States
   const [selectedTest, setSelectedTest] = useState(null);
@@ -45,12 +47,12 @@ export default function App() {
   // Package Comparison Array
   const [comparedPackages, setComparedPackages] = useState([]);
 
-  // Add item to cart and launch booking wizard
+  // Add item to cart and launch Cart Drawer
   const handleBookTest = (item) => {
     if (!cart.some(i => i.id === item.id)) {
       setCart([...cart, item]);
     }
-    setIsBookingOpen(true);
+    setIsCartDrawerOpen(true);
   };
 
   const handleToggleCompare = (pkg) => {
@@ -76,21 +78,14 @@ export default function App() {
   };
 
   return (
-    <div style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column', position: 'relative' }}>
-      
-      {/* Dynamic Ambient Liquid Orbs Background */}
-      <div className="liquid-bg-container">
-        <div className="liquid-bg-orb liquid-orb-1" />
-        <div className="liquid-bg-orb liquid-orb-2" />
-        <div className="liquid-bg-orb liquid-orb-3" />
-      </div>
+    <div style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column', position: 'relative', backgroundColor: 'var(--bg-cream, #FAF9F8)' }}>
 
       {/* Header Bar */}
       <Header 
         currentTab={currentTab}
         setCurrentTab={setCurrentTab}
         cart={cart}
-        openBookingWizard={() => setIsBookingOpen(true)}
+        openBookingWizard={() => setIsCartDrawerOpen(true)}
         openSearchModal={() => setIsSearchOpen(true)}
         openPortal={() => setCurrentTab('portal')}
       />
@@ -103,7 +98,7 @@ export default function App() {
             onSelectTest={(item) => setSelectedTest(item)}
             onBookTest={handleBookTest}
             openSearchModal={() => setIsSearchOpen(true)}
-            openBookingWizard={() => setIsBookingOpen(true)}
+            openBookingWizard={() => setIsCartDrawerOpen(true)}
             openFranchiseModal={() => setIsFranchiseOpen(true)}
             comparedPackages={comparedPackages}
             onToggleCompare={handleToggleCompare}
@@ -175,77 +170,92 @@ export default function App() {
       {/* Footer */}
       <Footer setCurrentTab={setCurrentTab} openLegal={handleOpenLegalPage} />
 
-      {/* Floating Action Buttons: AI Assistant & WhatsApp Chat (Bottom Right - Hidden on Mobile) */}
-      <div className="desktop-floating-actions" style={{ position: 'fixed', bottom: '24px', right: '24px', zIndex: 180, display: 'flex', flexDirection: 'column', alignItems: 'flex-end', gap: '14px' }}>
+      {/* Floating Action Buttons: Ask AI (Top Circle) & WhatsApp Chat (Bottom Circle) */}
+      <div className="desktop-floating-actions">
         
-        {/* WhatsApp Direct Chat Button */}
+        {/* 1. Ask AI Floating Circular Button (TOP - Circular Button matching Image 1 & 2 instructions) */}
+        <button
+          onClick={() => setIsAIChatOpen(!isAIChatOpen)}
+          title="Ask BJSL AI Assistant"
+          aria-label="Open BJSL AI Assistant"
+          className="floating-btn-circle floating-btn-ai"
+        >
+          <Sparkles size={26} color="white" />
+          {/* Subtle live status dot */}
+          <span 
+            style={{
+              position: 'absolute',
+              top: '2px',
+              right: '2px',
+              width: '12px',
+              height: '12px',
+              borderRadius: '50%',
+              background: '#22C55E',
+              border: '2px solid white'
+            }}
+          />
+        </button>
+
+        {/* 2. WhatsApp Direct Chat Button (BOTTOM - Circular Button) */}
         <a 
-          href="https://wa.me/919805543143?text=Hi%20BJSL,%20I%20want%20to%20book%20a%20blood%20test"
+          href="https://wa.me/919805543143?text=Namaste%20BJSL,%20I%20would%20like%20to%20book%20a%20blood%20test%20in%20Bengaluru."
           target="_blank"
           rel="noopener noreferrer"
-          style={{
-            background: 'rgba(37, 211, 102, 0.9)',
-            backdropFilter: 'blur(16px)',
-            WebkitBackdropFilter: 'blur(16px)',
-            color: 'white',
-            width: '56px',
-            height: '56px',
-            borderRadius: '50%',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            boxShadow: '0 12px 30px rgba(37, 211, 102, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.8)',
-            border: '1.5px solid rgba(255, 255, 255, 0.5)',
-            textDecoration: 'none',
-            transition: 'transform 0.3s cubic-bezier(0.16, 1, 0.3, 1)'
-          }}
           title="WhatsApp Chat with BJSL"
-          onMouseEnter={(e) => e.currentTarget.style.transform = 'scale(1.1)'}
-          onMouseLeave={(e) => e.currentTarget.style.transform = 'scale(1)'}
+          aria-label="WhatsApp Chat with BJSL"
+          className="floating-btn-circle floating-btn-whatsapp"
         >
           <svg width="30" height="30" viewBox="0 0 24 24" fill="white">
             <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414-.074-.124-.272-.198-.57-.347m-5.421 7.461c-1.926 0-3.715-.514-5.267-1.408l-.377-.217-3.916 1.027 1.045-3.817-.247-.393c-1.002-1.59-1.532-3.433-1.531-5.32 0-5.419 4.408-9.827 9.829-9.827 2.624 0 5.091 1.023 6.947 2.88 1.857 1.858 2.879 4.325 2.878 6.95 0 5.421-4.409 9.827-9.828 9.827m0-21.848C5.463 0 0 5.463 0 12c0 2.094.545 4.137 1.58 5.938L0 24l6.236-1.635C8.003 23.364 10.024 24 12.051 24c6.537 0 11.949-5.412 11.949-11.95 0-3.193-1.243-6.195-3.501-8.453C18.241 1.339 15.24 0 12.051 0z"/>
           </svg>
         </a>
 
-        {/* AI Health Assistant Floating Pill Button (Desktop View) */}
-        <button
-          onClick={() => setIsAIChatOpen(!isAIChatOpen)}
-          title="BJSL AI Health Assistant"
-          style={{
-            background: 'linear-gradient(135deg, #EF4444 0%, #DC2626 100%)',
-            backdropFilter: 'blur(20px)',
-            WebkitBackdropFilter: 'blur(20px)',
-            color: 'white',
-            padding: '12px 22px',
-            borderRadius: '99px',
-            display: 'flex',
-            alignItems: 'center',
-            gap: '10px',
-            boxShadow: '0 12px 35px rgba(239, 68, 68, 0.45), inset 0 1.5px 0 rgba(255, 255, 255, 0.6)',
-            border: '1.5px solid rgba(255, 255, 255, 0.6)',
-            cursor: 'pointer',
-            fontSize: '0.95rem',
-            fontWeight: 900,
-            letterSpacing: '0.02em',
-            transition: 'transform 0.3s cubic-bezier(0.16, 1, 0.3, 1)'
-          }}
-          onMouseEnter={(e) => e.currentTarget.style.transform = 'scale(1.06)'}
-          onMouseLeave={(e) => e.currentTarget.style.transform = 'scale(1)'}
-        >
-          <Sparkles size={22} color="white" />
-          <span>Ask AI</span>
-        </button>
-
       </div>
+
+      {/* Mobile Floating Cart Summary Pill (Screenshot 1 & 2) */}
+      {cart.length > 0 && (
+        <div className="mobile-floating-cart-bar">
+          <div className="mobile-cart-hint">
+            <span style={{ fontSize: '13px' }}>👥</span>
+            <span>You can add members in the next step</span>
+          </div>
+          <div className="mobile-cart-main-pill" onClick={() => setIsCartDrawerOpen(true)}>
+            <div className="mobile-cart-info">
+              <span className="mobile-cart-count">
+                {cart.length} {cart.length === 1 ? 'item' : 'items'} in cart ⌵
+              </span>
+              <span className="mobile-cart-total">₹{cart.reduce((sum, item) => sum + (item.price || 0), 0)}</span>
+            </div>
+            <button 
+              type="button" 
+              className="mobile-cart-proceed-btn"
+              onClick={(e) => {
+                e.stopPropagation();
+                setIsCartDrawerOpen(true);
+              }}
+            >
+              Proceed
+            </button>
+          </div>
+        </div>
+      )}
 
       {/* Mobile Sticky Navigation */}
       <MobileBottomNav 
         currentTab={currentTab}
         setCurrentTab={setCurrentTab}
-        openBookingWizard={() => setIsBookingOpen(true)}
+        openBookingWizard={() => setIsCartDrawerOpen(true)}
         toggleAIChat={() => setIsAIChatOpen(!isAIChatOpen)}
         openPortal={() => setCurrentTab('portal')}
+      />
+
+      {/* Slide-over Cart Drawer */}
+      <CartDrawer 
+        isOpen={isCartDrawerOpen}
+        onClose={() => setIsCartDrawerOpen(false)}
+        cart={cart}
+        setCart={setCart}
+        onProceedToBooking={() => setIsBookingOpen(true)}
       />
 
       {/* Modals & Dialog Overlays */}

@@ -51,7 +51,7 @@ export default function FranchisePage({ openFranchiseModal, onBookTest }) {
 
         {/* Hero Header Banner */}
         <div style={{
-          background: `linear-gradient(135deg, rgba(15, 23, 42, 0.92) 0%, rgba(30, 41, 59, 0.95) 100%), url('/images/banners/lab-sevamitra.webp')`,
+          background: `linear-gradient(135deg, rgba(15, 23, 42, 0.92) 0%, rgba(30, 41, 59, 0.95) 100%), url('/images/gallery/gallery-1.jpg')`,
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           color: 'white',
@@ -153,7 +153,7 @@ export default function FranchisePage({ openFranchiseModal, onBookTest }) {
             <form onSubmit={handleEnquirySubmit} style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1.25rem' }}>
               <div>
                 <label style={{ display: 'block', fontSize: '0.85rem', fontWeight: 800, color: '#0F172A', marginBottom: '6px' }}>Full Name*</label>
-                <input type="text" required placeholder="Afi Kumar" value={enquiryName} onChange={(e) => setEnquiryName(e.target.value)} style={{ width: '100%', padding: '0.85rem 1.25rem', borderRadius: '14px', border: '1px solid #CBD5E1', fontSize: '0.95rem', color: '#0F172A' }} />
+                <input type="text" required placeholder="e.g. Ramesh Kumar" value={enquiryName} onChange={(e) => setEnquiryName(e.target.value)} style={{ width: '100%', padding: '0.85rem 1.25rem', borderRadius: '14px', border: '1px solid #CBD5E1', fontSize: '0.95rem', color: '#0F172A' }} />
               </div>
 
               <div>
@@ -229,7 +229,7 @@ export default function FranchisePage({ openFranchiseModal, onBookTest }) {
 
             <div>
               <label style={{ display: 'block', fontSize: '0.85rem', fontWeight: 800, color: 'white', marginBottom: '6px' }}>Full Name*</label>
-              <input type="text" required placeholder="Afi Kumar" value={formName} onChange={(e) => setFormName(e.target.value)} style={{ width: '100%', padding: '0.85rem 1.25rem', borderRadius: '99px', border: 'none', background: 'rgba(255,255,255,0.92)', fontSize: '0.95rem', color: '#0F172A' }} />
+              <input type="text" required placeholder="e.g. Ramesh Kumar" value={formName} onChange={(e) => setFormName(e.target.value)} style={{ width: '100%', padding: '0.85rem 1.25rem', borderRadius: '99px', border: 'none', background: 'rgba(255,255,255,0.92)', fontSize: '0.95rem', color: '#0F172A' }} />
             </div>
 
             <div>
