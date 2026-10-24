@@ -212,13 +212,9 @@ export default function App() {
 
       </div>
 
-      {/* Mobile Floating Cart Summary Pill (Screenshot 1 & 2) */}
+      {/* Mobile Floating Cart Summary Pill */}
       {cart.length > 0 && (
         <div className="mobile-floating-cart-bar">
-          <div className="mobile-cart-hint">
-            <span style={{ fontSize: '13px' }}>👥</span>
-            <span>You can add members in the next step</span>
-          </div>
           <div className="mobile-cart-main-pill" onClick={() => setIsCartDrawerOpen(true)}>
             <div className="mobile-cart-info">
               <span className="mobile-cart-count">
@@ -234,7 +230,7 @@ export default function App() {
                 setIsCartDrawerOpen(true);
               }}
             >
-              Proceed
+              Book Now
             </button>
           </div>
         </div>
