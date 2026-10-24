@@ -226,15 +226,7 @@ img, svg {
 }
 
 .btn-header-whatsapp {
-  background-color: #25D366 !important;
-  color: #ffffff !important;
-}
-
-.btn-header-whatsapp:hover {
-  background-color: #1EBE5D !important;
-  color: #ffffff !important;
-  transform: translateY(-1px) scale(1.04);
-  box-shadow: 0 4px 12px rgba(37, 211, 102, 0.28);
+  display: none !important; /* Mobile view only as requested - hidden on desktop */
 }
 
 .btn-sticky-search {
@@ -3397,6 +3389,15 @@ img, svg {
     height: 36px !important;
     min-width: 36px !important;
     flex-shrink: 0 !important;
+  }
+
+  .site-header-unpinned .btn-header-whatsapp {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    background-color: #25D366 !important;
+    color: #ffffff !important;
+    box-shadow: 0 2px 8px rgba(37, 211, 102, 0.3) !important;
   }
 
   .site-header-unpinned .btn-open-profile {
