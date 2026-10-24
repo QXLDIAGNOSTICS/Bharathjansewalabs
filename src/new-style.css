@@ -225,6 +225,22 @@ img, svg {
   transform: translateY(-1px);
 }
 
+.btn-header-whatsapp {
+  background-color: #25D366 !important;
+  color: #ffffff !important;
+}
+
+.btn-header-whatsapp:hover {
+  background-color: #1EBE5D !important;
+  color: #ffffff !important;
+  transform: translateY(-1px) scale(1.04);
+  box-shadow: 0 4px 12px rgba(37, 211, 102, 0.28);
+}
+
+.btn-sticky-search {
+  display: none !important; /* Hidden on desktop; visible on mobile sticky */
+}
+
 .cart-counter-badge {
   position: absolute;
   top: -2px;
@@ -3315,40 +3331,228 @@ img, svg {
 
   /* Header Top Row */
   .site-header-unpinned {
-    padding-top: 10px;
-    padding-bottom: 4px;
+    padding-top: 8px !important;
+    padding-bottom: 4px !important;
   }
 
   .header-top-row {
-    flex-wrap: wrap;
-    gap: 8px;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    flex-wrap: nowrap !important;
+    gap: 8px !important;
+    width: 100% !important;
   }
 
   .header-left-group {
-    width: 100%;
-    justify-content: space-between;
-    gap: 8px;
+    display: flex !important;
+    align-items: center !important;
+    gap: 8px !important;
+    flex: 1 !important;
+    min-width: 0 !important;
+    width: auto !important;
+    justify-content: flex-start !important;
+  }
+
+  .logo-link img {
+    height: 38px !important;
+    width: auto !important;
+    flex-shrink: 0 !important;
   }
 
   .location-pill-btn {
-    padding: 3px 8px;
-    background: #F1F5F9;
-    border-radius: 9999px;
+    padding: 3px 8px !important;
+    background: #F1F5F9 !important;
+    border-radius: 9999px !important;
+    display: flex !important;
+    align-items: center !important;
+    gap: 4px !important;
+    flex-shrink: 1 !important;
+    min-width: 0 !important;
+    max-width: 140px !important;
   }
 
   .location-pill-city {
-    font-size: 12.5px;
-    max-width: 160px;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
+    font-size: 11.5px !important;
+    max-width: 80px !important;
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
   }
 
   .location-pill-change {
-    font-size: 11px;
+    font-size: 10px !important;
+    white-space: nowrap !important;
   }
 
-  .header-right-group {
+  .site-header-unpinned .header-right-group {
+    display: flex !important;
+    align-items: center !important;
+    gap: 6px !important;
+    flex-shrink: 0 !important;
+  }
+
+  .site-header-unpinned .circle-icon-btn {
+    width: 36px !important;
+    height: 36px !important;
+    min-width: 36px !important;
+    flex-shrink: 0 !important;
+  }
+
+  .site-header-unpinned .btn-open-profile {
+    display: none !important;
+  }
+
+  /* Sticky Header Alignment & Action Buttons on Mobile Scroll */
+  .site-header-sticky {
+    padding: 7px 0 !important;
+    background: #ffffff !important;
+    border-bottom: 1px solid #E2E8F0 !important;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08) !important;
+  }
+
+  .sticky-header-wrapper {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    gap: 8px !important;
+    width: 100% !important;
+    padding-left: 12px !important;
+    padding-right: 12px !important;
+    box-sizing: border-box !important;
+  }
+
+  .sticky-left {
+    display: flex !important;
+    align-items: center !important;
+    gap: 6px !important;
+    flex: 1 !important;
+    min-width: 0 !important;
+  }
+
+  .sticky-logo-circle {
+    width: 34px !important;
+    height: 34px !important;
+    flex-shrink: 0 !important;
+  }
+
+  .sticky-logo-circle img {
+    height: 32px !important;
+    width: auto !important;
+    max-width: 34px !important;
+    object-fit: contain !important;
+  }
+
+  .sticky-left .location-pill-btn {
+    padding: 3px 7px !important;
+    max-width: 135px !important;
+    flex-shrink: 1 !important;
+    min-width: 0 !important;
+    background: #F1F5F9 !important;
+  }
+
+  .sticky-left .location-lightning-icon {
+    display: flex !important;
+    align-items: center !important;
+    flex-shrink: 0 !important;
+  }
+
+  .sticky-left .location-lightning-icon svg {
+    width: 15px !important;
+    height: 15px !important;
+  }
+
+  .sticky-left .location-pill-text {
+    min-width: 0 !important;
+    overflow: hidden !important;
+  }
+
+  .sticky-left .location-pill-city {
+    font-size: 11px !important;
+    max-width: 78px !important;
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    line-height: 1.15 !important;
+  }
+
+  .sticky-left .location-pill-change {
+    font-size: 9.5px !important;
+    white-space: nowrap !important;
+    line-height: 1 !important;
+  }
+
+  /* Hide bulky search bar on sticky mobile - replaced with circular search button */
+  .sticky-search-bar {
+    display: none !important;
+  }
+
+  /* Hide navigation links on sticky mobile */
+  .sticky-nav-links {
+    display: none !important;
+  }
+
+  /* Display right group in sticky header with Search, WhatsApp, and Cart */
+  .site-header-sticky .header-right-group {
+    display: flex !important;
+    align-items: center !important;
+    gap: 6px !important;
+    flex-shrink: 0 !important;
+    margin: 0 !important;
+  }
+
+  .site-header-sticky .circle-icon-btn {
+    width: 35px !important;
+    height: 35px !important;
+    min-width: 35px !important;
+    flex-shrink: 0 !important;
+  }
+
+  .site-header-sticky .btn-sticky-search {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    background-color: #F1F5F9 !important;
+    color: #1E293B !important;
+    border: 1px solid #E2E8F0 !important;
+  }
+
+  .site-header-sticky .btn-header-whatsapp {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    background-color: #25D366 !important;
+    color: #ffffff !important;
+    box-shadow: 0 2px 8px rgba(37, 211, 102, 0.3) !important;
+  }
+
+  .site-header-sticky .btn-open-cart {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    background-color: #FEF2F2 !important;
+    color: #DC2626 !important;
+    border: 1px solid #FECACA !important;
+  }
+
+  .site-header-sticky .cart-counter-badge {
+    position: absolute !important;
+    top: -4px !important;
+    right: -4px !important;
+    width: 17px !important;
+    height: 17px !important;
+    font-size: 10px !important;
+    font-weight: 800 !important;
+    background-color: #E11D48 !important;
+    color: #ffffff !important;
+    border: 2px solid #ffffff !important;
+    border-radius: 9999px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+  }
+
+  .site-header-sticky .btn-open-profile {
     display: none !important;
   }
 
