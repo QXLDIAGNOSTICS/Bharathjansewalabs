@@ -20,7 +20,15 @@ function createServer(portIndex = 0) {
     const publicDir = path.join(__dirname, 'public');
     const baseDir = fs.existsSync(distDir) ? distDir : publicDir;
     
-    let filePath = path.join(baseDir, req.url === '/' ? 'index.html' : req.url);
+    const cleanUrl = (req.url === '/' ? 'index.html' : req.url).split('?')[0];
+    let filePath = path.join(baseDir, cleanUrl);
+
+    if (fs.existsSync(filePath) && fs.statSync(filePath).isDirectory()) {
+      const idxPath = path.join(filePath, 'index.html');
+      if (fs.existsSync(idxPath)) {
+        filePath = idxPath;
+      }
+    }
 
     fs.stat(filePath, (err, stats) => {
       if (err || !stats.isFile()) {

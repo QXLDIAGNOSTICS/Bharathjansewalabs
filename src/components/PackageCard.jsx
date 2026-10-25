@@ -101,30 +101,50 @@ export default function PackageCard({
           </div>
           <div style={{ display: 'flex', flexWrap: 'wrap', gap: '6px' }}>
             {pkg.includedCategories ? (
-              pkg.includedCategories.slice(0, 6).map((cat, idx) => (
-                <span 
-                  key={idx}
-                  style={{
-                    background: 'rgba(254, 242, 242, 0.85)',
-                    color: '#991B1B',
-                    border: '1px solid rgba(254, 205, 211, 0.9)',
-                    backdropFilter: 'blur(8px)',
-                    fontSize: '0.75rem',
-                    fontWeight: 700,
-                    padding: '4px 10px',
-                    borderRadius: '8px',
-                    boxShadow: 'inset 0 1px 0 rgba(255, 255, 255, 0.9)'
-                  }}
-                >
-                  {cat.name} ({cat.count})
-                </span>
-              ))
+              pkg.includedCategories.slice(0, 6).map((cat, idx) => {
+                const getCategoryUrl = (catName) => {
+                  const lower = (catName || '').toLowerCase();
+                  if (lower.includes('cbc') || lower.includes('blood') || lower.includes('haem')) return '/tests/cbc-esr-test/';
+                  if (lower.includes('lipid') || lower.includes('cholesterol')) return '/tests/lipid-profile-test/';
+                  if (lower.includes('liver') || lower.includes('lft')) return '/tests/liver-function-test/';
+                  if (lower.includes('renal') || lower.includes('kidney') || lower.includes('kft')) return '/tests/renal-profile-test/';
+                  if (lower.includes('thyroid')) return '/tests/thyroid-function-test-total/';
+                  if (lower.includes('sugar') || lower.includes('diabet') || lower.includes('glucose')) return '/tests/hba1c-test/';
+                  if (lower.includes('vitamin d')) return '/tests/vitamin-d-test/';
+                  if (lower.includes('vitamin b12') || lower.includes('b12')) return '/tests/vitamin-b12-test/';
+                  if (lower.includes('iron') || lower.includes('ferritin')) return '/tests/ferritin-test/';
+                  return '/tests/';
+                };
+
+                return (
+                  <a 
+                    key={idx}
+                    href={getCategoryUrl(cat.name)}
+                    title={`View ${cat.name} individual test page & 16 FAQs`}
+                    style={{
+                      background: 'rgba(254, 242, 242, 0.85)',
+                      color: '#991B1B',
+                      border: '1px solid rgba(254, 205, 211, 0.9)',
+                      backdropFilter: 'blur(8px)',
+                      fontSize: '0.75rem',
+                      fontWeight: 700,
+                      padding: '4px 10px',
+                      borderRadius: '8px',
+                      textDecoration: 'none',
+                      boxShadow: 'inset 0 1px 0 rgba(255, 255, 255, 0.9)',
+                      transition: 'all 0.15s ease'
+                    }}
+                  >
+                    {cat.name} ({cat.count})
+                  </a>
+                );
+              })
             ) : (
               <>
-                <span style={{ background: 'rgba(254, 242, 242, 0.85)', color: '#991B1B', border: '1px solid rgba(254, 205, 211, 0.9)', fontSize: '0.75rem', fontWeight: 700, padding: '4px 10px', borderRadius: '8px' }}>Lipids (14)</span>
-                <span style={{ background: 'rgba(254, 242, 242, 0.85)', color: '#991B1B', border: '1px solid rgba(254, 205, 211, 0.9)', fontSize: '0.75rem', fontWeight: 700, padding: '4px 10px', borderRadius: '8px' }}>Liver (14)</span>
-                <span style={{ background: 'rgba(254, 242, 242, 0.85)', color: '#991B1B', border: '1px solid rgba(254, 205, 211, 0.9)', fontSize: '0.75rem', fontWeight: 700, padding: '4px 10px', borderRadius: '8px' }}>Renal (7)</span>
-                <span style={{ background: 'rgba(254, 242, 242, 0.85)', color: '#991B1B', border: '1px solid rgba(254, 205, 211, 0.9)', fontSize: '0.75rem', fontWeight: 700, padding: '4px 10px', borderRadius: '8px' }}>CBC (29)</span>
+                <a href="/tests/lipid-profile-test/" style={{ background: 'rgba(254, 242, 242, 0.85)', color: '#991B1B', border: '1px solid rgba(254, 205, 211, 0.9)', fontSize: '0.75rem', fontWeight: 700, padding: '4px 10px', borderRadius: '8px', textDecoration: 'none' }}>Lipids (14)</a>
+                <a href="/tests/liver-function-test/" style={{ background: 'rgba(254, 242, 242, 0.85)', color: '#991B1B', border: '1px solid rgba(254, 205, 211, 0.9)', fontSize: '0.75rem', fontWeight: 700, padding: '4px 10px', borderRadius: '8px', textDecoration: 'none' }}>Liver (14)</a>
+                <a href="/tests/renal-profile-test/" style={{ background: 'rgba(254, 242, 242, 0.85)', color: '#991B1B', border: '1px solid rgba(254, 205, 211, 0.9)', fontSize: '0.75rem', fontWeight: 700, padding: '4px 10px', borderRadius: '8px', textDecoration: 'none' }}>Renal (7)</a>
+                <a href="/tests/cbc-esr-test/" style={{ background: 'rgba(254, 242, 242, 0.85)', color: '#991B1B', border: '1px solid rgba(254, 205, 211, 0.9)', fontSize: '0.75rem', fontWeight: 700, padding: '4px 10px', borderRadius: '8px', textDecoration: 'none' }}>CBC (29)</a>
               </>
             )}
           </div>

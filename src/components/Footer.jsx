@@ -121,6 +121,102 @@ export default function Footer({ setCurrentTab, openLegal }) {
 
           </div>
 
+          {/* Dedicated SEO Links Section: Affordable Diagnostic Tests in Bengaluru */}
+          <div style={{
+            background: '#FFFFFF',
+            borderRadius: '16px',
+            border: '1px solid #E2E8F0',
+            padding: '1.75rem 2rem',
+            marginBottom: '2.5rem',
+            boxShadow: '0 2px 8px rgba(0,0,0,0.02)'
+          }}>
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '1rem', marginBottom: '1.25rem', borderBottom: '1px solid #EDF2F7', paddingBottom: '0.75rem' }}>
+              <div>
+                <h4 style={{ fontSize: '1.15rem', fontWeight: 800, color: '#1A202C', margin: 0 }}>
+                  Affordable Diagnostic Tests in Bengaluru
+                </h4>
+                <p style={{ fontSize: '0.825rem', color: '#718096', margin: '3px 0 0' }}>
+                  66 individual blood and pathology tests with transparent subsidized rates and 16 medical FAQs per test.
+                </p>
+              </div>
+              <a 
+                href="/tests/" 
+                style={{ 
+                  fontSize: '0.875rem', 
+                  fontWeight: 800, 
+                  color: '#E53E3E', 
+                  textDecoration: 'none',
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: '4px'
+                }}
+              >
+                <span>View All 66 Test Prices Directory →</span>
+              </a>
+            </div>
+
+            <div style={{
+              display: 'grid',
+              gridTemplateColumns: 'repeat(auto-fill, minmax(240px, 1fr))',
+              gap: '0.6rem 1.25rem',
+              fontSize: '0.85rem'
+            }}>
+              {[
+                { name: 'Complete Blood Count (CBC + ESR)', price: '₹160', url: '/tests/cbc-esr-test/' },
+                { name: 'Blood Glucose (Fasting/PP/Random)', price: '₹20', url: '/tests/blood-sugar-test/' },
+                { name: 'Glycated Haemoglobin (HbA1c)', price: '₹260', url: '/tests/hba1c-test/' },
+                { name: 'Lipid Profile (Cholesterol)', price: '₹260', url: '/tests/lipid-profile-test/' },
+                { name: 'Liver Function Test (LFT Panel)', price: '₹360', url: '/tests/liver-function-test/' },
+                { name: 'Serum Creatinine (Kidney)', price: '₹50', url: '/tests/serum-creatinine-test/' },
+                { name: 'Blood Urea / BUN', price: '₹50', url: '/tests/blood-urea-test/' },
+                { name: 'Urine Routine & Microscopy', price: '₹50', url: '/tests/urine-routine-microscopy-test/' },
+                { name: 'Thyroid Hormone (TSH)', price: '₹100', url: '/tests/tsh-test/' },
+                { name: 'Thyroid Function (Total T3, T4, TSH)', price: '₹190', url: '/tests/thyroid-function-test-total/' },
+                { name: 'Serum Electrolytes (Na, K, Cl)', price: '₹190', url: '/tests/serum-electrolytes-test/' },
+                { name: 'Vitamin D 25-Hydroxy', price: '₹660', url: '/tests/vitamin-d-test/' },
+                { name: 'Vitamin B12 (Cobalamin)', price: '₹440', url: '/tests/vitamin-b12-test/' },
+                { name: 'Serum Ferritin (Iron Stores)', price: '₹460', url: '/tests/ferritin-test/' },
+                { name: 'Iron Studies (Iron, TIBC)', price: '₹250', url: '/tests/iron-studies-test/' },
+                { name: 'C-Reactive Protein (CRP)', price: '₹250', url: '/tests/crp-test/' },
+                { name: 'Serum Uric Acid', price: '₹50', url: '/tests/uric-acid-test/' },
+                { name: 'Serum Calcium Total', price: '₹60', url: '/tests/serum-calcium-test/' },
+                { name: 'Total IgE (Allergy)', price: '₹630', url: '/tests/total-ige-test/' },
+                { name: 'HBsAg (Hepatitis B)', price: '₹250', url: '/tests/hbsag-test/' },
+                { name: 'HIV 1/2 4th Gen Antigen-Antibody', price: '₹250', url: '/tests/hiv-fourth-generation-test/' },
+                { name: 'Dengue NS1 & IgM/IgG ELISA', price: '₹450', url: '/tests/dengue-ns1-igm-igg-test/' },
+                { name: 'Malaria Rapid Antigen Test', price: '₹200', url: '/tests/malaria-antigen-test/' },
+                { name: 'Prothrombin Time / INR', price: '₹190', url: '/tests/pt-inr-test/' },
+                { name: 'D-Dimer (Thrombosis)', price: '₹660', url: '/tests/d-dimer-test/' },
+                { name: 'Cardiac Troponin I Quantitative', price: '₹760', url: '/tests/troponin-i-test/' },
+                { name: 'Total PSA (Prostate Screen)', price: '₹400', url: '/tests/total-psa-test/' },
+                { name: 'Renal Profile Panel (RFT/KFT)', price: '₹320', url: '/tests/renal-profile-test/' }
+              ].map(item => (
+                <a 
+                  key={item.url} 
+                  href={item.url}
+                  style={{ 
+                    display: 'flex', 
+                    justifyContent: 'space-between', 
+                    alignItems: 'center', 
+                    color: '#4A5568', 
+                    textDecoration: 'none',
+                    padding: '3px 0',
+                    transition: 'color 0.15s'
+                  }}
+                  onMouseEnter={(e) => e.currentTarget.style.color = '#E53E3E'}
+                  onMouseLeave={(e) => e.currentTarget.style.color = '#4A5568'}
+                >
+                  <span style={{ overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap', paddingRight: '8px' }}>
+                    {item.name}
+                  </span>
+                  <strong style={{ color: '#E53E3E', fontSize: '0.8rem', flexShrink: 0 }}>
+                    {item.price}
+                  </strong>
+                </a>
+              ))}
+            </div>
+          </div>
+
           {/* Middle Full-Width White Contact Cards Bar */}
           <div style={{
             background: '#FFFFFF',
@@ -178,6 +274,21 @@ export default function Footer({ setCurrentTab, openLegal }) {
                 contact@bharathjansewalabs.com
               </a>
             </div>
+          </div>
+
+          {/* Clinical & Accreditation Transparency Notice */}
+          <div style={{
+            background: '#F8FAFC',
+            border: '1px solid #E2E8F0',
+            borderRadius: '12px',
+            padding: '1rem 1.25rem',
+            marginBottom: '2rem',
+            fontSize: '0.8rem',
+            lineHeight: 1.6,
+            color: '#64748B'
+          }}>
+            <strong style={{ color: '#334155' }}>Accreditation & Medical Disclosure: </strong>
+            Samples collected by Bharath Jan Sewa Labs collection centres are processed at designated partner laboratories. Laboratory accreditation details and the applicable scope of accredited testing are available on request. Collection centres are phlebotomy specimen collection desks and are not individually accredited laboratories. All educational material is provided for patient health awareness and does not substitute for qualified clinical consultation.
           </div>
 
           {/* Bottom Bar */}
@@ -242,7 +353,22 @@ export default function Footer({ setCurrentTab, openLegal }) {
               </ul>
             </div>
 
-            {/* Column 2: Partners */}
+            {/* Column 2: Tests & Prices */}
+            <div className="mobile-footer-nav-col">
+              <h4 className="mobile-footer-nav-heading">Tests & Prices</h4>
+              <ul className="mobile-footer-nav-links">
+                <li><a href="/tests/">All 66 Tests Directory</a></li>
+                <li><a href="/tests/cbc-esr-test/">CBC + ESR (₹160)</a></li>
+                <li><a href="/tests/blood-sugar-test/">Glucose (₹20)</a></li>
+                <li><a href="/tests/hba1c-test/">HbA1c (₹260)</a></li>
+                <li><a href="/tests/thyroid-function-test-total/">Thyroid TFT (₹190)</a></li>
+                <li><a href="/tests/lipid-profile-test/">Lipids (₹260)</a></li>
+                <li><a href="/tests/liver-function-test/">LFT (₹360)</a></li>
+                <li><a href="/tests/vitamin-d-test/">Vitamin D (₹660)</a></li>
+              </ul>
+            </div>
+
+            {/* Column 3: Partners */}
             <div className="mobile-footer-nav-col">
               <h4 className="mobile-footer-nav-heading">Partners</h4>
               <ul className="mobile-footer-nav-links">

@@ -172,11 +172,11 @@ export default function Header({
           <nav className="sticky-nav-links">
             <button 
               type="button"
-              onClick={() => handleNav('home', '#popular-tests')} 
+              onClick={() => handleNav('tests')} 
               className="sticky-nav-link"
               style={{ background: 'none', border: 'none', cursor: 'pointer' }}
             >
-              Tests
+              Tests & Rates
             </button>
             <button 
               type="button"
@@ -397,11 +397,11 @@ export default function Header({
             {/* Quick Pill: Tests */}
             <button 
               type="button" 
-              onClick={() => handleNav('home', '#popular-tests')}
+              onClick={() => handleNav('tests')}
               className="quick-shelf-pill pill-tests"
             >
               <span className="pill-3d-icon">🔬</span>
-              <span>Tests</span>
+              <span>All 66 Tests</span>
             </button>
 
             {/* Quick Pill: Checkups */}

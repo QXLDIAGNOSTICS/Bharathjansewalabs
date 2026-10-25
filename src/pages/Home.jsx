@@ -71,7 +71,7 @@ export default function Home({
       tag: 'Trichology',
       icon: '💇',
       testsText: 'Ferritin, TSH, Iron, Biotin',
-      price: '₹399',
+      price: '₹100',
       image: '/images/slides/hero_hairfall.jpg',
       fallbackImage: 'https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=600&auto=format&fit=crop&q=80', 
       testId: 'thyroid-profile' 
@@ -82,10 +82,10 @@ export default function Home({
       tag: 'Orthopedics',
       icon: '🦴',
       testsText: 'Vit D, Calcium, RA, Uric Acid',
-      price: '₹499',
+      price: '₹50',
       image: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=600&auto=format&fit=crop&q=80', 
       fallbackImage: '/images/slides/hero-slide2.jpg',
-      testId: 'vit-d' 
+      testId: 'vitamin-d-test' 
     },
     { 
       id: 'allergy', 
@@ -93,7 +93,7 @@ export default function Home({
       tag: 'Immunity',
       icon: '🌿',
       testsText: 'Total IgE, Absolute Eosinophils',
-      price: '₹499',
+      price: '₹100',
       image: 'https://images.unsplash.com/photo-1584515979956-d9f6e5d09982?w=600&auto=format&fit=crop&q=80', 
       fallbackImage: '/images/slides/hero_lifestyle.jpg',
       testId: 'cbc-test' 
@@ -104,7 +104,7 @@ export default function Home({
       tag: 'Hormonal Care',
       icon: '🦋',
       testsText: 'TSH, Total T3, Total T4',
-      price: '₹399',
+      price: '₹100',
       image: 'https://images.unsplash.com/photo-1579684385127-1ef15d508118?w=600&auto=format&fit=crop&q=80', 
       fallbackImage: '/images/packages/chirayu-master.webp',
       testId: 'thyroid-profile' 
@@ -115,7 +115,7 @@ export default function Home({
       tag: 'Sugar Care',
       icon: '🩸',
       testsText: 'HbA1c, Fasting Sugar, Urine',
-      price: '₹299',
+      price: '₹20',
       image: 'https://images.unsplash.com/photo-1505751172876-fa1923c5c528?w=600&auto=format&fit=crop&q=80', 
       fallbackImage: '/images/slides/hero-slide1.jpg',
       testId: 'hba1c-test' 
@@ -126,7 +126,7 @@ export default function Home({
       tag: 'Lipid Profile',
       icon: '❤️',
       testsText: 'Cholesterol, HDL, LDL, Triglycerides',
-      price: '₹399',
+      price: '₹120',
       image: 'https://images.unsplash.com/photo-1628348068343-c6a848d2b6dd?w=600&auto=format&fit=crop&q=80', 
       fallbackImage: '/images/packages/chirayu-prime.webp',
       testId: 'lipid-profile' 
@@ -136,8 +136,8 @@ export default function Home({
       name: 'Fever & Infection', 
       tag: 'Infection Care',
       icon: '🌡️',
-      testsText: 'CBC, ESR, Dengue NS1, Widal',
-      price: '₹499',
+      testsText: 'CBC, ESR, Dengue NS1, Malaria',
+      price: '₹160',
       image: 'https://images.unsplash.com/photo-1584036561566-baf8f5f1b144?w=600&auto=format&fit=crop&q=80', 
       fallbackImage: '/images/slides/hero_fever.jpg',
       testId: 'cbc-test' 
@@ -148,10 +148,10 @@ export default function Home({
       tag: 'Vital Nutrition',
       icon: '💊',
       testsText: 'Vitamin D3 & Vitamin B12, Calcium',
-      price: '₹799',
+      price: '₹60',
       image: 'https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=600&auto=format&fit=crop&q=80', 
       fallbackImage: '/images/slides/hero-slide2.jpg',
-      testId: 'vit-d' 
+      testId: 'vitamin-d-test' 
     },
     { 
       id: 'liver-kidney', 
@@ -159,7 +159,7 @@ export default function Home({
       tag: 'Organ Function',
       icon: '🧪',
       testsText: 'SGOT, SGPT, Creatinine, Urea, Uric Acid',
-      price: '₹699',
+      price: '₹50',
       image: 'https://images.unsplash.com/photo-1532938911079-1b06ac7ceec7?w=600&auto=format&fit=crop&q=80', 
       fallbackImage: '/images/packages/chirayu-master.webp',
       testId: 'lft-test' 
@@ -187,28 +187,28 @@ export default function Home({
       id: 'dengue-cbc',
       name: 'Dengue Profile - Rapid with CBC',
       parametersCount: 27,
-      tat: '6 hours',
-      mrp: 660,
-      price: 600,
-      discount: '9% Off'
+      tat: '4-6 hours',
+      mrp: 850,
+      price: 499,
+      discount: '41% Off'
     },
     {
       id: 'fever-comp',
       name: 'Fever Profile - Comprehensive',
       parametersCount: 69,
-      tat: 'tomorrow 10pm',
-      mrp: 5470,
-      price: 1999,
-      discount: '63% Off'
+      tat: 'Same day',
+      mrp: 3500,
+      price: 1499,
+      discount: '57% Off'
     },
     {
       id: 'monsoon-panel',
       name: 'Monsoon Fever Panel',
       parametersCount: 68,
-      tat: '12 hours',
-      mrp: 4720,
-      price: 1599,
-      discount: '66% Off'
+      tat: 'Same day',
+      mrp: 2900,
+      price: 1199,
+      discount: '58% Off'
     }
   ];
 
@@ -216,75 +216,91 @@ export default function Home({
   const bookedTests = [
     {
       id: 'cbc-test',
-      name: 'Complete Blood Count (CBC)',
-      parametersCount: 29,
-      tat: '6 hours',
-      mrp: 600,
-      price: 299,
-      discount: '50% Off'
+      name: 'Complete Blood Count with ESR (CBC + ESR)',
+      slug: 'cbc-esr-test',
+      url: '/tests/cbc-esr-test/',
+      parametersCount: 30,
+      tat: '4-6 hours',
+      mrp: 400,
+      price: 160,
+      discount: '60% Off'
     },
     {
       id: 'hba1c-test',
-      name: 'Glycosylated Haemoglobin (HbA1c)',
+      name: 'Glycated Haemoglobin (HbA1c)',
+      slug: 'hba1c-test',
+      url: '/tests/hba1c-test/',
       parametersCount: 3,
-      tat: '6 hours',
-      mrp: 750,
-      price: 349,
-      discount: '53% Off'
+      tat: '4-6 hours',
+      mrp: 650,
+      price: 260,
+      discount: '60% Off'
     },
     {
       id: 'thyroid-profile',
-      name: 'Thyroid Function Test (TFT)',
+      name: 'TFT - Thyroid Function Tests (T3, T4 & TSH)',
+      slug: 'thyroid-function-test-total',
+      url: '/tests/thyroid-function-test-total/',
       parametersCount: 3,
-      tat: '6 hours',
-      mrp: 850,
-      price: 399,
-      discount: '53% Off'
+      tat: '4-6 hours',
+      mrp: 550,
+      price: 190,
+      discount: '65% Off'
     },
     {
       id: 'vit-b12',
-      name: 'Vitamin B12',
+      name: 'Vitamin B12 (Cobalamin)',
+      slug: 'vitamin-b12-test',
+      url: '/tests/vitamin-b12-test/',
       parametersCount: 1,
-      tat: '6 hours',
-      mrp: 1400,
-      price: 699,
-      discount: '50% Off'
+      tat: 'Same day',
+      mrp: 950,
+      price: 440,
+      discount: '54% Off'
     },
     {
-      id: 'vit-d',
-      name: 'Vitamin D, Total',
+      id: 'vitamin-d-test',
+      name: 'Vitamin D, 25-Hydroxy',
+      slug: 'vitamin-d-test',
+      url: '/tests/vitamin-d-test/',
       parametersCount: 1,
-      tat: '6 hours',
-      mrp: 1500,
-      price: 699,
+      tat: 'Same day',
+      mrp: 1400,
+      price: 660,
       discount: '53% Off'
     },
     {
       id: 'lipid-profile',
-      name: 'Lipid Profile (Cholesterol)',
-      parametersCount: 14,
-      tat: '6 hours',
-      mrp: 950,
-      price: 499,
-      discount: '47% Off'
+      name: 'Lipid Profile (Cholesterol Panel)',
+      slug: 'lipid-profile-test',
+      url: '/tests/lipid-profile-test/',
+      parametersCount: 8,
+      tat: 'Same day',
+      mrp: 750,
+      price: 260,
+      discount: '65% Off'
     },
     {
       id: 'lft-test',
-      name: 'Liver Function Test (LFT)',
-      parametersCount: 14,
-      tat: '6 hours',
-      mrp: 950,
-      price: 499,
-      discount: '47% Off'
+      name: 'LFT - Liver Function Tests Panel',
+      slug: 'liver-function-test',
+      url: '/tests/liver-function-test/',
+      parametersCount: 11,
+      tat: 'Same day',
+      mrp: 850,
+      price: 360,
+      discount: '58% Off'
     },
     {
       id: 'kft-test',
-      name: 'Kidney Function Test (KFT)',
-      parametersCount: 9,
-      tat: '6 hours',
-      mrp: 950,
-      price: 499,
-      discount: '47% Off'
+      name: 'Renal Profile (KFT - Urea, Creatinine, Electrolytes)',
+      slug: 'renal-profile-test',
+      url: '/tests/renal-profile-test/',
+      parametersCount: 7,
+      tat: 'Same day',
+      mrp: 800,
+      price: 320,
+      discount: '60% Off'
     }
   ];
 
@@ -484,7 +500,7 @@ export default function Home({
                   <div className="mobile-lifestyle-tag-pill bottom-pill-hairfall">
                     <span className="pill-title">Hair Fall & Thyroid Profile</span>
                     <div className="pill-price-btn">
-                      <span>Starts at ₹399</span>
+                      <span>Starts at ₹190</span>
                       <ArrowRight size={13} />
                     </div>
                   </div>
@@ -517,7 +533,7 @@ export default function Home({
                   <div className="mobile-lifestyle-tag-pill bottom-pill-vitamin">
                     <span className="pill-title">Vitamin D & Mineral Screen</span>
                     <div className="pill-price-btn">
-                      <span>At ₹699</span>
+                      <span>At ₹660</span>
                       <ArrowRight size={13} />
                     </div>
                   </div>
@@ -581,7 +597,7 @@ export default function Home({
                   <div className="mobile-lifestyle-tag-pill bottom-pill-cardiac">
                     <span className="pill-title">Lipid Profile (14 Heart Tests)</span>
                     <div className="pill-price-btn">
-                      <span>Starts at ₹450</span>
+                      <span>Starts at ₹260</span>
                       <ArrowRight size={13} />
                     </div>
                   </div>
@@ -611,9 +627,9 @@ export default function Home({
                     </h3>
                   </div>
                   <div className="mobile-lifestyle-tag-pill bottom-pill-fever">
-                    <span className="pill-title">Complete Blood Count (CBC 29 Tests)</span>
+                    <span className="pill-title">Complete Blood Count (CBC + ESR)</span>
                     <div className="pill-price-btn">
-                      <span>At ₹299</span>
+                      <span>At ₹160</span>
                       <ArrowRight size={13} />
                     </div>
                   </div>
@@ -769,7 +785,7 @@ export default function Home({
                   <div className="desktop-lifestyle-bottom-pill bottom-pill-hairfall">
                     <span className="pill-title">Hair Fall & Thyroid Profile</span>
                     <div className="pill-price-btn">
-                      <span>Starts at ₹399</span>
+                      <span>Starts at ₹190</span>
                       <ArrowRight size={13} />
                     </div>
                   </div>
@@ -802,7 +818,7 @@ export default function Home({
                   <div className="desktop-lifestyle-bottom-pill bottom-pill-vitamin">
                     <span className="pill-title">Vitamin D & Mineral Screen</span>
                     <div className="pill-price-btn">
-                      <span>At ₹699</span>
+                      <span>At ₹660</span>
                       <ArrowRight size={13} />
                     </div>
                   </div>
@@ -866,7 +882,7 @@ export default function Home({
                   <div className="desktop-lifestyle-bottom-pill bottom-pill-cardiac">
                     <span className="pill-title">Lipid Profile (14 Heart Tests)</span>
                     <div className="pill-price-btn">
-                      <span>Starts at ₹450</span>
+                      <span>Starts at ₹260</span>
                       <ArrowRight size={13} />
                     </div>
                   </div>
@@ -896,9 +912,9 @@ export default function Home({
                     </h3>
                   </div>
                   <div className="desktop-lifestyle-bottom-pill bottom-pill-fever">
-                    <span className="pill-title">Complete Blood Count (CBC 29 Tests)</span>
+                    <span className="pill-title">Complete Blood Count (CBC + ESR)</span>
                     <div className="pill-price-btn">
-                      <span>At ₹299</span>
+                      <span>At ₹160</span>
                       <ArrowRight size={13} />
                     </div>
                   </div>
@@ -1140,7 +1156,7 @@ export default function Home({
                         <div className="price-top-meta">
                           <span className="strikethrough-price">₹{pkg.mrp}</span>
                           <span className="discount-green-badge">
-                            {pkg.discount || `${Math.round(((pkg.mrp - pkg.price) / pkg.mrp) * 100)}% Off`}
+                            {Math.round(((pkg.mrp - pkg.price) / pkg.mrp) * 100)}% Off
                           </span>
                         </div>
                         <div className="main-price-val">₹{pkg.price}</div>
@@ -1335,15 +1351,14 @@ export default function Home({
         <div className="container">
           <div className="section-head-with-link">
             <h2 className="section-main-heading" style={{ marginBottom: 0 }}>Most Booked Tests</h2>
-            <button 
-              type="button" 
-              onClick={openSearchModal}
+            <a 
+              href="/tests/" 
               className="section-view-all-link"
-              style={{ background: 'none', border: 'none' }}
+              style={{ textDecoration: 'none' }}
             >
-              <span>View all</span>
+              <span>View all 66 tests & price list</span>
               <ChevronRight size={16} />
-            </button>
+            </a>
           </div>
 
           <div className="carousel-outer-wrapper">
@@ -1353,7 +1368,11 @@ export default function Home({
                 return (
                   <div key={test.id} className="checkup-product-card" style={{ width: '280px', minWidth: '280px' }}>
                     <div>
-                      <h3 className="checkup-card-title" style={{ minHeight: '48px' }}>{test.name}</h3>
+                      <h3 className="checkup-card-title" style={{ minHeight: '48px' }}>
+                        <a href={test.url} style={{ color: 'inherit', textDecoration: 'none' }}>
+                          {test.name}
+                        </a>
+                      </h3>
 
                       <div className="checkup-card-meta-row">
                         <div className="meta-col">
@@ -1505,7 +1524,9 @@ export default function Home({
                       <div className="price-left">
                         <div className="price-top-meta">
                           <span className="strikethrough-price">₹{pkg.mrp}</span>
-                          <span className="discount-green-badge">{pkg.discount}</span>
+                          <span className="discount-green-badge">
+                            {Math.round(((pkg.mrp - pkg.price) / pkg.mrp) * 100)}% Off
+                          </span>
                         </div>
                         <div className="main-price-val">₹{pkg.price}</div>
                       </div>
@@ -1744,6 +1765,151 @@ export default function Home({
                   {faq.answer || faq.a}
                 </div>
               </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* 11. SEO DIRECTORY LINKS: 66 INDIVIDUAL DIAGNOSTIC TESTS IN BENGALURU */}
+      <section className="seo-tests-directory-section" aria-label="Affordable lab tests" style={{ background: '#F8FAFC', padding: '4rem 0', borderTop: '1px solid #E2E8F0' }}>
+        <div className="container">
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', flexWrap: 'wrap', gap: '1rem', marginBottom: '2rem' }}>
+            <div>
+              <span className="split-eyebrow" style={{ color: '#0284C7' }}>OFFICIAL SEO DIRECTORY</span>
+              <h2 className="section-main-heading" style={{ marginBottom: '6px' }}>
+                Affordable Diagnostic Tests in Bengaluru
+              </h2>
+              <p style={{ color: '#64748B', fontSize: '0.95rem', maxWidth: '700px', margin: 0 }}>
+                Every single test below is published under its canonical SEO page with transparent leaflet comparison rates, specimen guidance, preparation rules, and 16 medically verified patient FAQs.
+              </p>
+            </div>
+            <a 
+              href="/tests/" 
+              style={{
+                display: 'inline-flex',
+                alignItems: 'center',
+                gap: '8px',
+                padding: '10px 20px',
+                borderRadius: '12px',
+                background: '#0F172A',
+                color: 'white',
+                fontWeight: 800,
+                fontSize: '0.9rem',
+                textDecoration: 'none',
+                boxShadow: '0 4px 12px rgba(15,23,42,0.15)'
+              }}
+            >
+              <span>Explore All 66 Test Prices Directory</span>
+              <ArrowRight size={16} />
+            </a>
+          </div>
+
+          <div style={{
+            display: 'grid',
+            gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))',
+            gap: '10px'
+          }}>
+            {[
+              { name: 'Complete Blood Count with ESR (CBC + ESR)', price: '₹160', url: '/tests/cbc-esr-test/' },
+              { name: 'Blood Glucose (Fasting, PP or Random)', price: '₹20', url: '/tests/blood-sugar-test/' },
+              { name: 'Glycated Haemoglobin (HbA1c)', price: '₹260', url: '/tests/hba1c-test/' },
+              { name: 'Lipid Profile Panel', price: '₹260', url: '/tests/lipid-profile-test/' },
+              { name: 'Liver Function Test (LFT)', price: '₹360', url: '/tests/liver-function-test/' },
+              { name: 'Serum Creatinine', price: '₹50', url: '/tests/serum-creatinine-test/' },
+              { name: 'Blood Urea / BUN', price: '₹50', url: '/tests/blood-urea-test/' },
+              { name: 'Urine Routine & Microscopy', price: '₹50', url: '/tests/urine-routine-microscopy-test/' },
+              { name: 'Thyroid-Stimulating Hormone (TSH)', price: '₹100', url: '/tests/tsh-test/' },
+              { name: 'Thyroid Function Test (Total T3, T4 & TSH)', price: '₹190', url: '/tests/thyroid-function-test-total/' },
+              { name: 'Serum Electrolytes (Na, K, Cl)', price: '₹190', url: '/tests/serum-electrolytes-test/' },
+              { name: 'ABO Blood Group & Rh Typing', price: '₹90', url: '/tests/blood-group-rh-test/' },
+              { name: 'Vitamin D 25-Hydroxy', price: '₹660', url: '/tests/vitamin-d-test/' },
+              { name: 'Vitamin B12 (Cobalamin)', price: '₹440', url: '/tests/vitamin-b12-test/' },
+              { name: 'Serum Ferritin', price: '₹460', url: '/tests/ferritin-test/' },
+              { name: 'Iron Studies (Iron, TIBC, Saturation)', price: '₹250', url: '/tests/iron-studies-test/' },
+              { name: 'C-Reactive Protein (CRP), Quantitative', price: '₹250', url: '/tests/crp-test/' },
+              { name: 'Serum Uric Acid', price: '₹50', url: '/tests/uric-acid-test/' },
+              { name: 'Serum Calcium, Total', price: '₹60', url: '/tests/serum-calcium-test/' },
+              { name: 'Serum Phosphate', price: '₹90', url: '/tests/serum-phosphate-test/' },
+              { name: 'Total Immunoglobulin E (IgE)', price: '₹630', url: '/tests/total-ige-test/' },
+              { name: 'Hepatitis B Surface Antigen (HBsAg)', price: '₹250', url: '/tests/hbsag-test/' },
+              { name: 'Hepatitis C Antibody (Anti-HCV)', price: '₹400', url: '/tests/anti-hcv-test/' },
+              { name: 'HIV 1/2 Antigen-Antibody, 4th Gen', price: '₹250', url: '/tests/hiv-fourth-generation-test/' },
+              { name: 'Dengue NS1 Antigen & IgM/IgG ELISA', price: '₹450', url: '/tests/dengue-ns1-igm-igg-test/' },
+              { name: 'Malaria Rapid Antigen (HRP2/pLDH)', price: '₹200', url: '/tests/malaria-antigen-test/' },
+              { name: 'Prothrombin Time / INR', price: '₹190', url: '/tests/pt-inr-test/' },
+              { name: 'Activated Partial Thromboplastin Time (aPTT)', price: '₹260', url: '/tests/aptt-test/' },
+              { name: 'D-Dimer', price: '₹660', url: '/tests/d-dimer-test/' },
+              { name: 'Lactate Dehydrogenase (LDH)', price: '₹120', url: '/tests/ldh-test/' },
+              { name: 'Serum Amylase', price: '₹160', url: '/tests/serum-amylase-test/' },
+              { name: 'Serum Lipase', price: '₹250', url: '/tests/serum-lipase-test/' },
+              { name: 'Creatine Phosphokinase (CK/CPK), Total', price: '₹260', url: '/tests/cpk-total-test/' },
+              { name: 'Rheumatoid Factor (RF)', price: '₹200', url: '/tests/rheumatoid-factor-test/' },
+              { name: 'Anti-Streptolysin O (ASO) Titre', price: '₹200', url: '/tests/aso-titre-test/' },
+              { name: 'Serum Prolactin', price: '₹400', url: '/tests/prolactin-test/' },
+              { name: 'Follicle-Stimulating Hormone (FSH)', price: '₹400', url: '/tests/fsh-test/' },
+              { name: 'Luteinising Hormone (LH)', price: '₹400', url: '/tests/lh-test/' },
+              { name: 'Total Testosterone', price: '₹460', url: '/tests/total-testosterone-test/' },
+              { name: 'Beta hCG (Quantitative)', price: '₹460', url: '/tests/beta-hcg-test/' },
+              { name: 'Carcinoembryonic Antigen (CEA)', price: '₹600', url: '/tests/cea-test/' },
+              { name: 'Cancer Antigen 125 (CA-125)', price: '₹600', url: '/tests/ca-125-test/' },
+              { name: 'Urine Albumin-Creatinine Ratio (ACR)', price: '₹360', url: '/tests/urine-acr-test/' },
+              { name: 'Prostate-Specific Antigen (PSA), Total', price: '₹400', url: '/tests/total-psa-test/' },
+              { name: 'Folic Acid (Serum Folate)', price: '₹560', url: '/tests/serum-folate-test/' },
+              { name: 'VDRL Test', price: '₹220', url: '/tests/vdrl-test/' },
+              { name: 'TyphiDot IgM/IgG', price: '₹550', url: '/tests/typhidot-test/' },
+              { name: 'Thyroid Function Panel (Free T3, Free T4, TSH)', price: '₹330', url: '/tests/thyroid-function-test-free/' },
+              { name: 'Platelet Count', price: '₹100', url: '/tests/platelet-count-test/' },
+              { name: 'Haemoglobin (Hb)', price: '₹60', url: '/tests/haemoglobin-test/' },
+              { name: 'Complete Haemogram (CBC, ESR & PS)', price: '₹230', url: '/tests/complete-haemogram-ps-test/' },
+              { name: 'Absolute Eosinophil Count (AEC)', price: '₹100', url: '/tests/aec-test/' },
+              { name: 'Bilirubin, Total & Direct', price: '₹120', url: '/tests/bilirubin-total-direct-test/' },
+              { name: 'Serum Magnesium', price: '₹200', url: '/tests/serum-magnesium-test/' },
+              { name: 'Serum Iron', price: '₹160', url: '/tests/serum-iron-test/' },
+              { name: 'Alanine Aminotransferase (ALT / SGPT)', price: '₹60', url: '/tests/alt-sgpt-test/' },
+              { name: 'Aspartate Aminotransferase (AST / SGOT)', price: '₹60', url: '/tests/ast-sgot-test/' },
+              { name: 'Anti-Thyroid Peroxidase Antibodies (Anti-TPO)', price: '₹560', url: '/tests/anti-tpo-test/' },
+              { name: 'Potassium (Serum / Plasma)', price: '₹80', url: '/tests/potassium-test/' },
+              { name: 'Renal Profile (Urea, Creatinine, Uric, Lyts)', price: '₹320', url: '/tests/renal-profile-test/' },
+              { name: 'LDL Cholesterol, Direct', price: '₹120', url: '/tests/direct-ldl-test/' },
+              { name: 'Troponin I, Quantitative', price: '₹760', url: '/tests/troponin-i-test/' },
+              { name: 'Serum Cortisol (AM / PM)', price: '₹500', url: '/tests/cortisol-test/' },
+              { name: 'Gamma-Glutamyl Transferase (GGT)', price: '₹200', url: '/tests/ggt-test/' },
+              { name: 'Serum Total Protein', price: '₹50', url: '/tests/total-protein-test/' },
+              { name: 'Ionised Calcium', price: '₹260', url: '/tests/ionised-calcium-test/' }
+            ].map(test => (
+              <a 
+                key={test.url}
+                href={test.url}
+                style={{
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'space-between',
+                  padding: '9px 12px',
+                  background: 'white',
+                  borderRadius: '10px',
+                  border: '1px solid #E2E8F0',
+                  color: '#1E293B',
+                  textDecoration: 'none',
+                  fontSize: '0.85rem',
+                  fontWeight: 600,
+                  transition: 'all 0.15s ease'
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.borderColor = '#0284C7';
+                  e.currentTarget.style.boxShadow = '0 2px 8px rgba(2,132,199,0.1)';
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.borderColor = '#E2E8F0';
+                  e.currentTarget.style.boxShadow = 'none';
+                }}
+              >
+                <span style={{ overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap', paddingRight: '8px' }}>
+                  {test.name}
+                </span>
+                <span style={{ color: '#0284C7', fontWeight: 800, flexShrink: 0 }}>
+                  {test.price}
+                </span>
+              </a>
             ))}
           </div>
         </div>

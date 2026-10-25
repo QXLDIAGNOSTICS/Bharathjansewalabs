@@ -27,11 +27,11 @@ export default function MobileBottomNav({ currentTab, setCurrentTab, openBooking
 
       {/* 2. Tests */}
       <button 
-        onClick={() => { setCurrentTab('packages'); window.scrollTo(0, 0); }}
+        onClick={() => { setCurrentTab('tests'); window.scrollTo(0, 0); }}
         className="mobile-nav-btn"
-        style={{ color: currentTab === 'packages' ? '#EF4444' : '#1E293B' }}
+        style={{ color: currentTab === 'tests' ? '#EF4444' : '#1E293B' }}
       >
-        <Activity size={22} color={currentTab === 'packages' ? '#EF4444' : '#1E293B'} />
+        <Activity size={22} color={currentTab === 'tests' ? '#EF4444' : '#1E293B'} />
         <span style={{ fontWeight: 700 }}>Tests</span>
       </button>
 

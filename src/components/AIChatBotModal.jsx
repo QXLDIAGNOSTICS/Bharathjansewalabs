@@ -154,7 +154,7 @@ export default function AIChatBotModal({ isOpen, onClose, onBookTest }) {
       } else if (lower.includes('where') || lower.includes('located') || lower.includes('lab') || lower.includes('centre') || lower.includes('address')) {
         botText = 'Our central NABL Reference Lab is located at HSR Layout / Koramangala, Bengaluru with 10 active diagnostic and collection centres across Indiranagar, Jayanagar, Whitefield, Malleshwaram, Rajajinagar, Electronic City, and Yelahanka.';
       } else if (lower.includes('cbc') || lower.includes('complete blood count') || lower.includes('hemoglobin')) {
-        botText = 'A Complete Blood Count (CBC) tests 27 vital blood parameters including Hemoglobin, RBC, WBC count, Platelets, MCV, MCH, and differential count. At BJSL, a CBC test is only ₹299 with same-day reports within 6 hours!';
+        botText = 'A Complete Blood Count (CBC) tests 27 vital blood parameters including Hemoglobin, RBC, WBC count, Platelets, MCV, MCH, and differential count. At BJSL, a CBC test is only ₹160 with same-day reports within 6 hours!';
       } else if (lower.includes('how long') || lower.includes('report') || lower.includes('turnaround') || lower.includes('tat')) {
         botText = 'Our digital reports are processed by MD pathologists and delivered on the SAME DAY within 4 to 8 hours directly to your WhatsApp and Email in PDF format. You can also view them anytime on the BJSL Patient Portal.';
       } else if (lower.includes('fasting') || lower.includes('rules') || lower.includes('eat') || lower.includes('food')) {

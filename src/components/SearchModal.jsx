@@ -14,7 +14,8 @@ export default function SearchModal({ isOpen, onClose, onSelectTest, onBookTest 
     : allItems.filter(item => 
         item.name.toLowerCase().includes(query.toLowerCase()) || 
         item.shortDesc?.toLowerCase().includes(query.toLowerCase()) ||
-        item.code?.toLowerCase().includes(query.toLowerCase())
+        item.code?.toLowerCase().includes(query.toLowerCase()) ||
+        (item.testNumber && String(item.testNumber) === query.trim())
       );
 
   return (

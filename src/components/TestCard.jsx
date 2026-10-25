@@ -84,21 +84,43 @@ export default function TestCard({ test, onSelect, onBook }) {
       </div>
 
       {/* Buttons */}
-      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '0.6rem' }}>
-        <button 
-          onClick={() => onSelect(test)} 
-          className="btn-red-outline" 
-          style={{ justifyContent: 'center', padding: '0.65rem', fontSize: '0.825rem' }}
-        >
-          View Details
-        </button>
-        <button 
-          onClick={() => onBook(test)} 
-          className="btn-red-solid" 
-          style={{ justifyContent: 'center', padding: '0.65rem', fontSize: '0.825rem' }}
-        >
-          Book Test <ArrowRight size={14} />
-        </button>
+      <div>
+        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '0.6rem', marginBottom: '0.5rem' }}>
+          <button 
+            onClick={() => onSelect(test)} 
+            className="btn-red-outline" 
+            style={{ justifyContent: 'center', padding: '0.65rem', fontSize: '0.825rem' }}
+          >
+            Quick View
+          </button>
+          <button 
+            onClick={() => onBook(test)} 
+            className="btn-red-solid" 
+            style={{ justifyContent: 'center', padding: '0.65rem', fontSize: '0.825rem' }}
+          >
+            Book Test <ArrowRight size={14} />
+          </button>
+        </div>
+
+        {test.seoUrl && (
+          <a
+            href={test.seoUrl}
+            style={{
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              gap: '4px',
+              fontSize: '0.775rem',
+              fontWeight: 700,
+              color: '#0284C7',
+              textDecoration: 'none',
+              paddingTop: '2px'
+            }}
+          >
+            <span>SEO Page & 16 FAQs</span>
+            <ArrowRight size={12} />
+          </a>
+        )}
       </div>
     </div>
   );
