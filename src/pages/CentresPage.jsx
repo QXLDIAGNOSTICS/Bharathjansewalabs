@@ -56,8 +56,10 @@ export default function CentresPage({ openBookingWizard }) {
     }, 1000);
   };
 
+  const [selectedRegion, setSelectedRegion] = useState('All');
+
   const filteredCentres = selectedArea === 'All' 
-    ? CENTRES 
+    ? (selectedRegion === 'All' ? CENTRES : CENTRES.filter(c => c.region === selectedRegion))
     : CENTRES.filter(c => c.id === selectedArea || c.area.toLowerCase().includes(selectedArea.toLowerCase()));
 
   return (
@@ -98,13 +100,13 @@ export default function CentresPage({ openBookingWizard }) {
               letterSpacing: '0.05em',
               marginBottom: '1rem'
             }}>
-              <MapPin size={16} /> 10+ NABL Accredited Centres Across Bangalore
+              <MapPin size={16} /> 10 Verified Collection Hubs Across Bengaluru
             </span>
             <h1 style={{ fontSize: '2.5rem', fontWeight: 900, color: 'white', marginBottom: '0.75rem' }}>
-              Our Diagnostic Centres & Collection Hubs
+              Our Diagnostic Centres &amp; Collection Hubs
             </h1>
             <p style={{ fontSize: '1.1rem', color: '#94A3B8' }}>
-              Walk in to any nearby BJSL collection hub or book free home sample collection across Sanjaynagar, Peenya, Kengeri, Banashankari, and all Bangalore zones.
+              Walk in to any nearby BJSL collection hub or book convenient home sample collection across South, West, Central, and North Bengaluru. Samples processed through verified NABL-accredited partner laboratories.
             </p>
           </div>
 
@@ -284,6 +286,28 @@ export default function CentresPage({ openBookingWizard }) {
           </div>
         </div>
 
+        {/* Region Filter Buttons */}
+        <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap', marginBottom: '1rem' }}>
+          {['All', 'South', 'West', 'Central', 'North'].map(reg => (
+            <button
+              key={reg}
+              onClick={() => { setSelectedRegion(reg); setSelectedArea('All'); }}
+              style={{
+                padding: '6px 14px',
+                borderRadius: '8px',
+                fontSize: '0.8rem',
+                fontWeight: 700,
+                border: selectedRegion === reg ? '1.5px solid #0284C7' : '1px solid #CBD5E1',
+                background: selectedRegion === reg ? '#0284C7' : 'white',
+                color: selectedRegion === reg ? 'white' : '#475569',
+                cursor: 'pointer'
+              }}
+            >
+              {reg === 'All' ? 'All Bengaluru Regions' : `${reg} Bengaluru`}
+            </button>
+          ))}
+        </div>
+
         {/* Location Selector Tabs */}
         <div style={{ 
           display: 'flex', 
@@ -309,7 +333,7 @@ export default function CentresPage({ openBookingWizard }) {
               transition: 'all 0.2s ease'
             }}
           >
-            All Locations (10)
+            All Centres ({filteredCentres.length})
           </button>
           {CENTRES.map(centre => (
             <button
@@ -353,10 +377,17 @@ export default function CentresPage({ openBookingWizard }) {
             >
               <div>
                 {/* Header with Status & Rating */}
-                <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '1rem' }}>
-                  <span style={{ fontSize: '0.75rem', fontWeight: 800, background: '#ECFDF5', color: '#059669', padding: '4px 10px', borderRadius: '6px', border: '1px solid #A7F3D0' }}>
-                    🟢 Open Today (7 AM - 8 PM)
-                  </span>
+                <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '1rem', flexWrap: 'wrap', gap: '8px' }}>
+                  <div style={{ display: 'flex', gap: '6px' }}>
+                    <span style={{ fontSize: '0.75rem', fontWeight: 800, background: '#ECFDF5', color: '#059669', padding: '4px 10px', borderRadius: '6px', border: '1px solid #A7F3D0' }}>
+                      🟢 Open Today (7 AM - 8 PM)
+                    </span>
+                    {centre.region && (
+                      <span style={{ fontSize: '0.75rem', fontWeight: 800, background: '#EFF6FF', color: '#1D4ED8', padding: '4px 8px', borderRadius: '6px', border: '1px solid #BFDBFE' }}>
+                        {centre.region} Bengaluru
+                      </span>
+                    )}
+                  </div>
                   <span style={{ fontSize: '0.825rem', fontWeight: 800, color: '#D97706', display: 'flex', alignItems: 'center', gap: '4px' }}>
                     <Star size={14} fill="#D97706" /> {centre.rating} ({centre.reviewCount} reviews)
                   </span>

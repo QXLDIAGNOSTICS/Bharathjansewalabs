@@ -28,7 +28,8 @@ import {
   INDIVIDUAL_TESTS, 
   CENTRES, 
   FAQS, 
-  COMPANY_INFO 
+  COMPANY_INFO,
+  LOCALITIES
 } from '../data/mockData';
 
 export default function Home({ 
@@ -41,6 +42,7 @@ export default function Home({
 }) {
   const [activeFaq, setActiveFaq] = useState(0);
   const [selectedOrganFilter, setSelectedOrganFilter] = useState(null);
+  const [selectedLocalityRegion, setSelectedLocalityRegion] = useState('All');
   const [isPrescriptionModalOpen, setIsPrescriptionModalOpen] = useState(false);
   const [prescriptionFile, setPrescriptionFile] = useState(null);
   const [patientPhone, setPatientPhone] = useState('');
@@ -307,7 +309,116 @@ export default function Home({
   return (
     <div style={{ backgroundColor: 'var(--bg-cream)', minHeight: '100vh', paddingBottom: '40px' }}>
       
-      {/* MOBILE-ONLY TOP PROMO & ACTION HUBS (Screenshot 1) */}
+      {/* Primary Brand Positioning & SEO H1 Hero Section */}
+      <section className="bjsl-hero-top-seo" style={{
+        background: 'linear-gradient(135deg, #0F172A 0%, #1E293B 100%)',
+        color: '#FFFFFF',
+        padding: '2.5rem 1rem 3rem',
+        borderBottom: '1px solid rgba(255, 255, 255, 0.1)',
+        position: 'relative',
+        overflow: 'hidden'
+      }}>
+        <div className="container" style={{ maxWidth: '1200px', margin: '0 auto', position: 'relative', zIndex: 2 }}>
+          <div style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', padding: '6px 14px', borderRadius: '99px', background: 'rgba(2, 132, 199, 0.25)', border: '1px solid rgba(56, 189, 248, 0.4)', color: '#38BDF8', fontSize: '0.825rem', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.05em', marginBottom: '1rem' }}>
+            <Sparkles size={14} /> Affordable Blood Tests &amp; Diagnostics in Bengaluru
+          </div>
+          
+          <h1 style={{ fontSize: 'clamp(2rem, 4.5vw, 3.25rem)', fontWeight: 900, lineHeight: 1.15, color: '#FFFFFF', margin: '0 0 1rem', letterSpacing: '-0.02em', maxWidth: '850px' }}>
+            Affordable Blood Tests &amp; Health Checkups in Bengaluru
+          </h1>
+          
+          <p style={{ fontSize: 'clamp(1rem, 2vw, 1.2rem)', color: '#CBD5E1', maxWidth: '780px', lineHeight: 1.6, margin: '0 0 1.75rem' }}>
+            High-quality diagnostic testing at transparent, budget-friendly prices, with samples processed through verified NABL-accredited partner laboratories where applicable.
+          </p>
+
+          <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.75rem', alignItems: 'center', marginBottom: '2rem' }}>
+            <span style={{ display: 'inline-flex', alignItems: 'center', gap: '6px', background: 'rgba(255,255,255,0.1)', padding: '6px 14px', borderRadius: '99px', fontSize: '0.85rem', color: '#F1F5F9', fontWeight: 600 }}>
+              <Check size={16} color="#10B981" /> Glucose ₹20
+            </span>
+            <span style={{ display: 'inline-flex', alignItems: 'center', gap: '6px', background: 'rgba(255,255,255,0.1)', padding: '6px 14px', borderRadius: '99px', fontSize: '0.85rem', color: '#F1F5F9', fontWeight: 600 }}>
+              <Check size={16} color="#10B981" /> Urine Routine ₹50
+            </span>
+            <span style={{ display: 'inline-flex', alignItems: 'center', gap: '6px', background: 'rgba(255,255,255,0.1)', padding: '6px 14px', borderRadius: '99px', fontSize: '0.85rem', color: '#F1F5F9', fontWeight: 600 }}>
+              <Check size={16} color="#10B981" /> CBC with ESR ₹160
+            </span>
+            <span style={{ display: 'inline-flex', alignItems: 'center', gap: '6px', background: 'rgba(255,255,255,0.1)', padding: '6px 14px', borderRadius: '99px', fontSize: '0.85rem', color: '#F1F5F9', fontWeight: 600 }}>
+              <Check size={16} color="#10B981" /> Thyroid TFT ₹190
+            </span>
+            <span style={{ display: 'inline-flex', alignItems: 'center', gap: '6px', background: 'rgba(255,255,255,0.1)', padding: '6px 14px', borderRadius: '99px', fontSize: '0.85rem', color: '#F1F5F9', fontWeight: 600 }}>
+              <Check size={16} color="#10B981" /> HbA1c ₹260
+            </span>
+            <span style={{ display: 'inline-flex', alignItems: 'center', gap: '6px', background: 'rgba(255,255,255,0.1)', padding: '6px 14px', borderRadius: '99px', fontSize: '0.85rem', color: '#F1F5F9', fontWeight: 600 }}>
+              <Check size={16} color="#10B981" /> Chirayu Prime ₹796 (71 Tests)
+            </span>
+          </div>
+
+          {/* Quick Search and Action Form */}
+          <div style={{ display: 'flex', flexWrap: 'wrap', gap: '12px', alignItems: 'center' }}>
+            <button 
+              onClick={() => openSearchModal ? openSearchModal() : (document.querySelector('#popular-tests')?.scrollIntoView({ behavior: 'smooth' }))}
+              style={{
+                display: 'inline-flex',
+                alignItems: 'center',
+                gap: '10px',
+                padding: '14px 24px',
+                borderRadius: '12px',
+                background: '#EF4444',
+                color: 'white',
+                border: 'none',
+                fontWeight: 800,
+                fontSize: '1rem',
+                cursor: 'pointer',
+                boxShadow: '0 8px 24px rgba(239, 68, 68, 0.4)'
+              }}
+            >
+              <Search size={18} /> Find Tests &amp; Prices
+            </button>
+
+            <button 
+              onClick={() => {
+                const el = document.querySelector('#centres');
+                if (el) el.scrollIntoView({ behavior: 'smooth' });
+                else if (setCurrentTab) setCurrentTab('centres');
+              }}
+              style={{
+                display: 'inline-flex',
+                alignItems: 'center',
+                gap: '8px',
+                padding: '14px 20px',
+                borderRadius: '12px',
+                background: 'rgba(255,255,255,0.12)',
+                color: 'white',
+                border: '1px solid rgba(255,255,255,0.25)',
+                fontWeight: 700,
+                fontSize: '0.95rem',
+                cursor: 'pointer'
+              }}
+            >
+              <MapPin size={18} color="#38BDF8" /> Nearest Centre
+            </button>
+
+            <a 
+              href="tel:919805543143"
+              style={{
+                display: 'inline-flex',
+                alignItems: 'center',
+                gap: '8px',
+                padding: '14px 20px',
+                borderRadius: '12px',
+                background: '#059669',
+                color: 'white',
+                textDecoration: 'none',
+                fontWeight: 700,
+                fontSize: '0.95rem'
+              }}
+            >
+              <Phone size={18} /> Call to Book: +91 98055 43143
+            </a>
+          </div>
+        </div>
+      </section>
+
+      {/* MOBILE-ONLY TOP PROMO & ACTION HUBS */}
       <div className="mobile-top-experience">
         <div className="container">
           
@@ -1673,6 +1784,149 @@ export default function Home({
         </div>
       </section>
 
+      {/* 8.5 HYPERLOCAL BENGALURU COVERAGE & DOORSTEP PHLEBOTOMY (15 LOCALITIES) */}
+      <section className="localities-section" id="localities" style={{ padding: '60px 0', background: 'linear-gradient(180deg, #f8fafc 0%, #eef6ff 100%)', borderTop: '1px solid #e2e8f0', borderBottom: '1px solid #e2e8f0' }}>
+        <div className="container">
+          <div style={{ textAlign: 'center', maxWidth: '780px', margin: '0 auto 32px' }}>
+            <span className="split-eyebrow" style={{ color: '#143b70', fontWeight: 800 }}>HYPERLOCAL HEALTHCARE ACCESS</span>
+            <h2 className="section-main-heading" style={{ fontSize: 'clamp(24px, 3.5vw, 36px)', color: '#143b70', margin: '8px 0 12px' }}>
+              Bengaluru Localities &amp; Home Sample Collection
+            </h2>
+            <p style={{ color: '#475569', fontSize: '15px', lineHeight: 1.6 }}>
+              Find verified collection centres and certified doorstep phlebotomy across 15 key Bengaluru neighbourhoods. Standardised, transparent test prices across South, West, Southeast, Central, and North zones.
+            </p>
+
+            {/* Region Filter Tabs */}
+            <div style={{ display: 'flex', justifyContent: 'center', flexWrap: 'wrap', gap: '8px', marginTop: '20px' }}>
+              {['All', 'South', 'West', 'Southeast', 'Central'].map((reg) => (
+                <button
+                  key={reg}
+                  type="button"
+                  onClick={() => setSelectedLocalityRegion(reg)}
+                  style={{
+                    padding: '8px 16px',
+                    borderRadius: '20px',
+                    fontSize: '13px',
+                    fontWeight: 700,
+                    cursor: 'pointer',
+                    border: '1px solid',
+                    borderColor: selectedLocalityRegion === reg ? '#143b70' : '#cbd5e1',
+                    background: selectedLocalityRegion === reg ? '#143b70' : '#ffffff',
+                    color: selectedLocalityRegion === reg ? '#ffffff' : '#334155',
+                    transition: 'all 0.2s ease'
+                  }}
+                >
+                  {reg === 'All' ? 'All 15 Localities' : `${reg} Bengaluru`}
+                </button>
+              ))}
+            </div>
+          </div>
+
+          {/* Localities Cards Grid */}
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))', gap: '16px' }}>
+            {LOCALITIES
+              .filter(loc => selectedLocalityRegion === 'All' || loc.region === selectedLocalityRegion)
+              .map((loc) => (
+                <div 
+                  key={loc.id} 
+                  style={{
+                    background: '#ffffff',
+                    border: '1px solid #dbeafe',
+                    borderRadius: '14px',
+                    padding: '20px',
+                    boxShadow: '0 4px 14px rgba(20,59,112,0.04)',
+                    display: 'flex',
+                    flexDirection: 'column',
+                    justifyContent: 'space-between'
+                  }}
+                >
+                  <div>
+                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '8px' }}>
+                      <span style={{ fontSize: '11px', fontWeight: 800, color: '#1d4ed8', background: '#dbeafe', padding: '3px 8px', borderRadius: '4px', textTransform: 'uppercase' }}>
+                        {loc.region} Bengaluru
+                      </span>
+                      <span style={{ fontSize: '11px', fontWeight: 700, color: '#475569' }}>
+                        PIN: {loc.pincodes.join(', ')}
+                      </span>
+                    </div>
+                    <h3 style={{ fontSize: '17px', fontWeight: 800, color: '#0f172a', margin: '4px 0 8px' }}>
+                      {loc.name}
+                    </h3>
+                    <p style={{ fontSize: '13px', color: '#64748b', lineHeight: 1.5, margin: '0 0 12px' }}>
+                      <strong style={{ color: '#334155' }}>Hub:</strong> {loc.nearestHub}<br />
+                      <strong style={{ color: '#334155' }}>Coverage:</strong> {loc.landmarks}
+                    </p>
+                    <div style={{ fontSize: '12px', color: '#166534', background: '#f0fdf4', padding: '6px 10px', borderRadius: '6px', fontWeight: 600, marginBottom: '14px' }}>
+                      ✓ Doorstep Collection: {loc.turnaround} TAT
+                    </div>
+                  </div>
+
+                  <div style={{ display: 'flex', gap: '8px', paddingTop: '10px', borderTop: '1px solid #f1f5f9' }}>
+                    <a
+                      href={`/locations/${loc.slug}/`}
+                      style={{
+                        flex: 1,
+                        textAlign: 'center',
+                        fontSize: '12px',
+                        fontWeight: 700,
+                        color: '#143b70',
+                        border: '1px solid #cbd5e1',
+                        padding: '8px 10px',
+                        borderRadius: '8px',
+                        textDecoration: 'none',
+                        background: '#f8fafc'
+                      }}
+                    >
+                      Area Details &rarr;
+                    </a>
+                    <a
+                      href={`https://wa.me/919805543143?text=${encodeURIComponent(`Hello Bharath Jan Sewa Labs, I want to book a blood test in ${loc.name} (PIN: ${loc.pincodes[0]}).`)}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      style={{
+                        fontSize: '12px',
+                        fontWeight: 700,
+                        color: '#ffffff',
+                        background: '#15803d',
+                        padding: '8px 12px',
+                        borderRadius: '8px',
+                        textDecoration: 'none',
+                        display: 'flex',
+                        alignItems: 'center',
+                        gap: '4px'
+                      }}
+                    >
+                      WhatsApp
+                    </a>
+                  </div>
+                </div>
+              ))}
+          </div>
+
+          <div style={{ textAlign: 'center', marginTop: '28px' }}>
+            <a 
+              href="/locations/" 
+              style={{
+                display: 'inline-flex',
+                alignItems: 'center',
+                gap: '8px',
+                fontWeight: 700,
+                fontSize: '14px',
+                color: '#143b70',
+                textDecoration: 'none',
+                background: '#ffffff',
+                border: '1px solid #cbd5e1',
+                padding: '10px 20px',
+                borderRadius: '8px'
+              }}
+            >
+              <span>Explore Complete 15 Bengaluru Localities Directory</span>
+              <ArrowRight size={16} />
+            </a>
+          </div>
+        </div>
+      </section>
+
       {/* 9. WHY INDIA TRUSTS BHARATH JAN SEWA LABS */}
       <section className="why-bjsl-section" id="why-bjsl">
         <div className="container">
@@ -1686,9 +1940,9 @@ export default function Home({
               <div className="feature-icon-circle">
                 <Award size={24} />
               </div>
-              <h4 className="feature-title">100% In-house NABL Labs</h4>
+              <h4 className="feature-title">NABL-Accredited Partner Testing</h4>
               <p className="feature-text">
-                Every blood sample is processed in automated, ISO & NABL accredited laboratories with multi-stage QC controls.
+                Samples collected across our network are processed through verified NABL-accredited partner laboratories where applicable, using automated systems and calibrated multi-stage controls.
               </p>
             </div>
 

@@ -1,5 +1,52 @@
+# Bharath Jan Sewa Labs - Production Robots Directive
+# Canonical domain: https://bharathjansewalabs.com
+
 User-agent: *
 Allow: /
+Disallow: /api/
+Disallow: /admin/
+Disallow: /booking/confirmation/
 
+# Search Engine Crawlers
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+# OpenAI Crawlers (Search, User Browse, Training)
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: GPTBot
+Allow: /
+
+# Google AI & Extended
+User-agent: Google-Extended
+Allow: /
+
+# Perplexity AI Crawler
+User-agent: PerplexityBot
+Allow: /
+
+# Anthropic Claude Crawlers
+User-agent: Claude-Web
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+# Apple Search & AI
+User-agent: Applebot
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+# Sitemaps
 Sitemap: https://bharathjansewalabs.com/sitemap.xml
 Sitemap: https://bharathjansewalabs.com/sitemap-tests.xml
+Sitemap: https://bharathjansewalabs.com/sitemap-locations.xml

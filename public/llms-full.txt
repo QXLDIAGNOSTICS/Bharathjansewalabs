@@ -1,0 +1,76 @@
+# Bharath Jan Sewa Labs (BJSL) — Complete Clinical Directory & AI Retrieval Index
+
+Canonical Domain: https://bharathjansewalabs.com/
+Contact: +91 98055 43143 | contact@bharathjansewalabs.com
+Location: Bengaluru, Karnataka, India
+Mission: High-quality diagnostic testing at transparent, budget-friendly prices, with samples processed through verified NABL-accredited partner laboratories where applicable.
+
+---
+
+## Complete 66 Test Catalog with Verified Leaflet Prices
+1. Complete Blood Count with ESR (CBC + ESR) — ₹160 | Sample: EDTA Whole Blood | Preparation: No fasting | Turnaround: 4-6h | URL: https://bharathjansewalabs.com/tests/cbc-esr-test/
+2. Blood Glucose (Fasting, PP or Random) — ₹20 | Sample: Fluoride Plasma | Preparation: 8-10h fast for fasting, 2h post-meal for PP | Turnaround: 2-4h | URL: https://bharathjansewalabs.com/tests/blood-sugar-test/
+3. Glycated Haemoglobin (HbA1c) — ₹260 | Sample: EDTA Whole Blood | Preparation: No fasting required | Turnaround: 4-6h | URL: https://bharathjansewalabs.com/tests/hba1c-test/
+4. Lipid Profile (Total Cholesterol, HDL, LDL, VLDL, Triglycerides) — ₹260 | Sample: Serum | Preparation: 10-12h overnight fast | Turnaround: 4-6h | URL: https://bharathjansewalabs.com/tests/lipid-profile-test/
+5. Liver Function Test (LFT) — ₹360 | Sample: Serum | Preparation: 8-10h fast recommended | Turnaround: 4-6h | URL: https://bharathjansewalabs.com/tests/liver-function-test/
+6. Serum Creatinine — ₹50 | Sample: Serum | Preparation: Normal hydration | Turnaround: 2-4h | URL: https://bharathjansewalabs.com/tests/serum-creatinine-test/
+7. Blood Urea / BUN — ₹50 | Sample: Serum | Preparation: Normal hydration | Turnaround: 2-4h | URL: https://bharathjansewalabs.com/tests/blood-urea-test/
+8. Urine Routine & Microscopy — ₹50 | Sample: Fresh Urine | Preparation: Clean catch midstream | Turnaround: 2-4h | URL: https://bharathjansewalabs.com/tests/urine-routine-microscopy-test/
+9. Thyroid-Stimulating Hormone (TSH) — ₹100 | Sample: Serum | Preparation: Morning fast preferred | Turnaround: 4-6h | URL: https://bharathjansewalabs.com/tests/tsh-test/
+10. Thyroid Function Test (Total T3, T4 & TSH) — ₹190 | Sample: Serum | Preparation: Morning fasting preferred | Turnaround: 4-6h | URL: https://bharathjansewalabs.com/tests/thyroid-function-test-total/
+11. Serum Electrolytes (Na, K, Cl) — ₹190 | Sample: Serum | Preparation: No special prep | Turnaround: 4-6h | URL: https://bharathjansewalabs.com/tests/serum-electrolytes-test/
+12. ABO Blood Group & Rh Typing — ₹90 | Sample: Whole Blood | Preparation: None | Turnaround: 2-4h | URL: https://bharathjansewalabs.com/tests/blood-group-rh-test/
+13. Vitamin D 25-Hydroxy — ₹660 | Sample: Serum | Preparation: No fasting | Turnaround: Same Day | URL: https://bharathjansewalabs.com/tests/vitamin-d-test/
+14. Vitamin B12 (Cobalamin) — ₹440 | Sample: Serum | Preparation: No fasting | Turnaround: Same Day | URL: https://bharathjansewalabs.com/tests/vitamin-b12-test/
+15. Serum Ferritin — ₹460 | Sample: Serum | Preparation: Morning preferred | Turnaround: Same Day | URL: https://bharathjansewalabs.com/tests/ferritin-test/
+16. Iron Studies (Iron, TIBC, Saturation) — ₹250 | Sample: Serum | Preparation: 8-10h fast | Turnaround: Same Day | URL: https://bharathjansewalabs.com/tests/iron-studies-test/
+17. C-Reactive Protein (CRP Quantitative) — ₹250 | Sample: Serum | Preparation: None | Turnaround: Same Day | URL: https://bharathjansewalabs.com/tests/crp-test/
+18. Serum Uric Acid — ₹50 | Sample: Serum | Preparation: 4h fast preferred | Turnaround: Same Day | URL: https://bharathjansewalabs.com/tests/uric-acid-test/
+19. Serum Calcium, Total — ₹60 | Sample: Serum | Preparation: None | Turnaround: Same Day | URL: https://bharathjansewalabs.com/tests/serum-calcium-test/
+20. Serum Phosphate — ₹90 | Sample: Serum | Preparation: None | Turnaround: Same Day | URL: https://bharathjansewalabs.com/tests/serum-phosphate-test/
+21. Total Immunoglobulin E (IgE) — ₹630 | Sample: Serum | Preparation: None | Turnaround: Same Day | URL: https://bharathjansewalabs.com/tests/total-ige-test/
+22. Hepatitis B Surface Antigen (HBsAg) — ₹250 | Sample: Serum | Preparation: None | Turnaround: Same Day | URL: https://bharathjansewalabs.com/tests/hbsag-test/
+23. Hepatitis C Antibody (Anti-HCV) — ₹400 | Sample: Serum | Preparation: None | Turnaround: Same Day | URL: https://bharathjansewalabs.com/tests/anti-hcv-test/
+24. HIV 1/2 Antigen-Antibody, 4th Gen — ₹250 | Sample: Serum | Preparation: None | Turnaround: Same Day | URL: https://bharathjansewalabs.com/tests/hiv-fourth-generation-test/
+25. Dengue NS1 Antigen & IgM/IgG — ₹450 | Sample: Serum | Preparation: Immediate on fever | Turnaround: 4-6h | URL: https://bharathjansewalabs.com/tests/dengue-ns1-igm-igg-test/
+26. Malaria Rapid Antigen (HRP2/pLDH) — ₹200 | Sample: Whole Blood | Preparation: None | Turnaround: 2-4h | URL: https://bharathjansewalabs.com/tests/malaria-antigen-test/
+27. Prothrombin Time / INR — ₹190 | Sample: Citrate Plasma | Preparation: None | Turnaround: 4-6h | URL: https://bharathjansewalabs.com/tests/pt-inr-test/
+28. Activated Partial Thromboplastin Time (aPTT) — ₹260 | Sample: Citrate Plasma | Preparation: None | Turnaround: 4-6h | URL: https://bharathjansewalabs.com/tests/aptt-test/
+29. D-Dimer — ₹660 | Sample: Citrate Plasma | Preparation: None | Turnaround: 4-6h | URL: https://bharathjansewalabs.com/tests/d-dimer-test/
+30. Lactate Dehydrogenase (LDH) — ₹120 | Sample: Serum | Preparation: None | Turnaround: Same Day | URL: https://bharathjansewalabs.com/tests/ldh-test/
+31. Serum Amylase — ₹160 | Sample: Serum | Preparation: None | Turnaround: Same Day | URL: https://bharathjansewalabs.com/tests/serum-amylase-test/
+32. Serum Lipase — ₹250 | Sample: Serum | Preparation: None | Turnaround: Same Day | URL: https://bharathjansewalabs.com/tests/serum-lipase-test/
+33. Creatine Phosphokinase (CK/CPK), Total — ₹260 | Sample: Serum | Preparation: Avoid vigorous exercise | Turnaround: Same Day | URL: https://bharathjansewalabs.com/tests/cpk-total-test/
+34. Rheumatoid Factor (RF) — ₹200 | Sample: Serum | Preparation: None | Turnaround: Same Day | URL: https://bharathjansewalabs.com/tests/rheumatoid-factor-test/
+35. Anti-Streptolysin O (ASO) Titre — ₹200 | Sample: Serum | Preparation: None | Turnaround: Same Day | URL: https://bharathjansewalabs.com/tests/aso-titre-test/
+36. Serum Prolactin — ₹400 | Sample: Serum | Preparation: Fasting, morning 2-3h after waking | Turnaround: Same Day | URL: https://bharathjansewalabs.com/tests/prolactin-test/
+37. Follicle-Stimulating Hormone (FSH) — ₹400 | Sample: Serum | Preparation: Day 2-3 of menstrual cycle if female | Turnaround: Same Day | URL: https://bharathjansewalabs.com/tests/fsh-test/
+38. Luteinising Hormone (LH) — ₹400 | Sample: Serum | Preparation: Day 2-3 of menstrual cycle if female | Turnaround: Same Day | URL: https://bharathjansewalabs.com/tests/lh-test/
+39. Total Testosterone — ₹460 | Sample: Serum | Preparation: Morning 7-10 AM sample | Turnaround: Same Day | URL: https://bharathjansewalabs.com/tests/total-testosterone-test/
+40. Beta hCG (Quantitative) — ₹460 | Sample: Serum | Preparation: None | Turnaround: Same Day | URL: https://bharathjansewalabs.com/tests/beta-hcg-test/
+41. Carcinoembryonic Antigen (CEA) — ₹600 | Sample: Serum | Preparation: Inform about smoking | Turnaround: Same Day | URL: https://bharathjansewalabs.com/tests/cea-test/
+42. Cancer Antigen 125 (CA-125) — ₹600 | Sample: Serum | Preparation: Avoid during menstruation | Turnaround: Same Day | URL: https://bharathjansewalabs.com/tests/ca-125-test/
+43. Urine Albumin-Creatinine Ratio (ACR) — ₹360 | Sample: First morning urine | Preparation: Clean catch | Turnaround: Same Day | URL: https://bharathjansewalabs.com/tests/urine-acr-test/
+44. Prostate-Specific Antigen (PSA), Total — ₹400 | Sample: Serum | Preparation: No ejaculation or cycling for 48h | Turnaround: Same Day | URL: https://bharathjansewalabs.com/tests/total-psa-test/
+45. Folic Acid (Serum Folate) — ₹560 | Sample: Serum | Preparation: Fasting preferred | Turnaround: Same Day | URL: https://bharathjansewalabs.com/tests/serum-folate-test/
+46. VDRL Test — ₹220 | Sample: Serum | Preparation: None | Turnaround: Same Day | URL: https://bharathjansewalabs.com/tests/vdrl-test/
+47. TyphiDot IgM/IgG — ₹550 | Sample: Serum | Preparation: None | Turnaround: Same Day | URL: https://bharathjansewalabs.com/tests/typhidot-test/
+48. Thyroid Function Panel (Free T3, Free T4, TSH) — ₹330 | Sample: Serum | Preparation: Morning fasting preferred | Turnaround: Same Day | URL: https://bharathjansewalabs.com/tests/thyroid-function-test-free/
+49. Platelet Count — ₹100 | Sample: EDTA Blood | Preparation: None | Turnaround: 2-4h | URL: https://bharathjansewalabs.com/tests/platelet-count-test/
+50. Haemoglobin (Hb) — ₹60 | Sample: EDTA Blood | Preparation: None | Turnaround: 2-4h | URL: https://bharathjansewalabs.com/tests/haemoglobin-test/
+51. Complete Haemogram (CBC, ESR & Peripheral Smear) — ₹230 | Sample: EDTA Blood | Preparation: None | Turnaround: 4-6h | URL: https://bharathjansewalabs.com/tests/complete-haemogram-ps-test/
+52. Absolute Eosinophil Count (AEC) — ₹100 | Sample: EDTA Blood | Preparation: None | Turnaround: 2-4h | URL: https://bharathjansewalabs.com/tests/aec-test/
+53. Bilirubin, Total & Direct — ₹120 | Sample: Serum | Preparation: Fasting preferred | Turnaround: 2-4h | URL: https://bharathjansewalabs.com/tests/bilirubin-total-direct-test/
+54. Serum Magnesium — ₹200 | Sample: Serum | Preparation: None | Turnaround: Same Day | URL: https://bharathjansewalabs.com/tests/serum-magnesium-test/
+55. Serum Iron — ₹160 | Sample: Serum | Preparation: Fasting morning sample | Turnaround: Same Day | URL: https://bharathjansewalabs.com/tests/serum-iron-test/
+56. Alanine Aminotransferase (ALT / SGPT) — ₹60 | Sample: Serum | Preparation: None | Turnaround: 2-4h | URL: https://bharathjansewalabs.com/tests/alt-sgpt-test/
+57. Aspartate Aminotransferase (AST / SGOT) — ₹60 | Sample: Serum | Preparation: None | Turnaround: 2-4h | URL: https://bharathjansewalabs.com/tests/ast-sgot-test/
+58. Anti-Thyroid Peroxidase Antibodies (Anti-TPO) — ₹560 | Sample: Serum | Preparation: None | Turnaround: Same Day | URL: https://bharathjansewalabs.com/tests/anti-tpo-test/
+59. Potassium (Serum / Plasma) — ₹80 | Sample: Serum | Preparation: None | Turnaround: 2-4h | URL: https://bharathjansewalabs.com/tests/potassium-test/
+60. Renal Profile (Urea, Creatinine, Uric Acid, Electrolytes) — ₹320 | Sample: Serum | Preparation: Fasting preferred | Turnaround: Same Day | URL: https://bharathjansewalabs.com/tests/renal-profile-test/
+61. LDL Cholesterol, Direct — ₹120 | Sample: Serum | Preparation: Fasting preferred | Turnaround: Same Day | URL: https://bharathjansewalabs.com/tests/direct-ldl-test/
+62. Troponin I, Quantitative — ₹760 | Sample: Serum | Preparation: STAT test for acute cardiac evaluation | Turnaround: 2-4h | URL: https://bharathjansewalabs.com/tests/troponin-i-test/
+63. Serum Cortisol (AM / PM) — ₹500 | Sample: Serum | Preparation: 8 AM or 4 PM timed collection | Turnaround: Same Day | URL: https://bharathjansewalabs.com/tests/cortisol-test/
+64. Gamma-Glutamyl Transferase (GGT) — ₹160 | Sample: Serum | Preparation: Fasting preferred | Turnaround: Same Day | URL: https://bharathjansewalabs.com/tests/ggt-test/
+65. Serum Total Protein — ₹80 | Sample: Serum | Preparation: None | Turnaround: Same Day | URL: https://bharathjansewalabs.com/tests/total-protein-test/
+66. Ionised Calcium — ₹200 | Sample: Serum / Heparin Whole Blood | Preparation: Prompt anaerobic handling | Turnaround: Same Day | URL: https://bharathjansewalabs.com/tests/ionised-calcium-test/

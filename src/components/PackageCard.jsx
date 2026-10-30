@@ -54,7 +54,7 @@ export default function PackageCard({
             <Sparkles size={12} color="white" /> {discountPercent}% OFF
           </span>
           <span className="badge-safe-green">
-            <ShieldCheck size={14} /> NABL ACCREDITED
+            <ShieldCheck size={14} /> NABL PARTNER LAB
           </span>
         </div>
 

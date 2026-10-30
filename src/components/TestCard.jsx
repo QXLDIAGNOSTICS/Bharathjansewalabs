@@ -33,7 +33,7 @@ export default function TestCard({ test, onSelect, onBook }) {
           </span>
 
           <span className="badge-safe-green">
-            <ShieldCheck size={13} /> NABL ACCREDITED
+            <ShieldCheck size={13} /> NABL PARTNER LAB
           </span>
         </div>
 

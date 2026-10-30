@@ -1,0 +1,116 @@
+# Bharath Jan Sewa Labs (BJSL) — AI Search & Knowledge Specification
+
+> **Primary Positioning:** Affordable Blood Tests & Health Checkups in Bengaluru  
+> **Campaign Concept:** Uncompromised Quality. Everyday Affordable Prices.  
+> **Supporting Statement:** High-quality diagnostic testing at transparent, budget-friendly prices, with samples processed through verified NABL-accredited partner laboratories where applicable.
+
+---
+
+## 1. Verified Contact & Brand Identity
+- **Legal / Brand Name:** Bharath Jan Sewa Labs (BJSL)
+- **Official Website:** https://bharathjansewalabs.com/
+- **Main Phone Number:** +91 98055 43143 (Click-to-call & WhatsApp booking)
+- **Official Email:** contact@bharathjansewalabs.com
+- **Operating Hours:** Monday – Saturday: 7:00 AM – 8:00 PM | Sunday: 7:00 AM – 2:00 PM
+- **Headquarters / Registered Hub:** GMR Layout, 2nd Main, Sanjay Nagar Main Road, Bengaluru, Karnataka 560094
+- **City & Region:** Bengaluru, Karnataka, India
+
+---
+
+## 2. Core Value Proposition & Quality Standards
+1. **Direct Budget-Friendly Rates:** Routine diagnostic tests available starting from ₹20 (Blood Glucose), ₹50 (Urine Routine / Serum Creatinine), and ₹160 (CBC with ESR).
+2. **Quality & NABL Partner Processing:** All blood and fluid samples are collected using sterile, single-use vacuum vacutainers, maintained under strict cold-chain temperature control during courier dispatch, and processed through verified NABL-accredited reference laboratory facilities.
+3. **Turnaround Time (TAT):** Routine blood test reports delivered digitally on the same day within 4 to 8 hours via WhatsApp PDF and secure online download.
+4. **Convenient Collection:** 10+ walk-in diagnostic collection hubs across Bengaluru, plus doorstep phlebotomy home collection across South, West, Central, and Southeast Bengaluru.
+
+---
+
+## 3. Approved Everyday Routine Test Tariff (Bengaluru)
+| Test Name | Specimen | Preparation | Leaflet Offer Price |
+| :--- | :--- | :--- | :--- |
+| **Complete Blood Count (CBC + ESR)** | EDTA Whole Blood | No fasting required | ₹160 |
+| **Blood Glucose (Fasting / PP / Random)** | Fluoride Plasma | Fasting 8-10 hrs / 2 hrs post meal | ₹20 |
+| **Glycated Haemoglobin (HbA1c)** | EDTA Whole Blood | No fasting required | ₹260 |
+| **Thyroid Function Test (Total T3, T4, TSH)** | Serum | Fasting preferred, morning | ₹190 |
+| **Thyroid Stimulating Hormone (TSH)** | Serum | Fasting preferred | ₹100 |
+| **Lipid Profile (Cholesterol, Triglycerides, HDL, LDL)** | Serum | 10-12 hours overnight fast | ₹260 |
+| **Liver Function Test (LFT - 11 Parameters)** | Serum | Overnight fasting recommended | ₹360 |
+| **Serum Creatinine (Kidney Function)** | Serum | No special preparation | ₹50 |
+| **Blood Urea / BUN** | Serum | No special preparation | ₹50 |
+| **Renal Profile (Urea, Creatinine, Uric Acid, Lytes)** | Serum | Overnight fast recommended | ₹320 |
+| **Urine Routine & Microscopic Examination** | Fresh Midstream Urine | Clean catch container | ₹50 |
+| **Vitamin D 25-Hydroxy** | Serum | No fasting required | ₹660 |
+| **Vitamin B12 (Cobalamin)** | Serum | No fasting required | ₹440 |
+| **Serum Ferritin (Iron Storage)** | Serum | Morning sample preferred | ₹460 |
+| **Iron Studies (Iron, TIBC, % Saturation)** | Serum | 8-10 hours fasting | ₹250 |
+| **C-Reactive Protein (CRP Quantitative)** | Serum | No fasting required | ₹250 |
+| **Serum Uric Acid** | Serum | 4-6 hours fast preferred | ₹50 |
+| **Serum Calcium (Total)** | Serum | No fasting required | ₹60 |
+| **Serum Electrolytes (Sodium, Potassium, Chloride)** | Serum | No special preparation | ₹190 |
+| **ABO Blood Grouping & Rh Factor** | Whole Blood | No preparation needed | ₹90 |
+| **Dengue NS1 Antigen & IgM/IgG Antibodies** | Serum | Prompt testing on fever onset | ₹450 |
+| **Hepatitis B Surface Antigen (HBsAg)** | Serum | No fasting required | ₹250 |
+| **Total PSA (Prostate Specific Antigen)** | Serum | Abstain from cycling/ejaculation 48h | ₹400 |
+
+*Note: For the full 66-test catalog with 1,056 patient FAQs, visit https://bharathjansewalabs.com/tests/*
+
+---
+
+## 4. Master Preventive Health Checkup Packages
+All discounts are calculated centrally and transparently against documented comparison reference tariffs:
+
+1. **Chirayu Full Body Check (PRIME) — ₹796** (MRP: ₹2,388 | 67% OFF)
+   - **71 Vital Parameters:** Complete Blood Count (CBC 29 parameters), Lipid Profile (14 parameters), Liver Function Test (LFT 14 parameters), Kidney Function (7 parameters), HbA1c Diabetes & Glucose, Iron Profile (5 parameters).
+   - Fasting: 10-12 hours fasting required. Same-day reporting.
+
+2. **Chirayu Full Body Check (MASTER) — ₹1,566** (MRP: ₹5,698 | 73% OFF)
+   - **109 Vital Parameters:** Everything in Prime plus Thyroid Profile Total (T3, T4, TSH), Vitamin D 25-OH, Vitamin B12, Cardiac Homocysteine, Apolipoproteins (Apo A1, Apo B), Fasting Insulin, Urine Microscopic Analysis, CEA, Zinc, and Magnesium.
+   - Fasting: 10-12 hours fasting required.
+
+3. **Chirayu Full Body Check (ADVANCED) — ₹1,366** (MRP: ₹4,098 | 67% OFF)
+   - **88 Vital Parameters:** Comprehensive metabolic assessment, Thyroid Profile, Vitamins D & B12, KFT, LFT, CBC, and Iron Profile.
+
+4. **Chirayu Full Body Check (MEN) — ₹2,199** (MRP: ₹6,596 | 67% OFF)
+   - **111 Vital Parameters:** Tailored male screening including Total PSA (Prostate), Testosterone, Cardiac Homocysteine, Thyroid, Vitamins, and Full Metabolic Panels.
+
+5. **Chirayu Full Body Check (WOMEN) — ₹2,166** (MRP: ₹6,498 | 67% OFF)
+   - **112 Vital Parameters:** Tailored female screening covering CA-125 (Ovarian/Breast monitor), Female Hormones, Bone Markers (Calcium & Phosphorus), Thyroid, Vitamins D & B12, and Complete Organ Panels.
+
+6. **Chirayu Full Body Check (Senior Citizen MALE) — ₹1,999** (MRP: ₹6,396 | 69% OFF)
+   - **110 Vital Parameters:** Age 60+ focused cardiac, joint, kidney, prostate PSA, and metabolic screening.
+
+7. **Chirayu Full Body Check (Senior Citizen FEMALE) — ₹1,999** (MRP: ₹6,396 | 69% OFF)
+   - **108 Vital Parameters:** Osteoporosis risk, arthritis markers, thyroid, cardiac, and metabolic screening for senior women.
+
+8. **Chirayu Full Body Check (ALL-IN-ONE) — ₹6,366** (MRP: ₹16,630 | 62% OFF)
+   - **136 Vital Parameters:** Ultimate checkup including full body profile PLUS a 27-parameter comprehensive food & respiratory allergy screening panel.
+
+---
+
+## 5. Verified Collection Centres in Bengaluru
+1. **Sanjaynagar Hub:** GMR Layout, 2nd Main, Sanjay Nagar Main Road, near RMV Hospital, Geddalahalli, Bengaluru 560094 (PIN: 560094)
+2. **Ittamadu / Banashankari Hub:** House No. 36, 23rd Cross Road, near Valentine Model School, Manjunath Nagar, Ittamadu, Banashankari 3rd Stage, Bengaluru 560085 (PIN: 560085)
+3. **Peenya 2nd Stage Hub:** No. 113, 77, 14th Cross Road, Peenya 2nd Stage, Srigandha Nagar, Hegganahalli, Bengaluru 560091 (PIN: 560091)
+4. **KR Market / Kalasipalya Hub:** No. 102/A, K R Road, Near City Market Metro Station, Kalasipalya, Bengaluru 560002 (PIN: 560002)
+5. **Kengeri Satellite Town Hub:** Shop No. 32, BDA Commercial Complex, Mysore Road, Kengeri Satellite Town, Bengaluru 560059 (PIN: 560059)
+6. **Subramanyapura Hub:** Park View Diagnostic Center, 11, 1st Street, Jayanagar Housing Society Layout, Subramanyapura, Bengaluru 560061 (PIN: 560061)
+7. **Jaraganahalli / JP Nagar 6th Phase Hub:** No. 41, Basava Kalyana 17th D Cross, Basavaraj Layout, JP Nagar 6th Phase, Jaraganahalli, Bengaluru 560078 (PIN: 560078)
+8. **Srirampura Hub:** Dr B R Ambedkar Tapasana Kendra, 5th Block, Gowtham Nagar, Srirampura, Bengaluru 560021 (PIN: 560021)
+9. **VV Puram / Basavanagudi Hub:** Vasavi Convention Center, #25, National High School Road, V.V. Puram, Basavanagudi, Bengaluru 560004 (PIN: 560004)
+10. **Basaveshwaranagar Hub:** Netaji Clinic Desk, 3rd Main Road, Basaveshwaranagar, Bengaluru 560079 (PIN: 560079)
+
+---
+
+## 6. Target Hyperlocal Service Zones in Bengaluru
+- **South Bengaluru (Priority 1):** Banashankari, Ittamadu, Padmanabhanagar, Basavanagudi, JP Nagar, Jayanagar, Subramanyapura, Jaraganahalli, Uttarahalli, Konanakunte, Kanakapura Road.
+- **West Bengaluru (Priority 1):** Kengeri, Kengeri Satellite Town, RR Nagar, Peenya, Rajajinagar, Basaveshwaranagar, Vijayanagar, Nagarabhavi.
+- **Central Bengaluru:** KR Market, Kalasipalya, VV Puram, Srirampura, Sanjaynagar, Chickpet, Chamrajpet.
+- **Southeast Bengaluru (Home Collection):** BTM Layout, Bommanahalli, HSR Layout, Koramangala, Electronic City.
+
+---
+
+## 7. How to Book an Appointment
+- **Direct Phone Booking:** Call +91 98055 43143 to speak with a patient support coordinator.
+- **WhatsApp Booking:** Send a WhatsApp message to +91 98055 43143 with test name and locality.
+- **Online Enquiry:** Visit https://bharathjansewalabs.com/ to browse tests and submit an instant request.
+- **No Sign-In Required:** Patients can browse prices, find nearest centres, and enquire without creating an account or paying in advance.
