@@ -10,7 +10,7 @@ export default defineConfig({
       name: 'serve-static-html',
       configureServer(server) {
         server.middlewares.use((req, res, next) => {
-          if (req.url && (req.url.startsWith('/tests') || req.url.startsWith('/locations'))) {
+          if (req.url && (req.url.startsWith('/tests') || req.url.startsWith('/locations') || req.url.startsWith('/our-centres'))) {
             const urlPath = req.url.split('?')[0];
             let filePath = path.join(process.cwd(), 'public', urlPath);
             if (fs.existsSync(filePath) && fs.statSync(filePath).isDirectory()) {

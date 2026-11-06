@@ -8,6 +8,7 @@ export default function CartDrawer({ isOpen, onClose, cart, setCart, onProceedTo
   const [appliedCoupon, setAppliedCoupon] = useState(null);
   const [couponError, setCouponError] = useState('');
   const [includeHardcopy, setIncludeHardcopy] = useState(false);
+  const [collectionMode, setCollectionMode] = useState('home'); // 'home' or 'centre'
 
   if (!isOpen) return null;
 
@@ -62,14 +63,18 @@ export default function CartDrawer({ isOpen, onClose, cart, setCart, onProceedTo
   }
 
   const hardcopyFee = includeHardcopy ? 99 : 0;
-  const finalPayable = Math.max(0, subtotal - couponDiscount + hardcopyFee);
+  const homeCollectionFee = collectionMode === 'home' ? (subtotal >= 499 ? 0 : 100) : 0;
+  const finalPayable = Math.max(0, subtotal - couponDiscount + hardcopyFee + homeCollectionFee);
 
   const handleWhatsAppCheckout = () => {
     const itemsList = cart.map((item, idx) => `  ${idx + 1}. *${item.name || item.title}* (₹${item.price})`).join('%0A');
+    const modeText = collectionMode === 'home' 
+      ? `🏠 Doorstep Home Collection (${homeCollectionFee === 0 ? 'FREE for orders ₹499+' : '₹100 convenience fee for orders under ₹499'})` 
+      : '🏥 Walk-in Sample Collection (100% FREE at all 10 BJSL Hubs)';
     const slotText = selectedSlot === 'instant' ? '⚡ Instant 60-Min Phlebotomist' : '🗓️ Scheduled Morning Slot (7:00 AM - 10:00 AM)';
     const couponInfo = appliedCoupon ? `%0A🎟️ *Coupon Applied:* ${appliedCoupon.code} (-₹${couponDiscount})` : '';
     const hardcopyInfo = includeHardcopy ? '%0A📄 *Printed Report Delivery:* Included (+₹99)' : '';
-    const msg = `*Namaste Bharath Jan Sewa Labs!*%0A%0A🩺 *New Blood Test Booking Request:*%0A${itemsList}%0A${couponInfo}${hardcopyInfo}%0A%0A💰 *Total Amount Payable:* ₹${finalPayable} (Pay after collection)%0A⏱️ *Preferred Slot:* ${slotText}%0A📍 *City:* Bengaluru%0A%0APlease confirm my appointment and phlebotomist arrival slot.`;
+    const msg = `*Namaste Bharath Jan Sewa Labs!*%0A%0A🩺 *New Blood Test Booking Request:*%0A${itemsList}%0A${couponInfo}${hardcopyInfo}%0A%0A📍 *Collection Method:* ${modeText}%0A💰 *Total Amount Payable:* ₹${finalPayable} (Pay after collection)%0A⏱️ *Preferred Slot:* ${slotText}%0A📍 *City:* Bengaluru%0A%0APlease confirm my appointment and collection arrangements.`;
     window.open(`https://wa.me/919805543143?text=${msg}`, '_blank');
   };
 
@@ -145,11 +150,72 @@ export default function CartDrawer({ isOpen, onClose, cart, setCart, onProceedTo
                         <span className="cart-item-price">₹{item.price}</span>
                       </div>
                       <span style={{ fontSize: '11px', color: 'var(--green-600)', fontWeight: 700, background: 'var(--green-50)', padding: '2px 8px', borderRadius: '99px' }}>
-                        Free Home Collection
+                        Free for Orders ₹499+
                       </span>
                     </div>
                   </div>
                 ))}
+              </div>
+
+              {/* Sample Collection Mode Selector (Home vs Centre) */}
+              <div style={{
+                background: '#fff',
+                border: '1.5px solid var(--border-medium)',
+                borderRadius: 'var(--radius-lg)',
+                padding: '14px 16px',
+                marginBottom: '14px'
+              }}>
+                <div style={{ fontSize: '13.5px', fontWeight: 800, color: 'var(--ink-950)', marginBottom: '10px' }}>
+                  Select Sample Collection Mode
+                </div>
+                <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '8px' }}>
+                  <button
+                    type="button"
+                    onClick={() => setCollectionMode('home')}
+                    style={{
+                      padding: '10px 12px',
+                      borderRadius: '8px',
+                      border: collectionMode === 'home' ? '2px solid #BA192D' : '1px solid #E2E8F0',
+                      background: collectionMode === 'home' ? '#FFF1F2' : '#F8FAFC',
+                      color: collectionMode === 'home' ? '#BA192D' : '#334155',
+                      fontWeight: 700,
+                      fontSize: '12.5px',
+                      cursor: 'pointer',
+                      textAlign: 'center'
+                    }}
+                  >
+                    🏠 Doorstep Home
+                    <div style={{ fontSize: '10.5px', fontWeight: 600, marginTop: '2px', color: subtotal >= 499 ? '#15803D' : '#B45309' }}>
+                      {subtotal >= 499 ? '100% FREE' : '₹100 (Free ₹499+)'}
+                    </div>
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => setCollectionMode('centre')}
+                    style={{
+                      padding: '10px 12px',
+                      borderRadius: '8px',
+                      border: collectionMode === 'centre' ? '2px solid #BA192D' : '1px solid #E2E8F0',
+                      background: collectionMode === 'centre' ? '#FFF1F2' : '#F8FAFC',
+                      color: collectionMode === 'centre' ? '#BA192D' : '#334155',
+                      fontWeight: 700,
+                      fontSize: '12.5px',
+                      cursor: 'pointer',
+                      textAlign: 'center'
+                    }}
+                  >
+                    🏥 Centre Walk-in
+                    <div style={{ fontSize: '10.5px', fontWeight: 600, marginTop: '2px', color: '#15803D' }}>
+                      100% FREE (10 Hubs)
+                    </div>
+                  </button>
+                </div>
+
+                {collectionMode === 'home' && subtotal < 499 && (
+                  <div style={{ marginTop: '10px', padding: '6px 10px', background: '#FEF3C7', color: '#92400E', borderRadius: '6px', fontSize: '11px', fontWeight: 600 }}>
+                    💡 Add ₹{499 - subtotal} more to unlock 100% FREE home collection! (Or choose free Centre Walk-in)
+                  </div>
+                )}
               </div>
 
               {/* Slot Selector */}
@@ -285,8 +351,10 @@ export default function CartDrawer({ isOpen, onClose, cart, setCart, onProceedTo
                 </div>
               )}
               <div className="bill-row">
-                <span>Home Sample Collection Fee</span>
-                <span style={{ color: 'var(--green-600)', fontWeight: 700 }}>FREE</span>
+                <span>{collectionMode === 'home' ? 'Home Sample Collection' : 'Centre Walk-in Sample Collection'}</span>
+                <span style={{ color: homeCollectionFee === 0 ? 'var(--green-600)' : 'var(--ink-800)', fontWeight: 700 }}>
+                  {homeCollectionFee === 0 ? 'FREE' : '+₹100'}
+                </span>
               </div>
               <div className="bill-row total">
                 <span>To Pay</span>

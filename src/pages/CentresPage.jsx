@@ -114,7 +114,7 @@ export default function CentresPage({ openBookingWizard }) {
             </p>
           </div>
 
-          {/* Quick Appointment Booking Card at Top */}
+          {/* WhatsApp Direct Appointment Booking Card (Zero Forms) */}
           <div style={{
             background: 'rgba(255, 255, 255, 0.95)',
             backdropFilter: 'blur(20px)',
@@ -124,165 +124,113 @@ export default function CentresPage({ openBookingWizard }) {
             boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.25)',
             border: '1px solid rgba(255, 255, 255, 0.8)'
           }}>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '1.25rem', borderBottom: '1px solid #E2E8F0', paddingBottom: '0.75rem' }}>
-              <CheckCircle2 size={22} color="#059669" />
-              <h3 style={{ fontSize: '1.25rem', fontWeight: 800, color: '#0F172A', margin: 0 }}>
-                ✅ Select Your Location & Choose Your Health Package
-              </h3>
+            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '1rem', borderBottom: '1px solid #E2E8F0', paddingBottom: '1rem', marginBottom: '1.25rem' }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+                <CheckCircle2 size={24} color="#059669" />
+                <div>
+                  <h3 style={{ fontSize: '1.25rem', fontWeight: 800, color: '#0F172A', margin: 0 }}>
+                    Instant Appointment Booking via WhatsApp
+                  </h3>
+                  <p style={{ margin: '2px 0 0', fontSize: '0.85rem', color: '#64748B' }}>
+                    Zero online forms. Instant confirmation for priority walk-in or doorstep collection across all 10 hubs.
+                  </p>
+                </div>
+              </div>
+
+              <span style={{ background: '#DCFCE7', color: '#15803D', fontWeight: 800, fontSize: '0.78rem', padding: '6px 12px', borderRadius: '99px' }}>
+                ⚡ Fast 10-Min Confirmation
+              </span>
             </div>
 
-            <form onSubmit={handleTopFormSubmit} style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '1rem' }}>
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: '1.25rem', alignItems: 'end' }}>
               <div>
-                <label style={{ display: 'block', fontSize: '0.825rem', fontWeight: 700, color: '#334155', marginBottom: '4px' }}>
-                  Select a Package*
+                <label style={{ display: 'block', fontSize: '0.85rem', fontWeight: 700, color: '#334155', marginBottom: '6px' }}>
+                  Select Health Package or Test:
                 </label>
                 <select 
                   className="form-input" 
-                  required
                   value={topForm.package}
                   onChange={(e) => setTopForm({...topForm, package: e.target.value})}
-                  style={{ background: '#F8FAFC', border: '1px solid #CBD5E1', borderRadius: '10px', padding: '0.65rem' }}
+                  style={{ background: '#F8FAFC', border: '1.5px solid #CBD5E1', borderRadius: '12px', padding: '0.8rem', width: '100%', fontSize: '0.92rem', fontWeight: 600 }}
                 >
-                  <option value="">-- Choose Health Package --</option>
-                  {HEALTH_PACKAGES.map(pkg => (
-                    <option key={pkg.id} value={pkg.id}>{pkg.name} (₹{pkg.price})</option>
-                  ))}
+                  <option value="Chirayu Prime Checkup (71 Tests - ₹796)">Chirayu Prime Checkup (71 Tests - ₹796)</option>
+                  <option value="Chirayu Master Checkup (109 Tests - ₹1,566)">Chirayu Master Checkup (109 Tests - ₹1,566)</option>
+                  <option value="Blood Glucose Test (₹20)">Blood Glucose Test (₹20)</option>
+                  <option value="Complete Blood Count CBC + ESR (₹160)">Complete Blood Count CBC + ESR (₹160)</option>
+                  <option value="Lipid Profile (₹260)">Lipid Profile (₹260)</option>
+                  <option value="Thyroid Profile TFT (₹190)">Thyroid Profile TFT (₹190)</option>
+                  <option value="HbA1c Diabetes Test (₹260)">HbA1c Diabetes Test (₹260)</option>
+                  <option value="Vitamin D 25-OH (₹660)">Vitamin D 25-OH (₹660)</option>
+                  <option value="Vitamin B12 (₹440)">Vitamin B12 (₹440)</option>
+                  <option value="Custom Blood Test / Doctor Prescription">Custom Blood Test / Doctor Prescription</option>
                 </select>
               </div>
 
               <div>
-                <label style={{ display: 'block', fontSize: '0.825rem', fontWeight: 700, color: '#334155', marginBottom: '4px' }}>
-                  Full Name*
-                </label>
-                <input 
-                  type="text" 
-                  className="form-input" 
-                  placeholder="Enter your full name" 
-                  required 
-                  value={topForm.name}
-                  onChange={(e) => setTopForm({...topForm, name: e.target.value})}
-                  style={{ background: '#F8FAFC', border: '1px solid #CBD5E1', borderRadius: '10px', padding: '0.65rem' }}
-                />
-              </div>
-
-              <div>
-                <label style={{ display: 'block', fontSize: '0.825rem', fontWeight: 700, color: '#334155', marginBottom: '4px' }}>
-                  Email Address*
-                </label>
-                <input 
-                  type="email" 
-                  className="form-input" 
-                  placeholder="name@example.com" 
-                  required 
-                  value={topForm.email}
-                  onChange={(e) => setTopForm({...topForm, email: e.target.value})}
-                  style={{ background: '#F8FAFC', border: '1px solid #CBD5E1', borderRadius: '10px', padding: '0.65rem' }}
-                />
-              </div>
-
-              <div>
-                <label style={{ display: 'block', fontSize: '0.825rem', fontWeight: 700, color: '#334155', marginBottom: '4px' }}>
-                  Phone No*
-                </label>
-                <input 
-                  type="tel" 
-                  className="form-input" 
-                  placeholder="+91 Mobile number" 
-                  required 
-                  value={topForm.phone}
-                  onChange={(e) => setTopForm({...topForm, phone: e.target.value})}
-                  style={{ background: '#F8FAFC', border: '1px solid #CBD5E1', borderRadius: '10px', padding: '0.65rem' }}
-                />
-              </div>
-
-              <div>
-                <label style={{ display: 'block', fontSize: '0.825rem', fontWeight: 700, color: '#334155', marginBottom: '4px' }}>
-                  Select Location*
+                <label style={{ display: 'block', fontSize: '0.85rem', fontWeight: 700, color: '#334155', marginBottom: '6px' }}>
+                  Preferred Centre / Locality:
                 </label>
                 <select 
                   className="form-input" 
-                  required
                   value={topForm.location}
                   onChange={(e) => setTopForm({...topForm, location: e.target.value})}
-                  style={{ background: '#F8FAFC', border: '1px solid #CBD5E1', borderRadius: '10px', padding: '0.65rem' }}
+                  style={{ background: '#F8FAFC', border: '1.5px solid #CBD5E1', borderRadius: '12px', padding: '0.8rem', width: '100%', fontSize: '0.92rem', fontWeight: 600 }}
                 >
-                  <option value="">-- Select BJSL Hub --</option>
+                  <option value="Any Hub (Home Collection / Nearest)">Any Hub (Home Collection / Nearest)</option>
                   {CENTRES.map(c => (
-                    <option key={c.id} value={c.name}>{c.name} ({c.area})</option>
+                    <option key={c.id} value={`${c.name} (${c.area})`}>{c.name} — {c.area}</option>
                   ))}
                 </select>
               </div>
 
-              <div>
-                <label style={{ display: 'block', fontSize: '0.825rem', fontWeight: 700, color: '#334155', marginBottom: '4px' }}>
-                  Appointment Date*
-                </label>
-                <input 
-                  type="date" 
-                  className="form-input" 
-                  required 
-                  value={topForm.date}
-                  onChange={(e) => setTopForm({...topForm, date: e.target.value})}
-                  style={{ background: '#F8FAFC', border: '1px solid #CBD5E1', borderRadius: '10px', padding: '0.65rem' }}
-                />
-              </div>
-
-              <div>
-                <label style={{ display: 'block', fontSize: '0.825rem', fontWeight: 700, color: '#334155', marginBottom: '4px' }}>
-                  Appointment Time*
-                </label>
-                <select 
-                  className="form-input" 
-                  required
-                  value={topForm.time}
-                  onChange={(e) => setTopForm({...topForm, time: e.target.value})}
-                  style={{ background: '#F8FAFC', border: '1px solid #CBD5E1', borderRadius: '10px', padding: '0.65rem' }}
-                >
-                  <option value="">Select Slot</option>
-                  <option value="07:00 AM - 09:00 AM">07:00 AM - 09:00 AM</option>
-                  <option value="09:00 AM - 11:00 AM">09:00 AM - 11:00 AM</option>
-                  <option value="11:00 AM - 01:00 PM">11:00 AM - 01:00 PM</option>
-                  <option value="04:00 PM - 06:00 PM">04:00 PM - 06:00 PM</option>
-                  <option value="06:00 PM - 08:00 PM">06:00 PM - 08:00 PM</option>
-                </select>
-              </div>
-
-              <div style={{ gridColumn: '1 / -1', display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '1rem', marginTop: '0.5rem' }}>
-                <label style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '0.85rem', color: '#475569', cursor: 'pointer' }}>
-                  <input 
-                    type="checkbox" 
-                    required 
-                    checked={topForm.agreed}
-                    onChange={(e) => setTopForm({...topForm, agreed: e.target.checked})}
-                    style={{ width: '16px', height: '16px', accentColor: '#0284C7' }}
-                  />
-                  I agree to the Terms of Use and Privacy Policy
-                </label>
-
-                <button 
-                  type="submit" 
+              <div style={{ display: 'flex', gap: '10px', flexWrap: 'wrap' }}>
+                <a 
+                  href={`https://wa.me/919805543143?text=Namaste%20Bharath%20Jan%20Sewa%20Labs%2C%20I%20would%20like%20to%20book%20an%20appointment%20for%20${encodeURIComponent(topForm.package || 'Health Checkup')}%20at%20${encodeURIComponent(topForm.location || 'Bengaluru')}.%20Please%20confirm%20slots.`}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   style={{
+                    flex: '1 1 auto',
                     display: 'inline-flex',
                     alignItems: 'center',
-                    gap: '8px',
+                    justifyContent: 'center',
+                    gap: '10px',
                     background: '#25D366',
                     color: 'white',
-                    padding: '0.8rem 2rem',
+                    padding: '0.85rem 1.5rem',
                     fontSize: '0.98rem',
                     fontWeight: 800,
                     borderRadius: '12px',
-                    border: 'none',
-                    cursor: 'pointer',
-                    boxShadow: '0 4px 14px rgba(37, 211, 102, 0.35)'
+                    textDecoration: 'none',
+                    boxShadow: '0 6px 20px rgba(37, 211, 102, 0.35)'
                   }}
                 >
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="white">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="white">
                     <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414-.074-.124-.272-.198-.57-.347m-5.421 7.461c-1.926 0-3.715-.514-5.267-1.408l-.377-.217-3.916 1.027 1.045-3.817-.247-.393c-1.002-1.59-1.532-3.433-1.531-5.32 0-5.419 4.408-9.827 9.829-9.827 2.624 0 5.091 1.023 6.947 2.88 1.857 1.858 2.879 4.325 2.878 6.95 0 5.421-4.409 9.827-9.828 9.827m0-21.848C5.463 0 0 5.463 0 12c0 2.094.545 4.137 1.58 5.938L0 24l6.236-1.635C8.003 23.364 10.024 24 12.051 24c6.537 0 11.949-5.412 11.949-11.95 0-3.193-1.243-6.195-3.501-8.453C18.241 1.339 15.24 0 12.051 0z"/>
                   </svg>
-                  <span>{submitted ? 'Opening WhatsApp...' : 'Book via WhatsApp'}</span>
-                </button>
+                  <span>Book via WhatsApp</span>
+                </a>
+
+                <a 
+                  href="tel:+919805543143"
+                  style={{
+                    display: 'inline-flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    gap: '8px',
+                    background: '#0F172A',
+                    color: 'white',
+                    padding: '0.85rem 1.25rem',
+                    fontSize: '0.95rem',
+                    fontWeight: 700,
+                    borderRadius: '12px',
+                    textDecoration: 'none'
+                  }}
+                >
+                  <Phone size={18} />
+                  <span>Call Us</span>
+                </a>
               </div>
-            </form>
+            </div>
           </div>
         </div>
       </div>
@@ -482,7 +430,7 @@ export default function CentresPage({ openBookingWizard }) {
           ))}
         </div>
 
-        {/* Bottom Form Section: "Book Your Health Test" */}
+        {/* Bottom Direct WhatsApp Appointment Banner (Zero Forms) */}
         <div style={{
           background: 'linear-gradient(135deg, #0F172A 0%, #1E293B 100%)',
           borderRadius: '28px',
@@ -490,172 +438,67 @@ export default function CentresPage({ openBookingWizard }) {
           color: 'white',
           boxShadow: '0 25px 50px -12px rgba(15, 23, 42, 0.3)',
           marginBottom: '3rem',
-          border: '1px solid rgba(255,255,255,0.1)'
+          border: '1px solid rgba(255,255,255,0.1)',
+          textAlign: 'center'
         }}>
-          <div style={{ textAlign: 'center', maxWidth: '640px', margin: '0 auto 2rem' }}>
-            <span style={{ fontSize: '0.85rem', fontWeight: 800, color: '#38BDF8', textTransform: 'uppercase', letterSpacing: '0.05em' }}>
-              QUICK ONLINE REGISTRATION
+          <div style={{ maxWidth: '680px', margin: '0 auto' }}>
+            <span style={{ fontSize: '0.85rem', fontWeight: 800, color: '#38BDF8', textTransform: 'uppercase', letterSpacing: '0.08em', display: 'inline-block', marginBottom: '8px' }}>
+              DIRECT WHATSAPP DESK • ZERO ONLINE FORMS
             </span>
-            <h2 style={{ fontSize: '2.2rem', fontWeight: 900, color: 'white', marginTop: '6px', marginBottom: '0.5rem' }}>
-              Book Your Health Test
+            <h2 style={{ fontSize: '2.4rem', fontWeight: 900, color: 'white', margin: '0 0 0.75rem', letterSpacing: '-0.02em' }}>
+              Need Help Booking Your Health Test?
             </h2>
-            <p style={{ fontSize: '1rem', color: '#94A3B8' }}>
-              Schedule doorstep sample collection or a priority walk-in appointment at your nearest Bharath Jan Sewa Labs centre.
+            <p style={{ fontSize: '1.05rem', color: '#94A3B8', lineHeight: 1.6, marginBottom: '2rem' }}>
+              Message our Bangalore clinical support team on WhatsApp. Share your prescription or test requirements to confirm a priority walk-in or doorstep collection in 10 minutes.
             </p>
-          </div>
 
-          <form onSubmit={handleBottomFormSubmit} style={{ maxWidth: '800px', margin: '0 auto', display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: '1.25rem' }}>
-            <div>
-              <label style={{ display: 'block', fontSize: '0.85rem', fontWeight: 700, color: '#E2E8F0', marginBottom: '6px' }}>
-                Select Package*
-              </label>
-              <select 
-                className="form-input" 
-                required
-                value={bottomForm.package}
-                onChange={(e) => setBottomForm({...bottomForm, package: e.target.value})}
-                style={{ background: '#1E293B', border: '1px solid #475569', color: 'white', borderRadius: '12px', padding: '0.75rem' }}
-              >
-                <option value="">-- Choose Health Package --</option>
-                {HEALTH_PACKAGES.map(pkg => (
-                  <option key={pkg.id} value={pkg.id}>{pkg.name} (₹{pkg.price})</option>
-                ))}
-              </select>
-            </div>
-
-            <div>
-              <label style={{ display: 'block', fontSize: '0.85rem', fontWeight: 700, color: '#E2E8F0', marginBottom: '6px' }}>
-                Full Name*
-              </label>
-              <input 
-                type="text" 
-                className="form-input" 
-                placeholder="Enter your name" 
-                required 
-                value={bottomForm.name}
-                onChange={(e) => setBottomForm({...bottomForm, name: e.target.value})}
-                style={{ background: '#1E293B', border: '1px solid #475569', color: 'white', borderRadius: '12px', padding: '0.75rem' }}
-              />
-            </div>
-
-            <div>
-              <label style={{ display: 'block', fontSize: '0.85rem', fontWeight: 700, color: '#E2E8F0', marginBottom: '6px' }}>
-                Email Address*
-              </label>
-              <input 
-                type="email" 
-                className="form-input" 
-                placeholder="name@example.com" 
-                required 
-                value={bottomForm.email}
-                onChange={(e) => setBottomForm({...bottomForm, email: e.target.value})}
-                style={{ background: '#1E293B', border: '1px solid #475569', color: 'white', borderRadius: '12px', padding: '0.75rem' }}
-              />
-            </div>
-
-            <div>
-              <label style={{ display: 'block', fontSize: '0.85rem', fontWeight: 700, color: '#E2E8F0', marginBottom: '6px' }}>
-                Phone No*
-              </label>
-              <input 
-                type="tel" 
-                className="form-input" 
-                placeholder="+91 Mobile number" 
-                required 
-                value={bottomForm.phone}
-                onChange={(e) => setBottomForm({...bottomForm, phone: e.target.value})}
-                style={{ background: '#1E293B', border: '1px solid #475569', color: 'white', borderRadius: '12px', padding: '0.75rem' }}
-              />
-            </div>
-
-            <div>
-              <label style={{ display: 'block', fontSize: '0.85rem', fontWeight: 700, color: '#E2E8F0', marginBottom: '6px' }}>
-                Select Location*
-              </label>
-              <select 
-                className="form-input" 
-                required
-                value={bottomForm.location}
-                onChange={(e) => setBottomForm({...bottomForm, location: e.target.value})}
-                style={{ background: '#1E293B', border: '1px solid #475569', color: 'white', borderRadius: '12px', padding: '0.75rem' }}
-              >
-                <option value="">-- Select Location --</option>
-                {CENTRES.map(c => (
-                  <option key={c.id} value={c.name}>{c.name} ({c.area})</option>
-                ))}
-              </select>
-            </div>
-
-            <div>
-              <label style={{ display: 'block', fontSize: '0.85rem', fontWeight: 700, color: '#E2E8F0', marginBottom: '6px' }}>
-                Appointment Date*
-              </label>
-              <input 
-                type="date" 
-                className="form-input" 
-                required 
-                value={bottomForm.date}
-                onChange={(e) => setBottomForm({...bottomForm, date: e.target.value})}
-                style={{ background: '#1E293B', border: '1px solid #475569', color: 'white', borderRadius: '12px', padding: '0.75rem' }}
-              />
-            </div>
-
-            <div>
-              <label style={{ display: 'block', fontSize: '0.85rem', fontWeight: 700, color: '#E2E8F0', marginBottom: '6px' }}>
-                Appointment Time*
-              </label>
-              <select 
-                className="form-input" 
-                required
-                value={bottomForm.time}
-                onChange={(e) => setBottomForm({...bottomForm, time: e.target.value})}
-                style={{ background: '#1E293B', border: '1px solid #475569', color: 'white', borderRadius: '12px', padding: '0.75rem' }}
-              >
-                <option value="">Select Slot</option>
-                <option value="07:00 AM - 09:00 AM">07:00 AM - 09:00 AM</option>
-                <option value="09:00 AM - 11:00 AM">09:00 AM - 11:00 AM</option>
-                <option value="11:00 AM - 01:00 PM">11:00 AM - 01:00 PM</option>
-                <option value="04:00 PM - 06:00 PM">04:00 PM - 06:00 PM</option>
-                <option value="06:00 PM - 08:00 PM">06:00 PM - 08:00 PM</option>
-              </select>
-            </div>
-
-            <div style={{ gridColumn: '1 / -1', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '1.25rem', marginTop: '1rem' }}>
-              <label style={{ display: 'flex', alignItems: 'center', gap: '10px', fontSize: '0.9rem', color: '#CBD5E1', cursor: 'pointer' }}>
-                <input 
-                  type="checkbox" 
-                  required 
-                  checked={bottomForm.agreed}
-                  onChange={(e) => setBottomForm({...bottomForm, agreed: e.target.checked})}
-                  style={{ width: '18px', height: '18px', accentColor: '#38BDF8' }}
-                />
-                I agree to the Terms of Use and Privacy Policy
-              </label>
-
-              <button 
-                type="submit" 
+            <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', gap: '14px', flexWrap: 'wrap' }}>
+              <a 
+                href="https://wa.me/919805543143?text=Namaste%20Bharath%20Jan%20Sewa%20Labs%2C%20I%20would%20like%20to%20book%20a%20blood%20test%20or%20health%20checkup%20appointment."
+                target="_blank"
+                rel="noopener noreferrer"
                 style={{
                   display: 'inline-flex',
                   alignItems: 'center',
                   gap: '10px',
                   background: '#25D366',
                   color: 'white',
-                  padding: '0.9rem 3rem',
+                  padding: '1rem 2.25rem',
                   fontSize: '1.05rem',
                   fontWeight: 800,
                   borderRadius: '14px',
-                  border: 'none',
-                  cursor: 'pointer',
-                  boxShadow: '0 6px 20px rgba(37, 211, 102, 0.4)'
+                  textDecoration: 'none',
+                  boxShadow: '0 8px 25px rgba(37, 211, 102, 0.4)',
+                  transition: 'transform 0.2s ease'
                 }}
               >
                 <svg width="22" height="22" viewBox="0 0 24 24" fill="white">
                   <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414-.074-.124-.272-.198-.57-.347m-5.421 7.461c-1.926 0-3.715-.514-5.267-1.408l-.377-.217-3.916 1.027 1.045-3.817-.247-.393c-1.002-1.59-1.532-3.433-1.531-5.32 0-5.419 4.408-9.827 9.829-9.827 2.624 0 5.091 1.023 6.947 2.88 1.857 1.858 2.879 4.325 2.878 6.95 0 5.421-4.409 9.827-9.828 9.827m0-21.848C5.463 0 0 5.463 0 12c0 2.094.545 4.137 1.58 5.938L0 24l6.236-1.635C8.003 23.364 10.024 24 12.051 24c6.537 0 11.949-5.412 11.949-11.95 0-3.193-1.243-6.195-3.501-8.453C18.241 1.339 15.24 0 12.051 0z"/>
                 </svg>
-                <span>{submitted ? 'Opening WhatsApp...' : 'Book via WhatsApp'}</span>
-              </button>
+                <span>Chat &amp; Book via WhatsApp</span>
+              </a>
+
+              <a 
+                href="tel:+919805543143"
+                style={{
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: '8px',
+                  background: 'rgba(255,255,255,0.12)',
+                  color: 'white',
+                  padding: '1rem 1.75rem',
+                  fontSize: '1.05rem',
+                  fontWeight: 700,
+                  borderRadius: '14px',
+                  textDecoration: 'none',
+                  border: '1px solid rgba(255,255,255,0.25)'
+                }}
+              >
+                <Phone size={20} color="#38BDF8" />
+                <span>Call Lab: +91 98055 43143</span>
+              </a>
             </div>
-          </form>
+          </div>
         </div>
 
         {/* NABL Guarantee Banner */}

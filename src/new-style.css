@@ -666,8 +666,8 @@ img, svg {
   -webkit-backdrop-filter: blur(14px);
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
   transition: transform 0.2s ease;
-  height: 84px;
-  min-height: 84px;
+  height: auto;
+  min-height: 92px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -683,11 +683,12 @@ img, svg {
   -webkit-box-orient: vertical;
   overflow: hidden;
   font-size: 13px;
-  font-weight: 650;
+  font-weight: 700;
   color: #FFFFFF;
-  margin-bottom: 4px;
-  line-height: 1.25;
-  height: 33px;
+  margin-bottom: 6px;
+  line-height: 1.35;
+  min-height: 36px;
+  height: auto;
 }
 
 .desktop-lifestyle-bottom-pill .pill-price-btn {

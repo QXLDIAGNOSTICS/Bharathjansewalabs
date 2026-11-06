@@ -267,102 +267,93 @@ export default function PackagesCatalogue({
           ))}
         </div>
 
-        {/* SECTION: BOOK YOUR HEALTH TEST FORM BANNER */}
+        {/* SECTION: DIRECT WHATSAPP APPOINTMENT BOOKING (ZERO FORMS) */}
         <div style={{
           background: 'linear-gradient(135deg, rgba(239, 68, 68, 0.98) 0%, rgba(220, 38, 38, 0.98) 100%)',
           color: 'white',
           borderRadius: '28px',
-          padding: '3.5rem 3rem',
+          padding: '3.5rem 2.5rem',
           boxShadow: '0 25px 60px rgba(239, 68, 68, 0.35)',
           position: 'relative',
-          overflow: 'hidden'
+          overflow: 'hidden',
+          textAlign: 'center'
         }}>
-          <h2 style={{ fontSize: '2.8rem', fontWeight: 900, color: 'white', marginBottom: '2rem', textAlign: 'center' }}>
-            Book Your Health Test
-          </h2>
+          <div style={{ maxWidth: '680px', margin: '0 auto' }}>
+            <span style={{ fontSize: '0.85rem', fontWeight: 800, color: 'rgba(255,255,255,0.9)', textTransform: 'uppercase', letterSpacing: '0.08em', display: 'inline-block', marginBottom: '8px' }}>
+              DIRECT WHATSAPP DESK • ZERO ONLINE FORMS
+            </span>
+            <h2 style={{ fontSize: '2.6rem', fontWeight: 900, color: 'white', margin: '0 0 1rem', letterSpacing: '-0.02em' }}>
+              Book Your Health Package in 1 Tap
+            </h2>
+            <p style={{ fontSize: '1.05rem', color: 'rgba(255, 255, 255, 0.92)', lineHeight: 1.6, marginBottom: '2rem' }}>
+              Connect directly with our Bengaluru clinical team on WhatsApp. Zero complicated forms. Pay zero advance and settle via UPI/Cash after phlebotomist sample collection.
+            </p>
 
-          <form onSubmit={handleFormSubmit} style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '1.25rem', maxWidth: '960px', margin: '0 auto' }}>
-            <div>
-              <label style={{ display: 'block', fontSize: '0.85rem', fontWeight: 800, color: 'white', marginBottom: '6px' }}>Select Package*</label>
-              <select value={formPackage} onChange={(e) => setFormPackage(e.target.value)} style={{ width: '100%', padding: '0.85rem 1.25rem', borderRadius: '99px', border: 'none', background: 'rgba(255,255,255,0.92)', fontSize: '0.95rem', fontWeight: 800, color: '#0F172A' }}>
-                {HEALTH_PACKAGES.map(p => (
-                  <option key={p.id} value={p.name}>{p.name} - ₹{p.price}</option>
-                ))}
-              </select>
-            </div>
+            <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '1.25rem', maxWidth: '440px', margin: '0 auto' }}>
+              <div style={{ width: '100%', textAlign: 'left' }}>
+                <label style={{ display: 'block', fontSize: '0.85rem', fontWeight: 800, color: 'white', marginBottom: '6px' }}>
+                  Choose Package to Book:
+                </label>
+                <select 
+                  value={formPackage} 
+                  onChange={(e) => setFormPackage(e.target.value)} 
+                  style={{ width: '100%', padding: '0.85rem 1.25rem', borderRadius: '14px', border: 'none', background: 'rgba(255,255,255,0.95)', fontSize: '0.98rem', fontWeight: 800, color: '#0F172A', outline: 'none' }}
+                >
+                  {HEALTH_PACKAGES.map(p => (
+                    <option key={p.id} value={p.name}>{p.name} - ₹{p.price}</option>
+                  ))}
+                </select>
+              </div>
 
-            <div>
-              <label style={{ display: 'block', fontSize: '0.85rem', fontWeight: 800, color: 'white', marginBottom: '6px' }}>Full Name*</label>
-              <input type="text" required placeholder="e.g. Ramesh Kumar" value={formName} onChange={(e) => setFormName(e.target.value)} style={{ width: '100%', padding: '0.85rem 1.25rem', borderRadius: '99px', border: 'none', background: 'rgba(255,255,255,0.92)', fontSize: '0.95rem', color: '#0F172A' }} />
-            </div>
+              <div style={{ display: 'flex', gap: '12px', width: '100%', flexWrap: 'wrap' }}>
+                <a 
+                  href={`https://wa.me/919805543143?text=Namaste%20Bharath%20Jan%20Sewa%20Labs%2C%20I%20would%20like%20to%20book%20the%20${encodeURIComponent(formPackage || 'Chirayu Prime Checkup')}%20in%20Bengaluru.`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  style={{
+                    flex: '1 1 auto',
+                    background: '#25D366',
+                    color: 'white',
+                    fontWeight: 900,
+                    fontSize: '1.05rem',
+                    padding: '1rem 1.8rem',
+                    borderRadius: '14px',
+                    boxShadow: '0 10px 25px rgba(0,0,0,0.25)',
+                    textDecoration: 'none',
+                    display: 'inline-flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    gap: '10px'
+                  }}
+                >
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="white">
+                    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414-.074-.124-.272-.198-.57-.347m-5.421 7.461c-1.926 0-3.715-.514-5.267-1.408l-.377-.217-3.916 1.027 1.045-3.817-.247-.393c-1.002-1.59-1.532-3.433-1.531-5.32 0-5.419 4.408-9.827 9.829-9.827 2.624 0 5.091 1.023 6.947 2.88 1.857 1.858 2.879 4.325 2.878 6.95 0 5.421-4.409 9.827-9.828 9.827m0-21.848C5.463 0 0 5.463 0 12c0 2.094.545 4.137 1.58 5.938L0 24l6.236-1.635C8.003 23.364 10.024 24 12.051 24c6.537 0 11.949-5.412 11.949-11.95 0-3.193-1.243-6.195-3.501-8.453C18.241 1.339 15.24 0 12.051 0z"/>
+                  </svg>
+                  <span>Book via WhatsApp</span>
+                </a>
 
-            <div>
-              <label style={{ display: 'block', fontSize: '0.85rem', fontWeight: 800, color: 'white', marginBottom: '6px' }}>Email Address*</label>
-              <input type="email" required placeholder="contact@example.com" value={formEmail} onChange={(e) => setFormEmail(e.target.value)} style={{ width: '100%', padding: '0.85rem 1.25rem', borderRadius: '99px', border: 'none', background: 'rgba(255,255,255,0.92)', fontSize: '0.95rem', color: '#0F172A' }} />
+                <a 
+                  href="tel:+919805543143"
+                  style={{
+                    background: '#0F172A',
+                    color: 'white',
+                    fontWeight: 700,
+                    fontSize: '0.98rem',
+                    padding: '1rem 1.4rem',
+                    borderRadius: '14px',
+                    textDecoration: 'none',
+                    display: 'inline-flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    gap: '8px'
+                  }}
+                >
+                  <Phone size={18} />
+                  <span>Call Lab</span>
+                </a>
+              </div>
             </div>
-
-            <div>
-              <label style={{ display: 'block', fontSize: '0.85rem', fontWeight: 800, color: 'white', marginBottom: '6px' }}>Phone No*</label>
-              <input type="tel" required placeholder="9805543143" value={formPhone} onChange={(e) => setFormPhone(e.target.value)} style={{ width: '100%', padding: '0.85rem 1.25rem', borderRadius: '99px', border: 'none', background: 'rgba(255,255,255,0.92)', fontSize: '0.95rem', color: '#0F172A' }} />
-            </div>
-
-            <div>
-              <label style={{ display: 'block', fontSize: '0.85rem', fontWeight: 800, color: 'white', marginBottom: '6px' }}>Select Location*</label>
-              <select value={formLocation} onChange={(e) => setFormLocation(e.target.value)} style={{ width: '100%', padding: '0.85rem 1.25rem', borderRadius: '99px', border: 'none', background: 'rgba(255,255,255,0.92)', fontSize: '0.95rem', fontWeight: 800, color: '#0F172A' }}>
-                <option value="Sanjaynagar">Sanjaynagar Hub</option>
-                <option value="Peenya">Peenya 2nd Stage</option>
-                <option value="Kengeri">Kengeri BDA Complex</option>
-                <option value="Ittamadu">Ittamadu / Banashankari</option>
-                <option value="Subramanyapura">Subramanyapura Hub</option>
-                <option value="Jaraganahalli">Jaraganahalli Hub</option>
-              </select>
-            </div>
-
-            <div>
-              <label style={{ display: 'block', fontSize: '0.85rem', fontWeight: 800, color: 'white', marginBottom: '6px' }}>Preferred Date</label>
-              <input type="date" value={formDate} onChange={(e) => setFormDate(e.target.value)} style={{ width: '100%', padding: '0.85rem 1.25rem', borderRadius: '99px', border: 'none', background: 'rgba(255,255,255,0.92)', fontSize: '0.95rem', color: '#0F172A' }} />
-            </div>
-
-            <div>
-              <label style={{ display: 'block', fontSize: '0.85rem', fontWeight: 800, color: 'white', marginBottom: '6px' }}>Appointment Time*</label>
-              <select value={formTime} onChange={(e) => setFormTime(e.target.value)} style={{ width: '100%', padding: '0.85rem 1.25rem', borderRadius: '99px', border: 'none', background: 'rgba(255,255,255,0.92)', fontSize: '0.95rem', fontWeight: 800, color: '#0F172A' }}>
-                <option value="07:00 AM">07:00 AM - 09:00 AM</option>
-                <option value="09:00 AM">09:00 AM - 11:00 AM</option>
-                <option value="11:00 AM">11:00 AM - 01:00 PM</option>
-                <option value="02:00 PM">02:00 PM - 05:00 PM</option>
-              </select>
-            </div>
-
-            <div style={{ gridColumn: '1 / -1', textAlign: 'center', marginTop: '1rem' }}>
-              <label style={{ fontSize: '0.85rem', color: 'white', display: 'inline-flex', alignItems: 'center', gap: '8px', marginBottom: '1.25rem', cursor: 'pointer' }}>
-                <input type="checkbox" checked={formAgree} onChange={(e) => setFormAgree(e.target.checked)} style={{ accentColor: '#0F172A', width: '16px', height: '16px' }} />
-                I agree to the Terms of Use and Privacy Policy
-              </label>
-              <br />
-              <button 
-                type="submit" 
-                style={{
-                  background: '#25D366',
-                  color: 'white',
-                  fontWeight: 900,
-                  fontSize: '1.05rem',
-                  padding: '1rem 3rem',
-                  borderRadius: '99px',
-                  boxShadow: '0 12px 30px rgba(0,0,0,0.2)',
-                  border: 'none',
-                  cursor: 'pointer',
-                  display: 'inline-flex',
-                  alignItems: 'center',
-                  gap: '10px'
-                }}
-              >
-                <svg width="22" height="22" viewBox="0 0 24 24" fill="white">
-                  <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414-.074-.124-.272-.198-.57-.347m-5.421 7.461c-1.926 0-3.715-.514-5.267-1.408l-.377-.217-3.916 1.027 1.045-3.817-.247-.393c-1.002-1.59-1.532-3.433-1.531-5.32 0-5.419 4.408-9.827 9.829-9.827 2.624 0 5.091 1.023 6.947 2.88 1.857 1.858 2.879 4.325 2.878 6.95 0 5.421-4.409 9.827-9.828 9.827m0-21.848C5.463 0 0 5.463 0 12c0 2.094.545 4.137 1.58 5.938L0 24l6.236-1.635C8.003 23.364 10.024 24 12.051 24c6.537 0 11.949-5.412 11.949-11.95 0-3.193-1.243-6.195-3.501-8.453C18.241 1.339 15.24 0 12.051 0z"/>
-                </svg>
-                <span>Book via WhatsApp (+91 98055 43143)</span>
-              </button>
-            </div>
-          </form>
+          </div>
         </div>
 
       </div>

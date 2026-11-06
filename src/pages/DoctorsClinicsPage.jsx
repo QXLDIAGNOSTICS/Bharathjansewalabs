@@ -116,9 +116,31 @@ export default function DoctorsClinicsPage() {
                 <input type="text" className="form-input" required placeholder="No. 14, Main Road, Jayanagar, Bangalore" />
               </div>
 
-              <button type="submit" className="btn-primary" style={{ padding: '0.85rem', width: '100%', justifyContent: 'center' }}>
-                <Send size={18} /> Partner With BJSL Network
-              </button>
+              <div style={{ display: 'flex', gap: '10px', flexWrap: 'wrap', marginTop: '0.5rem' }}>
+                <button type="submit" className="btn-primary" style={{ flex: '1 1 auto', padding: '0.85rem', justifyContent: 'center' }}>
+                  <Send size={18} /> Partner With BJSL Network
+                </button>
+                <a 
+                  href="https://wa.me/919805543143?text=Namaste%20BJSL,%20I%20am%20a%20doctor/clinic%20interested%20in%20a%20B2B%20diagnostic%20tie-up."
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  style={{
+                    display: 'inline-flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    gap: '8px',
+                    background: '#25D366',
+                    color: 'white',
+                    padding: '0.85rem 1.25rem',
+                    borderRadius: '12px',
+                    fontWeight: 800,
+                    fontSize: '0.92rem',
+                    textDecoration: 'none'
+                  }}
+                >
+                  <MessageSquare size={18} /> WhatsApp Desk
+                </a>
+              </div>
             </form>
           ) : (
             <div style={{ textAlign: 'center', padding: '2rem' }}>

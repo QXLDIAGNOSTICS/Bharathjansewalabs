@@ -23,7 +23,7 @@ LOCALITIES = [
         "landmarks": "Near BDA Complex, 3rd Stage, Katriguppe, Girinagar",
         "hasPhysicalCentre": True,
         "centreAddress": "House 36, 23rd Cross Road, Manjunath Nagar, Ittamadu, Banashankari 3rd Stage, Bengaluru - 560085",
-        "turnaround": "4-6 Hours",
+        "turnaround": "Same Day (Typically 4-8 Hours)",
         "metaDesc": "Book affordable blood tests in Banashankari, Bengaluru (PIN: 560085, 560070). CBC ₹160, Sugar ₹20, HbA1c ₹260, Thyroid ₹190. Doorstep collection & NABL partner lab testing."
     },
     {
@@ -37,7 +37,7 @@ LOCALITIES = [
         "landmarks": "Near Valentine Model School, 23rd Cross Road, BSK 3rd Stage",
         "hasPhysicalCentre": True,
         "centreAddress": "House 36, 23rd Cross Road, Manjunath Nagar, Ittamadu, Bengaluru - 560085",
-        "turnaround": "2-4 Hours",
+        "turnaround": "Same Day (Within 2-4 Hours)",
         "metaDesc": "Affordable diagnostic blood tests in Ittamadu, South Bangalore (560085). Walk-in collection centre & home sample pickup. CBC ₹160, Blood Sugar ₹20, HbA1c ₹260."
     },
     {
@@ -51,7 +51,7 @@ LOCALITIES = [
         "landmarks": "Phases 1-6, Sarakki Lake, Kanakapura Road, Jaraganahalli",
         "hasPhysicalCentre": True,
         "centreAddress": "No. 41, 17th D Cross, Basavaraj Layout, JP Nagar 6th Phase, Jaraganahalli, Bengaluru - 560078",
-        "turnaround": "4-6 Hours",
+        "turnaround": "Same Day (Typically 4-8 Hours)",
         "metaDesc": "Reliable, budget blood tests in JP Nagar, Bengaluru (PIN: 560078, 560069). Home blood collection & walk-in desk. Fasting sugar ₹20, CBC ₹160, Lipid Profile ₹260."
     },
     {
@@ -65,7 +65,7 @@ LOCALITIES = [
         "landmarks": "4th Block Complex, South End Circle, Madhavan Park, 9th Block",
         "hasPhysicalCentre": False,
         "centreAddress": "Prompt Doorstep Phlebotomy Dispatch from South Bengaluru Hubs",
-        "turnaround": "4-6 Hours",
+        "turnaround": "Same Day (Typically 4-8 Hours)",
         "metaDesc": "Affordable blood test home collection in Jayanagar, Bengaluru (PIN: 560011, 560041). Senior citizen health checkups, HbA1c, Thyroid & CBC tests at honest prices."
     },
     {
@@ -79,7 +79,7 @@ LOCALITIES = [
         "landmarks": "Near Devegowda Petrol Bunk, Kadirenahalli, Chikkalasandra",
         "hasPhysicalCentre": False,
         "centreAddress": "Covered via Ittamadu Centre (2 km) & Certified Home Sample Collection",
-        "turnaround": "4-6 Hours",
+        "turnaround": "Same Day (Typically 4-8 Hours)",
         "metaDesc": "Affordable diagnostic blood tests in Padmanabhanagar, Bangalore (560070). Fast home sample pickup. Complete blood count ₹160, Blood glucose ₹20, Kidney KFT ₹360."
     },
     {
@@ -93,7 +93,7 @@ LOCALITIES = [
         "landmarks": "Jayanagar Housing Society Layout, Uttarahalli Main Road",
         "hasPhysicalCentre": True,
         "centreAddress": "Park View Diagnostic Center, 11, 1st Street, Jayanagar Housing Society Layout, Subramanyapura, Bengaluru - 560061",
-        "turnaround": "4-6 Hours",
+        "turnaround": "Same Day (Typically 4-8 Hours)",
         "metaDesc": "Diagnostic lab tests in Subramanyapura & Uttarahalli, Bengaluru (560061). Walk-in collection centre & home visits. CBC ₹160, HbA1c ₹260, Thyroid Panel ₹190."
     },
     {
@@ -107,7 +107,7 @@ LOCALITIES = [
         "landmarks": "BDA Complex, Mysore Road, Harsha Layout, Kengeri Metro",
         "hasPhysicalCentre": True,
         "centreAddress": "Shop 32, BDA Commercial Complex, Mysore Road, Kengeri Satellite Town, Bengaluru - 560059",
-        "turnaround": "4-6 Hours",
+        "turnaround": "Same Day (Typically 4-8 Hours)",
         "metaDesc": "Affordable blood testing in Kengeri Satellite Town, Bangalore (560059). Walk-in centre at BDA Complex & home blood collection. Routine tests starting from ₹20."
     },
     {
@@ -121,7 +121,7 @@ LOCALITIES = [
         "landmarks": "Ideal Homes Township, BEML Layout, Mysore Road Arch, Remco Layout",
         "hasPhysicalCentre": False,
         "centreAddress": "Served by Kengeri BDA Hub & Doorstep Phlebotomy Teams",
-        "turnaround": "4-6 Hours",
+        "turnaround": "Same Day (Typically 4-8 Hours)",
         "metaDesc": "Home blood collection in RR Nagar (Rajarajeshwari Nagar), Bengaluru (560098). NABL partner lab testing, same day PDF reports. Full body checkup packages from ₹796."
     },
     {
@@ -135,7 +135,7 @@ LOCALITIES = [
         "landmarks": "Peenya 2nd Stage, Srigandha Nagar, Hegganahalli Cross",
         "hasPhysicalCentre": True,
         "centreAddress": "No. 113, 77, 14th Cross Road, Peenya 2nd Stage, Srigandha Nagar, Bengaluru - 560091",
-        "turnaround": "4-6 Hours",
+        "turnaround": "Same Day (Typically 4-8 Hours)",
         "metaDesc": "Affordable lab tests in Peenya Industrial Area, Bengaluru (560091, 560058). Walk-in collection centre & corporate health screening. CBC ₹160, Sugar ₹20, LFT ₹360."
     },
     {
@@ -149,7 +149,7 @@ LOCALITIES = [
         "landmarks": "Dr Rajkumar Road, 1st Block to 6th Block, Navrang Theatre",
         "hasPhysicalCentre": False,
         "centreAddress": "Convenient home sample collection & Basaveshwaranagar collection desk",
-        "turnaround": "4-6 Hours",
+        "turnaround": "Same Day (Typically 4-8 Hours)",
         "metaDesc": "Affordable blood test home collection in Rajajinagar, Bengaluru (560010). Fasting sugar ₹20, HbA1c ₹260, Thyroid TFT ₹190, Lipid Profile ₹260. Same day reports."
     },
     {
@@ -163,7 +163,7 @@ LOCALITIES = [
         "landmarks": "3rd Main Road, Shankar Mutt, Kurubarahalli, Kamalanagar",
         "hasPhysicalCentre": True,
         "centreAddress": "Netaji Clinic, 86, 3rd Main Road, Basaveshwaranagar, Bengaluru - 560079",
-        "turnaround": "4-6 Hours",
+        "turnaround": "Same Day (Typically 4-8 Hours)",
         "metaDesc": "Affordable diagnostic blood tests in Basaveshwaranagar, Bengaluru (560079). Walk-in centre at Netaji Clinic & home collection. Fasting blood sugar ₹20, CBC ₹160."
     },
     {
@@ -177,7 +177,7 @@ LOCALITIES = [
         "landmarks": "Vijayanagar Metro, MC Layout, Chandra Layout, Nagarabhavi BDA",
         "hasPhysicalCentre": False,
         "centreAddress": "Covered via certified doorstep phlebotomy and nearby West Bengaluru centres",
-        "turnaround": "4-6 Hours",
+        "turnaround": "Same Day (Typically 4-8 Hours)",
         "metaDesc": "Affordable blood tests in Vijayanagar & Nagarabhavi, Bengaluru (560040, 560072). Prompt home sample collection. CBC ₹160, HbA1c ₹260, Lipid Profile ₹260."
     },
     {
@@ -191,7 +191,7 @@ LOCALITIES = [
         "landmarks": "BTM 1st & 2nd Stage, Silk Board, Bannerghatta Road Junction",
         "hasPhysicalCentre": False,
         "centreAddress": "Doorstep Sample Collection Service across BTM & Bommanahalli",
-        "turnaround": "4-6 Hours",
+        "turnaround": "Same Day (Typically 4-8 Hours)",
         "metaDesc": "Home blood collection in BTM Layout & Bommanahalli, Bengaluru (560068, 560076). Reliable routine tests & health checkups processed via verified NABL partner labs."
     },
     {
@@ -205,7 +205,7 @@ LOCALITIES = [
         "landmarks": "Sectors 1-7, 27th Main Road, Agara Lake, Koramangala 1st-8th Block",
         "hasPhysicalCentre": False,
         "centreAddress": "Doorstep Phlebotomy Express Service covering HSR Sectors 1-7 & Koramangala",
-        "turnaround": "4-6 Hours",
+        "turnaround": "Same Day (Typically 4-8 Hours)",
         "metaDesc": "Blood test home collection in HSR Layout & Koramangala, Bengaluru (560102, 560034). Full body checkups, diabetes HbA1c, thyroid & vitamin tests with digital reports."
     },
     {
@@ -219,7 +219,7 @@ LOCALITIES = [
         "landmarks": "KR Road, City Market Metro Station, Victoria Hospital Hub",
         "hasPhysicalCentre": True,
         "centreAddress": "102/A, K R Road, Kalasipalya, Bengaluru - 560002 (Opp. Victoria Hospital)",
-        "turnaround": "2-4 Hours",
+        "turnaround": "Same Day (Within 2-4 Hours)",
         "metaDesc": "Ultra-affordable blood tests in KR Market & Kalasipalya, Central Bengaluru (560002). Walk-in centre opp. Victoria Hospital. Blood sugar ₹20, CBC ₹160, Urine ₹50."
     }
 ]
@@ -326,7 +326,7 @@ def generate_locality_page(loc):
                         "name": f"Are blood test prices in {name} the same as the advertised leaflet tariff?",
                         "acceptedAnswer": {
                             "@type": "Answer",
-                            "text": f"Yes. All published routine test prices (e.g. CBC ₹160, Fasting Sugar ₹20, HbA1c ₹260, Thyroid TFT ₹190) apply uniformly across Bengaluru. Collection charges, if any for remote home visits, are disclosed transparently before confirmation."
+                            "text": f"Yes. All published routine test prices (e.g. CBC ₹160, Fasting Sugar ₹20, HbA1c ₹260, Thyroid TFT ₹190) apply uniformly across Bengaluru. Doorstep collection is 100% FREE for orders of ₹499 and above (₹100 for orders under ₹499), while walk-in collection at any of our 10 verified centres is always 100% free."
                         }
                     },
                     {
@@ -506,7 +506,7 @@ def generate_locality_page(loc):
         <details class="faq">
           <summary>Are test prices higher for home collection compared to visiting a centre?</summary>
           <p>
-            No, our core test tariffs (e.g. CBC ₹160, Glucose ₹20, HbA1c ₹260) are completely standardized. If any nominal phlebotomist travel charge applies based on distance, it will be clearly disclosed prior to confirming your booking.
+            No, all core test tariffs (e.g. CBC ₹160, Glucose ₹20, HbA1c ₹260) are completely standardized. Doorstep home collection is 100% FREE across {name} for orders of ₹499 and above (a transparent ₹100 convenience fee applies for orders under ₹499). Walk-in collection at any of our 10 verified centres is always 100% free.
           </p>
         </details>
         <details class="faq">
