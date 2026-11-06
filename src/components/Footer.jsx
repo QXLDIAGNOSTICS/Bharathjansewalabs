@@ -121,158 +121,74 @@ export default function Footer({ setCurrentTab, openLegal }) {
 
           </div>
 
-          {/* Dedicated SEO Links Section: Affordable Diagnostic Tests in Bengaluru */}
-          <div style={{
-            background: '#FFFFFF',
-            borderRadius: '16px',
-            border: '1px solid #E2E8F0',
-            padding: '1.75rem 2rem',
-            marginBottom: '2.5rem',
-            boxShadow: '0 2px 8px rgba(0,0,0,0.02)'
-          }}>
-            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '1rem', marginBottom: '1.25rem', borderBottom: '1px solid #EDF2F7', paddingBottom: '0.75rem' }}>
-              <div>
-                <h4 style={{ fontSize: '1.15rem', fontWeight: 800, color: '#1A202C', margin: 0 }}>
-                  Affordable Diagnostic Tests in Bengaluru
-                </h4>
-                <p style={{ fontSize: '0.825rem', color: '#718096', margin: '3px 0 0' }}>
-                  66 individual blood and pathology tests with transparent subsidized rates and 16 medical FAQs per test.
-                </p>
-              </div>
-              <a 
-                href="/tests/" 
-                style={{ 
-                  fontSize: '0.875rem', 
-                  fontWeight: 800, 
-                  color: '#E53E3E', 
-                  textDecoration: 'none',
-                  display: 'inline-flex',
-                  alignItems: 'center',
-                  gap: '4px'
-                }}
-              >
-                <span>View All 66 Test Prices Directory →</span>
-              </a>
-            </div>
-
-            <div style={{
-              display: 'grid',
-              gridTemplateColumns: 'repeat(auto-fill, minmax(240px, 1fr))',
-              gap: '0.6rem 1.25rem',
-              fontSize: '0.85rem'
-            }}>
-              {[
-                { name: 'Complete Blood Count (CBC + ESR)', price: '₹160', url: '/tests/cbc-esr-test/' },
-                { name: 'Blood Glucose (Fasting/PP/Random)', price: '₹20', url: '/tests/blood-sugar-test/' },
-                { name: 'Glycated Haemoglobin (HbA1c)', price: '₹260', url: '/tests/hba1c-test/' },
-                { name: 'Lipid Profile (Cholesterol)', price: '₹260', url: '/tests/lipid-profile-test/' },
-                { name: 'Liver Function Test (LFT Panel)', price: '₹360', url: '/tests/liver-function-test/' },
-                { name: 'Serum Creatinine (Kidney)', price: '₹50', url: '/tests/serum-creatinine-test/' },
-                { name: 'Blood Urea / BUN', price: '₹50', url: '/tests/blood-urea-test/' },
-                { name: 'Urine Routine & Microscopy', price: '₹50', url: '/tests/urine-routine-microscopy-test/' },
-                { name: 'Thyroid Hormone (TSH)', price: '₹100', url: '/tests/tsh-test/' },
-                { name: 'Thyroid Function (Total T3, T4, TSH)', price: '₹190', url: '/tests/thyroid-function-test-total/' },
-                { name: 'Serum Electrolytes (Na, K, Cl)', price: '₹190', url: '/tests/serum-electrolytes-test/' },
-                { name: 'Vitamin D 25-Hydroxy', price: '₹660', url: '/tests/vitamin-d-test/' },
-                { name: 'Vitamin B12 (Cobalamin)', price: '₹440', url: '/tests/vitamin-b12-test/' },
-                { name: 'Serum Ferritin (Iron Stores)', price: '₹460', url: '/tests/ferritin-test/' },
-                { name: 'Iron Studies (Iron, TIBC)', price: '₹250', url: '/tests/iron-studies-test/' },
-                { name: 'C-Reactive Protein (CRP)', price: '₹250', url: '/tests/crp-test/' },
-                { name: 'Serum Uric Acid', price: '₹50', url: '/tests/uric-acid-test/' },
-                { name: 'Serum Calcium Total', price: '₹60', url: '/tests/serum-calcium-test/' },
-                { name: 'Total IgE (Allergy)', price: '₹630', url: '/tests/total-ige-test/' },
-                { name: 'HBsAg (Hepatitis B)', price: '₹250', url: '/tests/hbsag-test/' },
-                { name: 'HIV 1/2 4th Gen Antigen-Antibody', price: '₹250', url: '/tests/hiv-fourth-generation-test/' },
-                { name: 'Dengue NS1 & IgM/IgG ELISA', price: '₹450', url: '/tests/dengue-ns1-igm-igg-test/' },
-                { name: 'Malaria Rapid Antigen Test', price: '₹200', url: '/tests/malaria-antigen-test/' },
-                { name: 'Prothrombin Time / INR', price: '₹190', url: '/tests/pt-inr-test/' },
-                { name: 'D-Dimer (Thrombosis)', price: '₹660', url: '/tests/d-dimer-test/' },
-                { name: 'Cardiac Troponin I Quantitative', price: '₹760', url: '/tests/troponin-i-test/' },
-                { name: 'Total PSA (Prostate Screen)', price: '₹400', url: '/tests/total-psa-test/' },
-                { name: 'Renal Profile Panel (RFT/KFT)', price: '₹320', url: '/tests/renal-profile-test/' }
-              ].map(item => (
-                <a 
-                  key={item.url} 
-                  href={item.url}
-                  style={{ 
-                    display: 'flex', 
-                    justifyContent: 'space-between', 
-                    alignItems: 'center', 
-                    color: '#4A5568', 
-                    textDecoration: 'none',
-                    padding: '3px 0',
-                    transition: 'color 0.15s'
-                  }}
-                  onMouseEnter={(e) => e.currentTarget.style.color = '#E53E3E'}
-                  onMouseLeave={(e) => e.currentTarget.style.color = '#4A5568'}
-                >
-                  <span style={{ overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap', paddingRight: '8px' }}>
-                    {item.name}
-                  </span>
-                  <strong style={{ color: '#E53E3E', fontSize: '0.8rem', flexShrink: 0 }}>
-                    {item.price}
-                  </strong>
-                </a>
-              ))}
-            </div>
-          </div>
-
           {/* Middle Full-Width White Contact Cards Bar */}
           <div style={{
             background: '#FFFFFF',
-            borderRadius: '4px',
+            borderRadius: '14px',
             border: '1px solid #E2E8F0',
-            boxShadow: '0 2px 10px rgba(0, 0, 0, 0.02)',
+            boxShadow: '0 4px 16px rgba(0, 0, 0, 0.04)',
             display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))',
-            marginBottom: '3.5rem',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
+            marginBottom: '2.5rem',
             overflow: 'hidden'
           }}>
             {/* Card 1: Phone */}
             <div style={{
-              padding: '1.25rem 2rem',
+              padding: '1.25rem 1.75rem',
               display: 'flex',
               alignItems: 'center',
               gap: '1.25rem',
               borderRight: '1px solid #E2E8F0'
             }}>
-              <div style={{ width: '48px', height: '48px', borderRadius: '50%', background: '#E53E3E', color: 'white', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
+              <div style={{ width: '48px', height: '48px', borderRadius: '50%', background: '#EF4444', color: 'white', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0, boxShadow: '0 4px 12px rgba(239, 68, 68, 0.25)' }}>
                 <Phone size={22} color="white" />
               </div>
-              <a href="tel:+919805543143" style={{ fontSize: '1.15rem', fontWeight: 800, color: '#000000', textDecoration: 'none' }}>
-                +91 98055 43143
-              </a>
+              <div>
+                <div style={{ fontSize: '0.75rem', fontWeight: 700, color: '#64748B', textTransform: 'uppercase', letterSpacing: '0.04em' }}>Helpline</div>
+                <a href="tel:+919805543143" style={{ fontSize: '1.15rem', fontWeight: 800, color: '#0F172A', textDecoration: 'none' }}>
+                  +91 98055 43143
+                </a>
+              </div>
             </div>
 
-            {/* Card 2: WhatsApp */}
+            {/* Card 2: WhatsApp Direct Booking */}
             <div style={{
-              padding: '1.25rem 2rem',
+              padding: '1.25rem 1.75rem',
               display: 'flex',
               alignItems: 'center',
               gap: '1.25rem',
-              borderRight: '1px solid #E2E8F0'
+              borderRight: '1px solid #E2E8F0',
+              background: '#F0FDF4'
             }}>
-              <div style={{ width: '48px', height: '48px', borderRadius: '50%', background: '#E53E3E', color: 'white', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
-                <MessageSquare size={22} color="white" />
+              <div style={{ width: '48px', height: '48px', borderRadius: '50%', background: '#25D366', color: 'white', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0, boxShadow: '0 4px 12px rgba(37, 211, 102, 0.3)' }}>
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="white">
+                  <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414-.074-.124-.272-.198-.57-.347m-5.421 7.461c-1.926 0-3.715-.514-5.267-1.408l-.377-.217-3.916 1.027 1.045-3.817-.247-.393c-1.002-1.59-1.532-3.433-1.531-5.32 0-5.419 4.408-9.827 9.829-9.827 2.624 0 5.091 1.023 6.947 2.88 1.857 1.858 2.879 4.325 2.878 6.95 0 5.421-4.409 9.827-9.828 9.827m0-21.848C5.463 0 0 5.463 0 12c0 2.094.545 4.137 1.58 5.938L0 24l6.236-1.635C8.003 23.364 10.024 24 12.051 24c6.537 0 11.949-5.412 11.949-11.95 0-3.193-1.243-6.195-3.501-8.453C18.241 1.339 15.24 0 12.051 0z"/>
+                </svg>
               </div>
-              <a href="https://wa.me/919805543143?text=Hi%20BJSL,%20I%20want%20to%20book%20a%20health%20test" target="_blank" rel="noopener noreferrer" style={{ fontSize: '1.15rem', fontWeight: 800, color: '#000000', textDecoration: 'none' }}>
-                +91 98055 43143
-              </a>
+              <div>
+                <div style={{ fontSize: '0.75rem', fontWeight: 700, color: '#16A34A', textTransform: 'uppercase', letterSpacing: '0.04em' }}>WhatsApp Booking</div>
+                <a href="https://wa.me/919805543143?text=Namaste%20BJSL,%20I%20would%20like%20to%20book%20a%20blood%20test%20in%20Bengaluru." target="_blank" rel="noopener noreferrer" style={{ fontSize: '1.15rem', fontWeight: 800, color: '#0F172A', textDecoration: 'none' }}>
+                  +91 98055 43143
+                </a>
+              </div>
             </div>
 
             {/* Card 3: Email */}
             <div style={{
-              padding: '1.25rem 2rem',
+              padding: '1.25rem 1.75rem',
               display: 'flex',
               alignItems: 'center',
               gap: '1.25rem'
             }}>
-              <div style={{ width: '48px', height: '48px', borderRadius: '50%', background: '#E53E3E', color: 'white', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
+              <div style={{ width: '48px', height: '48px', borderRadius: '50%', background: '#0284C7', color: 'white', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0, boxShadow: '0 4px 12px rgba(2, 132, 199, 0.25)' }}>
                 <Mail size={22} color="white" />
               </div>
-              <a href="mailto:contact@bharathjansewalabs.com" style={{ fontSize: '1.05rem', fontWeight: 800, color: '#000000', textDecoration: 'none', wordBreak: 'break-all' }}>
-                contact@bharathjansewalabs.com
-              </a>
+              <div>
+                <div style={{ fontSize: '0.75rem', fontWeight: 700, color: '#64748B', textTransform: 'uppercase', letterSpacing: '0.04em' }}>Email Support</div>
+                <a href="mailto:contact@bharathjansewalabs.com" style={{ fontSize: '0.95rem', fontWeight: 700, color: '#0F172A', textDecoration: 'none', whiteSpace: 'nowrap' }}>
+                  contact@bharathjansewalabs.com
+                </a>
+              </div>
             </div>
           </div>
 
@@ -299,16 +215,19 @@ export default function Footer({ setCurrentTab, openLegal }) {
             flexWrap: 'wrap',
             gap: '1.5rem',
             fontSize: '0.875rem',
-            color: '#718096'
+            color: '#718096',
+            paddingTop: '1.5rem',
+            borderTop: '1px solid #E2E8F0',
+            paddingRight: '72px'
           }}>
-            <div>
+            <div style={{ fontWeight: 500 }}>
               Copyright © Bharath Jan Sewa Labs. All Rights Reserved
             </div>
 
-            <div style={{ display: 'flex', alignItems: 'center', gap: '1.75rem', flexWrap: 'wrap' }}>
-              <a href="#" onClick={(e) => { e.preventDefault(); openLegal && openLegal('privacy'); }} style={{ color: '#718096', textDecoration: 'none', transition: 'color 0.2s' }} onMouseEnter={(e) => e.target.style.color = '#2D3748'} onMouseLeave={(e) => e.target.style.color = '#718096'}>Privacy Policy</a>
-              <a href="#" onClick={(e) => { e.preventDefault(); openLegal && openLegal('terms'); }} style={{ color: '#718096', textDecoration: 'none', transition: 'color 0.2s' }} onMouseEnter={(e) => e.target.style.color = '#2D3748'} onMouseLeave={(e) => e.target.style.color = '#718096'}>Terms & Condition</a>
-              <a href="#" onClick={(e) => { e.preventDefault(); openLegal && openLegal('promo'); }} style={{ color: '#A0AEC0', textDecoration: 'none' }}>*Promo T&Cs Apply</a>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '1.5rem', flexWrap: 'wrap' }}>
+              <a href="#" onClick={(e) => { e.preventDefault(); openLegal && openLegal('privacy'); }} style={{ color: '#718096', textDecoration: 'none', transition: 'color 0.2s', fontWeight: 500 }} onMouseEnter={(e) => e.target.style.color = '#0F172A'} onMouseLeave={(e) => e.target.style.color = '#718096'}>Privacy Policy</a>
+              <a href="#" onClick={(e) => { e.preventDefault(); openLegal && openLegal('terms'); }} style={{ color: '#718096', textDecoration: 'none', transition: 'color 0.2s', fontWeight: 500 }} onMouseEnter={(e) => e.target.style.color = '#0F172A'} onMouseLeave={(e) => e.target.style.color = '#718096'}>Terms &amp; Condition</a>
+              <a href="#" onClick={(e) => { e.preventDefault(); openLegal && openLegal('promo'); }} style={{ color: '#94A3B8', textDecoration: 'none', fontWeight: 500 }}>*Promo T&amp;Cs Apply</a>
 
               {/* Circular Blue Scroll to Top Button */}
               <button 
@@ -317,21 +236,23 @@ export default function Footer({ setCurrentTab, openLegal }) {
                   background: '#FFFFFF',
                   border: '2px solid #3182CE',
                   color: '#3182CE',
-                  width: '42px',
-                  height: '42px',
+                  width: '38px',
+                  height: '38px',
                   borderRadius: '50%',
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'center',
                   cursor: 'pointer',
-                  boxShadow: '0 4px 12px rgba(49, 130, 206, 0.2)',
-                  transition: 'all 0.25s ease'
+                  boxShadow: '0 2px 8px rgba(49, 130, 206, 0.15)',
+                  transition: 'all 0.25s ease',
+                  marginLeft: '0.5rem'
                 }}
                 onMouseEnter={(e) => { e.currentTarget.style.background = '#3182CE'; e.currentTarget.style.color = 'white'; }}
                 onMouseLeave={(e) => { e.currentTarget.style.background = '#FFFFFF'; e.currentTarget.style.color = '#3182CE'; }}
                 title="Scroll to top"
+                aria-label="Scroll to top"
               >
-                <ChevronUp size={22} />
+                <ChevronUp size={20} />
               </button>
             </div>
           </div>

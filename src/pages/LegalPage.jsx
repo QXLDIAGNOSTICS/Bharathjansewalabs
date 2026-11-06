@@ -390,13 +390,26 @@ export default function LegalPage({ activeTab = 'promo', setActiveTab, setCurren
             >
               <Phone size={16} /> Call +91 98055 43143
             </a>
-            <button 
-              onClick={openBookingWizard}
-              className="btn-red-outline" 
-              style={{ padding: '0.75rem 1.5rem', fontSize: '0.9rem' }}
+            <a 
+              href="https://wa.me/919805543143?text=Namaste%20BJSL,%20I%20would%20like%20to%20book%20a%20blood%20test%20in%20Bengaluru."
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{
+                display: 'inline-flex',
+                alignItems: 'center',
+                gap: '8px',
+                background: '#25D366',
+                color: 'white',
+                padding: '0.75rem 1.5rem',
+                fontSize: '0.9rem',
+                fontWeight: 800,
+                borderRadius: '8px',
+                textDecoration: 'none',
+                boxShadow: '0 4px 12px rgba(37, 211, 102, 0.3)'
+              }}
             >
-              Book Test Now <ArrowRight size={16} />
-            </button>
+              Book on WhatsApp <ArrowRight size={16} />
+            </a>
           </div>
         </div>
 

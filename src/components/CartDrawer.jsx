@@ -65,9 +65,11 @@ export default function CartDrawer({ isOpen, onClose, cart, setCart, onProceedTo
   const finalPayable = Math.max(0, subtotal - couponDiscount + hardcopyFee);
 
   const handleWhatsAppCheckout = () => {
-    const itemsList = cart.map((item, idx) => `${idx + 1}. ${item.name || item.title} (₹${item.price})`).join('%0A');
-    const slotText = selectedSlot === 'instant' ? 'Instant 60-Min Phlebotomist' : 'Scheduled Morning Slot';
-    const msg = `*Namaste Bharath Jan Sewa Labs!*%0A%0AI would like to book home collection for:%0A${itemsList}%0A%0A*Total Payable:* ₹${finalPayable}%0A*Preferred Slot:* ${slotText}%0A*Location:* Bangalore%0A%0APlease confirm my booking.`;
+    const itemsList = cart.map((item, idx) => `  ${idx + 1}. *${item.name || item.title}* (₹${item.price})`).join('%0A');
+    const slotText = selectedSlot === 'instant' ? '⚡ Instant 60-Min Phlebotomist' : '🗓️ Scheduled Morning Slot (7:00 AM - 10:00 AM)';
+    const couponInfo = appliedCoupon ? `%0A🎟️ *Coupon Applied:* ${appliedCoupon.code} (-₹${couponDiscount})` : '';
+    const hardcopyInfo = includeHardcopy ? '%0A📄 *Printed Report Delivery:* Included (+₹99)' : '';
+    const msg = `*Namaste Bharath Jan Sewa Labs!*%0A%0A🩺 *New Blood Test Booking Request:*%0A${itemsList}%0A${couponInfo}${hardcopyInfo}%0A%0A💰 *Total Amount Payable:* ₹${finalPayable} (Pay after collection)%0A⏱️ *Preferred Slot:* ${slotText}%0A📍 *City:* Bengaluru%0A%0APlease confirm my appointment and phlebotomist arrival slot.`;
     window.open(`https://wa.me/919805543143?text=${msg}`, '_blank');
   };
 
@@ -292,36 +294,43 @@ export default function CartDrawer({ isOpen, onClose, cart, setCart, onProceedTo
               </div>
             </div>
 
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
               <button 
                 type="button" 
                 onClick={handleWhatsAppCheckout}
-                className="btn-checkout"
+                style={{
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  gap: '10px',
+                  background: '#25D366',
+                  color: 'white',
+                  border: 'none',
+                  borderRadius: 'var(--radius-full)',
+                  padding: '15px 22px',
+                  fontSize: '16px',
+                  fontWeight: 800,
+                  cursor: 'pointer',
+                  boxShadow: '0 8px 24px rgba(37, 211, 102, 0.35)',
+                  transition: 'all 0.2s ease'
+                }}
               >
-                <span>Book Sample Collection (WhatsApp)</span>
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="white">
+                  <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414-.074-.124-.272-.198-.57-.347m-5.421 7.461c-1.926 0-3.715-.514-5.267-1.408l-.377-.217-3.916 1.027 1.045-3.817-.247-.393c-1.002-1.59-1.532-3.433-1.531-5.32 0-5.419 4.408-9.827 9.829-9.827 2.624 0 5.091 1.023 6.947 2.88 1.857 1.858 2.879 4.325 2.878 6.95 0 5.421-4.409 9.827-9.828 9.827m0-21.848C5.463 0 0 5.463 0 12c0 2.094.545 4.137 1.58 5.938L0 24l6.236-1.635C8.003 23.364 10.024 24 12.051 24c6.537 0 11.949-5.412 11.949-11.95 0-3.193-1.243-6.195-3.501-8.453C18.241 1.339 15.24 0 12.051 0z"/>
+                </svg>
+                <span>Book Now via WhatsApp</span>
                 <ArrowRight size={18} />
               </button>
 
-              <button 
-                type="button" 
-                onClick={() => {
-                  onClose();
-                  if (onProceedToBooking) onProceedToBooking();
-                }}
-                style={{
-                  background: '#F1EAE2',
-                  color: 'var(--ink-900)',
-                  border: 'none',
-                  borderRadius: 'var(--radius-full)',
-                  padding: '12px',
-                  fontSize: '13.5px',
-                  fontWeight: 700,
-                  cursor: 'pointer',
-                  textAlign: 'center'
-                }}
-              >
-                Or Continue Online Booking
-              </button>
+              <div style={{
+                textAlign: 'center',
+                fontSize: '12.5px',
+                color: '#64748B',
+                lineHeight: 1.5,
+                padding: '4px 8px'
+              }}>
+                💬 Instant WhatsApp Booking • Zero advance payment • Pay after sample collection
+              </div>
             </div>
           </div>
         )}

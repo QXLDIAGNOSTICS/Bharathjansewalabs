@@ -21,7 +21,8 @@ import {
   Building2,
   MessageSquare,
   Upload,
-  X
+  X,
+  Sparkles
 } from 'lucide-react';
 import { 
   HEALTH_PACKAGES, 
@@ -68,24 +69,13 @@ export default function Home({
   // Health Conditions (Full Width Left-to-Right Slider)
   const conditionsList = [
     { 
-      id: 'hair-fall', 
-      name: 'Hair Fall', 
-      tag: 'Trichology',
-      icon: '💇',
-      testsText: 'Ferritin, TSH, Iron, Biotin',
-      price: '₹100',
-      image: '/images/slides/hero_hairfall.jpg',
-      fallbackImage: 'https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=600&auto=format&fit=crop&q=80', 
-      testId: 'thyroid-profile' 
-    },
-    { 
       id: 'joint-pain', 
       name: 'Joint Pain', 
       tag: 'Orthopedics',
       icon: '🦴',
       testsText: 'Vit D, Calcium, RA, Uric Acid',
       price: '₹50',
-      image: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=600&auto=format&fit=crop&q=80', 
+      image: '/images/conditions/joint_pain.jpg', 
       fallbackImage: '/images/slides/hero-slide2.jpg',
       testId: 'vitamin-d-test' 
     },
@@ -96,7 +86,7 @@ export default function Home({
       icon: '🌿',
       testsText: 'Total IgE, Absolute Eosinophils',
       price: '₹100',
-      image: 'https://images.unsplash.com/photo-1584515979956-d9f6e5d09982?w=600&auto=format&fit=crop&q=80', 
+      image: '/images/conditions/allergy.jpg', 
       fallbackImage: '/images/slides/hero_lifestyle.jpg',
       testId: 'cbc-test' 
     },
@@ -107,7 +97,7 @@ export default function Home({
       icon: '🦋',
       testsText: 'TSH, Total T3, Total T4',
       price: '₹100',
-      image: 'https://images.unsplash.com/photo-1579684385127-1ef15d508118?w=600&auto=format&fit=crop&q=80', 
+      image: '/images/conditions/thyroid.jpg', 
       fallbackImage: '/images/packages/chirayu-master.webp',
       testId: 'thyroid-profile' 
     },
@@ -118,7 +108,7 @@ export default function Home({
       icon: '🩸',
       testsText: 'HbA1c, Fasting Sugar, Urine',
       price: '₹20',
-      image: 'https://images.unsplash.com/photo-1505751172876-fa1923c5c528?w=600&auto=format&fit=crop&q=80', 
+      image: '/images/conditions/diabetes.jpg', 
       fallbackImage: '/images/slides/hero-slide1.jpg',
       testId: 'hba1c-test' 
     },
@@ -129,7 +119,7 @@ export default function Home({
       icon: '❤️',
       testsText: 'Cholesterol, HDL, LDL, Triglycerides',
       price: '₹120',
-      image: 'https://images.unsplash.com/photo-1628348068343-c6a848d2b6dd?w=600&auto=format&fit=crop&q=80', 
+      image: '/images/conditions/heart_care.jpg', 
       fallbackImage: '/images/packages/chirayu-prime.webp',
       testId: 'lipid-profile' 
     },
@@ -140,8 +130,8 @@ export default function Home({
       icon: '🌡️',
       testsText: 'CBC, ESR, Dengue NS1, Malaria',
       price: '₹160',
-      image: 'https://images.unsplash.com/photo-1584036561566-baf8f5f1b144?w=600&auto=format&fit=crop&q=80', 
-      fallbackImage: '/images/slides/hero_fever.jpg',
+      image: '/images/conditions/fever_infection.jpg', 
+      fallbackImage: '/images/slides/hero-slide1.jpg',
       testId: 'cbc-test' 
     },
     { 
@@ -151,7 +141,7 @@ export default function Home({
       icon: '💊',
       testsText: 'Vitamin D3 & Vitamin B12, Calcium',
       price: '₹60',
-      image: 'https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=600&auto=format&fit=crop&q=80', 
+      image: '/images/conditions/vitamins_minerals.jpg', 
       fallbackImage: '/images/slides/hero-slide2.jpg',
       testId: 'vitamin-d-test' 
     },
@@ -162,9 +152,20 @@ export default function Home({
       icon: '🧪',
       testsText: 'SGOT, SGPT, Creatinine, Urea, Uric Acid',
       price: '₹50',
-      image: 'https://images.unsplash.com/photo-1532938911079-1b06ac7ceec7?w=600&auto=format&fit=crop&q=80', 
+      image: '/images/conditions/liver_kidney.jpg', 
       fallbackImage: '/images/packages/chirayu-master.webp',
       testId: 'lft-test' 
+    },
+    { 
+      id: 'hair-fall', 
+      name: 'Hair Fall', 
+      tag: 'Trichology',
+      icon: '💇',
+      testsText: 'Ferritin, TSH, Iron, Biotin',
+      price: '₹100',
+      image: '/images/slides/hairfall_hero.jpg',
+      fallbackImage: '/images/slides/hero_hairfall.jpg', 
+      testId: 'thyroid-profile' 
     }
   ];
 
@@ -309,115 +310,6 @@ export default function Home({
   return (
     <div style={{ backgroundColor: 'var(--bg-cream)', minHeight: '100vh', paddingBottom: '40px' }}>
       
-      {/* Primary Brand Positioning & SEO H1 Hero Section */}
-      <section className="bjsl-hero-top-seo" style={{
-        background: 'linear-gradient(135deg, #0F172A 0%, #1E293B 100%)',
-        color: '#FFFFFF',
-        padding: '2.5rem 1rem 3rem',
-        borderBottom: '1px solid rgba(255, 255, 255, 0.1)',
-        position: 'relative',
-        overflow: 'hidden'
-      }}>
-        <div className="container" style={{ maxWidth: '1200px', margin: '0 auto', position: 'relative', zIndex: 2 }}>
-          <div style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', padding: '6px 14px', borderRadius: '99px', background: 'rgba(2, 132, 199, 0.25)', border: '1px solid rgba(56, 189, 248, 0.4)', color: '#38BDF8', fontSize: '0.825rem', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.05em', marginBottom: '1rem' }}>
-            <Sparkles size={14} /> Affordable Blood Tests &amp; Diagnostics in Bengaluru
-          </div>
-          
-          <h1 style={{ fontSize: 'clamp(2rem, 4.5vw, 3.25rem)', fontWeight: 900, lineHeight: 1.15, color: '#FFFFFF', margin: '0 0 1rem', letterSpacing: '-0.02em', maxWidth: '850px' }}>
-            Affordable Blood Tests &amp; Health Checkups in Bengaluru
-          </h1>
-          
-          <p style={{ fontSize: 'clamp(1rem, 2vw, 1.2rem)', color: '#CBD5E1', maxWidth: '780px', lineHeight: 1.6, margin: '0 0 1.75rem' }}>
-            High-quality diagnostic testing at transparent, budget-friendly prices, with samples processed through verified NABL-accredited partner laboratories where applicable.
-          </p>
-
-          <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.75rem', alignItems: 'center', marginBottom: '2rem' }}>
-            <span style={{ display: 'inline-flex', alignItems: 'center', gap: '6px', background: 'rgba(255,255,255,0.1)', padding: '6px 14px', borderRadius: '99px', fontSize: '0.85rem', color: '#F1F5F9', fontWeight: 600 }}>
-              <Check size={16} color="#10B981" /> Glucose ₹20
-            </span>
-            <span style={{ display: 'inline-flex', alignItems: 'center', gap: '6px', background: 'rgba(255,255,255,0.1)', padding: '6px 14px', borderRadius: '99px', fontSize: '0.85rem', color: '#F1F5F9', fontWeight: 600 }}>
-              <Check size={16} color="#10B981" /> Urine Routine ₹50
-            </span>
-            <span style={{ display: 'inline-flex', alignItems: 'center', gap: '6px', background: 'rgba(255,255,255,0.1)', padding: '6px 14px', borderRadius: '99px', fontSize: '0.85rem', color: '#F1F5F9', fontWeight: 600 }}>
-              <Check size={16} color="#10B981" /> CBC with ESR ₹160
-            </span>
-            <span style={{ display: 'inline-flex', alignItems: 'center', gap: '6px', background: 'rgba(255,255,255,0.1)', padding: '6px 14px', borderRadius: '99px', fontSize: '0.85rem', color: '#F1F5F9', fontWeight: 600 }}>
-              <Check size={16} color="#10B981" /> Thyroid TFT ₹190
-            </span>
-            <span style={{ display: 'inline-flex', alignItems: 'center', gap: '6px', background: 'rgba(255,255,255,0.1)', padding: '6px 14px', borderRadius: '99px', fontSize: '0.85rem', color: '#F1F5F9', fontWeight: 600 }}>
-              <Check size={16} color="#10B981" /> HbA1c ₹260
-            </span>
-            <span style={{ display: 'inline-flex', alignItems: 'center', gap: '6px', background: 'rgba(255,255,255,0.1)', padding: '6px 14px', borderRadius: '99px', fontSize: '0.85rem', color: '#F1F5F9', fontWeight: 600 }}>
-              <Check size={16} color="#10B981" /> Chirayu Prime ₹796 (71 Tests)
-            </span>
-          </div>
-
-          {/* Quick Search and Action Form */}
-          <div style={{ display: 'flex', flexWrap: 'wrap', gap: '12px', alignItems: 'center' }}>
-            <button 
-              onClick={() => openSearchModal ? openSearchModal() : (document.querySelector('#popular-tests')?.scrollIntoView({ behavior: 'smooth' }))}
-              style={{
-                display: 'inline-flex',
-                alignItems: 'center',
-                gap: '10px',
-                padding: '14px 24px',
-                borderRadius: '12px',
-                background: '#EF4444',
-                color: 'white',
-                border: 'none',
-                fontWeight: 800,
-                fontSize: '1rem',
-                cursor: 'pointer',
-                boxShadow: '0 8px 24px rgba(239, 68, 68, 0.4)'
-              }}
-            >
-              <Search size={18} /> Find Tests &amp; Prices
-            </button>
-
-            <button 
-              onClick={() => {
-                const el = document.querySelector('#centres');
-                if (el) el.scrollIntoView({ behavior: 'smooth' });
-                else if (setCurrentTab) setCurrentTab('centres');
-              }}
-              style={{
-                display: 'inline-flex',
-                alignItems: 'center',
-                gap: '8px',
-                padding: '14px 20px',
-                borderRadius: '12px',
-                background: 'rgba(255,255,255,0.12)',
-                color: 'white',
-                border: '1px solid rgba(255,255,255,0.25)',
-                fontWeight: 700,
-                fontSize: '0.95rem',
-                cursor: 'pointer'
-              }}
-            >
-              <MapPin size={18} color="#38BDF8" /> Nearest Centre
-            </button>
-
-            <a 
-              href="tel:919805543143"
-              style={{
-                display: 'inline-flex',
-                alignItems: 'center',
-                gap: '8px',
-                padding: '14px 20px',
-                borderRadius: '12px',
-                background: '#059669',
-                color: 'white',
-                textDecoration: 'none',
-                fontWeight: 700,
-                fontSize: '0.95rem'
-              }}
-            >
-              <Phone size={18} /> Call to Book: +91 98055 43143
-            </a>
-          </div>
-        </div>
-      </section>
-
       {/* MOBILE-ONLY TOP PROMO & ACTION HUBS */}
       <div className="mobile-top-experience">
         <div className="container">
@@ -1975,6 +1867,144 @@ export default function Home({
                 Non-profit public health model delivering authentic diagnostic screenings at 50% to 70% lower prices.
               </p>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* AFFORDABLE BLOOD TESTS & HEALTH CHECKUPS BANNER (Added Under Why India Trusts) */}
+      <section className="bjsl-hero-top-seo" style={{
+        margin: '0 auto 3.5rem',
+        maxWidth: '1240px',
+        padding: '0 1.25rem'
+      }}>
+        <div style={{
+          background: 'linear-gradient(135deg, #0F172A 0%, #1E293B 100%)',
+          color: '#FFFFFF',
+          padding: '3rem 2.25rem',
+          borderRadius: '24px',
+          boxShadow: '0 20px 40px -12px rgba(15, 23, 42, 0.25)',
+          position: 'relative',
+          overflow: 'hidden'
+        }}>
+          <div style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', padding: '6px 14px', borderRadius: '99px', background: 'rgba(2, 132, 199, 0.25)', border: '1px solid rgba(56, 189, 248, 0.4)', color: '#38BDF8', fontSize: '0.825rem', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.05em', marginBottom: '1rem' }}>
+            <Sparkles size={14} /> Affordable Blood Tests &amp; Diagnostics in Bengaluru
+          </div>
+          
+          <h2 style={{ fontSize: 'clamp(1.8rem, 3.5vw, 2.75rem)', fontWeight: 900, lineHeight: 1.2, color: '#FFFFFF', margin: '0 0 1rem', letterSpacing: '-0.02em', maxWidth: '850px' }}>
+            Affordable Blood Tests &amp; Health Checkups in Bengaluru
+          </h2>
+          
+          <p style={{ fontSize: 'clamp(0.95rem, 1.8vw, 1.15rem)', color: '#CBD5E1', maxWidth: '780px', lineHeight: 1.6, margin: '0 0 1.75rem' }}>
+            High-quality diagnostic testing at transparent, budget-friendly prices, with samples processed through verified NABL-accredited partner laboratories where applicable.
+          </p>
+
+          <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.75rem', alignItems: 'center', marginBottom: '2rem' }}>
+            <span style={{ display: 'inline-flex', alignItems: 'center', gap: '6px', background: 'rgba(255,255,255,0.1)', padding: '6px 14px', borderRadius: '99px', fontSize: '0.85rem', color: '#F1F5F9', fontWeight: 600 }}>
+              <Check size={16} color="#10B981" /> Glucose ₹20
+            </span>
+            <span style={{ display: 'inline-flex', alignItems: 'center', gap: '6px', background: 'rgba(255,255,255,0.1)', padding: '6px 14px', borderRadius: '99px', fontSize: '0.85rem', color: '#F1F5F9', fontWeight: 600 }}>
+              <Check size={16} color="#10B981" /> Urine Routine ₹50
+            </span>
+            <span style={{ display: 'inline-flex', alignItems: 'center', gap: '6px', background: 'rgba(255,255,255,0.1)', padding: '6px 14px', borderRadius: '99px', fontSize: '0.85rem', color: '#F1F5F9', fontWeight: 600 }}>
+              <Check size={16} color="#10B981" /> CBC with ESR ₹160
+            </span>
+            <span style={{ display: 'inline-flex', alignItems: 'center', gap: '6px', background: 'rgba(255,255,255,0.1)', padding: '6px 14px', borderRadius: '99px', fontSize: '0.85rem', color: '#F1F5F9', fontWeight: 600 }}>
+              <Check size={16} color="#10B981" /> Thyroid TFT ₹190
+            </span>
+            <span style={{ display: 'inline-flex', alignItems: 'center', gap: '6px', background: 'rgba(255,255,255,0.1)', padding: '6px 14px', borderRadius: '99px', fontSize: '0.85rem', color: '#F1F5F9', fontWeight: 600 }}>
+              <Check size={16} color="#10B981" /> HbA1c ₹260
+            </span>
+            <span style={{ display: 'inline-flex', alignItems: 'center', gap: '6px', background: 'rgba(255,255,255,0.1)', padding: '6px 14px', borderRadius: '99px', fontSize: '0.85rem', color: '#F1F5F9', fontWeight: 600 }}>
+              <Check size={16} color="#10B981" /> Chirayu Prime ₹796 (71 Tests)
+            </span>
+          </div>
+
+          {/* Action Buttons with Direct WhatsApp & Call */}
+          <div style={{ display: 'flex', flexWrap: 'wrap', gap: '12px', alignItems: 'center' }}>
+            <button 
+              onClick={() => openSearchModal ? openSearchModal() : (document.querySelector('#popular-tests')?.scrollIntoView({ behavior: 'smooth' }))}
+              style={{
+                display: 'inline-flex',
+                alignItems: 'center',
+                gap: '10px',
+                padding: '13px 22px',
+                borderRadius: '12px',
+                background: '#EF4444',
+                color: 'white',
+                border: 'none',
+                fontWeight: 800,
+                fontSize: '0.95rem',
+                cursor: 'pointer',
+                boxShadow: '0 8px 24px rgba(239, 68, 68, 0.4)'
+              }}
+            >
+              <Search size={18} /> Find Tests &amp; Prices
+            </button>
+
+            <button 
+              onClick={() => {
+                const el = document.querySelector('#centres');
+                if (el) el.scrollIntoView({ behavior: 'smooth' });
+                else if (setCurrentTab) setCurrentTab('centres');
+              }}
+              style={{
+                display: 'inline-flex',
+                alignItems: 'center',
+                gap: '8px',
+                padding: '13px 20px',
+                borderRadius: '12px',
+                background: 'rgba(255,255,255,0.12)',
+                color: 'white',
+                border: '1px solid rgba(255,255,255,0.25)',
+                fontWeight: 700,
+                fontSize: '0.95rem',
+                cursor: 'pointer'
+              }}
+            >
+              <MapPin size={18} color="#38BDF8" /> Nearest Centre
+            </button>
+
+            <a 
+              href="https://wa.me/919805543143?text=Namaste%20BJSL,%20I%20would%20like%20to%20book%20a%20blood%20test%20in%20Bengaluru."
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{
+                display: 'inline-flex',
+                alignItems: 'center',
+                gap: '8px',
+                padding: '13px 20px',
+                borderRadius: '12px',
+                background: '#25D366',
+                color: 'white',
+                textDecoration: 'none',
+                fontWeight: 800,
+                fontSize: '0.95rem',
+                boxShadow: '0 8px 24px rgba(37, 211, 102, 0.35)'
+              }}
+            >
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="white">
+                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414-.074-.124-.272-.198-.57-.347m-5.421 7.461c-1.926 0-3.715-.514-5.267-1.408l-.377-.217-3.916 1.027 1.045-3.817-.247-.393c-1.002-1.59-1.532-3.433-1.531-5.32 0-5.419 4.408-9.827 9.829-9.827 2.624 0 5.091 1.023 6.947 2.88 1.857 1.858 2.879 4.325 2.878 6.95 0 5.421-4.409 9.827-9.828 9.827m0-21.848C5.463 0 0 5.463 0 12c0 2.094.545 4.137 1.58 5.938L0 24l6.236-1.635C8.003 23.364 10.024 24 12.051 24c6.537 0 11.949-5.412 11.949-11.95 0-3.193-1.243-6.195-3.501-8.453C18.241 1.339 15.24 0 12.051 0z"/>
+              </svg>
+              WhatsApp: +91 98055 43143
+            </a>
+
+            <a 
+              href="tel:919805543143"
+              style={{
+                display: 'inline-flex',
+                alignItems: 'center',
+                gap: '8px',
+                padding: '13px 20px',
+                borderRadius: '12px',
+                background: '#059669',
+                color: 'white',
+                textDecoration: 'none',
+                fontWeight: 700,
+                fontSize: '0.95rem'
+              }}
+            >
+              <Phone size={18} /> Call to Book
+            </a>
           </div>
         </div>
       </section>

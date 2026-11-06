@@ -109,7 +109,7 @@ export default function App() {
         {currentTab === 'about' && (
           <AboutPage 
             setCurrentTab={setCurrentTab}
-            openBookingWizard={() => setIsBookingOpen(true)}
+            openBookingWizard={() => setIsCartDrawerOpen(true)}
           />
         )}
 
@@ -118,7 +118,7 @@ export default function App() {
             activeTab={legalTab}
             setActiveTab={setLegalTab}
             setCurrentTab={setCurrentTab}
-            openBookingWizard={() => setIsBookingOpen(true)}
+            openBookingWizard={() => setIsCartDrawerOpen(true)}
           />
         )}
 
@@ -141,7 +141,7 @@ export default function App() {
 
         {currentTab === 'centres' && (
           <CentresPage 
-            openBookingWizard={() => setIsBookingOpen(true)}
+            openBookingWizard={() => setIsCartDrawerOpen(true)}
           />
         )}
 
@@ -162,7 +162,7 @@ export default function App() {
         {currentTab === 'portal' && (
           <PatientPortal 
             onOpenReportViewer={(report) => setSelectedReport(report)}
-            openBookingWizard={() => setIsBookingOpen(true)}
+            openBookingWizard={() => setIsCartDrawerOpen(true)}
           />
         )}
       </main>
@@ -260,18 +260,6 @@ export default function App() {
           item={selectedTest}
           onClose={() => setSelectedTest(null)}
           onBook={handleBookTest}
-        />
-      )}
-
-      {isBookingOpen && (
-        <BookingWizardModal 
-          isOpen={isBookingOpen}
-          onClose={() => setIsBookingOpen(false)}
-          cart={cart}
-          setCart={setCart}
-          onBookingSuccess={(booking) => {
-            // Success handler
-          }}
         />
       )}
 

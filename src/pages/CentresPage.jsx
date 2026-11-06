@@ -37,10 +37,12 @@ export default function CentresPage({ openBookingWizard }) {
       return;
     }
     setSubmitted(true);
+    const pkg = HEALTH_PACKAGES.find(p => p.id === topForm.package);
+    const msg = `*Namaste Bharath Jan Sewa Labs!*%0A%0A🩺 *New Health Test Booking Request (Centres Page):*%0A*Package/Test:* ${pkg ? pkg.name : (topForm.package || 'Health Checkup')}%0A*Patient Name:* ${topForm.name}%0A*Phone:* ${topForm.phone}%0A*Email:* ${topForm.email || 'N/A'}%0A*Preferred Location:* ${topForm.location || 'Bangalore'}%0A*Preferred Date:* ${topForm.date || 'Earliest available'}%0A*Preferred Slot:* ${topForm.time || 'Morning'}%0A%0APlease confirm my appointment.`;
+    window.open(`https://wa.me/919805543143?text=${msg}`, '_blank');
     setTimeout(() => {
-      openBookingWizard(topForm.package ? HEALTH_PACKAGES.find(p => p.id === topForm.package) : null);
       setSubmitted(false);
-    }, 1000);
+    }, 1200);
   };
 
   const handleBottomFormSubmit = (e) => {
@@ -50,10 +52,12 @@ export default function CentresPage({ openBookingWizard }) {
       return;
     }
     setSubmitted(true);
+    const pkg = HEALTH_PACKAGES.find(p => p.id === bottomForm.package);
+    const msg = `*Namaste Bharath Jan Sewa Labs!*%0A%0A🩺 *New Health Test Booking Request (Centres Page):*%0A*Package/Test:* ${pkg ? pkg.name : (bottomForm.package || 'Health Checkup')}%0A*Patient Name:* ${bottomForm.name}%0A*Phone:* ${bottomForm.phone}%0A*Email:* ${bottomForm.email || 'N/A'}%0A*Preferred Location:* ${bottomForm.location || 'Bangalore'}%0A*Preferred Date:* ${bottomForm.date || 'Earliest available'}%0A*Preferred Slot:* ${bottomForm.time || 'Morning'}%0A%0APlease confirm my appointment.`;
+    window.open(`https://wa.me/919805543143?text=${msg}`, '_blank');
     setTimeout(() => {
-      openBookingWizard(bottomForm.package ? HEALTH_PACKAGES.find(p => p.id === bottomForm.package) : null);
       setSubmitted(false);
-    }, 1000);
+    }, 1200);
   };
 
   const [selectedRegion, setSelectedRegion] = useState('All');
@@ -257,10 +261,25 @@ export default function CentresPage({ openBookingWizard }) {
 
                 <button 
                   type="submit" 
-                  className="btn-primary" 
-                  style={{ padding: '0.75rem 2rem', fontSize: '0.95rem', borderRadius: '12px' }}
+                  style={{
+                    display: 'inline-flex',
+                    alignItems: 'center',
+                    gap: '8px',
+                    background: '#25D366',
+                    color: 'white',
+                    padding: '0.8rem 2rem',
+                    fontSize: '0.98rem',
+                    fontWeight: 800,
+                    borderRadius: '12px',
+                    border: 'none',
+                    cursor: 'pointer',
+                    boxShadow: '0 4px 14px rgba(37, 211, 102, 0.35)'
+                  }}
                 >
-                  {submitted ? 'Processing Booking...' : 'Make Appointment'}
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="white">
+                    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414-.074-.124-.272-.198-.57-.347m-5.421 7.461c-1.926 0-3.715-.514-5.267-1.408l-.377-.217-3.916 1.027 1.045-3.817-.247-.393c-1.002-1.59-1.532-3.433-1.531-5.32 0-5.419 4.408-9.827 9.829-9.827 2.624 0 5.091 1.023 6.947 2.88 1.857 1.858 2.879 4.325 2.878 6.95 0 5.421-4.409 9.827-9.828 9.827m0-21.848C5.463 0 0 5.463 0 12c0 2.094.545 4.137 1.58 5.938L0 24l6.236-1.635C8.003 23.364 10.024 24 12.051 24c6.537 0 11.949-5.412 11.949-11.95 0-3.193-1.243-6.195-3.501-8.453C18.241 1.339 15.24 0 12.051 0z"/>
+                  </svg>
+                  <span>{submitted ? 'Opening WhatsApp...' : 'Book via WhatsApp'}</span>
                 </button>
               </div>
             </form>
@@ -615,10 +634,25 @@ export default function CentresPage({ openBookingWizard }) {
 
               <button 
                 type="submit" 
-                className="btn-primary" 
-                style={{ padding: '0.85rem 3rem', fontSize: '1.05rem', borderRadius: '14px', background: 'linear-gradient(135deg, #0284C7 0%, #0369A1 100%)' }}
+                style={{
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: '10px',
+                  background: '#25D366',
+                  color: 'white',
+                  padding: '0.9rem 3rem',
+                  fontSize: '1.05rem',
+                  fontWeight: 800,
+                  borderRadius: '14px',
+                  border: 'none',
+                  cursor: 'pointer',
+                  boxShadow: '0 6px 20px rgba(37, 211, 102, 0.4)'
+                }}
               >
-                {submitted ? 'Submitting Appointment...' : 'Make Appointment'}
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="white">
+                  <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414-.074-.124-.272-.198-.57-.347m-5.421 7.461c-1.926 0-3.715-.514-5.267-1.408l-.377-.217-3.916 1.027 1.045-3.817-.247-.393c-1.002-1.59-1.532-3.433-1.531-5.32 0-5.419 4.408-9.827 9.829-9.827 2.624 0 5.091 1.023 6.947 2.88 1.857 1.858 2.879 4.325 2.878 6.95 0 5.421-4.409 9.827-9.828 9.827m0-21.848C5.463 0 0 5.463 0 12c0 2.094.545 4.137 1.58 5.938L0 24l6.236-1.635C8.003 23.364 10.024 24 12.051 24c6.537 0 11.949-5.412 11.949-11.95 0-3.193-1.243-6.195-3.501-8.453C18.241 1.339 15.24 0 12.051 0z"/>
+                </svg>
+                <span>{submitted ? 'Opening WhatsApp...' : 'Book via WhatsApp'}</span>
               </button>
             </div>
           </form>

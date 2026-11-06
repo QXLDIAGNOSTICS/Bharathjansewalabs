@@ -62,10 +62,20 @@ export default function BookingWizardModal({
     }
   };
 
+  const [confirmedBookingId, setConfirmedBookingId] = useState('');
+
+  const handleWhatsAppInstantBook = () => {
+    const itemsList = cart.map((item, idx) => `  ${idx + 1}. *${item.name || item.title}* (₹${item.price})`).join('%0A');
+    const msg = `*Namaste Bharath Jan Sewa Labs!*%0A%0A🩺 *Quick Blood Test Booking:*%0A${itemsList}%0A%0A💰 *Payable:* ₹${finalPayable} (Pay after collection)%0A📍 *Location:* Bengaluru%0A%0APlease assign a certified phlebotomist for home blood collection.`;
+    window.open(`https://wa.me/919805543143?text=${msg}`, '_blank');
+  };
+
   const handleCompleteBooking = (e) => {
     e.preventDefault();
+    const bId = 'BJSL-' + Math.floor(100000 + Math.random() * 900000);
+    setConfirmedBookingId(bId);
     const bookingDetails = {
-      bookingId: 'BJSL-' + Math.floor(100000 + Math.random() * 900000),
+      bookingId: bId,
       date: selectedDate,
       timeSlot: selectedTimeSlot,
       patientName,
@@ -76,7 +86,12 @@ export default function BookingWizardModal({
       payable: finalPayable,
       status: 'Confirmed (Phlebotomist Assigned)'
     };
-    onBookingSuccess(bookingDetails);
+    if (onBookingSuccess) onBookingSuccess(bookingDetails);
+
+    const itemsList = cart.map((item, idx) => `  ${idx + 1}. *${item.name || item.title}* (₹${item.price})`).join('%0A');
+    const msg = `*Namaste Bharath Jan Sewa Labs!*%0A%0A🩺 *Booking Confirmation - ID:* ${bId}%0A*Patient:* ${patientName} (${patientAge || 'Adult'} Yrs, ${patientGender})%0A*Phone:* ${patientPhone}%0A*Tests:*%0A${itemsList}%0A*Date & Slot:* ${selectedDate} (${selectedTimeSlot})%0A*Type:* ${bookingType === 'home' ? 'Home Sample Collection' : 'Centre Desk Visit'}%0A*Address:* ${bookingType === 'home' ? (address + (landmark ? ', ' + landmark : '')) : selectedCentre}%0A💰 *Amount Payable:* ₹${finalPayable} (Pay after collection)%0A%0APlease confirm phlebotomist visit.`;
+    
+    window.open(`https://wa.me/919805543143?text=${msg}`, '_blank');
     setStep(5); // Success step
   };
 
@@ -548,19 +563,46 @@ export default function BookingWizardModal({
                 Sample Collection Booking Confirmed!
               </h2>
               <p style={{ color: '#64748B', fontSize: '1rem', marginBottom: '1.5rem' }}>
-                Booking ID: <strong style={{ color: '#EF4444' }}>BJSL-982314</strong>
+                Booking ID: <strong style={{ color: '#EF4444' }}>{confirmedBookingId || 'BJSL-982314'}</strong>
               </p>
 
               <div style={{ background: '#F8FAFC', padding: '1.5rem', borderRadius: '20px', border: '1px solid #E2E8F0', textAlign: 'left', marginBottom: '1.5rem', fontSize: '0.925rem' }}>
-                <div style={{ marginBottom: '8px' }}><strong>Patient:</strong> {patientName} ({patientAge} Yrs, {patientGender})</div>
-                <div style={{ marginBottom: '8px' }}><strong>Date & Slot:</strong> {selectedDate} • {selectedTimeSlot}</div>
-                <div style={{ marginBottom: '8px' }}><strong>Address:</strong> {bookingType === 'home' ? address : selectedCentre}</div>
+                <div style={{ marginBottom: '8px' }}><strong>Patient:</strong> {patientName} ({patientAge || 'Adult'} Yrs, {patientGender})</div>
+                <div style={{ marginBottom: '8px' }}><strong>Date &amp; Slot:</strong> {selectedDate} • {selectedTimeSlot}</div>
+                <div style={{ marginBottom: '8px' }}><strong>Address:</strong> {bookingType === 'home' ? (address + (landmark ? ', ' + landmark : '')) : selectedCentre}</div>
                 <div><strong>Total Amount Payable:</strong> ₹{finalPayable} (Pay after collection)</div>
               </div>
 
-              <button onClick={onClose} className="btn-red-solid" style={{ padding: '0.85rem 2.5rem', fontSize: '1rem' }}>
-                Done & Return to Site
-              </button>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '10px', maxWidth: '360px', margin: '0 auto' }}>
+                <a
+                  href={`https://wa.me/919805543143?text=Hi%20BJSL,%20checking%20status%20for%20Booking%20ID%20${confirmedBookingId || 'BJSL-982314'}.`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  style={{
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    gap: '8px',
+                    background: '#25D366',
+                    color: 'white',
+                    padding: '0.9rem 1.5rem',
+                    borderRadius: '12px',
+                    fontWeight: 800,
+                    fontSize: '1rem',
+                    textDecoration: 'none',
+                    boxShadow: '0 6px 18px rgba(37, 211, 102, 0.35)'
+                  }}
+                >
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="white">
+                    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414-.074-.124-.272-.198-.57-.347m-5.421 7.461c-1.926 0-3.715-.514-5.267-1.408l-.377-.217-3.916 1.027 1.045-3.817-.247-.393c-1.002-1.59-1.532-3.433-1.531-5.32 0-5.419 4.408-9.827 9.829-9.827 2.624 0 5.091 1.023 6.947 2.88 1.857 1.858 2.879 4.325 2.878 6.95 0 5.421-4.409 9.827-9.828 9.827m0-21.848C5.463 0 0 5.463 0 12c0 2.094.545 4.137 1.58 5.938L0 24l6.236-1.635C8.003 23.364 10.024 24 12.051 24c6.537 0 11.949-5.412 11.949-11.95 0-3.193-1.243-6.195-3.501-8.453C18.241 1.339 15.24 0 12.051 0z"/>
+                  </svg>
+                  <span>Chat on WhatsApp (+91 98055 43143)</span>
+                </a>
+
+                <button onClick={onClose} className="btn-red-solid" style={{ padding: '0.85rem 2.5rem', fontSize: '1rem', width: '100%', justifyContent: 'center' }}>
+                  Done &amp; Return to Site
+                </button>
+              </div>
             </div>
           )}
 
