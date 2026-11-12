@@ -2009,6 +2009,61 @@ export default function Home({
         </div>
       </section>
 
+      {/* COMPASSIONATE ACCESS: JAN SEWA DIAGNOSTIC ASSISTANCE */}
+      <section className="diagnostic-assistance-section" style={{
+        margin: '0 auto 3rem',
+        maxWidth: '1240px',
+        padding: '0 1.25rem'
+      }}>
+        <div style={{
+          background: '#F0FDF4',
+          border: '1.5px solid #BBF7D0',
+          borderRadius: '20px',
+          padding: '2rem 2.25rem',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'space-between',
+          flexWrap: 'wrap',
+          gap: '1.5rem',
+          boxShadow: '0 4px 20px rgba(22, 101, 52, 0.05)'
+        }}>
+          <div style={{ maxWidth: '780px' }}>
+            <div style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', color: '#166534', fontWeight: 800, fontSize: '0.85rem', textTransform: 'uppercase', letterSpacing: '0.04em', marginBottom: '8px' }}>
+              <Heart size={16} color="#16A34A" /> Jan Sewa Diagnostic Assistance Programme
+            </div>
+            <h3 style={{ fontSize: 'clamp(1.25rem, 2.5vw, 1.6rem)', fontWeight: 800, color: '#14532D', margin: '0 0 8px', letterSpacing: '-0.01em' }}>
+              Compassionate Care: Diagnostic Support for Every Family
+            </h3>
+            <p style={{ color: '#15803D', fontSize: '0.975rem', lineHeight: 1.6, margin: 0 }}>
+              If cost is preventing you from obtaining a medically appropriate essential test, contact BJSL to ask about the lowest available approved price and any currently available assistance. We believe no patient should be denied an essential blood investigation due to financial hardship.
+            </p>
+          </div>
+          <div>
+            <a
+              href="https://wa.me/919805543143?text=Namaste%20BJSL,%20I%20would%20like%20to%20enquire%20about%20the%20Jan%20Sewa%20Diagnostic%20Assistance%20programme."
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{
+                display: 'inline-flex',
+                alignItems: 'center',
+                gap: '8px',
+                padding: '12px 22px',
+                borderRadius: '12px',
+                background: '#16A34A',
+                color: 'white',
+                textDecoration: 'none',
+                fontWeight: 800,
+                fontSize: '0.95rem',
+                boxShadow: '0 4px 14px rgba(22, 163, 74, 0.35)',
+                whiteSpace: 'nowrap'
+              }}
+            >
+              Enquire for Assistance
+            </a>
+          </div>
+        </div>
+      </section>
+
       {/* 10. FAQS ACCORDION */}
       <section className="faqs-section" id="faqs">
         <div className="container">

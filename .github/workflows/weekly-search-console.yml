@@ -1,0 +1,36 @@
+name: Weekly Google Search Console Visibility Report
+
+on:
+  schedule:
+    # Runs at 03:30 UTC every Monday (9:00 AM IST)
+    - cron: '30 3 * * 1'
+  workflow_dispatch:
+
+jobs:
+  report:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: |
+          pip install google-auth requests
+
+      - name: Run GSC weekly audit
+        env:
+          GOOGLE_APPLICATION_CREDENTIALS: ${{ secrets.GSC_SERVICE_ACCOUNT_JSON }}
+          GSC_SITE_URL: "sc-domain:bharathjansewalabs.com"
+        run: |
+          python3 scripts/gsc_weekly.py
+
+      - name: Upload Report Artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: gsc-weekly-reports
+          path: docs/gsc_reports/

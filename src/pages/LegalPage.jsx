@@ -181,7 +181,7 @@ export default function LegalPage({ activeTab = 'promo', setActiveTab, setCurren
                     2. Free Doorstep Sample Collection Eligibility
                   </h3>
                   <p>
-                    Free doorstep phlebotomy sample collection applies across covered Bengaluru neighborhoods (Sanjaynagar, Peenya 2nd Stage, Kengeri, Banashankari, Subramanyapura, Jaraganahalli, etc.) on order values of <strong>₹499 and above</strong>. For test bookings below ₹499, a nominal ₹50 convenience fee applies.
+                    Free doorstep phlebotomy sample collection applies across covered Bengaluru neighborhoods (Sanjaynagar, Peenya 2nd Stage, Kengeri, Banashankari, Subramanyapura, Jaraganahalli, etc.) on order values of <strong>₹499 and above</strong>. For test bookings below ₹499, a nominal ₹100 convenience fee applies. Sample collection is always 100% FREE for walk-in patients across all 10 verified hubs.
                   </p>
                 </div>
 

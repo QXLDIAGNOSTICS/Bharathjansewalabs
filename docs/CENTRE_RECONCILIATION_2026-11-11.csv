@@ -1,0 +1,11 @@
+Centre Code,Centre Name,Locality,Zone,Verified Physical Address,PIN Code,Phone,Operating Hours,Legacy Error,Reconciliation Status
+HUB-BLR-01,BJSL Central Sanjaynagar,Sanjaynagar,North,GMR Layout 2nd Main Sanjay Nagar Main Road,560094,+91 98055 43143,07:00 AM - 08:00 PM,None,VERIFIED
+HUB-BLR-02,BJSL Peenya Hub,Peenya,West,1st Stage Industrial Area Near Metro Station,560058,+91 98055 43143,07:00 AM - 07:30 PM,None,VERIFIED
+HUB-BLR-03,BJSL Kengeri Centre,Kengeri,West,Outer Ring Road Near Kengeri Bus Terminal,560060,+91 98055 43143,07:00 AM - 08:00 PM,None,VERIFIED
+HUB-BLR-04,BJSL Ittamadu Centre,Ittamadu,South,3rd Main Road BSK 3rd Stage Ittamadu,560085,+91 98055 43143,07:00 AM - 08:00 PM,None,VERIFIED
+HUB-BLR-05,BJSL Subramanyapura Hub,Subramanyapura,South,Uttarahalli Main Road Near Vasantha Vallabha Nagar,560061,+91 98055 43143,07:00 AM - 08:00 PM,None,VERIFIED
+HUB-BLR-06,BJSL Jaraganahalli Hub,Jaraganahalli,South,Kanakapura Road Near Yelachenahalli Metro,560078,+91 98055 43143,07:00 AM - 08:00 PM,None,VERIFIED
+HUB-BLR-07,BJSL RR Nagar Centre,Rajarajeshwari Nagar,West,Jawaregowda Nagar Ideal Homes Township RR Nagar,560098,+91 98055 43143,07:00 AM - 08:00 PM,None,VERIFIED
+HUB-BLR-08,BJSL Basaveshwaranagar,Basaveshwaranagar,West,Near Shankar Mutt Water Tank 3rd Stage Basaveshwaranagar,560079,+91 98055 43143,07:00 AM - 08:00 PM,Repeated Jaraganahalli address in legacy directory,CORRECTED
+HUB-BLR-09,BJSL Vijayanagar Centre,Vijayanagar,West,Chord Road Near Vijayanagar Club,560040,+91 98055 43143,07:00 AM - 08:00 PM,None,VERIFIED
+HUB-BLR-10,BJSL KR Market Hub,KR Market / City Market,Central,Near Victoria Hospital Fort Road Kalasipalya,560002,+91 98055 43143,07:00 AM - 07:30 PM,None,VERIFIED

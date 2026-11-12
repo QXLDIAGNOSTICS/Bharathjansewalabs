@@ -1,0 +1,13 @@
+Test Code,Investigation Name,Sample Type,Fasting Required,Turnaround Time (Hours),Approved BJSL Rate (INR),Documented Market Rate (INR),Accredited Partner Lab ID,Status,Approval Date,Valid Until
+TEST-GLU-001,Blood Glucose (Fasting / PP / Random),Sodium Fluoride Whole Blood / Plasma,8-10 hrs for Fasting,4-8,20,70,LAB-BLR-NABL-01,APPROVED,2026-11-01,2027-12-31
+TEST-URI-002,Urine Routine & Microscopy,Mid-stream Urine Sterile Container,No,4-8,50,300,LAB-BLR-NABL-01,APPROVED,2026-11-01,2027-12-31
+TEST-CREAT-003,Serum Creatinine,Clot Activator Serum,No,4-8,50,150,LAB-BLR-NABL-01,APPROVED,2026-11-01,2027-12-31
+TEST-CBC-004,Complete Blood Count (CBC + ESR),EDTA Whole Blood,No,4-8,160,410,LAB-BLR-NABL-01,APPROVED,2026-11-01,2027-12-31
+TEST-TFT-005,Thyroid Function Test (Total T3 T4 TSH),Clot Activator Serum,No,4-8,190,450,LAB-BLR-NABL-01,APPROVED,2026-11-01,2027-12-31
+TEST-HBA1C-006,Glycated Haemoglobin (HbA1c),EDTA Whole Blood,No,4-8,260,600,LAB-BLR-NABL-01,APPROVED,2026-11-01,2027-12-31
+TEST-LIPID-007,Lipid Profile (Complete Cholesterol),Clot Activator Serum,10-12 hrs recommended,4-8,260,750,LAB-BLR-NABL-01,APPROVED,2026-11-01,2027-12-31
+TEST-LFT-008,Liver Function Test (LFT Panel),Clot Activator Serum,No,4-8,360,900,LAB-BLR-NABL-01,APPROVED,2026-11-01,2027-12-31
+TEST-KFT-009,Renal / Kidney Profile (RFT/KFT),Clot Activator Serum,No,4-8,320,800,LAB-BLR-NABL-01,APPROVED,2026-11-01,2027-12-31
+TEST-VITD-010,Vitamin D 25-Hydroxy,Clot Activator Serum,No,24-36,660,1600,LAB-BLR-NABL-01,APPROVED,2026-11-01,2027-12-31
+TEST-VITB12-011,Vitamin B12 (Cobalamin),Clot Activator Serum,No,24-36,440,1100,LAB-BLR-NABL-01,APPROVED,2026-11-01,2027-12-31
+TEST-TSH-012,Thyroid Stimulating Hormone (TSH),Clot Activator Serum,No,4-8,100,250,LAB-BLR-NABL-01,APPROVED,2026-11-01,2027-12-31

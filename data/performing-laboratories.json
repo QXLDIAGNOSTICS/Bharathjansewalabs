@@ -1,0 +1,43 @@
+{
+  "laboratories": [
+    {
+      "id": "LAB-BLR-NABL-01",
+      "name": "Associated Diagnostic Central Reference Lab",
+      "certificateNumber": "MC-2849",
+      "certificateValid": true,
+      "validUntil": "2027-08-31",
+      "standard": "ISO 15189:2022",
+      "city": "Bengaluru",
+      "applicableAccreditedTests": [
+        "Complete Blood Count (CBC + ESR)",
+        "Fasting Plasma Glucose",
+        "Glycated Haemoglobin (HbA1c)",
+        "Lipid Profile",
+        "Liver Function Test (LFT)",
+        "Renal Function Test (KFT)",
+        "Thyroid Profile (Total T3, T4, TSH)",
+        "Serum Creatinine",
+        "Serum Electrolytes",
+        "Vitamin D 25-Hydroxy",
+        "Vitamin B12"
+      ]
+    },
+    {
+      "id": "LAB-BLR-NABL-02",
+      "name": "Advanced Clinical Genomics & Pathology Partner",
+      "certificateNumber": "MC-3104",
+      "certificateValid": true,
+      "validUntil": "2027-11-30",
+      "standard": "ISO 15189:2022",
+      "city": "Bengaluru",
+      "applicableAccreditedTests": [
+        "Ferritin",
+        "Iron Studies",
+        "Total IgE",
+        "D-Dimer",
+        "Cardiac Troponin I Quantitative",
+        "Total PSA"
+      ]
+    }
+  ]
+}

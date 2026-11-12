@@ -1,0 +1,419 @@
+{
+  "brand": "Bharath Jan Sewa Labs Private Limited",
+  "domain": "https://www.bharathjansewalabs.com",
+  "clinicalReference": "https://www.icmr.gov.in/icmrobject/uploads/Report/1752588650_nedl2ndedition.pdf",
+  "catalogueStatus": "proposed-for-clinical-and-commercial-approval",
+  "packages": [
+    {
+      "slug": "jan-sewa-full-body-checkup",
+      "name": "Jan Sewa Full Body Checkup",
+      "title": "Affordable Full Body Checkup in Bangalore | BJSL",
+      "description": "Explore the proposed Jan Sewa wellness package in Bengaluru. Review included blood tests, preparation, verified price and convenient collection options.",
+      "answer": "BJSL's Jan Sewa Full Body Checkup is a proposed affordable group of commonly requested blood and urine investigations in Bengaluru. It combines selected blood count, glucose, kidney, liver and lipid tests for clinician-guided assessment. Exact contents, final charges, preparation and reporting time require approval before the package is offered.",
+      "tests": [
+        "CBC",
+        "Fasting Plasma Glucose",
+        "Serum Creatinine",
+        "ALT",
+        "AST",
+        "Total Cholesterol",
+        "Triglycerides",
+        "HDL Cholesterol",
+        "Urine Routine"
+      ],
+      "specimen": "Venous blood and urine",
+      "fasting": "8-12 hours when fasting glucose is requested",
+      "tatHours": null,
+      "priceINR": null,
+      "marketRateINR": null,
+      "biomarkerCount": null,
+      "published": false
+    },
+    {
+      "slug": "essential-diabetes-profile",
+      "name": "NEDL-Informed Essential Diabetes Profile",
+      "title": "Affordable Diabetes Blood Tests Bangalore | BJSL",
+      "description": "Understand blood glucose, HbA1c and kidney monitoring tests, sample preparation and transparent pricing for diabetes care in Bengaluru.",
+      "answer": "The proposed BJSL Essential Diabetes Profile brings together fasting glucose, HbA1c and selected kidney monitoring investigations. These measurements support assessment and follow-up when recommended by a clinician. The panel does not independently diagnose every diabetes complication. Final inclusions, individual test pricing, urine requirements and turnaround times must be verified before booking.",
+      "tests": [
+        "Fasting Plasma Glucose",
+        "HbA1c",
+        "Serum Creatinine",
+        "Urine Albumin-Creatinine Ratio"
+      ],
+      "specimen": "Venous blood and spot urine",
+      "fasting": "8-12 hours for fasting plasma glucose",
+      "tatHours": null,
+      "priceINR": null,
+      "marketRateINR": null,
+      "biomarkerCount": null,
+      "published": false
+    },
+    {
+      "slug": "vitamin-mineral-balance-panel",
+      "name": "Vitamin & Mineral Balance Panel",
+      "title": "Affordable Vitamin and Mineral Tests Bangalore | BJSL",
+      "description": "Review vitamin B12, vitamin D, calcium and magnesium testing options with transparent prices and sample guidance in Bengaluru.",
+      "answer": "BJSL's proposed Vitamin and Mineral Balance Panel groups vitamin B12, 25-hydroxy vitamin D, calcium and magnesium testing. These investigations may be useful when symptoms, clinical risk factors or medical advice warrant evaluation. Routine testing is not necessary for everyone. The final panel composition, price and accredited laboratory availability require verification.",
+      "tests": [
+        "Vitamin B12",
+        "25-OH Vitamin D",
+        "Total Calcium",
+        "Magnesium"
+      ],
+      "specimen": "Venous blood",
+      "fasting": "Not routinely required for these tests alone; follow laboratory instructions",
+      "tatHours": null,
+      "priceINR": null,
+      "marketRateINR": null,
+      "biomarkerCount": null,
+      "published": false
+    },
+    {
+      "slug": "thyroid-metabolic-screening",
+      "name": "Thyroid & Metabolic Screening",
+      "title": "Low-Cost Thyroid and Metabolic Tests Bangalore | BJSL",
+      "description": "Explore TSH, free T4, glucose and lipid testing, preparation guidance and verified pricing for Bengaluru patients.",
+      "answer": "The proposed Thyroid and Metabolic Screening package combines selected thyroid hormone measurements with glucose and lipid investigations. TSH is often the initial thyroid assessment, while free T4 may be appropriate in specific situations. Patients should avoid unnecessary testing. BJSL will publish the exact price and preparation once the offering is approved.",
+      "tests": [
+        "TSH",
+        "Free T4",
+        "Fasting Plasma Glucose",
+        "Total Cholesterol",
+        "Triglycerides",
+        "HDL Cholesterol"
+      ],
+      "specimen": "Venous blood",
+      "fasting": "8-12 hours if fasting glucose is included",
+      "tatHours": null,
+      "priceINR": null,
+      "marketRateINR": null,
+      "biomarkerCount": null,
+      "published": false
+    },
+    {
+      "slug": "affordable-lipid-cardiac-risk-profile",
+      "name": "Affordable Lipid & Cardiac Risk Profile",
+      "title": "Low-Cost Lipid Profile in Bangalore | BJSL",
+      "description": "Compare the constituents of a lipid profile, understand cholesterol testing and view approved Bengaluru collection prices.",
+      "answer": "BJSL's proposed Cardiac Risk Profile focuses on cholesterol and triglyceride measurements that help clinicians assess cardiovascular risk alongside blood pressure, smoking, diabetes and other factors. It is not an emergency heart-attack test. Patients with chest pain need urgent medical assessment rather than a routine package or delayed laboratory appointment.",
+      "tests": [
+        "Total Cholesterol",
+        "Triglycerides",
+        "HDL Cholesterol",
+        "LDL Cholesterol"
+      ],
+      "specimen": "Venous blood",
+      "fasting": "Usually not necessary for routine lipid assessment; follow clinician instructions",
+      "tatHours": null,
+      "priceINR": null,
+      "marketRateINR": null,
+      "biomarkerCount": null,
+      "published": false
+    },
+    {
+      "slug": "liver-function-profile",
+      "name": "Affordable Liver Function Profile",
+      "title": "Liver Function Test Price in Bangalore | BJSL",
+      "description": "Explore bilirubin, liver enzymes and protein investigations with preparation details and approved affordable pricing.",
+      "answer": "The proposed BJSL Liver Function Profile includes bilirubin, selected liver enzymes and serum proteins. These investigations support evaluation of liver-related conditions when medically indicated, although individual results cannot diagnose every liver disorder. The exact analytes and calculation rules will be disclosed before booking, together with the final approved price and reporting time.",
+      "tests": [
+        "Total Bilirubin",
+        "Direct Bilirubin",
+        "ALT",
+        "AST",
+        "ALP",
+        "Total Protein",
+        "Albumin"
+      ],
+      "specimen": "Venous blood",
+      "fasting": "Generally not required for this panel alone",
+      "tatHours": null,
+      "priceINR": null,
+      "marketRateINR": null,
+      "biomarkerCount": null,
+      "published": false
+    },
+    {
+      "slug": "renal-function-profile",
+      "name": "Affordable Renal Function Profile",
+      "title": "Kidney Function Test Price Bangalore | BJSL",
+      "description": "Review kidney-related blood investigations including creatinine, urea and electrolytes, with collection details and transparent pricing.",
+      "answer": "BJSL's proposed Renal Function Profile groups creatinine, urea and important electrolytes to support clinical evaluation of kidney function and fluid balance. Estimated GFR may also be calculated where applicable. The package does not replace a complete kidney assessment, which may require urine studies. Exact inclusions, price and reporting time require approval.",
+      "tests": [
+        "Serum Creatinine",
+        "Urea",
+        "Sodium",
+        "Potassium",
+        "Chloride",
+        "Calculated eGFR"
+      ],
+      "specimen": "Venous blood",
+      "fasting": "Usually not required for these tests alone",
+      "tatHours": null,
+      "priceINR": null,
+      "marketRateINR": null,
+      "biomarkerCount": null,
+      "published": false
+    },
+    {
+      "slug": "cbc-with-esr",
+      "name": "Complete Blood Count with ESR",
+      "title": "Affordable CBC with ESR Test Bangalore | BJSL",
+      "description": "Learn about CBC, haemoglobin, white cells, platelets and ESR, with low-cost Bengaluru testing and booking information.",
+      "answer": "The proposed BJSL CBC with ESR combines a complete blood count and erythrocyte sedimentation rate. CBC assesses blood-cell measurements, while ESR is a nonspecific marker sometimes used in clinical evaluation. Neither test alone identifies the cause of illness. Preparation, sample requirements, report timing and the approved price will be clearly stated.",
+      "tests": [
+        "Complete Blood Count",
+        "ESR"
+      ],
+      "specimen": "EDTA whole blood; additional specimen as required by ESR method",
+      "fasting": "Not routinely required",
+      "tatHours": null,
+      "priceINR": null,
+      "marketRateINR": null,
+      "biomarkerCount": null,
+      "published": false
+    },
+    {
+      "slug": "fever-infection-basic-panel",
+      "name": "Basic Fever & Infection Evaluation",
+      "title": "Affordable Fever Blood Tests Bangalore | BJSL",
+      "description": "Review clinically appropriate fever investigations such as CBC and CRP, with clear advice on when urgent care is needed.",
+      "answer": "BJSL's proposed Basic Fever Evaluation includes a blood count and C-reactive protein when a clinician considers them useful. Fever can have many causes, and laboratory testing should follow symptoms, exposure history and examination. No basic panel can rule out all infections. Severe symptoms require prompt medical care rather than routine screening.",
+      "tests": [
+        "Complete Blood Count",
+        "C-Reactive Protein"
+      ],
+      "specimen": "Venous blood",
+      "fasting": "Not routinely required",
+      "tatHours": null,
+      "priceINR": null,
+      "marketRateINR": null,
+      "biomarkerCount": null,
+      "published": false
+    },
+    {
+      "slug": "complete-anaemia-evaluation",
+      "name": "Complete Anaemia Evaluation",
+      "title": "Affordable Anaemia and Iron Profile Bangalore | BJSL",
+      "description": "Explore CBC, ferritin, iron studies and vitamin B12 testing, with medically reviewed preparation and pricing guidance.",
+      "answer": "The proposed BJSL Anaemia Evaluation combines blood-cell counts with selected iron and vitamin measurements. It may help clinicians investigate anaemia, iron deficiency or other causes of abnormal blood counts. Test selection depends on symptoms and clinical history. Interpretation requires medical review, and the final package price will be confirmed before publication.",
+      "tests": [
+        "Complete Blood Count",
+        "Ferritin",
+        "Serum Iron",
+        "Total Iron Binding Capacity",
+        "Vitamin B12"
+      ],
+      "specimen": "EDTA whole blood and serum",
+      "fasting": "Timing and fasting for iron studies follow laboratory and clinician instructions",
+      "tatHours": null,
+      "priceINR": null,
+      "marketRateINR": null,
+      "biomarkerCount": null,
+      "published": false
+    },
+    {
+      "slug": "senior-citizen-essential-profile",
+      "name": "Senior Citizen Essential Health Profile",
+      "title": "Budget Senior Citizen Blood Tests Bangalore | BJSL",
+      "description": "Explore a clinician-guided set of common blood investigations for older adults with affordable collection options in Bengaluru.",
+      "answer": "BJSL's proposed Senior Citizen Essential Profile provides an affordable grouping of common blood investigations that may be selected according to an older adult's health history. It is not a universal annual screening requirement. Kidney, glucose and blood-count testing should be individualised. Prices, sample collection arrangements and report timing require confirmation.",
+      "tests": [
+        "Complete Blood Count",
+        "Fasting Plasma Glucose",
+        "Serum Creatinine",
+        "Sodium",
+        "Potassium"
+      ],
+      "specimen": "Venous blood",
+      "fasting": "8-12 hours when fasting glucose is ordered",
+      "tatHours": null,
+      "priceINR": null,
+      "marketRateINR": null,
+      "biomarkerCount": null,
+      "published": false
+    },
+    {
+      "slug": "womens-affordable-health-profile",
+      "name": "Women's Affordable Health Profile",
+      "title": "Affordable Women's Blood Tests Bangalore | BJSL",
+      "description": "Review haemoglobin, ferritin and thyroid testing options with medically appropriate guidance and transparent Bengaluru prices.",
+      "answer": "The proposed BJSL Women's Health Profile focuses on selected blood tests that may be useful when fatigue, heavy menstrual bleeding or other clinical concerns warrant investigation. It is not a replacement for personalised assessment. Haemoglobin, iron stores and thyroid function should be tested as indicated, with the final price approved before booking.",
+      "tests": [
+        "Complete Blood Count",
+        "Ferritin",
+        "TSH"
+      ],
+      "specimen": "EDTA whole blood and serum",
+      "fasting": "Usually not required for this combination",
+      "tatHours": null,
+      "priceINR": null,
+      "marketRateINR": null,
+      "biomarkerCount": null,
+      "published": false
+    },
+    {
+      "slug": "mens-essential-health-profile",
+      "name": "Men's Essential Health Profile",
+      "title": "Low-Cost Men's Health Checkup Bangalore | BJSL",
+      "description": "Explore affordable common metabolic and blood-count investigations with clear inclusions, preparation and booking options.",
+      "answer": "BJSL's proposed Men's Essential Health Profile combines selected blood-count, glucose, kidney and cholesterol measurements for clinician-guided risk evaluation. It is not a replacement for a medical consultation or a universal screening panel. The inclusion of tests should be based on age, symptoms and risk factors, with transparent pricing before booking.",
+      "tests": [
+        "Complete Blood Count",
+        "Fasting Plasma Glucose",
+        "Serum Creatinine",
+        "Total Cholesterol",
+        "Triglycerides",
+        "HDL Cholesterol"
+      ],
+      "specimen": "Venous blood",
+      "fasting": "8-12 hours for fasting plasma glucose",
+      "tatHours": null,
+      "priceINR": null,
+      "marketRateINR": null,
+      "biomarkerCount": null,
+      "published": false
+    },
+    {
+      "slug": "antenatal-basic-test-support",
+      "name": "Antenatal Basic Laboratory Support",
+      "title": "Affordable Antenatal Lab Tests Bangalore | BJSL",
+      "description": "Review common pregnancy-related laboratory investigations and clear referral, consent and specimen requirements.",
+      "answer": "BJSL's proposed Antenatal Laboratory Support package brings together selected tests that may be requested during routine pregnancy care. The treating obstetrician determines which tests are appropriate and when they are needed. This package does not replace antenatal appointments, ultrasound or specialised screening. Consent, sample requirements and final pricing must be confirmed.",
+      "tests": [
+        "Complete Blood Count",
+        "ABO and Rh Grouping",
+        "Urine Routine",
+        "Blood Glucose"
+      ],
+      "specimen": "Venous blood and urine",
+      "fasting": "Depends on the specifically ordered glucose test",
+      "tatHours": null,
+      "priceINR": null,
+      "marketRateINR": null,
+      "biomarkerCount": null,
+      "published": false
+    },
+    {
+      "slug": "pre-employment-basic-checkup",
+      "name": "Pre-Employment Basic Laboratory Checkup",
+      "title": "Affordable Pre-Employment Lab Tests Bangalore | BJSL",
+      "description": "Explore employer-requested basic laboratory investigations, exact package inclusions and economical collection options.",
+      "answer": "BJSL's proposed Pre-Employment Basic Laboratory Checkup offers a transparent selection of routine investigations when specifically required for an occupational health assessment. The employer and qualified medical practitioner should determine necessary tests. Results must remain confidential and should not be used for unjustified discrimination. Final pricing and reporting arrangements require approval.",
+      "tests": [
+        "Complete Blood Count",
+        "Urine Routine",
+        "ABO and Rh Grouping"
+      ],
+      "specimen": "Venous blood and urine",
+      "fasting": "Not routinely required for this group",
+      "tatHours": null,
+      "priceINR": null,
+      "marketRateINR": null,
+      "biomarkerCount": null,
+      "published": false
+    },
+    {
+      "slug": "diabetes-kidney-monitoring",
+      "name": "Diabetes & Kidney Monitoring Profile",
+      "title": "Affordable Diabetes Kidney Tests Bangalore | BJSL",
+      "description": "Understand HbA1c, creatinine and urine albumin-related testing for clinician-directed diabetes and kidney monitoring.",
+      "answer": "The proposed Diabetes and Kidney Monitoring Profile combines HbA1c, creatinine and urine albumin assessment for patients whose clinicians recommend kidney-risk monitoring. Estimated GFR and urine albumin-creatinine ratio provide different information. The package does not independently diagnose kidney disease, and abnormal results require interpretation and sometimes repeat testing.",
+      "tests": [
+        "HbA1c",
+        "Serum Creatinine",
+        "Calculated eGFR",
+        "Urine Albumin-Creatinine Ratio"
+      ],
+      "specimen": "EDTA whole blood, serum and spot urine",
+      "fasting": "Not routinely required for this group",
+      "tatHours": null,
+      "priceINR": null,
+      "marketRateINR": null,
+      "biomarkerCount": null,
+      "published": false
+    },
+    {
+      "slug": "bone-mineral-evaluation",
+      "name": "Bone & Mineral Evaluation",
+      "title": "Affordable Calcium and Vitamin D Tests Bangalore | BJSL",
+      "description": "Review calcium, albumin, phosphate and vitamin D investigations when clinically recommended, with clear pricing details.",
+      "answer": "BJSL's proposed Bone and Mineral Evaluation groups selected measurements related to mineral balance. Calcium, albumin, phosphate and vitamin D may be useful in specific clinical circumstances, but they do not independently diagnose osteoporosis. Bone density imaging and clinical risk assessment may also be needed. Testing should follow a qualified clinician's recommendation.",
+      "tests": [
+        "Total Calcium",
+        "Albumin",
+        "Phosphate",
+        "25-OH Vitamin D"
+      ],
+      "specimen": "Venous blood",
+      "fasting": "Generally not required for the listed tests alone",
+      "tatHours": null,
+      "priceINR": null,
+      "marketRateINR": null,
+      "biomarkerCount": null,
+      "published": false
+    },
+    {
+      "slug": "basic-inflammation-markers",
+      "name": "Basic Inflammation Markers Profile",
+      "title": "Affordable CBC ESR and CRP Tests Bangalore | BJSL",
+      "description": "Compare CBC, ESR and CRP testing when clinically indicated, with specimen details and verified Bengaluru pricing.",
+      "answer": "The proposed Basic Inflammation Markers Profile combines CBC, ESR and CRP for clinician-directed investigation. These markers can change in many conditions and cannot identify a particular infection or autoimmune disease on their own. The package is not recommended as universal screening. Actual testing needs, prices and reporting times must be confirmed.",
+      "tests": [
+        "Complete Blood Count",
+        "ESR",
+        "C-Reactive Protein"
+      ],
+      "specimen": "EDTA whole blood and serum; additional specimen as method requires",
+      "fasting": "Not routinely required",
+      "tatHours": null,
+      "priceINR": null,
+      "marketRateINR": null,
+      "biomarkerCount": null,
+      "published": false
+    },
+    {
+      "slug": "jan-sewa-basic-wellness",
+      "name": "Jan Sewa Basic Wellness",
+      "title": "Budget Basic Blood Test Package Bangalore | BJSL",
+      "description": "Review a compact set of essential blood investigations designed for affordability, with clear inclusions and approved prices.",
+      "answer": "Jan Sewa Basic Wellness is a proposed small, economical collection of common laboratory investigations. The intention is to give patients and clinicians a transparent alternative to large bundled packages when fewer tests are appropriate. A basic package cannot detect every disease. The published offering will require clinically approved tests and final prices.",
+      "tests": [
+        "Complete Blood Count",
+        "Fasting Plasma Glucose",
+        "Serum Creatinine"
+      ],
+      "specimen": "Venous blood",
+      "fasting": "8-12 hours for fasting plasma glucose",
+      "tatHours": null,
+      "priceINR": null,
+      "marketRateINR": null,
+      "biomarkerCount": null,
+      "published": false
+    },
+    {
+      "slug": "metabolic-wellness-profile",
+      "name": "Metabolic Wellness Profile",
+      "title": "Affordable Metabolic Blood Tests Bangalore | BJSL",
+      "description": "Explore glucose, HbA1c, lipid and selected organ-function tests, with practical preparation and price information.",
+      "answer": "BJSL's proposed Metabolic Wellness Profile combines glucose regulation, cholesterol and selected kidney and liver measurements for medically appropriate risk assessment. Results are most useful alongside clinical history, blood pressure and other risk factors. This package does not replace ongoing medical care. Final components, collection conditions and pricing require professional verification.",
+      "tests": [
+        "Fasting Plasma Glucose",
+        "HbA1c",
+        "Total Cholesterol",
+        "Triglycerides",
+        "HDL Cholesterol",
+        "ALT",
+        "Serum Creatinine"
+      ],
+      "specimen": "Venous blood",
+      "fasting": "8-12 hours when fasting plasma glucose is included",
+      "tatHours": null,
+      "priceINR": null,
+      "marketRateINR": null,
+      "biomarkerCount": null,
+      "published": false
+    }
+  ]
+}

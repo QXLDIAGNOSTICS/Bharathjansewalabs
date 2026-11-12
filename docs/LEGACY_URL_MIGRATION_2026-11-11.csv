@@ -1,0 +1,9 @@
+Legacy Route,Production Route,HTTP Redirect Code,Migration Priority,Canonical Preservation
+/our-centres/,/our-centres/,200 (Static Directory) + 301 Aliases,P0,Self-canonical: https://www.bharathjansewalabs.com/our-centres/
+/our-centers/,/our-centres/,301 Permanent Redirect,P0,Maps US spelling to standard route
+/centers/,/our-centres/,301 Permanent Redirect,P0,Legacy shorthand route
+/locations/,/our-centres/,200 (Locations Directory),P0,Self-canonical: https://www.bharathjansewalabs.com/locations/
+/tests-list/,/tests/,301 Permanent Redirect,P0,Redirects legacy WordPress catalogue
+/book-test/,/,301 Permanent Redirect,P0,Redirects to WhatsApp-first booking
+/package/chirayu-prime/,/packages/,301 Permanent Redirect,P0,Reconciled package catalogue
+/package/chirayu-master/,/packages/,301 Permanent Redirect,P0,Reconciled package catalogue

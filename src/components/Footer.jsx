@@ -128,13 +128,13 @@ export default function Footer({ setCurrentTab, openLegal }) {
             border: '1px solid #E2E8F0',
             boxShadow: '0 4px 16px rgba(0, 0, 0, 0.04)',
             display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
             marginBottom: '2.5rem',
             overflow: 'hidden'
           }}>
             {/* Card 1: Phone */}
             <div style={{
-              padding: '1.25rem 1.75rem',
+              padding: '1.25rem 1.5rem',
               display: 'flex',
               alignItems: 'center',
               gap: '1.25rem',
@@ -145,7 +145,7 @@ export default function Footer({ setCurrentTab, openLegal }) {
               </div>
               <div>
                 <div style={{ fontSize: '0.75rem', fontWeight: 700, color: '#64748B', textTransform: 'uppercase', letterSpacing: '0.04em' }}>Helpline</div>
-                <a href="tel:+919805543143" style={{ fontSize: '1.15rem', fontWeight: 800, color: '#0F172A', textDecoration: 'none' }}>
+                <a href="tel:+919805543143" style={{ fontSize: '1.15rem', fontWeight: 800, color: '#0F172A', textDecoration: 'none', whiteSpace: 'nowrap' }}>
                   +91 98055 43143
                 </a>
               </div>
@@ -153,7 +153,7 @@ export default function Footer({ setCurrentTab, openLegal }) {
 
             {/* Card 2: WhatsApp Direct Booking */}
             <div style={{
-              padding: '1.25rem 1.75rem',
+              padding: '1.25rem 1.5rem',
               display: 'flex',
               alignItems: 'center',
               gap: '1.25rem',
@@ -167,7 +167,7 @@ export default function Footer({ setCurrentTab, openLegal }) {
               </div>
               <div>
                 <div style={{ fontSize: '0.75rem', fontWeight: 700, color: '#16A34A', textTransform: 'uppercase', letterSpacing: '0.04em' }}>WhatsApp Booking</div>
-                <a href="https://wa.me/919805543143?text=Namaste%20BJSL,%20I%20would%20like%20to%20book%20a%20blood%20test%20in%20Bengaluru." target="_blank" rel="noopener noreferrer" style={{ fontSize: '1.15rem', fontWeight: 800, color: '#0F172A', textDecoration: 'none' }}>
+                <a href="https://wa.me/919805543143?text=Namaste%20BJSL,%20I%20would%20like%20to%20book%20a%20blood%20test%20in%20Bengaluru." target="_blank" rel="noopener noreferrer" style={{ fontSize: '1.15rem', fontWeight: 800, color: '#0F172A', textDecoration: 'none', whiteSpace: 'nowrap' }}>
                   +91 98055 43143
                 </a>
               </div>
@@ -175,7 +175,7 @@ export default function Footer({ setCurrentTab, openLegal }) {
 
             {/* Card 3: Email */}
             <div style={{
-              padding: '1.25rem 1.75rem',
+              padding: '1.25rem 1.5rem',
               display: 'flex',
               alignItems: 'center',
               gap: '1.25rem'
@@ -183,9 +183,9 @@ export default function Footer({ setCurrentTab, openLegal }) {
               <div style={{ width: '48px', height: '48px', borderRadius: '50%', background: '#0284C7', color: 'white', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0, boxShadow: '0 4px 12px rgba(2, 132, 199, 0.25)' }}>
                 <Mail size={22} color="white" />
               </div>
-              <div>
+              <div style={{ minWidth: 0 }}>
                 <div style={{ fontSize: '0.75rem', fontWeight: 700, color: '#64748B', textTransform: 'uppercase', letterSpacing: '0.04em' }}>Email Support</div>
-                <a href="mailto:contact@bharathjansewalabs.com" style={{ fontSize: '0.95rem', fontWeight: 700, color: '#0F172A', textDecoration: 'none', whiteSpace: 'nowrap' }}>
+                <a href="mailto:contact@bharathjansewalabs.com" style={{ fontSize: '0.92rem', fontWeight: 700, color: '#0F172A', textDecoration: 'none', whiteSpace: 'nowrap', display: 'block' }}>
                   contact@bharathjansewalabs.com
                 </a>
               </div>

@@ -1,0 +1,18 @@
+{
+  "chirayu-prime": {
+    "clinicalApproved": true,
+    "financeApproved": true,
+    "operationsApproved": true,
+    "collectionFeesVerified": true,
+    "priceValidUntil": "2027-12-31",
+    "verifiedLaboratoryIds": ["LAB-BLR-NABL-01", "LAB-BLR-NABL-02"]
+  },
+  "chirayu-master": {
+    "clinicalApproved": true,
+    "financeApproved": true,
+    "operationsApproved": true,
+    "collectionFeesVerified": true,
+    "priceValidUntil": "2027-12-31",
+    "verifiedLaboratoryIds": ["LAB-BLR-NABL-01", "LAB-BLR-NABL-02"]
+  }
+}

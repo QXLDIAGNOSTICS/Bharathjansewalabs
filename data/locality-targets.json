@@ -1,0 +1,124 @@
+{
+  "localities": [
+    {
+      "slug": "kengeri",
+      "name": "Kengeri",
+      "pincode": "560060",
+      "zone": "West",
+      "verifiedCoverage": false,
+      "published": false
+    },
+    {
+      "slug": "rajarajeshwari-nagar",
+      "name": "Rajarajeshwari Nagar",
+      "pincode": "560098",
+      "zone": "West",
+      "verifiedCoverage": false,
+      "published": false
+    },
+    {
+      "slug": "vijayanagar",
+      "name": "Vijayanagar",
+      "pincode": "560040",
+      "zone": "West",
+      "verifiedCoverage": false,
+      "published": false
+    },
+    {
+      "slug": "kamakshipalya",
+      "name": "Kamakshipalya",
+      "pincode": "560079",
+      "zone": "West",
+      "verifiedCoverage": false,
+      "published": false
+    },
+    {
+      "slug": "dasarahalli",
+      "name": "Dasarahalli",
+      "pincode": "560057",
+      "zone": "Northwest",
+      "verifiedCoverage": false,
+      "published": false
+    },
+    {
+      "slug": "peenya",
+      "name": "Peenya",
+      "pincode": "560058",
+      "zone": "West",
+      "verifiedCoverage": false,
+      "published": false
+    },
+    {
+      "slug": "banashankari",
+      "name": "Banashankari",
+      "pincode": "560085",
+      "zone": "South",
+      "verifiedCoverage": false,
+      "published": false
+    },
+    {
+      "slug": "jayanagar",
+      "name": "Jayanagar",
+      "pincode": "560041",
+      "zone": "South",
+      "verifiedCoverage": false,
+      "published": false
+    },
+    {
+      "slug": "jp-nagar",
+      "name": "JP Nagar",
+      "pincode": "560078",
+      "zone": "South",
+      "verifiedCoverage": false,
+      "published": false
+    },
+    {
+      "slug": "electronic-city",
+      "name": "Electronic City",
+      "pincode": "560100",
+      "zone": "Southeast",
+      "verifiedCoverage": false,
+      "published": false
+    },
+    {
+      "slug": "bommanahalli",
+      "name": "Bommanahalli",
+      "pincode": "560068",
+      "zone": "Southeast",
+      "verifiedCoverage": false,
+      "published": false
+    },
+    {
+      "slug": "whitefield",
+      "name": "Whitefield",
+      "pincode": "560066",
+      "zone": "East",
+      "verifiedCoverage": false,
+      "published": false
+    },
+    {
+      "slug": "yelahanka",
+      "name": "Yelahanka",
+      "pincode": "560064",
+      "zone": "North",
+      "verifiedCoverage": false,
+      "published": false
+    },
+    {
+      "slug": "hebbal",
+      "name": "Hebbal",
+      "pincode": "560024",
+      "zone": "North",
+      "verifiedCoverage": false,
+      "published": false
+    },
+    {
+      "slug": "marathahalli",
+      "name": "Marathahalli",
+      "pincode": "560037",
+      "zone": "East",
+      "verifiedCoverage": false,
+      "published": false
+    }
+  ]
+}
