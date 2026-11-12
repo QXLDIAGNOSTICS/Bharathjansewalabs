@@ -202,6 +202,14 @@ export default function Header({
             >
               Franchise
             </button>
+            <button 
+              type="button"
+              onClick={() => handleNav('blogs')} 
+              className="sticky-nav-link"
+              style={{ background: 'none', border: 'none', cursor: 'pointer', color: currentTab === 'blogs' ? '#EF4444' : undefined, fontWeight: currentTab === 'blogs' ? 800 : undefined }}
+            >
+              Health Guide
+            </button>
           </nav>
 
           <div className="header-right-group">

@@ -15,7 +15,7 @@
   ],
   "rewrites": [
     {
-      "source": "/((?!tests/|locations/|our-centres/|images/|assets/|favicon|logo|robots\\.txt|sitemap.*\\.xml|llms.*\\.txt).*)",
+      "source": "/((?!tests/|locations/|our-centres/|blog/|images/|assets/|favicon|logo|robots\\.txt|sitemap.*\\.xml|llms.*\\.txt).*)",
       "destination": "/index.html"
     }
   ],

@@ -2440,6 +2440,187 @@ export const BLOG_POSTS = [
     `,
     image: '🔬',
     relatedTests: ['cbc-test', 'chirayu-prime']
+  },
+  {
+    id: 'dengue-fever-platelet-guide',
+    slug: 'dengue-monsoon-fever-blood-tests-platelet-guide',
+    title: 'Dengue & Monsoon Fever Blood Test Guide: NS1, IgM, CBC Platelet Monitoring in Bengaluru',
+    category: 'Infection Care',
+    author: 'Dr. Rajesh Vardhan, Consultant Pathologist',
+    date: TODAY_FORMATTED,
+    readTime: '6 min read',
+    excerpt: 'Bengaluru seasonal fevers demand swift, accurate diagnosis. Learn when to take the Dengue NS1 Antigen vs IgM ELISA test, and how daily CBC platelet tracking prevents critical complications.',
+    content: `
+      <div class="at-a-glance-box" style="background:#F8FAFC; padding:1.25rem; border-radius:14px; border:1px solid #E2E8F0; margin-bottom:1.5rem">
+        <h4 style="margin-bottom:0.75rem; color:#0F172A; font-weight:800">📋 Dengue &amp; Infection Tests At a Glance</h4>
+        <table style="width:100%; border-collapse:collapse; font-size:0.9rem">
+          <tr style="border-bottom:1px solid #E2E8F0"><td style="padding:4px 0; font-weight:700">Day 1 to 4 of Fever:</td><td>Dengue NS1 Antigen Test (Early Detection)</td></tr>
+          <tr style="border-bottom:1px solid #E2E8F0"><td style="padding:4px 0; font-weight:700">Day 5 Onwards:</td><td>Dengue IgM &amp; IgG Antibodies (ELISA)</td></tr>
+          <tr style="border-bottom:1px solid #E2E8F0"><td style="padding:4px 0; font-weight:700">Critical Monitoring:</td><td>Complete Blood Count (CBC + ESR) for Platelets &amp; Hematocrit</td></tr>
+          <tr style="border-bottom:1px solid #E2E8F0"><td style="padding:4px 0; font-weight:700">Turnaround Time:</td><td>Same Day (4 to 6 Hours)</td></tr>
+          <tr><td style="padding:4px 0; font-weight:700">Subsidized Tariffs:</td><td>CBC at ₹160 | Dengue NS1 + IgM/IgG at ₹450</td></tr>
+        </table>
+      </div>
+
+      <h3>Why Timely Testing Matters in Dengue:</h3>
+      <p>Dengue is transmitted by the daytime-biting <em>Aedes aegypti</em> mosquito. In urban Bengaluru, rapid weather shifts often lead to localized outbreaks. Identifying the infection during the first 48 hours allows physicians to establish hydration protocols before the critical phase (days 4 to 7) begins.</p>
+
+      <h3>1. Dengue NS1 Antigen (Days 1–4):</h3>
+      <p>The non-structural protein 1 (NS1) is secreted into the blood during active viral replication. It becomes detectable within hours of fever onset, making it the primary marker for early diagnosis.</p>
+
+      <h3>2. Dengue IgM / IgG Antibodies (Day 5 Onwards):</h3>
+      <p>As the body mounts an immune response, IgM antibodies emerge around day 5 and persist for several weeks. IgG antibodies indicate previous infection or convalescent immunity.</p>
+
+      <h3>3. Why Daily CBC Platelet Tracking Is Critical:</h3>
+      <p>The primary medical risk in severe dengue is capillary leakage and thrombocytopenia (rapid drop in platelets). While normal platelet counts range between 150,000 and 450,000 / μL, counts dropping below 100,000 require close physician monitoring. Simultaneously, rising Hematocrit (PCV) signals plasma leakage that necessitates urgent clinical intervention.</p>
+    `,
+    image: '🦟',
+    relatedTests: ['dengue-ns1-test', 'cbc-test', 'fever-panel']
+  },
+  {
+    id: 'lft-kft-organ-health-guide',
+    slug: 'liver-kidney-function-test-lft-kft-indicators-guide',
+    title: 'Liver & Kidney Function Tests (LFT & KFT): Silent Organ Health Indicators & Normal Ranges',
+    category: 'Organ Function',
+    author: 'Dr. Ananya Rao, MD (Pathology)',
+    date: TODAY_FORMATTED,
+    readTime: '7 min read',
+    excerpt: 'Your liver and kidneys filter toxins and regulate metabolism silently without early pain signals. Learn how routine LFT and KFT blood tests detect fatty liver and renal filtration changes early.',
+    content: `
+      <div class="at-a-glance-box" style="background:#F8FAFC; padding:1.25rem; border-radius:14px; border:1px solid #E2E8F0; margin-bottom:1.5rem">
+        <h4 style="margin-bottom:0.75rem; color:#0F172A; font-weight:800">📋 LFT &amp; KFT Profiles At a Glance</h4>
+        <table style="width:100%; border-collapse:collapse; font-size:0.9rem">
+          <tr style="border-bottom:1px solid #E2E8F0"><td style="padding:4px 0; font-weight:700">Sample Type:</td><td>Clot Activator Serum (Venous Blood)</td></tr>
+          <tr style="border-bottom:1px solid #E2E8F0"><td style="padding:4px 0; font-weight:700">Fasting Protocol:</td><td>8-10 Hours Fasting Recommended</td></tr>
+          <tr style="border-bottom:1px solid #E2E8F0"><td style="padding:4px 0; font-weight:700">Key Liver Analytes:</td><td>Bilirubin, SGOT (AST), SGPT (ALT), ALP, Total Protein, Albumin</td></tr>
+          <tr style="border-bottom:1px solid #E2E8F0"><td style="padding:4px 0; font-weight:700">Key Kidney Analytes:</td><td>Serum Creatinine, Blood Urea, BUN, Uric Acid, Electrolytes</td></tr>
+          <tr><td style="padding:4px 0; font-weight:700">BJSL Tariffs:</td><td>Creatinine ₹50 | LFT ₹360 | Renal KFT ₹320</td></tr>
+        </table>
+      </div>
+
+      <h3>The Liver: The Body's Biochemical Powerhouse:</h3>
+      <p>The liver processes nutrients, synthesizes essential blood proteins, metabolizes pharmaceutical drugs, and produces bile for digestion. Non-Alcoholic Fatty Liver Disease (NAFLD) has become widespread in urban populations due to refined diets and sedentary routines.</p>
+      <ul>
+        <li><strong>SGPT (ALT) &amp; SGOT (AST):</strong> Intracellular liver enzymes. When hepatic cells suffer inflammation or injury, these enzymes leak into circulation. Elevated ALT is particularly specific to liver stress.</li>
+        <li><strong>Serum Bilirubin (Total &amp; Direct):</strong> Waste product of red blood cell breakdown. Elevated levels cause visible jaundice, dark urine, or scleral yellowing.</li>
+        <li><strong>Alkaline Phosphatase (ALP):</strong> Highlights bile duct obstruction, gallstone congestion, or bone turnover.</li>
+      </ul>
+
+      <h3>The Kidneys: Precision Blood Filtration:</h3>
+      <p>Each kidney contains roughly one million microscopic nephrons filtering waste and excess fluid around the clock. Because early renal compromise produces zero outward symptoms, blood biomarkers provide the earliest warning.</p>
+      <ul>
+        <li><strong>Serum Creatinine:</strong> The gold standard filtration biomarker. Muscle metabolism produces creatinine at a steady rate; elevated levels indicate diminished glomerular filtration.</li>
+        <li><strong>Blood Urea &amp; BUN:</strong> Breakdown products of dietary proteins. Rises in tandem with dehydration, high-protein intake, or renal filtration impairment.</li>
+        <li><strong>Uric Acid:</strong> Byproduct of purine metabolism. High serum levels can crystallize in joints (gout) or form kidney stones.</li>
+      </ul>
+    `,
+    image: '🫘',
+    relatedTests: ['liver-function-test', 'renal-profile-test', 'serum-creatinine-test']
+  },
+  {
+    id: 'full-body-health-checkup-guide',
+    slug: 'preventive-full-body-health-checkup-guide-by-age',
+    title: 'The Complete Guide to Preventive Full Body Health Checkups: What to Test at Every Age',
+    category: 'Preventive Healthcare',
+    author: 'Dr. Suresh Kumar, Senior Clinical Advisor',
+    date: TODAY_FORMATTED,
+    readTime: '8 min read',
+    excerpt: 'Preventive health checkups catch silent lifestyle conditions before they become clinical emergencies. Understand which blood tests and biomarker panels are recommended across your 20s, 30s, 40s, and senior years.',
+    content: `
+      <div class="at-a-glance-box" style="background:#F8FAFC; padding:1.25rem; border-radius:14px; border:1px solid #E2E8F0; margin-bottom:1.5rem">
+        <h4 style="margin-bottom:0.75rem; color:#0F172A; font-weight:800">📋 Recommended Preventive Screening by Age</h4>
+        <table style="width:100%; border-collapse:collapse; font-size:0.9rem">
+          <tr style="border-bottom:1px solid #E2E8F0"><td style="padding:4px 0; font-weight:700">Age 20 to 35:</td><td>CBC, Fasting Blood Sugar, Lipid Profile, Urine Routine (Annual)</td></tr>
+          <tr style="border-bottom:1px solid #E2E8F0"><td style="padding:4px 0; font-weight:700">Age 35 to 50:</td><td>Chirayu Prime (71 Tests) - HbA1c, LFT, KFT, Thyroid, Lipid, CBC (₹796)</td></tr>
+          <tr style="border-bottom:1px solid #E2E8F0"><td style="padding:4px 0; font-weight:700">Age 50+:</td><td>Chirayu Master (109 Tests) - Vitamins D3/B12, Electrolytes, Cardiac Risk (₹1,566)</td></tr>
+          <tr style="border-bottom:1px solid #E2E8F0"><td style="padding:4px 0; font-weight:700">Preparation:</td><td>10-12 Hours Overnight Fasting (Water Allowed)</td></tr>
+          <tr><td style="padding:4px 0; font-weight:700">Home Collection:</td><td>100% Free for Bookings ₹499+ across Bengaluru</td></tr>
+        </table>
+      </div>
+
+      <h3>Why Wait for Symptoms When You Can Prevent?</h3>
+      <p>Hypertension, type 2 diabetes, high cholesterol, and fatty liver are nicknamed "silent killers" because they develop gradually over years without pain, fever, or physical discomfort. By the time chest heaviness or fatigue appears, systemic vascular damage may already have occurred.</p>
+
+      <h3>How to Prepare for Your Health Checkup:</h3>
+      <ol>
+        <li><strong>10–12 Hours Fasting:</strong> Essential for accurate Fasting Blood Sugar and Lipid Profile (triglycerides). Plain water is permitted and encouraged to keep veins well-hydrated for easy phlebotomy.</li>
+        <li><strong>Morning Timing:</strong> Schedule sample collection between 7:00 AM and 9:30 AM to reflect true circadian fasting baseline.</li>
+        <li><strong>Medication Routine:</strong> Regular blood pressure medications can generally be taken with a sip of water unless specifically advised otherwise by your treating physician.</li>
+        <li><strong>Avoid Vigorous Exercise:</strong> Do not engage in heavy gym workouts or marathon running on the morning of testing, as muscle exertion temporarily elevates SGOT, CPK, and creatinine.</li>
+      </ol>
+    `,
+    image: '🩺',
+    relatedTests: ['chirayu-prime', 'chirayu-master', 'all-in-one']
+  },
+  {
+    id: 'anemia-ferritin-iron-deficiency',
+    slug: 'anemia-iron-deficiency-women-ferritin-vs-hemoglobin',
+    title: 'Anemia & Iron Deficiency in Women: Why Serum Ferritin Matters More Than Hemoglobin Alone',
+    category: 'Women\'s Health',
+    author: 'Dr. Ananya Rao, MD (Pathology)',
+    date: TODAY_FORMATTED,
+    readTime: '6 min read',
+    excerpt: 'Experiencing unexplained hair fall, chronic exhaustion, and brain fog? A standard Hemoglobin test can look normal while your cellular iron stores are completely depleted.',
+    content: `
+      <div class="at-a-glance-box" style="background:#F8FAFC; padding:1.25rem; border-radius:14px; border:1px solid #E2E8F0; margin-bottom:1.5rem">
+        <h4 style="margin-bottom:0.75rem; color:#0F172A; font-weight:800">📋 Iron &amp; Anemia Markers At a Glance</h4>
+        <table style="width:100%; border-collapse:collapse; font-size:0.9rem">
+          <tr style="border-bottom:1px solid #E2E8F0"><td style="padding:4px 0; font-weight:700">Circulating Marker:</td><td>Hemoglobin (Hb) on CBC Blood Test</td></tr>
+          <tr style="border-bottom:1px solid #E2E8F0"><td style="padding:4px 0; font-weight:700">Storage Marker:</td><td>Serum Ferritin (Bone Marrow &amp; Cellular Reserve)</td></tr>
+          <tr style="border-bottom:1px solid #E2E8F0"><td style="padding:4px 0; font-weight:700">Binding Capacity:</td><td>TIBC (Total Iron Binding Capacity) &amp; Transferrin Saturation</td></tr>
+          <tr style="border-bottom:1px solid #E2E8F0"><td style="padding:4px 0; font-weight:700">Turnaround Time:</td><td>Same Day (4 to 8 Hours)</td></tr>
+          <tr><td style="padding:4px 0; font-weight:700">Affordable Rates:</td><td>CBC at ₹160 | Iron Studies at ₹250 | Ferritin at ₹460</td></tr>
+        </table>
+      </div>
+
+      <h3>The Hidden Stages of Iron Deficiency:</h3>
+      <p>Iron deficiency develops in three distinct phases:</p>
+      <ol>
+        <li><strong>Stage 1 (Depleted Iron Stores):</strong> Ferritin drops below 30 ng/mL. Red blood cell count and Hemoglobin remain technically normal, but patients already suffer fatigue, diffuse hair shedding, and sleep disturbances.</li>
+        <li><strong>Stage 2 (Iron-Deficient Erythropoiesis):</strong> Transferrin saturation plummets, and RBC production begins slowing down.</li>
+        <li><strong>Stage 3 (Overt Iron-Deficiency Anemia):</strong> Hemoglobin drops below clinical thresholds (under 12.0 g/dL in non-pregnant adult women), leading to shortness of breath, palpitations, pale skin, and dizziness.</li>
+      </ol>
+
+      <h3>Why Ferritin Testing Is Indispensable:</h3>
+      <p>If you only test Hemoglobin, you may be told your blood report is "normal" while your body is starving for cellular iron. Checking Serum Ferritin provides an exact metric of your body's iron savings account, enabling targeted dietary adjustments or oral supplementation under medical supervision.</p>
+    `,
+    image: '🧬',
+    relatedTests: ['ferritin-test', 'iron-studies-test', 'cbc-test']
+  },
+  {
+    id: 'tech-worker-metabolic-syndrome',
+    slug: 'corporate-desk-job-health-risks-bengaluru-metabolic-syndrome',
+    title: 'Corporate Desk Job Health Risks in Bengaluru: Overcoming Metabolic Syndrome & Silent Deficiencies',
+    category: 'Lifestyle & Metabolism',
+    author: 'Dr. Rajesh Vardhan, Consultant Pathologist',
+    date: TODAY_FORMATTED,
+    readTime: '7 min read',
+    excerpt: 'Tech corridors like Electronic City, Whitefield, Manyata, and Outer Ring Road see high rates of early metabolic syndrome. Learn which screening blood tests reveal early insulin resistance and arterial inflammation.',
+    content: `
+      <div class="at-a-glance-box" style="background:#F8FAFC; padding:1.25rem; border-radius:14px; border:1px solid #E2E8F0; margin-bottom:1.5rem">
+        <h4 style="margin-bottom:0.75rem; color:#0F172A; font-weight:800">📋 Tech Professional Health Panel At a Glance</h4>
+        <table style="width:100%; border-collapse:collapse; font-size:0.9rem">
+          <tr style="border-bottom:1px solid #E2E8F0"><td style="padding:4px 0; font-weight:700">Metabolic Panel:</td><td>Fasting Blood Sugar (₹20), HbA1c (₹260), Lipid Profile (₹260)</td></tr>
+          <tr style="border-bottom:1px solid #E2E8F0"><td style="padding:4px 0; font-weight:700">Micronutrient Panel:</td><td>Vitamin D3 (₹660), Vitamin B12 (₹440)</td></tr>
+          <tr style="border-bottom:1px solid #E2E8F0"><td style="padding:4px 0; font-weight:700">Renal &amp; Joint:</td><td>Serum Creatinine (₹50), Serum Uric Acid (₹50)</td></tr>
+          <tr style="border-bottom:1px solid #E2E8F0"><td style="padding:4px 0; font-weight:700">All-Inclusive Checkup:</td><td>Chirayu Prime 71 Tests at ₹796 (Save 67%)</td></tr>
+          <tr><td style="padding:4px 0; font-weight:700">Doorstep Phlebotomy:</td><td>Early morning 7:00 AM home collection before work</td></tr>
+        </table>
+      </div>
+
+      <h3>The Corporate Health Dilemma in Bengaluru:</h3>
+      <p>Working 9 to 11 hours behind dual monitors, commuting in heavy traffic, eating on erratic schedules, and working under artificial blue lighting takes a measurable toll on biological markers. Common complaints like midday brain fog, joint stiffness, low back ache, and unrefreshing sleep are frequently biochemical warning signs.</p>
+
+      <h3>Key Diagnostic Markers Every Corporate Professional Should Track:</h3>
+      <ul>
+        <li><strong>Vitamin D3 (25-OH):</strong> Because IT campus workers spend sunlight peak hours indoors, over 80% test below the 30 ng/mL insufficiency threshold, leading to bone density loss and immune vulnerability.</li>
+        <li><strong>Vitamin B12:</strong> Vital for neurological myelin sheath protection and DNA synthesis. Vegetarian diets combined with stress commonly cause low levels, triggering chronic fatigue and tingling in extremities.</li>
+        <li><strong>HbA1c &amp; Fasting Glucose:</strong> Chronic stress elevates cortisol, impairing insulin sensitivity. Early prediabetes (HbA1c 5.7%–6.4%) is completely reversible through prompt lifestyle intervention.</li>
+        <li><strong>Serum Uric Acid:</strong> Inadequate hydration during long desk sessions combined with high-protein snacks can cause uric acid buildup, manifesting as morning heel pain or joint stiffness.</li>
+      </ul>
+    `,
+    image: '💻',
+    relatedTests: ['chirayu-prime', 'vitamin-d-test', 'hba1c-test', 'lipid-profile']
   }
 ];
 

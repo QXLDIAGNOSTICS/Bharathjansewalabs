@@ -143,7 +143,7 @@ export default function PatientPortal({ onOpenReportViewer, openBookingWizard })
         rawPhone: cleanPhone,
         age: 32,
         gender: 'Male',
-        memberSince: 'October 2026'
+        memberSince: 'November 2026'
       };
 
       localStorage.setItem('bjsl_patient_session', JSON.stringify(userData));
@@ -160,7 +160,7 @@ export default function PatientPortal({ onOpenReportViewer, openBookingWizard })
       rawPhone: demoPhone.replace(/\D/g, ''),
       age: 34,
       gender: demoName.includes('Sunita') ? 'Female' : 'Male',
-      memberSince: 'October 2026'
+      memberSince: 'November 2026'
     };
 
     localStorage.setItem('bjsl_patient_session', JSON.stringify(userData));

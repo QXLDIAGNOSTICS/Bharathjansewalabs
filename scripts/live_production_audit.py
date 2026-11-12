@@ -31,7 +31,8 @@ CHECK_PATHS = [
     "/sitemap.xml",
     "/our-centres/",
     "/locations/",
-    "/tests/"
+    "/tests/",
+    "/blog/"
 ]
 
 def audit_url(url, user_agent="Googlebot", timeout=10):

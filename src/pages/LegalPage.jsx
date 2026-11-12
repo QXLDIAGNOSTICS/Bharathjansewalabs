@@ -190,7 +190,7 @@ export default function LegalPage({ activeTab = 'promo', setActiveTab, setCurren
                     3. Offer Validity & Combination Rules
                   </h3>
                   <p>
-                    Promotional package pricing cannot be combined with bulk corporate camp vouchers unless authorized in writing by BJSL central administration. Promotional offers are valid through October 2026.
+                    Promotional package pricing cannot be combined with bulk corporate camp vouchers unless authorized in writing by BJSL central administration. Promotional offers are valid through December 2027.
                   </p>
                 </div>
 

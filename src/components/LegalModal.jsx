@@ -11,7 +11,7 @@ export default function LegalModal({ type, onClose }) {
       icon: <ShieldCheck size={24} color="#059669" />,
       body: (
         <div>
-          <p><strong>Effective Date:</strong> January 1, 2026 | <strong>Last Updated:</strong> October 2026</p>
+          <p><strong>Effective Date:</strong> January 1, 2026 | <strong>Last Updated:</strong> 12 November 2026</p>
           <p>At Bharath Jan Sewa Labs (BJSL), accessible from <code>bharathjansewalabs.com</code>, patient confidentiality, medical data privacy, and diagnostic integrity are our top priorities.</p>
           
           <h4 style={{ color: '#0F172A', marginTop: '1.25rem', marginBottom: '0.5rem' }}>1. Collection of Diagnostic & Personal Data</h4>

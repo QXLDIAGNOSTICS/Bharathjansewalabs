@@ -30,7 +30,8 @@ import {
   CENTRES, 
   FAQS, 
   COMPANY_INFO,
-  LOCALITIES
+  LOCALITIES,
+  BLOG_POSTS
 } from '../data/mockData';
 
 export default function Home({ 
@@ -2109,7 +2110,113 @@ export default function Home({
         </div>
       </section>
 
-      {/* 11. SEO DIRECTORY LINKS: 66 INDIVIDUAL DIAGNOSTIC TESTS IN BENGALURU */}
+      {/* 11. FEATURED HEALTH INSIGHTS & MEDICAL BLOGS */}
+      <section className="featured-blogs-section" style={{ background: '#FFFFFF', padding: '4rem 0', borderTop: '1px solid #E2E8F0' }}>
+        <div className="container" style={{ maxWidth: '1240px' }}>
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', flexWrap: 'wrap', gap: '1rem', marginBottom: '2.5rem' }}>
+            <div>
+              <span className="split-eyebrow" style={{ color: '#EF4444' }}>CLINICAL KNOWLEDGE &amp; PATIENT ADVISORIES</span>
+              <h2 className="section-main-heading" style={{ marginBottom: '6px' }}>
+                Latest Health Insights &amp; Diagnostic Guides
+              </h2>
+              <p style={{ color: '#64748B', fontSize: '0.95rem', maxWidth: '720px', margin: 0 }}>
+                Medically reviewed articles by certified Pathologists explaining when to test, preparation protocols, and interpreting your blood reports in Bengaluru.
+              </p>
+            </div>
+            <button 
+              onClick={() => {
+                if (setCurrentTab) setCurrentTab('blogs');
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+              }}
+              style={{
+                display: 'inline-flex',
+                alignItems: 'center',
+                gap: '8px',
+                padding: '11px 22px',
+                borderRadius: '12px',
+                background: '#EF4444',
+                color: 'white',
+                fontWeight: 800,
+                fontSize: '0.9rem',
+                border: 'none',
+                cursor: 'pointer',
+                boxShadow: '0 4px 14px rgba(239, 68, 68, 0.3)'
+              }}
+            >
+              <span>Explore All {BLOG_POSTS.length} Health Guides</span>
+              <ArrowRight size={16} />
+            </button>
+          </div>
+
+          <div style={{
+            display: 'grid',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
+            gap: '1.5rem'
+          }}>
+            {BLOG_POSTS.slice(0, 3).map((post) => (
+              <article 
+                key={post.id}
+                onClick={() => {
+                  if (setCurrentTab) setCurrentTab('blogs');
+                  window.scrollTo({ top: 0, behavior: 'smooth' });
+                }}
+                style={{
+                  background: '#F8FAFC',
+                  borderRadius: '18px',
+                  border: '1px solid #E2E8F0',
+                  padding: '1.75rem',
+                  display: 'flex',
+                  flexDirection: 'column',
+                  justifyContent: 'space-between',
+                  cursor: 'pointer',
+                  transition: 'all 0.2s ease',
+                  boxShadow: '0 2px 8px rgba(15, 23, 42, 0.04)'
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.borderColor = '#EF4444';
+                  e.currentTarget.style.transform = 'translateY(-2px)';
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.borderColor = '#E2E8F0';
+                  e.currentTarget.style.transform = 'none';
+                }}
+              >
+                <div>
+                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '0.75rem' }}>
+                    <span className="badge-pink-tag" style={{ fontSize: '0.75rem', fontWeight: 800 }}>
+                      {post.category}
+                    </span>
+                    <span style={{ fontSize: '0.78rem', color: '#64748B', display: 'flex', alignItems: 'center', gap: '4px' }}>
+                      <Clock size={12} /> {post.readTime}
+                    </span>
+                  </div>
+
+                  <div style={{ fontSize: '2.2rem', marginBottom: '0.5rem' }}>{post.image}</div>
+
+                  <h3 style={{ fontSize: '1.15rem', fontWeight: 800, color: '#0F172A', marginBottom: '0.5rem', lineHeight: 1.35 }}>
+                    {post.title}
+                  </h3>
+
+                  <p style={{ fontSize: '0.875rem', color: '#64748B', lineHeight: 1.6, marginBottom: '1.25rem' }}>
+                    {post.excerpt}
+                  </p>
+                </div>
+
+                <div style={{ borderTop: '1px solid #E2E8F0', paddingTop: '0.85rem', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+                  <span style={{ fontSize: '0.8rem', color: '#0F172A', fontWeight: 700 }}>
+                    👨‍⚕️ {post.author.split(',')[0]}
+                  </span>
+                  <span style={{ color: '#EF4444', fontWeight: 800, fontSize: '0.85rem', display: 'flex', alignItems: 'center', gap: '4px' }}>
+                    Read Guide →
+                  </span>
+                </div>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* 12. SEO DIRECTORY LINKS: 66 INDIVIDUAL DIAGNOSTIC TESTS IN BENGALURU */}
       <section className="seo-tests-directory-section" aria-label="Affordable lab tests" style={{ background: '#F8FAFC', padding: '4rem 0', borderTop: '1px solid #E2E8F0' }}>
         <div className="container">
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', flexWrap: 'wrap', gap: '1rem', marginBottom: '2rem' }}>

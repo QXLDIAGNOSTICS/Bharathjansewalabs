@@ -205,6 +205,9 @@ export default function Footer({ setCurrentTab, openLegal }) {
           }}>
             <strong style={{ color: '#334155' }}>Accreditation & Medical Disclosure: </strong>
             Samples collected by Bharath Jan Sewa Labs collection centres are processed at designated partner laboratories. Laboratory accreditation details and the applicable scope of accredited testing are available on request. Collection centres are phlebotomy specimen collection desks and are not individually accredited laboratories. All educational material is provided for patient health awareness and does not substitute for qualified clinical consultation.
+            <span onClick={() => setCurrentTab && setCurrentTab('quality')} style={{ color: '#0284C7', cursor: 'pointer', fontWeight: 700, marginLeft: '6px' }}>
+              Read Quality &amp; Partner Accreditation Details →
+            </span>
           </div>
 
           {/* Bottom Bar */}
@@ -225,6 +228,8 @@ export default function Footer({ setCurrentTab, openLegal }) {
             </div>
 
             <div style={{ display: 'flex', alignItems: 'center', gap: '1.5rem', flexWrap: 'wrap' }}>
+              <a href="#" onClick={(e) => { e.preventDefault(); setCurrentTab && setCurrentTab('blogs'); }} style={{ color: '#718096', textDecoration: 'none', transition: 'color 0.2s', fontWeight: 500 }} onMouseEnter={(e) => e.target.style.color = '#0F172A'} onMouseLeave={(e) => e.target.style.color = '#718096'}>Health Guide</a>
+              <a href="#" onClick={(e) => { e.preventDefault(); setCurrentTab && setCurrentTab('assistance'); }} style={{ color: '#718096', textDecoration: 'none', transition: 'color 0.2s', fontWeight: 500 }} onMouseEnter={(e) => e.target.style.color = '#0F172A'} onMouseLeave={(e) => e.target.style.color = '#718096'}>Patient Assistance</a>
               <a href="#" onClick={(e) => { e.preventDefault(); openLegal && openLegal('privacy'); }} style={{ color: '#718096', textDecoration: 'none', transition: 'color 0.2s', fontWeight: 500 }} onMouseEnter={(e) => e.target.style.color = '#0F172A'} onMouseLeave={(e) => e.target.style.color = '#718096'}>Privacy Policy</a>
               <a href="#" onClick={(e) => { e.preventDefault(); openLegal && openLegal('terms'); }} style={{ color: '#718096', textDecoration: 'none', transition: 'color 0.2s', fontWeight: 500 }} onMouseEnter={(e) => e.target.style.color = '#0F172A'} onMouseLeave={(e) => e.target.style.color = '#718096'}>Terms &amp; Condition</a>
               <a href="#" onClick={(e) => { e.preventDefault(); openLegal && openLegal('promo'); }} style={{ color: '#94A3B8', textDecoration: 'none', fontWeight: 500 }}>*Promo T&amp;Cs Apply</a>
@@ -265,12 +270,11 @@ export default function Footer({ setCurrentTab, openLegal }) {
             <div className="mobile-footer-nav-col">
               <h4 className="mobile-footer-nav-heading">Company</h4>
               <ul className="mobile-footer-nav-links">
-                <li><a href="#" onClick={(e) => { e.preventDefault(); setCurrentTab && setCurrentTab('home'); }}>About Us</a></li>
-                <li><a href="#centres" onClick={(e) => { e.preventDefault(); const el = document.getElementById('centres'); if (el) el.scrollIntoView({ behavior: 'smooth' }); }}>Centres</a></li>
-                <li><a href="#" onClick={(e) => { e.preventDefault(); }}>Careers</a></li>
-                <li><a href="#" onClick={(e) => { e.preventDefault(); }}>Emedic Career</a></li>
-                <li><a href="#blog" onClick={(e) => { e.preventDefault(); const el = document.getElementById('health-guide'); if (el) el.scrollIntoView({ behavior: 'smooth' }); }}>Blogs</a></li>
-                <li><a href="#contact" onClick={(e) => { e.preventDefault(); const el = document.getElementById('centres'); if (el) el.scrollIntoView({ behavior: 'smooth' }); }}>Contact Us</a></li>
+                <li><a href="#" onClick={(e) => { e.preventDefault(); setCurrentTab && setCurrentTab('about'); }}>About Us</a></li>
+                <li><a href="#" onClick={(e) => { e.preventDefault(); setCurrentTab && setCurrentTab('centres'); }}>Centres</a></li>
+                <li><a href="#" onClick={(e) => { e.preventDefault(); setCurrentTab && setCurrentTab('blogs'); }}>Health Guide &amp; Blogs</a></li>
+                <li><a href="#" onClick={(e) => { e.preventDefault(); setCurrentTab && setCurrentTab('assistance'); }}>Diagnostic Assistance</a></li>
+                <li><a href="#" onClick={(e) => { e.preventDefault(); setCurrentTab && setCurrentTab('quality'); }}>Quality &amp; NABL Standards</a></li>
               </ul>
             </div>
 

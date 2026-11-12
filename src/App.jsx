@@ -12,6 +12,8 @@ import DoctorsClinicsPage from './pages/DoctorsClinicsPage';
 import FranchisePage from './pages/FranchisePage';
 import BlogsPage from './pages/BlogsPage';
 import PatientPortal from './pages/PatientPortal';
+import AssistancePage from './pages/AssistancePage';
+import QualityPage from './pages/QualityPage';
 
 import TestDetailModal from './components/TestDetailModal';
 import BookingWizardModal from './components/BookingWizardModal';
@@ -26,9 +28,35 @@ import CartDrawer from './components/CartDrawer';
 import { INDIVIDUAL_TESTS, HEALTH_PACKAGES } from './data/mockData';
 import { Bot, MessageSquare, Phone, Sparkles } from 'lucide-react';
 
+function getInitialTab() {
+  if (typeof window === 'undefined') return 'home';
+  const path = window.location.pathname.toLowerCase();
+  const hash = window.location.hash.toLowerCase();
+  if (path.startsWith('/blog') || hash === '#blogs' || hash === '#blog' || hash === '#health-guide') return 'blogs';
+  if (path.startsWith('/quality') || hash === '#quality') return 'quality';
+  if (path.startsWith('/affordable-testing-assistance') || path.startsWith('/assistance') || hash === '#assistance') return 'assistance';
+  if (path.startsWith('/about')) return 'about';
+  if (path.startsWith('/tests')) return 'tests';
+  if (path.startsWith('/packages') || hash === '#checkups') return 'packages';
+  if (path.startsWith('/centres') || path.startsWith('/our-centres') || hash === '#centres') return 'centres';
+  if (path.startsWith('/doctors')) return 'doctors';
+  if (path.startsWith('/franchise')) return 'franchise';
+  if (path.startsWith('/portal') || path.startsWith('/patient')) return 'portal';
+  if (path.startsWith('/legal') || path.startsWith('/privacy') || path.startsWith('/terms')) return 'legal';
+  return 'home';
+}
+
 export default function App() {
-  const [currentTab, setCurrentTab] = useState('home');
+  const [currentTab, setCurrentTab] = useState(getInitialTab);
   const [legalTab, setLegalTab] = useState('promo');
+
+  React.useEffect(() => {
+    const handlePopState = () => {
+      setCurrentTab(getInitialTab());
+    };
+    window.addEventListener('popstate', handlePopState);
+    return () => window.removeEventListener('popstate', handlePopState);
+  }, []);
   
   // Cart & Booking
   const [cart, setCart] = useState([HEALTH_PACKAGES[0]]); // Pre-load Chirayu Prime for demonstration
@@ -157,6 +185,14 @@ export default function App() {
 
         {currentTab === 'blogs' && (
           <BlogsPage onBookTest={handleBookTest} />
+        )}
+
+        {currentTab === 'assistance' && (
+          <AssistancePage openBookingWizard={() => setIsCartDrawerOpen(true)} />
+        )}
+
+        {currentTab === 'quality' && (
+          <QualityPage />
         )}
 
         {currentTab === 'portal' && (
