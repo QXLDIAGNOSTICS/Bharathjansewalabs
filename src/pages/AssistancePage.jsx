@@ -146,3 +146,4 @@ export default function AssistancePage({ openBookingWizard }) {
     </div>
   );
 }
+
