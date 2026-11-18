@@ -57,7 +57,7 @@ export default function BlogsPage({ onBookTest }) {
             Health Insights &amp; Clinical Pathology Articles
           </h1>
           <p style={{ fontSize: '1.05rem', color: '#64748B', lineHeight: 1.6 }}>
-            Evidence-based medical guides authored by certified Pathologists and Clinical Advisors. Updated for Bengaluru patients as of <strong>12 November 2026</strong>.
+            Evidence-based medical guides authored by certified Pathologists and Clinical Advisors. Updated for Bengaluru patients as of <strong>18 November 2026</strong>.
           </p>
 
           {/* Search Bar */}
@@ -297,7 +297,7 @@ export default function BlogsPage({ onBookTest }) {
                 
                 <div style={{ display: 'flex', alignItems: 'center', flexWrap: 'wrap', gap: '1.25rem', fontSize: '0.85rem', color: '#64748B', marginBottom: '1.75rem', borderBottom: '1px solid #F1F5F9', paddingBottom: '1rem' }}>
                   <span>👨‍⚕️ <strong>{selectedArticle.author}</strong></span>
-                  <span>📅 Published: {selectedArticle.date || '12 November 2026'}</span>
+                  <span>📅 Published: {selectedArticle.date || '18 November 2026'}</span>
                   <span>⏱️ {selectedArticle.readTime}</span>
                   <span style={{ color: '#059669', fontWeight: 700 }}>✓ Clinically Reviewed</span>
                 </div>

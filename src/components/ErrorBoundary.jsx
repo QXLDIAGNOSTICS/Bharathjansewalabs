@@ -47,21 +47,42 @@ export default class ErrorBoundary extends React.Component {
             <p style={{ color: '#475569', fontSize: '14px', lineHeight: '1.6', marginBottom: '24px' }}>
               We encountered an issue rendering this section. Please refresh or try again.
             </p>
-            <button
-              onClick={this.handleReload}
-              style={{
-                backgroundColor: '#EF4444',
-                color: '#FFFFFF',
-                fontWeight: '600',
-                padding: '10px 24px',
-                borderRadius: '8px',
-                border: 'none',
-                cursor: 'pointer',
-                fontSize: '14px'
-              }}
-            >
-              Reload Page
-            </button>
+            <div style={{ display: 'flex', gap: '10px', justifyContent: 'center', flexWrap: 'wrap' }}>
+              <button
+                onClick={this.handleReload}
+                style={{
+                  backgroundColor: '#EF4444',
+                  color: '#FFFFFF',
+                  fontWeight: '600',
+                  padding: '10px 20px',
+                  borderRadius: '8px',
+                  border: 'none',
+                  cursor: 'pointer',
+                  fontSize: '14px'
+                }}
+              >
+                Reload Page
+              </button>
+              <a
+                href="https://wa.me/919805543143?text=Hello%20Bharath%20Jan%20Sewa%20Labs%2C%20I%20need%20help%20with%20booking"
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{
+                  backgroundColor: '#25D366',
+                  color: '#FFFFFF',
+                  fontWeight: '600',
+                  padding: '10px 20px',
+                  borderRadius: '8px',
+                  textDecoration: 'none',
+                  fontSize: '14px',
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: '6px'
+                }}
+              >
+                Book via WhatsApp
+              </a>
+            </div>
           </div>
         </div>
       );
