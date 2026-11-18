@@ -544,41 +544,41 @@ img, svg {
 .desktop-lifestyle-scrim {
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.92) 0%, rgba(255, 255, 255, 0.35) 42%, rgba(0, 0, 0, 0.25) 68%, rgba(15, 23, 42, 0.92) 100%);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.45) 0%, rgba(255, 255, 255, 0) 22%, rgba(0, 0, 0, 0) 50%, rgba(15, 23, 42, 0.88) 100%);
   pointer-events: none;
 }
 
-/* Specific Card Scrim Overlays for Superior Contrast & Matching Reference */
+/* Specific Card Scrim Overlays for Crystal-Clear Imagery & High Contrast */
 .scrim-ultra {
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.92) 0%, rgba(255, 255, 255, 0.3) 38%, rgba(30, 27, 75, 0.28) 65%, rgba(30, 27, 75, 0.94) 100%) !important;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.45) 0%, rgba(255, 255, 255, 0) 22%, rgba(0, 0, 0, 0) 50%, rgba(30, 27, 75, 0.9) 100%) !important;
 }
 
 .scrim-lifestyle {
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.92) 0%, rgba(255, 255, 255, 0.25) 38%, rgba(15, 23, 42, 0.25) 65%, rgba(15, 23, 42, 0.94) 100%) !important;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.45) 0%, rgba(255, 255, 255, 0) 22%, rgba(0, 0, 0, 0) 50%, rgba(15, 23, 42, 0.9) 100%) !important;
 }
 
 .scrim-hairfall {
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.92) 0%, rgba(255, 255, 255, 0.2) 38%, rgba(69, 26, 3, 0.28) 65%, rgba(69, 26, 3, 0.94) 100%) !important;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.45) 0%, rgba(255, 255, 255, 0) 22%, rgba(0, 0, 0, 0) 50%, rgba(69, 26, 3, 0.9) 100%) !important;
 }
 
 .scrim-vitamin {
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.92) 0%, rgba(255, 255, 255, 0.25) 38%, rgba(28, 25, 23, 0.28) 65%, rgba(28, 25, 23, 0.94) 100%) !important;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.45) 0%, rgba(255, 255, 255, 0) 22%, rgba(0, 0, 0, 0) 50%, rgba(28, 25, 23, 0.9) 100%) !important;
 }
 
 .scrim-senior {
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.92) 0%, rgba(255, 255, 255, 0.22) 38%, rgba(19, 78, 74, 0.28) 65%, rgba(19, 78, 74, 0.94) 100%) !important;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.45) 0%, rgba(255, 255, 255, 0) 22%, rgba(0, 0, 0, 0) 50%, rgba(19, 78, 74, 0.9) 100%) !important;
 }
 
 .scrim-cardiac {
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.92) 0%, rgba(255, 255, 255, 0.22) 38%, rgba(153, 27, 27, 0.25) 65%, rgba(153, 27, 27, 0.94) 100%) !important;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.45) 0%, rgba(255, 255, 255, 0) 22%, rgba(0, 0, 0, 0) 50%, rgba(153, 27, 27, 0.9) 100%) !important;
 }
 
 .scrim-fever {
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.92) 0%, rgba(255, 255, 255, 0.22) 38%, rgba(22, 70, 94, 0.25) 65%, rgba(22, 70, 94, 0.94) 100%) !important;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.45) 0%, rgba(255, 255, 255, 0) 22%, rgba(0, 0, 0, 0) 50%, rgba(22, 70, 94, 0.9) 100%) !important;
 }
 
 .scrim-fullbody {
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.92) 0%, rgba(255, 255, 255, 0.25) 38%, rgba(55, 48, 163, 0.25) 65%, rgba(55, 48, 163, 0.94) 100%) !important;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.45) 0%, rgba(255, 255, 255, 0) 22%, rgba(0, 0, 0, 0) 50%, rgba(55, 48, 163, 0.9) 100%) !important;
 }
 
 .desktop-lifestyle-content {
@@ -607,6 +607,7 @@ img, svg {
   line-height: 1.2;
   letter-spacing: -0.02em;
   margin: 0;
+  text-shadow: 0 1px 4px rgba(255, 255, 255, 0.95), 0 0 10px rgba(255, 255, 255, 0.85);
 }
 
 /* Headline Color Classes for Perfect Contrast */
@@ -662,9 +663,8 @@ img, svg {
   border-radius: 18px;
   padding: 12px 14px;
   color: #FFFFFF;
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25);
   transition: transform 0.2s ease;
   height: auto;
   min-height: 92px;
@@ -1536,13 +1536,13 @@ img, svg {
 .cond-glass-scrim {
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, rgba(15, 23, 42, 0.2) 0%, rgba(15, 23, 42, 0.35) 40%, rgba(15, 23, 42, 0.95) 100%);
+  background: linear-gradient(180deg, rgba(15, 23, 42, 0) 0%, rgba(15, 23, 42, 0.1) 45%, rgba(15, 23, 42, 0.9) 100%);
   z-index: 2;
   transition: background 0.3s ease;
 }
 
 .condition-glass-card:hover .cond-glass-scrim {
-  background: linear-gradient(180deg, rgba(15, 23, 42, 0.1) 0%, rgba(15, 23, 42, 0.3) 35%, rgba(15, 23, 42, 0.92) 100%);
+  background: linear-gradient(180deg, rgba(15, 23, 42, 0) 0%, rgba(15, 23, 42, 0.08) 40%, rgba(15, 23, 42, 0.88) 100%);
 }
 
 .cond-glass-top {
@@ -3676,24 +3676,24 @@ img, svg {
   .mobile-lifestyle-scrim {
     position: absolute;
     inset: 0;
-    background: linear-gradient(180deg, rgba(255, 255, 255, 0.88) 0%, rgba(255, 255, 255, 0.3) 38%, rgba(0, 0, 0, 0.2) 65%, rgba(15, 23, 42, 0.9) 100%);
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.45) 0%, rgba(255, 255, 255, 0) 22%, rgba(0, 0, 0, 0) 50%, rgba(15, 23, 42, 0.88) 100%);
     pointer-events: none;
   }
 
   .scrim-ultra {
-    background: linear-gradient(180deg, rgba(255, 255, 255, 0.88) 0%, rgba(255, 255, 255, 0.25) 36%, rgba(30, 27, 75, 0.25) 65%, rgba(30, 27, 75, 0.92) 100%) !important;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.45) 0%, rgba(255, 255, 255, 0) 22%, rgba(0, 0, 0, 0) 50%, rgba(30, 27, 75, 0.9) 100%) !important;
   }
 
   .scrim-lifestyle {
-    background: linear-gradient(180deg, rgba(255, 255, 255, 0.88) 0%, rgba(255, 255, 255, 0.2) 36%, rgba(15, 23, 42, 0.2) 65%, rgba(15, 23, 42, 0.92) 100%) !important;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.45) 0%, rgba(255, 255, 255, 0) 22%, rgba(0, 0, 0, 0) 50%, rgba(15, 23, 42, 0.9) 100%) !important;
   }
 
   .scrim-hairfall {
-    background: linear-gradient(180deg, rgba(255, 255, 255, 0.88) 0%, rgba(255, 255, 255, 0.15) 36%, rgba(69, 26, 3, 0.25) 65%, rgba(69, 26, 3, 0.92) 100%) !important;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.45) 0%, rgba(255, 255, 255, 0) 22%, rgba(0, 0, 0, 0) 50%, rgba(69, 26, 3, 0.9) 100%) !important;
   }
 
   .scrim-vitamin {
-    background: linear-gradient(180deg, rgba(255, 255, 255, 0.88) 0%, rgba(255, 255, 255, 0.2) 36%, rgba(28, 25, 23, 0.25) 65%, rgba(28, 25, 23, 0.92) 100%) !important;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.45) 0%, rgba(255, 255, 255, 0) 22%, rgba(0, 0, 0, 0) 50%, rgba(28, 25, 23, 0.9) 100%) !important;
   }
 
   .mobile-lifestyle-content {
@@ -3712,6 +3712,7 @@ img, svg {
     line-height: 1.18;
     letter-spacing: -0.02em;
     margin: 0;
+    text-shadow: 0 1px 4px rgba(255, 255, 255, 0.95), 0 0 10px rgba(255, 255, 255, 0.85);
   }
 
   .headline-ultra {
@@ -3745,9 +3746,7 @@ img, svg {
   }
 
   .mobile-lifestyle-tag-pill {
-    background: rgba(15, 23, 42, 0.82);
-    backdrop-filter: blur(14px);
-    -webkit-backdrop-filter: blur(14px);
+    background: rgba(15, 23, 42, 0.88);
     border: 1px solid rgba(255, 255, 255, 0.25);
     border-radius: 18px;
     padding: 12px 14px;
