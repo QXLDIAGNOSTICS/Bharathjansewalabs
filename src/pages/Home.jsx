@@ -22,7 +22,8 @@ import {
   MessageSquare,
   Upload,
   X,
-  Sparkles
+  Sparkles,
+  Tag
 } from 'lucide-react';
 import { 
   HEALTH_PACKAGES, 
@@ -55,6 +56,8 @@ export default function Home({
   const conditionsScrollRef = useRef(null);
   const desktopSliderRef = useRef(null);
   const homeCollectionSliderRef = useRef(null);
+  const highlightsSliderRef = useRef(null);
+  const assuranceSliderRef = useRef(null);
 
   const scrollCarousel = (ref, distance) => {
     if (ref.current) {
@@ -65,6 +68,18 @@ export default function Home({
   const scrollHomeCollectionSlider = (direction) => {
     if (homeCollectionSliderRef.current) {
       homeCollectionSliderRef.current.scrollBy({ left: direction * 360, behavior: 'smooth' });
+    }
+  };
+
+  const scrollHighlightsSlider = (direction) => {
+    if (highlightsSliderRef.current) {
+      highlightsSliderRef.current.scrollBy({ left: direction * 350, behavior: 'smooth' });
+    }
+  };
+
+  const scrollAssuranceSlider = (direction) => {
+    if (assuranceSliderRef.current) {
+      assuranceSliderRef.current.scrollBy({ left: direction * 360, behavior: 'smooth' });
     }
   };
 
@@ -330,6 +345,176 @@ export default function Home({
       points: ['Gentle Blood Collection', 'Zero Waiting Fatigue', 'Full Body Screening from ₹796'],
       ctaText: 'Book for Parents',
       ctaLink: 'https://wa.me/919805543143?text=Hello%20Bharath%20Jan%20Sewa%20Labs%2C%20I%20want%20to%20book%20a%20home%20sample%20collection%20for%20my%20parents'
+    }
+  ];
+
+  // 1. Diagnostic Highlights Slides (Positioned immediately above "Affordable Diagnostic Tests in Bengaluru")
+  const diagnosticHighlightSlides = [
+    {
+      id: 'cbc-esr-highlight',
+      badge: '🩸 Most Prescribed',
+      badgeColor: '#DC2626',
+      badgeBg: '#FEF2F2',
+      tag: 'Haematology Panel',
+      name: 'Complete Blood Count with ESR (CBC + ESR)',
+      desc: 'Detects infections, anemia, viral fevers, platelet changes, and inflammatory markers with precision automated cell counters.',
+      price: 160,
+      mrp: 450,
+      discount: '64% Off',
+      parameters: 24,
+      tat: 'Same Day',
+      tests: ['Hemoglobin & RBC Indices', 'Total & Differential WBC', 'Platelet Count', 'ESR Westergren'],
+      url: '/tests/cbc-esr-test/',
+      whatsappMsg: 'Namaste BJSL, I would like to book Complete Blood Count with ESR (CBC + ESR) at ₹160.'
+    },
+    {
+      id: 'diabetes-hba1c-highlight',
+      badge: '🩺 Sugar Care',
+      badgeColor: '#2563EB',
+      badgeBg: '#EFF6FF',
+      tag: 'Glycemic Control',
+      name: 'HbA1c & Fasting Glucose Screening',
+      desc: 'Gold-standard 3-month glycemic evaluation paired with instant blood glucose for precise diabetes diagnosis and monitoring.',
+      price: 260,
+      mrp: 650,
+      discount: '60% Off',
+      parameters: 3,
+      tat: 'Same Day',
+      tests: ['Glycated Hemoglobin (HbA1c)', 'Estimated Average Glucose', 'Fasting Blood Sugar (FBS)'],
+      url: '/tests/hba1c-test/',
+      whatsappMsg: 'Namaste BJSL, I would like to book HbA1c & Fasting Glucose Screening at ₹260.'
+    },
+    {
+      id: 'lipid-profile-highlight',
+      badge: '❤️ Heart Health',
+      badgeColor: '#E11D48',
+      badgeBg: '#FFF1F2',
+      tag: 'Cardiovascular Panel',
+      name: 'Complete Lipid Profile (Cholesterol Panel)',
+      desc: 'Assesses cardiovascular risk, arterial plaque buildup, and lipid balance with full enzymatic cholesterol fraction profiling.',
+      price: 260,
+      mrp: 750,
+      discount: '65% Off',
+      parameters: 8,
+      tat: 'Same Day',
+      tests: ['Total Cholesterol', 'HDL (Good) & LDL (Bad)', 'Triglycerides', 'VLDL & TC/HDL Ratio'],
+      url: '/tests/lipid-profile-test/',
+      whatsappMsg: 'Namaste BJSL, I would like to book Complete Lipid Profile at ₹260.'
+    },
+    {
+      id: 'thyroid-profile-highlight',
+      badge: '🦋 Hormonal Balance',
+      badgeColor: '#0D9488',
+      badgeBg: '#F0FDFA',
+      tag: 'Endocrine Panel',
+      name: 'Thyroid Function Test (Total T3, T4 & TSH)',
+      desc: 'Evaluates thyroid gland activity to diagnose hypo/hyperthyroidism, fatigue, metabolic changes, and unexplained weight changes.',
+      price: 190,
+      mrp: 600,
+      discount: '68% Off',
+      parameters: 3,
+      tat: 'Same Day',
+      tests: ['Total Triiodothyronine (T3)', 'Total Thyroxine (T4)', 'Ultrasensitive TSH (CLIA)'],
+      url: '/tests/thyroid-function-test-total/',
+      whatsappMsg: 'Namaste BJSL, I would like to book Thyroid Function Test (Total T3, T4, TSH) at ₹190.'
+    },
+    {
+      id: 'lft-kft-highlight',
+      badge: '🧪 Vital Organs',
+      badgeColor: '#7C3AED',
+      badgeBg: '#F5F3FF',
+      tag: 'Liver & Kidney Panel',
+      name: 'Liver & Renal Function Screen (LFT + KFT)',
+      desc: 'Complete metabolic workup monitoring liver enzymes, bilirubin, kidney filtration rate, creatinine, and urea balance.',
+      price: 360,
+      mrp: 950,
+      discount: '62% Off',
+      parameters: 18,
+      tat: 'Same Day',
+      tests: ['SGOT, SGPT & Bilirubin', 'Serum Creatinine & Blood Urea', 'Uric Acid & Serum Protein', 'Albumin-Globulin Ratio'],
+      url: '/tests/liver-function-test/',
+      whatsappMsg: 'Namaste BJSL, I would like to book Liver & Renal Function Screen at ₹360.'
+    },
+    {
+      id: 'vitamin-d3-b12-highlight',
+      badge: '💊 Vital Nutrition',
+      badgeColor: '#D97706',
+      badgeBg: '#FFFBEB',
+      tag: 'Energy & Immunity',
+      name: 'Vitamin D3 & Vitamin B12 Vital Screen',
+      desc: 'Crucial for bone density, nerve conduction, energy levels, hair health, and immune system strength.',
+      price: 660,
+      mrp: 1800,
+      discount: '63% Off',
+      parameters: 2,
+      tat: '24 Hours',
+      tests: ['25-OH Vitamin D Total', 'Vitamin B12 (Cobalamin)', 'Chemiluminescence Assay'],
+      url: '/tests/vitamin-d-test/',
+      whatsappMsg: 'Namaste BJSL, I would like to book Vitamin D3 & Vitamin B12 Screen at ₹660.'
+    }
+  ];
+
+  // 2. Diagnostic Assurance Slides (Positioned immediately above "Latest Health Insights & Diagnostic Guides")
+  const diagnosticAssuranceSlides = [
+    {
+      id: 'slide-nabl-precision',
+      badge: '🔬 NABL Partner Standards',
+      badgeColor: '#0284C7',
+      badgeBg: '#F0F9FF',
+      title: 'Precision at Every Step: From Collection to Reports',
+      desc: 'All blood and urine specimens are collected using vacuum BD vacutainers, cold-chain preserved in temperature-monitored boxes, and analyzed on calibrated automated clinical chemistry analyzers at NABL accredited partner laboratories (MC-2849 / MC-3104).',
+      points: [
+        'Sterile single-use vacuum vacutainers with barcode tracking',
+        'Daily internal quality controls & multi-tier calibration',
+        'Doctor-signed clinical diagnostic PDF reports'
+      ],
+      ctaText: 'Learn About Lab Quality',
+      ctaLink: '/about/'
+    },
+    {
+      id: 'slide-family-comfort',
+      badge: '👨‍👩‍👧‍👦 Pediatric & Geriatric Care',
+      badgeColor: '#16A34A',
+      badgeBg: '#F0FDF4',
+      title: 'Designed for Growing Kids & Senior Citizens',
+      desc: 'Our experienced phlebotomists are specially trained in gentle, low-pain blood draws using ultra-fine butterfly needles. Perfect for young children, toddlers, and elderly parents who find clinical visits stressful or exhausting.',
+      points: [
+        'Painless blood draws using micro-gauge butterfly needles',
+        'Zero waiting queues or hospital exposure for vulnerable elders',
+        'Home collection available 7 days a week from 6:30 AM'
+      ],
+      ctaText: 'Book Gentle Home Collection',
+      ctaLink: 'https://wa.me/919805543143?text=Namaste%20BJSL,%20I%20would%20like%20to%20book%20a%20home%20collection%20for%20my%20child%20/%20elderly%20parents.'
+    },
+    {
+      id: 'slide-transparent-pricing',
+      badge: '🏷️ 100% Transparent Tariffs',
+      badgeColor: '#D97706',
+      badgeBg: '#FFFBEB',
+      title: 'Transparent Pricing with Zero Hidden Charges',
+      desc: 'Unlike traditional labs that hide test costs until you visit, BJSL publishes all 66 test prices openly online and on leaflets. Transparent rates from ₹20 with no hidden registration fees or unexpected charges.',
+      points: [
+        'Fasting Blood Sugar at ₹20, Urine Routine at ₹50',
+        'CBC + ESR at ₹160, HbA1c at ₹260, Lipid Profile at ₹260',
+        'No hospital markup: 50% to 70% savings on routine tests'
+      ],
+      ctaText: 'View All 66 Test Rates',
+      ctaLink: '/tests/'
+    },
+    {
+      id: 'slide-fast-delivery',
+      badge: '⚡ Same-Day Digital Delivery',
+      badgeColor: '#9333EA',
+      badgeBg: '#FAF5FF',
+      title: '4 to 8 Hour Turnaround Delivered to WhatsApp',
+      desc: 'Morning home samples are processed immediately to provide same-day verified digital reports. Access, download, and forward doctor-ready PDF reports directly to your family physician from WhatsApp.',
+      points: [
+        'Same-day reporting for over 90% of routine investigations',
+        'Verified QR code on every report for instant medical authentication',
+        'Permanent cloud record access for long-term health tracking'
+      ],
+      ctaText: 'Enquire Delivery on WhatsApp',
+      ctaLink: 'https://wa.me/919805543143?text=Namaste%20BJSL,%20how%20soon%20can%20I%20receive%20my%20test%20reports?'
     }
   ];
 
@@ -2021,44 +2206,106 @@ export default function Home({
         </div>
       </section>
 
-      {/* 10. FAQS ACCORDION */}
-      <section className="faqs-section" id="faqs">
+      {/* 10. POPULAR DIAGNOSTIC SCREENINGS SLIDE (Slide immediately above "Affordable Diagnostic Tests in Bengaluru") */}
+      <section className="diagnostic-highlights-slider-section" id="diagnostic-highlights-slides">
         <div className="container">
-          <div style={{ textAlign: 'center', marginBottom: '32px' }}>
-            <span className="split-eyebrow">COMMON QUERIES</span>
-            <h2 className="section-main-heading">Frequently Asked Questions</h2>
+          <div className="highlights-slider-header">
+            <div className="highlights-title-box">
+              <span className="highlights-eyebrow">
+                <Sparkles size={14} color="#0284C7" /> POPULAR SCREENINGS &amp; PROFILES
+              </span>
+              <h3 className="highlights-heading">
+                Essential Diagnostic Panels &amp; Health Screenings
+              </h3>
+              <p className="highlights-subtitle">
+                Doctor-recommended comprehensive routine panels for diabetes, heart, organ wellness, and infection screening across Bengaluru.
+              </p>
+            </div>
+            <div className="highlights-nav-arrows">
+              <button 
+                type="button"
+                className="highlights-arrow-btn"
+                onClick={() => scrollHighlightsSlider(-1)}
+                aria-label="Previous screening slide"
+              >
+                <ChevronLeft size={20} />
+              </button>
+              <button 
+                type="button"
+                className="highlights-arrow-btn"
+                onClick={() => scrollHighlightsSlider(1)}
+                aria-label="Next screening slide"
+              >
+                <ChevronRight size={20} />
+              </button>
+            </div>
           </div>
 
-          <div className="faq-list">
-            {FAQS.slice(0, 6).map((faq, idx) => (
-              <div key={idx} className={`faq-item ${activeFaq === idx ? 'open' : ''}`}>
-                <button 
-                  type="button" 
-                  onClick={() => setActiveFaq(activeFaq === idx ? -1 : idx)}
-                  className="faq-question-btn"
-                >
-                  <span style={{ fontSize: '1.02rem', fontWeight: 800, color: '#0F172A', flex: 1, paddingRight: '1rem' }}>
-                    {faq.question || faq.q}
-                  </span>
-                  <ChevronDown 
-                    size={20} 
-                    className="faq-icon-chevron" 
-                    style={{ 
-                      color: activeFaq === idx ? '#0284C7' : '#64748B', 
-                      flexShrink: 0 
-                    }} 
-                  />
-                </button>
-                <div 
-                  className="faq-answer-panel"
-                  style={{
-                    color: '#475569',
-                    fontSize: '0.95rem',
-                    lineHeight: 1.65,
-                    display: activeFaq === idx ? 'block' : 'none'
-                  }}
-                >
-                  {faq.answer || faq.a}
+          <div className="highlights-slider-track" ref={highlightsSliderRef}>
+            {diagnosticHighlightSlides.map((slide) => (
+              <div key={slide.id} className="highlights-slide-card">
+                <div>
+                  <div className="highlights-card-top-row">
+                    <span 
+                      className="highlights-card-badge" 
+                      style={{ color: slide.badgeColor, backgroundColor: slide.badgeBg, border: `1px solid ${slide.badgeColor}25` }}
+                    >
+                      {slide.badge}
+                    </span>
+                    <span className="highlights-card-tat">
+                      <Clock size={12} /> {slide.tat}
+                    </span>
+                  </div>
+
+                  <h4 className="highlights-card-title">{slide.name}</h4>
+                  <p className="highlights-card-desc">{slide.desc}</p>
+
+                  <div className="highlights-card-price-box">
+                    <span className="highlights-card-price">₹{slide.price}</span>
+                    <span className="highlights-card-mrp">₹{slide.mrp}</span>
+                    <span className="highlights-card-discount">{slide.discount}</span>
+                  </div>
+
+                  <div className="highlights-card-tests-list">
+                    {slide.tests.map((t, idx) => (
+                      <div key={idx} className="highlights-card-test-item">
+                        <span className="highlights-card-test-icon">✓</span>
+                        <span>{t}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                <div className="highlights-card-actions">
+                  <button
+                    type="button"
+                    onClick={() => {
+                      if (onBookTest) {
+                        onBookTest({
+                          id: slide.id,
+                          name: slide.name,
+                          price: slide.price,
+                          parameters: slide.parameters,
+                          tat: slide.tat
+                        });
+                      }
+                    }}
+                    className="highlights-card-btn-book"
+                  >
+                    <span>{isInCart(slide.id) ? 'Added to Cart ✓' : `Book Test at ₹${slide.price}`}</span>
+                    <ArrowRight size={14} />
+                  </button>
+
+                  <a 
+                    href={`https://wa.me/919805543143?text=${encodeURIComponent(slide.whatsappMsg)}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="highlights-card-btn-wa"
+                    aria-label={`Book ${slide.name} on WhatsApp`}
+                    title="Book on WhatsApp"
+                  >
+                    <MessageSquare size={17} />
+                  </a>
                 </div>
               </div>
             ))}
@@ -2066,113 +2313,7 @@ export default function Home({
         </div>
       </section>
 
-      {/* 11. FEATURED HEALTH INSIGHTS & MEDICAL BLOGS */}
-      <section className="featured-blogs-section" style={{ background: '#FFFFFF', padding: '4rem 0', borderTop: '1px solid #E2E8F0' }}>
-        <div className="container" style={{ maxWidth: '1240px' }}>
-          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', flexWrap: 'wrap', gap: '1rem', marginBottom: '2.5rem' }}>
-            <div>
-              <span className="split-eyebrow" style={{ color: '#EF4444' }}>CLINICAL KNOWLEDGE &amp; PATIENT ADVISORIES</span>
-              <h2 className="section-main-heading" style={{ marginBottom: '6px' }}>
-                Latest Health Insights &amp; Diagnostic Guides
-              </h2>
-              <p style={{ color: '#64748B', fontSize: '0.95rem', maxWidth: '720px', margin: 0 }}>
-                Medically reviewed articles by certified Pathologists explaining when to test, preparation protocols, and interpreting your blood reports in Bengaluru.
-              </p>
-            </div>
-            <button 
-              onClick={() => {
-                if (setCurrentTab) setCurrentTab('blogs');
-                window.scrollTo({ top: 0, behavior: 'smooth' });
-              }}
-              style={{
-                display: 'inline-flex',
-                alignItems: 'center',
-                gap: '8px',
-                padding: '11px 22px',
-                borderRadius: '12px',
-                background: '#EF4444',
-                color: 'white',
-                fontWeight: 800,
-                fontSize: '0.9rem',
-                border: 'none',
-                cursor: 'pointer',
-                boxShadow: '0 4px 14px rgba(239, 68, 68, 0.3)'
-              }}
-            >
-              <span>Explore All {BLOG_POSTS.length} Health Guides</span>
-              <ArrowRight size={16} />
-            </button>
-          </div>
-
-          <div style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
-            gap: '1.5rem'
-          }}>
-            {BLOG_POSTS.slice(0, 3).map((post) => (
-              <article 
-                key={post.id}
-                onClick={() => {
-                  if (setCurrentTab) setCurrentTab('blogs');
-                  window.scrollTo({ top: 0, behavior: 'smooth' });
-                }}
-                style={{
-                  background: '#F8FAFC',
-                  borderRadius: '18px',
-                  border: '1px solid #E2E8F0',
-                  padding: '1.75rem',
-                  display: 'flex',
-                  flexDirection: 'column',
-                  justifyContent: 'space-between',
-                  cursor: 'pointer',
-                  transition: 'all 0.2s ease',
-                  boxShadow: '0 2px 8px rgba(15, 23, 42, 0.04)'
-                }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.borderColor = '#EF4444';
-                  e.currentTarget.style.transform = 'translateY(-2px)';
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.borderColor = '#E2E8F0';
-                  e.currentTarget.style.transform = 'none';
-                }}
-              >
-                <div>
-                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '0.75rem' }}>
-                    <span className="badge-pink-tag" style={{ fontSize: '0.75rem', fontWeight: 800 }}>
-                      {post.category}
-                    </span>
-                    <span style={{ fontSize: '0.78rem', color: '#64748B', display: 'flex', alignItems: 'center', gap: '4px' }}>
-                      <Clock size={12} /> {post.readTime}
-                    </span>
-                  </div>
-
-                  <div style={{ fontSize: '2.2rem', marginBottom: '0.5rem' }}>{post.image}</div>
-
-                  <h3 style={{ fontSize: '1.15rem', fontWeight: 800, color: '#0F172A', marginBottom: '0.5rem', lineHeight: 1.35 }}>
-                    {post.title}
-                  </h3>
-
-                  <p style={{ fontSize: '0.875rem', color: '#64748B', lineHeight: 1.6, marginBottom: '1.25rem' }}>
-                    {post.excerpt}
-                  </p>
-                </div>
-
-                <div style={{ borderTop: '1px solid #E2E8F0', paddingTop: '0.85rem', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-                  <span style={{ fontSize: '0.8rem', color: '#0F172A', fontWeight: 700 }}>
-                    👨‍⚕️ {post.author.split(',')[0]}
-                  </span>
-                  <span style={{ color: '#EF4444', fontWeight: 800, fontSize: '0.85rem', display: 'flex', alignItems: 'center', gap: '4px' }}>
-                    Read Guide →
-                  </span>
-                </div>
-              </article>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* 12. SEO DIRECTORY LINKS: 66 INDIVIDUAL DIAGNOSTIC TESTS IN BENGALURU */}
+      {/* 11. SEO DIRECTORY LINKS: 66 INDIVIDUAL DIAGNOSTIC TESTS IN BENGALURU */}
       <section className="seo-tests-directory-section" aria-label="Affordable lab tests" style={{ background: '#F8FAFC', padding: '4rem 0', borderTop: '1px solid #E2E8F0' }}>
         <div className="container">
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', flexWrap: 'wrap', gap: '1rem', marginBottom: '2rem' }}>
@@ -2312,6 +2453,232 @@ export default function Home({
                   {test.price}
                 </span>
               </a>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* 12. DIAGNOSTIC ASSURANCE & PATIENT TRUST SLIDES (Slide immediately above "Latest Health Insights & Diagnostic Guides") */}
+      <section className="patient-assurance-slider-section" id="assurance-slides">
+        <div className="container">
+          <div className="assurance-slider-header">
+            <div className="assurance-title-box">
+              <span className="assurance-eyebrow">
+                <ShieldCheck size={14} color="#16A34A" /> DIAGNOSTIC EXCELLENCE &amp; TRUST
+              </span>
+              <h3 className="assurance-heading">
+                Why Bengaluru Families Choose Bharath Jan Sewa Labs
+              </h3>
+              <p className="assurance-subtitle">
+                Clinical precision, verified NABL partner lab testing, zero hidden markups, and gentle doorstep phlebotomy across 15+ Bengaluru hubs.
+              </p>
+            </div>
+            <div className="assurance-nav-arrows">
+              <button 
+                type="button"
+                className="assurance-arrow-btn"
+                onClick={() => scrollAssuranceSlider(-1)}
+                aria-label="Previous assurance slide"
+              >
+                <ChevronLeft size={20} />
+              </button>
+              <button 
+                type="button"
+                className="assurance-arrow-btn"
+                onClick={() => scrollAssuranceSlider(1)}
+                aria-label="Next assurance slide"
+              >
+                <ChevronRight size={20} />
+              </button>
+            </div>
+          </div>
+
+          <div className="assurance-slider-track" ref={assuranceSliderRef}>
+            {diagnosticAssuranceSlides.map((slide) => (
+              <div key={slide.id} className="assurance-slide-card">
+                <div>
+                  <span 
+                    className="assurance-card-badge" 
+                    style={{ color: slide.badgeColor, backgroundColor: slide.badgeBg, border: `1px solid ${slide.badgeColor}25` }}
+                  >
+                    {slide.badge}
+                  </span>
+                  <h4 className="assurance-card-title">{slide.title}</h4>
+                  <p className="assurance-card-desc">{slide.desc}</p>
+                </div>
+                
+                <div>
+                  <div className="assurance-points-list">
+                    {slide.points.map((pt, idx) => (
+                      <div key={idx} className="assurance-point-item">
+                        <span className="assurance-point-icon">✓</span>
+                        <span>{pt}</span>
+                      </div>
+                    ))}
+                  </div>
+
+                  <a 
+                    href={slide.ctaLink}
+                    target={slide.ctaLink.startsWith('http') ? '_blank' : '_self'}
+                    rel={slide.ctaLink.startsWith('http') ? 'noopener noreferrer' : undefined}
+                    className="assurance-card-cta"
+                  >
+                    <span>{slide.ctaText}</span>
+                    <ArrowRight size={14} />
+                  </a>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* 13. FEATURED HEALTH INSIGHTS & MEDICAL BLOGS */}
+      <section className="featured-blogs-section" style={{ background: '#FFFFFF', padding: '4rem 0', borderTop: '1px solid #E2E8F0' }}>
+        <div className="container" style={{ maxWidth: '1240px' }}>
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', flexWrap: 'wrap', gap: '1rem', marginBottom: '2.5rem' }}>
+            <div>
+              <span className="split-eyebrow" style={{ color: '#EF4444' }}>CLINICAL KNOWLEDGE &amp; PATIENT ADVISORIES</span>
+              <h2 className="section-main-heading" style={{ marginBottom: '6px' }}>
+                Latest Health Insights &amp; Diagnostic Guides
+              </h2>
+              <p style={{ color: '#64748B', fontSize: '0.95rem', maxWidth: '720px', margin: 0 }}>
+                Medically reviewed articles by certified Pathologists explaining when to test, preparation protocols, and interpreting your blood reports in Bengaluru.
+              </p>
+            </div>
+            <button 
+              onClick={() => {
+                if (setCurrentTab) setCurrentTab('blogs');
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+              }}
+              style={{
+                display: 'inline-flex',
+                alignItems: 'center',
+                gap: '8px',
+                padding: '11px 22px',
+                borderRadius: '12px',
+                background: '#EF4444',
+                color: 'white',
+                fontWeight: 800,
+                fontSize: '0.9rem',
+                border: 'none',
+                cursor: 'pointer',
+                boxShadow: '0 4px 14px rgba(239, 68, 68, 0.3)'
+              }}
+            >
+              <span>Explore All {BLOG_POSTS.length} Health Guides</span>
+              <ArrowRight size={16} />
+            </button>
+          </div>
+
+          <div style={{
+            display: 'grid',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
+            gap: '1.5rem'
+          }}>
+            {BLOG_POSTS.slice(0, 3).map((post) => (
+              <article 
+                key={post.id}
+                onClick={() => {
+                  if (setCurrentTab) setCurrentTab('blogs');
+                  window.scrollTo({ top: 0, behavior: 'smooth' });
+                }}
+                style={{
+                  background: '#F8FAFC',
+                  borderRadius: '18px',
+                  border: '1px solid #E2E8F0',
+                  padding: '1.75rem',
+                  display: 'flex',
+                  flexDirection: 'column',
+                  justifyContent: 'space-between',
+                  cursor: 'pointer',
+                  transition: 'all 0.2s ease',
+                  boxShadow: '0 2px 8px rgba(15, 23, 42, 0.04)'
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.borderColor = '#EF4444';
+                  e.currentTarget.style.transform = 'translateY(-2px)';
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.borderColor = '#E2E8F0';
+                  e.currentTarget.style.transform = 'none';
+                }}
+              >
+                <div>
+                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '0.75rem' }}>
+                    <span className="badge-pink-tag" style={{ fontSize: '0.75rem', fontWeight: 800 }}>
+                      {post.category}
+                    </span>
+                    <span style={{ fontSize: '0.78rem', color: '#64748B', display: 'flex', alignItems: 'center', gap: '4px' }}>
+                      <Clock size={12} /> {post.readTime}
+                    </span>
+                  </div>
+
+                  <div style={{ fontSize: '2.2rem', marginBottom: '0.5rem' }}>{post.image}</div>
+
+                  <h3 style={{ fontSize: '1.15rem', fontWeight: 800, color: '#0F172A', marginBottom: '0.5rem', lineHeight: 1.35 }}>
+                    {post.title}
+                  </h3>
+
+                  <p style={{ fontSize: '0.875rem', color: '#64748B', lineHeight: 1.6, marginBottom: '1.25rem' }}>
+                    {post.excerpt}
+                  </p>
+                </div>
+
+                <div style={{ borderTop: '1px solid #E2E8F0', paddingTop: '0.85rem', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+                  <span style={{ fontSize: '0.8rem', color: '#0F172A', fontWeight: 700 }}>
+                    👨‍⚕️ {post.author.split(',')[0]}
+                  </span>
+                  <span style={{ color: '#EF4444', fontWeight: 800, fontSize: '0.85rem', display: 'flex', alignItems: 'center', gap: '4px' }}>
+                    Read Guide →
+                  </span>
+                </div>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* 14. FAQS ACCORDION */}
+      <section className="faqs-section" id="faqs">
+        <div className="container">
+          <div style={{ textAlign: 'center', marginBottom: '32px' }}>
+            <span className="split-eyebrow">COMMON QUERIES</span>
+            <h2 className="section-main-heading">Frequently Asked Questions</h2>
+          </div>
+
+          <div className="faq-list">
+            {FAQS.slice(0, 6).map((faq, idx) => (
+              <div key={idx} className={`faq-item ${activeFaq === idx ? 'open' : ''}`}>
+                <button 
+                  type="button" 
+                  onClick={() => setActiveFaq(activeFaq === idx ? -1 : idx)}
+                  className="faq-question-btn"
+                >
+                  <span style={{ fontSize: '1.02rem', fontWeight: 800, color: '#0F172A', flex: 1, paddingRight: '1rem' }}>
+                    {faq.question || faq.q}
+                  </span>
+                  <ChevronDown 
+                    size={20} 
+                    className="faq-icon-chevron" 
+                    style={{ 
+                      color: activeFaq === idx ? '#0284C7' : '#64748B', 
+                      flexShrink: 0 
+                    }} 
+                  />
+                </button>
+                <div 
+                  className="faq-answer-panel"
+                  style={{
+                    color: '#475569',
+                    fontSize: '0.95rem',
+                    lineHeight: 1.65,
+                    display: activeFaq === idx ? 'block' : 'none'
+                  }}
+                >
+                  {faq.answer || faq.a}
+                </div>
+              </div>
             ))}
           </div>
         </div>

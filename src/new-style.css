@@ -4096,3 +4096,472 @@ img, svg {
     margin: 0 !important;
   }
 }
+
+/* ==========================================================================
+   DIAGNOSTIC HIGHLIGHTS SLIDER (Slide on Top of Affordable Diagnostic Tests)
+   ========================================================================== */
+.diagnostic-highlights-slider-section {
+  background: #FFFFFF;
+  padding: 4rem 0 3.5rem;
+  border-top: 1px solid #E2E8F0;
+  border-bottom: 1px solid #E2E8F0;
+}
+
+.highlights-slider-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-bottom: 2rem;
+}
+
+.highlights-title-box {
+  max-width: 760px;
+}
+
+.highlights-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: #0284C7;
+  margin-bottom: 8px;
+}
+
+.highlights-heading {
+  font-size: clamp(22px, 3.2vw, 32px);
+  font-weight: 800;
+  color: #0F172A;
+  margin: 0 0 8px;
+  letter-spacing: -0.01em;
+  line-height: 1.25;
+}
+
+.highlights-subtitle {
+  font-size: 14.5px;
+  color: #64748B;
+  line-height: 1.55;
+  margin: 0;
+}
+
+.highlights-nav-arrows {
+  display: flex;
+  gap: 8px;
+}
+
+.highlights-arrow-btn {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 1.5px solid #E2E8F0;
+  background: #FFFFFF;
+  color: #0F172A;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+
+.highlights-arrow-btn:hover {
+  background: #0284C7;
+  color: #FFFFFF;
+  border-color: #0284C7;
+  transform: translateY(-2px);
+}
+
+.highlights-slider-track {
+  display: flex;
+  gap: 20px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  padding-bottom: 16px;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.highlights-slider-track::-webkit-scrollbar {
+  display: none;
+}
+
+.highlights-slide-card {
+  flex: 0 0 340px;
+  scroll-snap-align: start;
+  background: #F8FAFC;
+  border: 1.5px solid #E2E8F0;
+  border-radius: 20px;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: all 0.25s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.highlights-slide-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 32px -8px rgba(15, 23, 42, 0.1);
+  border-color: #0284C7;
+  background: #FFFFFF;
+}
+
+.highlights-card-top-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.highlights-card-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 11.5px;
+  font-weight: 800;
+  padding: 4px 10px;
+  border-radius: 9999px;
+}
+
+.highlights-card-tat {
+  font-size: 11.5px;
+  font-weight: 700;
+  color: #64748B;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.highlights-card-title {
+  font-size: 17px;
+  font-weight: 800;
+  color: #0F172A;
+  letter-spacing: -0.01em;
+  margin: 0 0 8px;
+  line-height: 1.35;
+}
+
+.highlights-card-desc {
+  font-size: 13px;
+  color: #64748B;
+  line-height: 1.5;
+  margin: 0 0 16px;
+}
+
+.highlights-card-price-box {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  margin-bottom: 14px;
+  padding: 8px 12px;
+  background: rgba(2, 132, 199, 0.05);
+  border-radius: 12px;
+  border: 1px dashed rgba(2, 132, 199, 0.2);
+}
+
+.highlights-card-price {
+  font-size: 22px;
+  font-weight: 900;
+  color: #0284C7;
+}
+
+.highlights-card-mrp {
+  font-size: 13px;
+  color: #94A3B8;
+  text-decoration: line-through;
+  font-weight: 600;
+}
+
+.highlights-card-discount {
+  font-size: 11.5px;
+  font-weight: 800;
+  color: #16A34A;
+  background: #DCFCE7;
+  padding: 2px 7px;
+  border-radius: 6px;
+  margin-left: auto;
+}
+
+.highlights-card-tests-list {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 18px;
+  padding-top: 12px;
+  border-top: 1px dashed #E2E8F0;
+}
+
+.highlights-card-test-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12.5px;
+  color: #334155;
+  font-weight: 600;
+}
+
+.highlights-card-test-icon {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: #E0F2FE;
+  color: #0284C7;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 10px;
+  font-weight: 800;
+  flex-shrink: 0;
+}
+
+.highlights-card-actions {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.highlights-card-btn-book {
+  flex: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 10px 14px;
+  border-radius: 12px;
+  background: #0284C7;
+  color: #FFFFFF;
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 800;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 12px rgba(2, 132, 199, 0.25);
+  border: none;
+  cursor: pointer;
+}
+
+.highlights-card-btn-book:hover {
+  background: #0369A1;
+  transform: translateY(-1px);
+}
+
+.highlights-card-btn-wa {
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+  background: #DCFCE7;
+  color: #16A34A;
+  border: 1px solid #86EFAC;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  flex-shrink: 0;
+}
+
+.highlights-card-btn-wa:hover {
+  background: #16A34A;
+  color: #FFFFFF;
+}
+
+/* ==========================================================================
+   PATIENT ASSURANCE SLIDER (Slide on Top of Latest Health Insights)
+   ========================================================================== */
+.patient-assurance-slider-section {
+  background: #F8FAFC;
+  padding: 4rem 0 3.5rem;
+  border-top: 1px solid #E2E8F0;
+  border-bottom: 1px solid #E2E8F0;
+}
+
+.assurance-slider-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-bottom: 2rem;
+}
+
+.assurance-title-box {
+  max-width: 760px;
+}
+
+.assurance-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: #16A34A;
+  margin-bottom: 8px;
+}
+
+.assurance-heading {
+  font-size: clamp(22px, 3.2vw, 32px);
+  font-weight: 800;
+  color: #0F172A;
+  margin: 0 0 8px;
+  letter-spacing: -0.01em;
+  line-height: 1.25;
+}
+
+.assurance-subtitle {
+  font-size: 14.5px;
+  color: #64748B;
+  line-height: 1.55;
+  margin: 0;
+}
+
+.assurance-nav-arrows {
+  display: flex;
+  gap: 8px;
+}
+
+.assurance-arrow-btn {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 1.5px solid #E2E8F0;
+  background: #FFFFFF;
+  color: #0F172A;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+
+.assurance-arrow-btn:hover {
+  background: #143B70;
+  color: #FFFFFF;
+  border-color: #143B70;
+  transform: translateY(-2px);
+}
+
+.assurance-slider-track {
+  display: flex;
+  gap: 20px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  padding-bottom: 16px;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.assurance-slider-track::-webkit-scrollbar {
+  display: none;
+}
+
+.assurance-slide-card {
+  flex: 0 0 360px;
+  scroll-snap-align: start;
+  background: #FFFFFF;
+  border: 1.5px solid #E2E8F0;
+  border-radius: 20px;
+  padding: 26px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: all 0.25s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.assurance-slide-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 32px -8px rgba(15, 23, 42, 0.1);
+  border-color: #38BDF8;
+}
+
+.assurance-card-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 11.5px;
+  font-weight: 800;
+  padding: 5px 12px;
+  border-radius: 9999px;
+  margin-bottom: 14px;
+  width: fit-content;
+}
+
+.assurance-card-title {
+  font-size: 18px;
+  font-weight: 800;
+  color: #0F172A;
+  letter-spacing: -0.01em;
+  margin: 0 0 10px;
+  line-height: 1.35;
+}
+
+.assurance-card-desc {
+  font-size: 13.5px;
+  color: #64748B;
+  line-height: 1.55;
+  margin: 0 0 18px;
+}
+
+.assurance-points-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 22px;
+  padding-top: 14px;
+  border-top: 1px dashed #E2E8F0;
+}
+
+.assurance-point-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  font-size: 13px;
+  color: #334155;
+  line-height: 1.45;
+}
+
+.assurance-point-icon {
+  color: #16A34A;
+  font-weight: 800;
+  font-size: 13px;
+  margin-top: 1px;
+}
+
+.assurance-card-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 16px;
+  border-radius: 12px;
+  background: #F1F5F9;
+  color: #0F172A;
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 800;
+  transition: all 0.2s ease;
+  width: fit-content;
+}
+
+.assurance-card-cta:hover {
+  background: #143B70;
+  color: #FFFFFF;
+}
+
+@media (max-width: 768px) {
+  .highlights-slide-card {
+    flex: 0 0 290px;
+    padding: 20px;
+  }
+  .assurance-slide-card {
+    flex: 0 0 300px;
+    padding: 20px;
+  }
+}
