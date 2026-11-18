@@ -2259,6 +2259,288 @@ export const FAQS = [
 
 export const BLOG_POSTS = [
   {
+    id: 'affordable-blood-tests-delayed-diagnosis',
+    slug: 'affordable-blood-tests-india-delayed-diagnosis',
+    title: 'When a Blood Test Becomes Too Expensive: Why Affordable Diagnostics Matter for Every Indian Family',
+    category: 'Diagnostic Affordability',
+    author: 'Dr Shantakumar Muruda, MD (Biochemistry), Consultant Biochemistry & Lead Assessor, NABL',
+    date: TODAY_FORMATTED,
+    readTime: '8 min read',
+    excerpt: 'Affordable healthcare begins with affordable diagnosis. Discover why timely, transparently priced routine laboratory testing prevents delayed diagnosis for Indian families and how Bharath Jan Sewa Labs is expanding neighbourhood access in Bengaluru.',
+    content: `
+      <div class="lead-intro" style="font-size:1.15rem; font-weight:600; color:#1E293B; line-height:1.75; margin-bottom:1.5rem; border-left:4px solid #EF4444; padding-left:1rem;">
+        Affordable healthcare begins with affordable diagnosis.
+      </div>
+
+      <p>For millions of Indian families, the cost of healthcare is an important factor in deciding when to seek medical attention. When laboratory tests are difficult to access or expensive, people may postpone investigations recommended by their doctors. This can delay the information needed to diagnose illness, monitor treatment and make timely healthcare decisions.</p>
+
+      <p>Bharath Jan Sewa Labs is working toward a simple goal: making essential blood tests and routine diagnostic services more affordable and accessible to families across Bengaluru.</p>
+
+      <h3>The Hidden Healthcare Problem: “We Will Get the Test Done Next Month”</h3>
+      <p>Imagine a family living on a modest monthly income.</p>
+      <p>A parent has been advised to undergo a blood sugar test. A grandparent requires regular kidney-function monitoring. Someone else has been prescribed a complete blood count because of persistent tiredness.</p>
+      <p>Every test has a medical purpose. But the family also has rent, groceries, transport, school fees and other essential expenses.</p>
+      <p>The tests are postponed—not necessarily because the family considers them unimportant, but because healthcare must compete with immediate financial needs.</p>
+
+      <div style="background:#FFFBEB; border:1px solid #FDE68A; border-left:4px solid #F59E0B; padding:1.1rem 1.25rem; border-radius:10px; margin:1.25rem 0;">
+        <p style="margin:0; font-size:0.925rem; color:#92400E; line-height:1.65;">
+          <strong>Clinical Reality:</strong> This is an illustrative situation, not an individual patient case. However, research in India confirms that financial constraints, travel expenses, service availability and long waiting times can affect healthcare-seeking behaviour.
+        </p>
+      </div>
+
+      <p>A <a href="https://link.springer.com/article/10.1186/s12913-025-13441-x" target="_blank" rel="noopener noreferrer" style="color:#2563EB; font-weight:700;">2025 systematic review of healthcare utilisation among people with noncommunicable diseases in India</a> identified financial and practical barriers that can lead people to delay or avoid care.</p>
+      <p>A postponed test is not always a harmless postponement. Depending on the condition, delays can mean that clinicians receive important diagnostic information later than needed.</p>
+
+      <h3>India's Healthcare Costs: What the Latest National Data Reveals</h3>
+      <p>India has made considerable progress in expanding public healthcare financing. Yet households continue to carry a substantial share of healthcare expenditure.</p>
+
+      <div style="background:#F0FDF4; border:1.5px solid #BBF7D0; border-radius:14px; padding:1.35rem; margin:1.5rem 0; box-shadow:0 4px 15px rgba(22,101,52,0.04);">
+        <h4 style="margin:0 0 0.75rem; color:#14532D; font-weight:800; font-size:1.05rem;">📊 National Health Accounts (NHA) Estimates 2023–24 (Released November 2026):</h4>
+        <ul style="margin:0; padding-left:1.25rem; color:#166534; font-size:0.95rem; line-height:1.7;">
+          <li><strong>Household out-of-pocket expenditure (OOPE)</strong> accounted for <strong>42.7%</strong> of India's total health expenditure in 2023–24.</li>
+          <li>This was lower than <strong>64.2% in 2013–14</strong>, indicating meaningful progress in financial protection and public insurance.</li>
+          <li>Nevertheless, direct household spending remains a major part of India's healthcare financing.</li>
+        </ul>
+        <p style="margin:0.85rem 0 0; font-size:0.825rem; color:#15803D; line-height:1.5;">
+          <em>*These figures represent spending on healthcare overall, not the percentage spent specifically on diagnostic tests. Source: <a href="https://www.pib.gov.in/PressReleasePage.aspx?PRID=2336478&lang=2&reg=48" target="_blank" rel="noopener noreferrer" style="color:#15803D; font-weight:700; text-decoration:underline;">Ministry of Health and Family Welfare, National Health Accounts 2023–24</a>.</em>
+        </p>
+      </div>
+
+      <p>Diagnostic affordability matters particularly for people who need repeated monitoring, such as patients managing diabetes or chronic kidney conditions. A single test may be affordable, but recurring tests, consultation fees, medicines and travel can add up.</p>
+
+      <h3>How Delayed Diagnostic Testing Can Affect Health</h3>
+      <p>Many medical conditions cannot be assessed reliably from symptoms alone. Laboratory investigations help healthcare professionals identify abnormalities, evaluate risk and monitor treatment.</p>
+
+      <h4>1. Diabetes and Blood Glucose Monitoring</h4>
+      <p>Diabetes may develop with few noticeable symptoms. Blood glucose and HbA1c tests can support diagnosis or ongoing monitoring when appropriately prescribed. If recommended testing is repeatedly postponed, clinicians may have less timely information to assess glucose control or adjust care.</p>
+
+      <h4>2. Kidney Health</h4>
+      <p>Tests such as serum creatinine, estimated glomerular filtration rate (eGFR) and urine albumin assessment can provide important information about kidney health. Some forms of kidney disease may progress without obvious early symptoms. Clinically appropriate monitoring is therefore important for people at increased risk.</p>
+
+      <h4>3. Anaemia and Persistent Fatigue</h4>
+      <p>A complete blood count can help detect abnormalities such as low haemoglobin. When indicated, further investigations may help identify iron deficiency or other causes of anaemia. Persistent fatigue should not automatically be attributed to anaemia, and the correct tests depend on the patient's symptoms and clinical history.</p>
+
+      <h4>4. Thyroid Disorders</h4>
+      <p>TSH and other thyroid-function tests may be used when a healthcare professional suspects thyroid dysfunction or needs to monitor an existing condition. Getting appropriate testing at the recommended time can support more informed treatment decisions.</p>
+
+      <p style="font-weight:700; color:#1E293B; background:#F1F5F9; padding:0.85rem 1.25rem; border-radius:8px; margin:1.25rem 0;">
+        💡 The message is not that everyone needs frequent blood tests. It is that medically necessary testing should not be delayed simply because it is financially difficult to obtain.
+      </p>
+
+      <h3>Essential Diagnostics Are a Public Health Priority in India</h3>
+      <p>The Indian Council of Medical Research (ICMR) published its updated <a href="https://www.icmr.gov.in/reports" target="_blank" rel="noopener noreferrer" style="color:#2563EB; font-weight:700;">National Essential Diagnostics List (NEDL) in 2025</a>.</p>
+      <p>The list identifies important diagnostic investigations recommended at different healthcare facility levels. It highlights the importance of making appropriate testing available throughout the health system.</p>
+      <p>The World Health Organization has also examined how sample transport networks and access to diagnostics can help strengthen primary healthcare services in Indian states (<a href="https://www.who.int/publications/i/item/9789290211693" target="_blank" rel="noopener noreferrer" style="color:#2563EB; font-weight:700;">WHO: Implementation of Diagnostics Services for Primary Health Care in Four Indian States</a>).</p>
+      <p>These efforts reinforce an important principle: access to diagnostic testing should not depend solely on whether a patient lives near a large hospital or can afford expensive private services.</p>
+      <p style="font-size:0.85rem; color:#64748B;"><em>*NEDL is a national diagnostic planning resource, not a commercial laboratory certification. Individual laboratories must separately meet the applicable quality and accreditation requirements.</em></p>
+
+      <h3>How Bharath Jan Sewa Labs Is Making Essential Testing More Affordable in Bengaluru</h3>
+      <p>Bharath Jan Sewa Labs (BJSL) is a Bengaluru-focused diagnostic service network built around affordable essential testing and neighbourhood sample collection.</p>
+      <p>Its publicly available online catalogue lists 66 diagnostic investigations, including commonly requested blood and urine tests. Instead of requiring patients to enquire about every basic test without knowing the likely cost, the website makes promotional rates visible so people can begin making informed choices.</p>
+
+      <div style="overflow-x:auto; margin:1.75rem 0;">
+        <table style="width:100%; border-collapse:collapse; background:white; border-radius:12px; overflow:hidden; border:1px solid #E2E8F0; font-size:0.925rem; box-shadow:0 2px 10px rgba(0,0,0,0.03);">
+          <thead style="background:#F8FAFC; border-bottom:2px solid #E2E8F0; text-align:left;">
+            <tr>
+              <th style="padding:12px 16px; font-weight:800; color:#0F172A;">Essential Investigation</th>
+              <th style="padding:12px 16px; font-weight:800; color:#0F172A;">BJSL Advertised Price</th>
+              <th style="padding:12px 16px; font-weight:800; color:#0F172A;">Approved Tariff Page</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr style="border-bottom:1px solid #F1F5F9;">
+              <td style="padding:10px 16px; font-weight:700; color:#1E293B;">Blood Glucose — Fasting, PP or Random</td>
+              <td style="padding:10px 16px; font-weight:800; color:#16A34A;">₹20</td>
+              <td style="padding:10px 16px;"><a href="/tests/blood-sugar-test/" style="color:#EF4444; font-weight:700; text-decoration:none;">View Tariff &rarr;</a></td>
+            </tr>
+            <tr style="border-bottom:1px solid #F1F5F9;">
+              <td style="padding:10px 16px; font-weight:700; color:#1E293B;">Urine Routine &amp; Microscopy</td>
+              <td style="padding:10px 16px; font-weight:800; color:#16A34A;">₹50</td>
+              <td style="padding:10px 16px;"><a href="/tests/urine-routine-microscopy-test/" style="color:#EF4444; font-weight:700; text-decoration:none;">View Tariff &rarr;</a></td>
+            </tr>
+            <tr style="border-bottom:1px solid #F1F5F9;">
+              <td style="padding:10px 16px; font-weight:700; color:#1E293B;">Serum Creatinine</td>
+              <td style="padding:10px 16px; font-weight:800; color:#16A34A;">₹50</td>
+              <td style="padding:10px 16px;"><a href="/tests/serum-creatinine-test/" style="color:#EF4444; font-weight:700; text-decoration:none;">View Tariff &rarr;</a></td>
+            </tr>
+            <tr style="border-bottom:1px solid #F1F5F9;">
+              <td style="padding:10px 16px; font-weight:700; color:#1E293B;">Haemoglobin</td>
+              <td style="padding:10px 16px; font-weight:800; color:#16A34A;">₹60</td>
+              <td style="padding:10px 16px;"><a href="/tests/haemoglobin-test/" style="color:#EF4444; font-weight:700; text-decoration:none;">View Tariff &rarr;</a></td>
+            </tr>
+            <tr style="border-bottom:1px solid #F1F5F9;">
+              <td style="padding:10px 16px; font-weight:700; color:#1E293B;">TSH (Thyroid Stimulating Hormone)</td>
+              <td style="padding:10px 16px; font-weight:800; color:#16A34A;">₹100</td>
+              <td style="padding:10px 16px;"><a href="/tests/tsh-test/" style="color:#EF4444; font-weight:700; text-decoration:none;">View Tariff &rarr;</a></td>
+            </tr>
+            <tr style="border-bottom:1px solid #F1F5F9;">
+              <td style="padding:10px 16px; font-weight:700; color:#1E293B;">Complete Blood Count with ESR (CBC + ESR)</td>
+              <td style="padding:10px 16px; font-weight:800; color:#16A34A;">₹160</td>
+              <td style="padding:10px 16px;"><a href="/tests/cbc-esr-test/" style="color:#EF4444; font-weight:700; text-decoration:none;">View Tariff &rarr;</a></td>
+            </tr>
+            <tr style="border-bottom:1px solid #F1F5F9;">
+              <td style="padding:10px 16px; font-weight:700; color:#1E293B;">Glycated Haemoglobin (HbA1c)</td>
+              <td style="padding:10px 16px; font-weight:800; color:#16A34A;">₹260</td>
+              <td style="padding:10px 16px;"><a href="/tests/hba1c-test/" style="color:#EF4444; font-weight:700; text-decoration:none;">View Tariff &rarr;</a></td>
+            </tr>
+            <tr style="border-bottom:1px solid #F1F5F9;">
+              <td style="padding:10px 16px; font-weight:700; color:#1E293B;">Lipid Profile (Cholesterol, HDL, LDL, Triglycerides)</td>
+              <td style="padding:10px 16px; font-weight:800; color:#16A34A;">₹260</td>
+              <td style="padding:10px 16px;"><a href="/tests/lipid-profile-test/" style="color:#EF4444; font-weight:700; text-decoration:none;">View Tariff &rarr;</a></td>
+            </tr>
+            <tr style="border-bottom:1px solid #F1F5F9;">
+              <td style="padding:10px 16px; font-weight:700; color:#1E293B;">Renal / Kidney Profile (KFT)</td>
+              <td style="padding:10px 16px; font-weight:800; color:#16A34A;">₹320</td>
+              <td style="padding:10px 16px;"><a href="/tests/renal-profile-test/" style="color:#EF4444; font-weight:700; text-decoration:none;">View Tariff &rarr;</a></td>
+            </tr>
+            <tr>
+              <td style="padding:10px 16px; font-weight:700; color:#1E293B;">Liver Function Test (LFT)</td>
+              <td style="padding:10px 16px; font-weight:800; color:#16A34A;">₹360</td>
+              <td style="padding:10px 16px;"><a href="/tests/liver-function-test/" style="color:#EF4444; font-weight:700; text-decoration:none;">View Tariff &rarr;</a></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p style="font-size:0.85rem; color:#64748B; line-height:1.6; margin-top:-0.5rem; margin-bottom:1.25rem;">
+        <em>Prices are taken from BJSL's published promotional catalogue reviewed in November 2026. They are indicative leaflet rates and must be confirmed before booking. Test availability, applicable collection charges and final payable amounts may vary. These are not independently verified Bengaluru-wide lowest prices.</em>
+      </p>
+
+      <p><a href="/tests/" style="font-weight:800; color:#EF4444; text-decoration:none;">Explore the complete Bharath Jan Sewa Labs 66-test price catalogue &rarr;</a></p>
+
+      <h4>Neighbourhood Access Matters as Much as Price</h4>
+      <p>An inexpensive test may still be difficult to obtain if a patient must travel far, miss a working day or arrange transport for an elderly relative.</p>
+      <p>BJSL's website lists sample collection hubs in areas including <strong>Kengeri, Ittamadu–Banashankari, Jaraganahalli–JP Nagar, Subramanyapura, Peenya, KR Market, Srirampura, Sanjaynagar, Basaveshwaranagar and VV Puram</strong>.</p>
+      <p>By bringing sample collection closer to residential communities, networks like BJSL can potentially reduce travel-related inconvenience and make medically recommended testing easier to access.</p>
+      <p>Patients should confirm their nearest operating location, available investigations, opening hours and home-collection charges before visiting.</p>
+      <p><a href="/our-centres/" style="font-weight:800; color:#EF4444; text-decoration:none;">Find Bharath Jan Sewa Labs collection centres in Bengaluru &rarr;</a></p>
+
+      <h3>Does a Lower Test Price Mean Lower Laboratory Quality?</h3>
+      <p>Not necessarily. Price alone is not a reliable measure of diagnostic quality.</p>
+      <p>Laboratory quality depends on appropriate methods, validated equipment, trained personnel, internal quality control, external quality assessment, sample handling, transportation conditions and competent medical reporting.</p>
+      <p>Accreditation to ISO 15189 through NABL provides an established framework for evaluating medical laboratory competence within a defined scope.</p>
+      <p>BJSL states that its sample collection network uses partner laboratories with NABL accreditation where applicable. Patients should verify the identity of the performing laboratory and whether their specific investigation is included in its accredited scope.</p>
+      <p>A collection centre should not be assumed to hold independent NABL accreditation merely because it sends samples to an accredited laboratory.</p>
+      <p>Affordability and quality must work together. The objective is not simply to make a test inexpensive, but to ensure that patients receive clinically useful and reliable results at a transparent cost.</p>
+
+      <h3>Why Transparent Pricing Helps Patients</h3>
+      <p>A patient searching online for “cheap blood test near me” is often trying to answer several practical questions:</p>
+      <ul>
+        <li>What will my test cost?</li>
+        <li>Is a collection centre nearby?</li>
+        <li>Do I need to fast?</li>
+        <li>Is home sample collection available? Will there be an additional charge?</li>
+        <li>When should I expect the report?</li>
+      </ul>
+      <p>An accessible diagnostic website should help answer these questions before a patient commits to a booking.</p>
+      <p>For Bengaluru residents searching for affordable CBC, blood sugar, thyroid, HbA1c, lipid or kidney-function tests, a searchable price catalogue can be the starting point.</p>
+      <p>The final price, collection fee, test preparation and reporting time should always be confirmed through the laboratory's booking service.</p>
+
+      <h3>What If Someone Cannot Afford Even a Low-Cost Test?</h3>
+      <p>For some families, even a small diagnostic expense may be difficult.</p>
+      <p>Patients who cannot afford medically recommended testing should ask their treating healthcare professional about available government hospital laboratory services, Ayushman Arogya Mandirs, public diagnostic programmes and other applicable assistance options.</p>
+      <p>Affordable private laboratory networks can complement—not replace—these public services by providing additional neighbourhood testing choices.</p>
+
+      <div style="background:#F0FDF4; border:1.5px solid #BBF7D0; border-radius:12px; padding:1.25rem; margin:1.25rem 0;">
+        <h4 style="margin:0 0 0.5rem; color:#14532D; font-weight:800;">🤝 Jan Sewa Diagnostic Assistance Programme</h4>
+        <p style="margin:0; font-size:0.925rem; color:#15803D; line-height:1.65;">
+          BJSL's wider mission is to make essential diagnostics accessible with dignity. Patients facing financial hardship can enquire about currently available economical testing options. Any free or subsidised service should be confirmed with the organisation rather than assumed to be available automatically. Financial hardship should not determine whether someone receives medically necessary diagnostic care.
+        </p>
+        <div style="margin-top:0.75rem;">
+          <a href="/affordable-testing-assistance/" style="color:#166534; font-weight:800; font-size:0.875rem; text-decoration:underline;">Learn more about the Jan Sewa Diagnostic Assistance Programme &rarr;</a>
+        </div>
+      </div>
+
+      <h3>Frequently Asked Questions About Affordable Blood Tests in Bangalore</h3>
+
+      <div class="faq-item" style="background:#F8FAFC; border:1px solid #E2E8F0; border-radius:10px; padding:1.15rem; margin-bottom:0.75rem;">
+        <h4 style="margin:0 0 0.4rem; color:#0F172A; font-weight:800; font-size:1rem;">1. Where can I find affordable blood tests in Bangalore?</h4>
+        <p style="margin:0; color:#475569; font-size:0.925rem; line-height:1.6;">Bharath Jan Sewa Labs publishes an online catalogue of routine diagnostic test prices and lists collection locations across Bengaluru. Patients can review the catalogue and confirm current charges, test availability and collection arrangements before booking.</p>
+      </div>
+
+      <div class="faq-item" style="background:#F8FAFC; border:1px solid #E2E8F0; border-radius:10px; padding:1.15rem; margin-bottom:0.75rem;">
+        <h4 style="margin:0 0 0.4rem; color:#0F172A; font-weight:800; font-size:1rem;">2. How much does a blood sugar test cost at Bharath Jan Sewa Labs?</h4>
+        <p style="margin:0; color:#475569; font-size:0.925rem; line-height:1.6;">BJSL's online promotional catalogue lists a blood glucose test at ₹20. This is an advertised leaflet price and must be reconfirmed, together with any collection charges, before booking.</p>
+      </div>
+
+      <div class="faq-item" style="background:#F8FAFC; border:1px solid #E2E8F0; border-radius:10px; padding:1.15rem; margin-bottom:0.75rem;">
+        <h4 style="margin:0 0 0.4rem; color:#0F172A; font-weight:800; font-size:1rem;">3. What is the price of a CBC blood test in Bengaluru?</h4>
+        <p style="margin:0; color:#475569; font-size:0.925rem; line-height:1.6;">BJSL currently advertises a CBC with ESR at ₹160 in its promotional catalogue. Patients should confirm the exact investigation, included parameters and final payable price. CBC alone and CBC with ESR are not identical orders.</p>
+      </div>
+
+      <div class="faq-item" style="background:#F8FAFC; border:1px solid #E2E8F0; border-radius:10px; padding:1.15rem; margin-bottom:0.75rem;">
+        <h4 style="margin:0 0 0.4rem; color:#0F172A; font-weight:800; font-size:1rem;">4. Are low-cost blood tests reliable?</h4>
+        <p style="margin:0; color:#475569; font-size:0.925rem; line-height:1.6;">Low cost does not automatically mean poor quality. Reliability depends on laboratory competence, validated methods, quality control, sample handling and medical oversight. Patients should check the performing laboratory and relevant accreditation information.</p>
+      </div>
+
+      <div class="faq-item" style="background:#F8FAFC; border:1px solid #E2E8F0; border-radius:10px; padding:1.15rem; margin-bottom:0.75rem;">
+        <h4 style="margin:0 0 0.4rem; color:#0F172A; font-weight:800; font-size:1rem;">5. Can delayed blood tests affect diagnosis and treatment?</h4>
+        <p style="margin:0; color:#475569; font-size:0.925rem; line-height:1.6;">They can. When an investigation is clinically necessary, postponing it may delay information needed for diagnosis, monitoring or treatment decisions. However, not every medical condition requires immediate testing, and the appropriate timing should be determined by a healthcare professional.</p>
+      </div>
+
+      <div class="faq-item" style="background:#F8FAFC; border:1px solid #E2E8F0; border-radius:10px; padding:1.15rem; margin-bottom:0.75rem;">
+        <h4 style="margin:0 0 0.4rem; color:#0F172A; font-weight:800; font-size:1rem;">6. Does Bharath Jan Sewa Labs offer home blood sample collection?</h4>
+        <p style="margin:0; color:#475569; font-size:0.925rem; line-height:1.6;">BJSL advertises home sample collection in specified Bengaluru service areas. Patients should confirm address eligibility, collection fees, availability and appointment timing directly before booking.</p>
+      </div>
+
+      <div class="faq-item" style="background:#F8FAFC; border:1px solid #E2E8F0; border-radius:10px; padding:1.15rem; margin-bottom:0.75rem;">
+        <h4 style="margin:0 0 0.4rem; color:#0F172A; font-weight:800; font-size:1rem;">7. What should I do if I cannot afford prescribed laboratory tests?</h4>
+        <p style="margin:0; color:#475569; font-size:0.925rem; line-height:1.6;">Speak with your healthcare provider about medically necessary tests and lower-cost or government-supported diagnostic options. You can also enquire with BJSL about currently available economical services and the final payable amount.</p>
+      </div>
+
+      <h3>Our Vision: Diagnostics With Dignity, For Every Bharatiya</h3>
+      <p>Affordable diagnostics should not be treated as a luxury or an afterthought.</p>
+      <p>For a salaried worker, a homemaker, a senior citizen, a student or a daily-wage earner, the ability to obtain an essential test without excessive expense can make it easier to follow medical advice.</p>
+      <p>India's healthcare system is making progress in improving access, but financial and geographical barriers remain. Bharath Jan Sewa Labs aims to contribute by making commonly needed investigations more affordable, providing transparent test information and bringing sample collection closer to the communities it serves.</p>
+      <p style="font-weight:800; color:#0F172A; font-size:1.1rem; margin-top:1rem;">Because knowing your health status should not be beyond your financial reach.</p>
+
+      <div style="background:#0F172A; color:white; border-radius:16px; padding:1.75rem 2rem; margin:2rem 0; box-shadow:0 10px 25px rgba(15,23,42,0.15);">
+        <h3 style="color:white; margin:0 0 0.5rem; font-size:1.4rem;">Find Affordable Diagnostic Tests in Bengaluru</h3>
+        <p style="color:#94A3B8; margin:0 0 1.25rem; font-size:0.95rem;">Transparent catalogue tariffs • Verified laboratory processing • Doorstep home phlebotomy</p>
+        <div style="display:flex; flex-wrap:wrap; gap:1rem; align-items:center;">
+          <a href="https://wa.me/919805543143?text=Namaste%20BJSL,%20I%20would%20like%20to%20enquire%20about%20affordable%20blood%20testing%20in%20Bengaluru." target="_blank" rel="noopener noreferrer" style="background:#22C55E; color:white; padding:10px 20px; border-radius:10px; font-weight:800; text-decoration:none; display:inline-flex; align-items:center; gap:8px;">
+            Book on WhatsApp &rarr;
+          </a>
+          <a href="tel:+919805543143" style="background:rgba(255,255,255,0.1); color:white; padding:10px 18px; border-radius:10px; font-weight:700; text-decoration:none; border:1px solid rgba(255,255,255,0.2);">
+            Call: +91 98055 43143
+          </a>
+          <a href="/tests/" style="color:#E2E8F0; font-weight:700; text-decoration:underline; font-size:0.9rem;">
+            View 66 Test Prices
+          </a>
+          <a href="/our-centres/" style="color:#E2E8F0; font-weight:700; text-decoration:underline; font-size:0.9rem;">
+            Find Nearest Collection Centre
+          </a>
+        </div>
+      </div>
+
+      <div style="background:#FEF2F2; border:1px solid #FCA5A5; border-radius:10px; padding:1rem 1.25rem; margin:1.5rem 0; font-size:0.85rem; color:#991B1B; line-height:1.6;">
+        <strong>Medical Information Disclaimer:</strong> This article is intended for general health education. It does not provide an individual diagnosis, replace professional medical advice or recommend a universal testing package. Consult a qualified healthcare professional regarding appropriate investigations. Urgent symptoms require prompt medical attention.
+      </div>
+
+      <div style="background:#F8FAFC; border:1.5px solid #E2E8F0; border-radius:12px; padding:1.25rem; margin:1.5rem 0;">
+        <h4 style="margin:0 0 0.4rem; color:#0F172A; font-weight:800;">👨‍⚕️ Clinical Reviewer &amp; Author Credentials</h4>
+        <p style="margin:0 0 0.25rem; font-weight:700; color:#1E293B;">Dr Shantakumar Muruda, MD (Biochemistry)</p>
+        <p style="margin:0 0 0.5rem; font-size:0.875rem; color:#475569;">Consultant Biochemistry &amp; Lead Assessor, NABL</p>
+        <p style="margin:0; font-size:0.8rem; color:#64748B; line-height:1.5;">
+          <em>*Clinical Credential Note: Dr. Muruda's designation as an NABL Lead Assessor indicates individual certified professional training in laboratory quality systems assessment and ISO 15189 compliance. It does not imply that NABL has endorsed this article or endorses Bharath Jan Sewa Labs.</em>
+        </p>
+      </div>
+
+      <div style="border-top:1px solid #E2E8F0; padding-top:1.25rem; margin-top:2rem;">
+        <h4 style="margin:0 0 0.75rem; color:#0F172A; font-weight:800;">Editorial References:</h4>
+        <ol style="margin:0; padding-left:1.25rem; font-size:0.875rem; color:#475569; line-height:1.7;">
+          <li><a href="https://www.pib.gov.in/PressReleasePage.aspx?PRID=2336478&lang=2&reg=48" target="_blank" rel="noopener noreferrer" style="color:#2563EB;">Ministry of Health and Family Welfare — National Health Accounts 2023–24</a></li>
+          <li><a href="https://www.icmr.gov.in/reports" target="_blank" rel="noopener noreferrer" style="color:#2563EB;">ICMR — National Essential Diagnostics List 2025</a></li>
+          <li><a href="https://www.who.int/publications/i/item/9789290211693" target="_blank" rel="noopener noreferrer" style="color:#2563EB;">WHO — Implementation of Diagnostics Services for Primary Health Care in Four Indian States</a></li>
+          <li><a href="https://link.springer.com/article/10.1186/s12913-025-13441-x" target="_blank" rel="noopener noreferrer" style="color:#2563EB;">Health-Seeking Behaviour and Healthcare Utilisation Among Patients With Noncommunicable Diseases in India — Systematic Review</a></li>
+          <li><a href="https://ijmr.org.in/barriers-to-help-seeking-for-cancer-in-india-a-scoping-review/" target="_blank" rel="noopener noreferrer" style="color:#2563EB;">Barriers to Help-Seeking for Cancer in India — Indian Journal of Medical Research</a></li>
+        </ol>
+      </div>
+    `,
+    image: '🩺',
+    relatedTests: ['blood-sugar-test', 'cbc-esr-test', 'serum-creatinine-test', 'tsh-test', 'hba1c-test']
+  },
+  {
     id: 'hba1c-guide',
     slug: 'understanding-hba1c-blood-sugar-levels',
     title: 'Understanding Your HbA1c Results: What Do Your Blood Sugar Numbers Mean?',

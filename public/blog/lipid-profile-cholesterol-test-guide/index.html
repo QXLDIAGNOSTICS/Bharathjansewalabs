@@ -15,6 +15,7 @@
   <meta property="og:site_name" content="Bharath Jan Sewa Labs" />
   <meta property="og:locale" content="en_IN" />
 
+  <!-- Preconnect for performance -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
@@ -22,27 +23,72 @@
   <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "MedicalWebPage",
-  "headline": "Lipid Profile & Heart Health: Understanding Good vs Bad Cholesterol",
-  "description": "Comprehensive cholesterol screening evaluates your cardiac risk. Learn how HDL, LDL, VLDL, and Triglycerides impact heart health.",
-  "url": "https://bharathjansewalabs.com/blog/lipid-profile-cholesterol-test-guide/",
-  "author": {
-    "@type": "Person",
-    "name": "Dr. Ananya Rao, MD (Pathology)"
-  },
-  "publisher": {
-    "@type": "MedicalOrganization",
-    "name": "Bharath Jan Sewa Labs",
-    "url": "https://bharathjansewalabs.com",
-    "logo": "https://bharathjansewalabs.com/logo.webp"
-  },
-  "datePublished": "2026-11-12",
-  "dateModified": "2026-11-12",
-  "mainEntityOfPage": "https://bharathjansewalabs.com/blog/lipid-profile-cholesterol-test-guide/",
-  "about": {
-    "@type": "MedicalCondition",
-    "name": "Heart & Lipids"
-  }
+  "@graph": [
+    {
+      "@type": [
+        "BlogPosting",
+        "MedicalWebPage"
+      ],
+      "@id": "https://bharathjansewalabs.com/blog/lipid-profile-cholesterol-test-guide/#article",
+      "isPartOf": {
+        "@type": "WebSite",
+        "@id": "https://bharathjansewalabs.com/#website",
+        "name": "Bharath Jan Sewa Labs",
+        "url": "https://bharathjansewalabs.com"
+      },
+      "headline": "Lipid Profile & Heart Health: Understanding Good vs Bad Cholesterol",
+      "description": "Comprehensive cholesterol screening evaluates your cardiac risk. Learn how HDL, LDL, VLDL, and Triglycerides impact heart health.",
+      "url": "https://bharathjansewalabs.com/blog/lipid-profile-cholesterol-test-guide/",
+      "mainEntityOfPage": "https://bharathjansewalabs.com/blog/lipid-profile-cholesterol-test-guide/",
+      "inLanguage": "en-IN",
+      "datePublished": "2026-11-12T09:00:00+05:30",
+      "dateModified": "2026-11-12T09:00:00+05:30",
+      "author": {
+        "@type": "Person",
+        "name": "Dr. Ananya Rao",
+        "jobTitle": "Dr. Ananya Rao, MD (Pathology)",
+        "description": "Consultant Medical Specialist at Bharath Jan Sewa Labs, Dr. Ananya Rao, MD (Pathology)."
+      },
+      "publisher": {
+        "@type": "MedicalOrganization",
+        "@id": "https://bharathjansewalabs.com/#organization",
+        "name": "Bharath Jan Sewa Labs",
+        "url": "https://bharathjansewalabs.com",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://bharathjansewalabs.com/logo.webp"
+        }
+      },
+      "about": {
+        "@type": "MedicalCondition",
+        "name": "Heart & Lipids"
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://bharathjansewalabs.com/blog/lipid-profile-cholesterol-test-guide/#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://bharathjansewalabs.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Health Guides",
+          "item": "https://bharathjansewalabs.com/blog/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Lipid Profile & Heart Health: Understanding Good vs Bad Cholesterol",
+          "item": "https://bharathjansewalabs.com/blog/lipid-profile-cholesterol-test-guide/"
+        }
+      ]
+    }
+  ]
 }
   </script>
 
@@ -52,10 +98,10 @@
       font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
       background: #FAF9F8;
       color: #0F172A;
-      line-height: 1.65;
+      line-height: 1.7;
     }
     .wrap {
-      max-width: 860px;
+      max-width: 880px;
       margin: 0 auto;
       padding: 0 1.25rem;
     }
@@ -64,6 +110,9 @@
       color: white;
       padding: 1rem 0;
       border-bottom: 1px solid rgba(255,255,255,0.1);
+      position: sticky;
+      top: 0;
+      z-index: 100;
     }
     .header-nav {
       display: flex;
@@ -88,21 +137,22 @@
       margin-left: 1.25rem;
       font-size: 0.9rem;
       font-weight: 600;
+      transition: color 0.15s ease;
     }
-    .header-links a:hover { color: #38BDF8; }
+    .header-links a:hover { color: #EF4444; }
     
     .article-hero {
-      padding: 3rem 0 2rem;
+      padding: 2.5rem 0 2rem;
     }
     .crumb {
       font-size: 0.85rem;
       color: #64748B;
       margin-bottom: 1.25rem;
     }
-    .crumb a { color: #0284C7; text-decoration: none; }
+    .crumb a { color: #0284C7; text-decoration: none; font-weight: 600; }
     .badge-tag {
       display: inline-block;
-      padding: 4px 12px;
+      padding: 4px 14px;
       border-radius: 99px;
       background: #EFF6FF;
       color: #1E40AF;
@@ -110,17 +160,20 @@
       font-size: 0.8rem;
       margin-bottom: 1rem;
       text-transform: uppercase;
+      letter-spacing: 0.04em;
     }
     h1 {
-      font-size: clamp(1.8rem, 3.5vw, 2.5rem);
+      font-size: clamp(1.85rem, 3.8vw, 2.65rem);
       font-weight: 900;
       line-height: 1.2;
       color: #0F172A;
-      margin-bottom: 1rem;
+      margin-bottom: 1.25rem;
+      letter-spacing: -0.02em;
     }
     .meta-row {
       display: flex;
       flex-wrap: wrap;
+      align-items: center;
       gap: 1.25rem;
       font-size: 0.875rem;
       color: #64748B;
@@ -128,16 +181,28 @@
       padding-bottom: 1.25rem;
       margin-bottom: 2rem;
     }
+    .meta-row span {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
     .article-body {
       font-size: 1.05rem;
       line-height: 1.8;
       color: #334155;
     }
     .article-body h3 {
-      font-size: 1.35rem;
+      font-size: 1.4rem;
       font-weight: 800;
       color: #0F172A;
-      margin: 1.75rem 0 0.75rem;
+      margin: 2.25rem 0 0.85rem;
+      letter-spacing: -0.01em;
+    }
+    .article-body h4 {
+      font-size: 1.15rem;
+      font-weight: 800;
+      color: #0F172A;
+      margin: 1.5rem 0 0.5rem;
     }
     .article-body p {
       margin-bottom: 1.25rem;
@@ -159,6 +224,7 @@
       justifyContent: space-between;
       align-items: center;
       gap: 1.5rem;
+      box-shadow: 0 10px 30px rgba(15,23,42,0.15);
     }
     .btn-wa {
       display: inline-flex;
@@ -171,6 +237,11 @@
       border-radius: 12px;
       font-weight: 800;
       font-size: 0.95rem;
+      box-shadow: 0 4px 15px rgba(37,211,102,0.3);
+      transition: transform 0.15s ease;
+    }
+    .btn-wa:hover {
+      transform: translateY(-2px);
     }
     footer {
       background: #F1F5F9;
@@ -194,6 +265,7 @@
         <a href="/tests/">Test Prices</a>
         <a href="/our-centres/">Our Centres</a>
         <a href="/blog/">Health Guides</a>
+        <a href="/affordable-testing-assistance/">Assistance</a>
         <a href="tel:+91 98055 43143">+91 98055 43143</a>
       </nav>
     </div>
@@ -201,7 +273,7 @@
 
   <main class="wrap article-hero">
     <div class="crumb">
-      <a href="/">Home</a> &gt; <a href="/blog/">Health Guides</a> &gt; <span>Lipid Profile & Heart Health: Understanding Good vs Bad Cholesterol</span>
+      <a href="/">Home</a> &rsaquo; <a href="/blog/">Health Guides</a> &rsaquo; <span>Lipid Profile & Heart Health: Understanding Good vs Bad Cholesterol</span>
     </div>
 
     <span class="badge-tag">Heart & Lipids</span>
@@ -211,7 +283,7 @@
       <span>👨‍⚕️ <strong>Dr. Ananya Rao, MD (Pathology)</strong></span>
       <span>📅 12 November 2026</span>
       <span>⏱️ 6 min read</span>
-      <span style="color:#059669; font-weight:700;">✓ Clinically Reviewed</span>
+      <span style="color:#059669; font-weight:700;">✓ Verified Clinical Article</span>
     </div>
 
     <article class="article-body">
@@ -230,10 +302,10 @@
 
     <div class="cta-card">
       <div>
-        <h3 style="color:white; margin:0 0 6px; font-size:1.3rem;">Need this test in Bengaluru?</h3>
-        <p style="color:#CBD5E1; margin:0; font-size:0.95rem;">NABL-accredited processing • Fast 4–8 hr report • Free home collection for ₹499+</p>
+        <h3 style="color:white; margin:0 0 6px; font-size:1.3rem;">Need this test or full body checkup in Bengaluru?</h3>
+        <p style="color:#CBD5E1; margin:0; font-size:0.95rem;">NABL-accredited processing • Same-day 4–8 hr reporting • Free home collection for ₹499+</p>
       </div>
-      <a href="https://wa.me/919805543143" class="btn-wa" target="_blank" rel="noopener noreferrer">
+      <a href="https://wa.me/919805543143?text=Namaste%20BJSL%2C%20I%20would%20like%20to%20book%20a%20blood%20test%20after%20reading%20your%20article%3A%20%27Lipid%20Profile%20%26%20Heart%20Health%3A%20Understanding%20Good%20vs%20Bad%20Cholesterol%27%20in%20Bengaluru." class="btn-wa" target="_blank" rel="noopener noreferrer">
         Book on WhatsApp &rarr;
       </a>
     </div>

@@ -10,6 +10,7 @@ export default function BlogsPage({ onBookTest }) {
 
   const categories = [
     'All',
+    'Diagnostic Affordability',
     'Infection Care',
     'Organ Function',
     'Preventive Healthcare',

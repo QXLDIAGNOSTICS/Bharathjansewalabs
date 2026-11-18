@@ -32,7 +32,8 @@ CHECK_PATHS = [
     "/our-centres/",
     "/locations/",
     "/tests/",
-    "/blog/"
+    "/blog/",
+    "/blog/affordable-blood-tests-india-delayed-diagnosis/"
 ]
 
 def audit_url(url, user_agent="Googlebot", timeout=10):
