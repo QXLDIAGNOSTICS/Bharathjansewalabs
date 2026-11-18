@@ -54,10 +54,17 @@ export default function Home({
   const testsScrollRef = useRef(null);
   const conditionsScrollRef = useRef(null);
   const desktopSliderRef = useRef(null);
+  const homeCollectionSliderRef = useRef(null);
 
   const scrollCarousel = (ref, distance) => {
     if (ref.current) {
       ref.current.scrollBy({ left: distance, behavior: 'smooth' });
+    }
+  };
+
+  const scrollHomeCollectionSlider = (direction) => {
+    if (homeCollectionSliderRef.current) {
+      homeCollectionSliderRef.current.scrollBy({ left: direction * 360, behavior: 'smooth' });
     }
   };
 
@@ -305,6 +312,54 @@ export default function Home({
       mrp: 800,
       price: 320,
       discount: '60% Off'
+    }
+  ];
+
+  // Home Sample Collection Slides (Top of Bengaluru Localities)
+  const homeCollectionSlides = [
+    {
+      id: 'slide-morning-fasting',
+      badge: '⚡ Early Morning 6:30 AM – 11:30 AM',
+      badgeColor: '#EA580C',
+      badgeBg: '#FFF7ED',
+      title: 'Fasting Blood Tests at Your Doorstep',
+      desc: 'Certified phlebotomists arrive with sterile vacutainer tubes and temperature-controlled cold chain box. Avoid the morning traffic and complete your fasting tests peacefully at home before breakfast.',
+      points: ['Fasting Sugar (FBS) at ₹20', 'Complete Lipid Profile at ₹260', 'Sterile Single-Use Vacutainers'],
+      ctaText: 'Book Morning Slot',
+      ctaLink: 'https://wa.me/919805543143?text=Hello%20Bharath%20Jan%20Sewa%20Labs%2C%20I%20want%20to%20book%20an%20early%20morning%20fasting%20blood%20test%20at%20home'
+    },
+    {
+      id: 'slide-citywide-coverage',
+      badge: '📍 15+ Bengaluru Hubs Covered',
+      badgeColor: '#143B70',
+      badgeBg: '#EFF6FF',
+      title: 'Citywide Doorstep Phlebotomy Routes',
+      desc: 'Active daily phlebotomy teams across Sanjaynagar, Banashankari, BTM Layout, Jayanagar, JP Nagar, HSR Layout, Kengeri, Rajajinagar, Vijayanagar, and more.',
+      points: ['No Long Travel or Queues', 'Local Phlebotomists Nearby', 'Transparent Fixed Tariffs'],
+      ctaText: 'Check Area On WhatsApp',
+      ctaLink: 'https://wa.me/919805543143?text=Hello%20Bharath%20Jan%20Sewa%20Labs%2C%20is%20home%20sample%20collection%20available%20in%20my%20Bengaluru%20area%3F'
+    },
+    {
+      id: 'slide-same-day-reports',
+      badge: '⚡ 4 to 8 Hour Turnaround',
+      badgeColor: '#16A34A',
+      badgeBg: '#F0FDF4',
+      title: 'Same-Day Verified Reports on WhatsApp',
+      desc: 'Samples processed through verified NABL-accredited partner laboratories using calibrated automated diagnostic systems. Digital PDF reports sent directly to WhatsApp.',
+      points: ['Same-Day WhatsApp Delivery', 'Email PDF Backup Included', 'NABL Partner Processing'],
+      ctaText: 'Inquire Report Delivery',
+      ctaLink: 'https://wa.me/919805543143?text=Hello%20Bharath%20Jan%20Sewa%20Labs%2C%20I%20have%20a%20query%20about%20test%20reporting%20times'
+    },
+    {
+      id: 'slide-elderly-parents',
+      badge: '👵 Senior Citizen Comfort Care',
+      badgeColor: '#9333EA',
+      badgeBg: '#FAF5FF',
+      title: 'Safe Diagnostics for Elderly Parents',
+      desc: 'Trained, gentle phlebotomists experienced with delicate veins. Complete comfort of home for elderly parents & grandparents without the fatigue of clinical waiting rooms.',
+      points: ['Gentle Blood Collection', 'Zero Waiting Fatigue', 'Full Body Screening from ₹796'],
+      ctaText: 'Book for Parents',
+      ctaLink: 'https://wa.me/919805543143?text=Hello%20Bharath%20Jan%20Sewa%20Labs%2C%20I%20want%20to%20book%20a%20home%20sample%20collection%20for%20my%20parents'
     }
   ];
 
@@ -1561,64 +1616,7 @@ export default function Home({
         </div>
       </section>
 
-      {/* Screenshot 4: Precision at every step banner */}
-      <section className="precision-banner-section">
-        <div className="container">
-          <div 
-            className="precision-banner-card"
-            onClick={() => {
-              const el = document.getElementById('why-bjsl');
-              if (el) el.scrollIntoView({ behavior: 'smooth' });
-            }}
-            role="button"
-            tabIndex={0}
-          >
-            <div className="precision-banner-left">
-              <h3 className="precision-banner-title">Precision at every step</h3>
-              <div className="precision-banner-sub-row">
-                <span className="precision-banner-sub">from collection to reports</span>
-                <span className="precision-arrow-btn">
-                  <ArrowRight size={14} />
-                </span>
-              </div>
-            </div>
-            <div className="precision-banner-img-box">
-              <img 
-                src="/images/banners/precision_lab.jpg" 
-                alt="Precision Laboratory Optics" 
-                className="precision-banner-img"
-              />
-            </div>
-          </div>
-        </div>
-      </section>
 
-      {/* Screenshot 4: Designed for Growing Kids banner */}
-      <section className="growing-kids-banner-section">
-        <div className="container">
-          <div 
-            className="growing-kids-banner-card"
-            onClick={() => {
-              const el = document.getElementById('checkups');
-              if (el) el.scrollIntoView({ behavior: 'smooth' });
-            }}
-            role="button"
-            tabIndex={0}
-          >
-            <div className="growing-kids-content">
-              <span className="growing-kids-eyebrow">Designed for</span>
-              <h3 className="growing-kids-heading">Growing Kids</h3>
-            </div>
-            <div className="growing-kids-img-box">
-              <img 
-                src="/images/banners/growing_kids.jpg" 
-                alt="Designed for Growing Kids" 
-                className="growing-kids-img"
-              />
-            </div>
-          </div>
-        </div>
-      </section>
 
       {/* 8. WALK INTO ANY OF OUR COLLECTION CENTRES (Screenshot 5) */}
       <section className="centres-section" id="centres">
@@ -1669,6 +1667,78 @@ export default function Home({
                   >
                     <Navigation size={14} />
                     <span>Get Directions</span>
+                  </a>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* 8.4 DOORSTEP PHLEBOTOMY & HOME SAMPLE COLLECTION SLIDES (Top of Bengaluru Localities) */}
+      <section className="home-collection-slider-section" id="home-collection-slides">
+        <div className="container">
+          <div className="home-collection-slider-header">
+            <div className="home-collection-title-box">
+              <span className="home-collection-eyebrow">
+                <Sparkles size={14} color="#EA580C" /> DOORSTEP SAMPLE COLLECTION
+              </span>
+              <h3 className="home-collection-heading">
+                Safe &amp; Convenient Home Diagnostics in Bengaluru
+              </h3>
+            </div>
+            <div className="home-collection-nav-arrows">
+              <button 
+                type="button"
+                className="home-collection-arrow-btn"
+                onClick={() => scrollHomeCollectionSlider(-1)}
+                aria-label="Previous home collection slide"
+              >
+                <ChevronLeft size={20} />
+              </button>
+              <button 
+                type="button"
+                className="home-collection-arrow-btn"
+                onClick={() => scrollHomeCollectionSlider(1)}
+                aria-label="Next home collection slide"
+              >
+                <ChevronRight size={20} />
+              </button>
+            </div>
+          </div>
+
+          <div className="home-collection-track" ref={homeCollectionSliderRef}>
+            {homeCollectionSlides.map((slide) => (
+              <div key={slide.id} className="home-collection-slide-card">
+                <div>
+                  <span 
+                    className="home-collection-card-badge" 
+                    style={{ color: slide.badgeColor, backgroundColor: slide.badgeBg, border: `1px solid ${slide.badgeColor}25` }}
+                  >
+                    {slide.badge}
+                  </span>
+                  <h4 className="home-collection-card-title">{slide.title}</h4>
+                  <p className="home-collection-card-desc">{slide.desc}</p>
+                </div>
+                
+                <div>
+                  <div className="home-collection-points-list">
+                    {slide.points.map((pt, idx) => (
+                      <div key={idx} className="home-collection-point-item">
+                        <span className="home-collection-point-icon">✓</span>
+                        <span>{pt}</span>
+                      </div>
+                    ))}
+                  </div>
+
+                  <a 
+                    href={slide.ctaLink}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="home-collection-card-cta"
+                  >
+                    <MessageSquare size={16} />
+                    <span>{slide.ctaText}</span>
                   </a>
                 </div>
               </div>
