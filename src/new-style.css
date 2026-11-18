@@ -1752,57 +1752,7 @@ img, svg {
    Fever Season Upsell Banner (Screenshot 5)
    ========================================================================== */
 
-.fever-season-section {
-  padding: 24px 0 54px;
-}
 
-.fever-season-card {
-  background-color: var(--surface-fever);
-  border-radius: 28px;
-  padding: 36px 40px;
-  display: grid;
-  grid-template-columns: 280px 1fr;
-  align-items: center;
-  gap: 36px;
-  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.02);
-}
-
-.fever-season-left {
-  display: flex;
-  flex-direction: column;
-}
-
-.fever-season-text-col {
-  display: flex;
-  flex-direction: column;
-  order: 1;
-}
-
-.fever-eyebrow {
-  font-size: 12px;
-  font-weight: 700;
-  text-transform: uppercase;
-  color: #4a758c;
-  letter-spacing: 0.05em;
-  margin-bottom: 4px;
-}
-
-.fever-heading {
-  font-family: var(--font-display);
-  font-size: 32px;
-  font-weight: 800;
-  color: #16465e;
-  line-height: 1.15;
-  margin-bottom: 20px;
-}
-
-.fever-patient-img {
-  order: 2;
-  width: 220px;
-  height: auto;
-  border-radius: 20px;
-  object-fit: cover;
-}
 
 /* ==========================================================================
    Home Collection Highlights Slider (Top of Bengaluru Localities)
@@ -2797,14 +2747,6 @@ img, svg {
     grid-template-columns: 1fr;
   }
 
-  .fever-season-card {
-    grid-template-columns: 1fr;
-    text-align: center;
-  }
-
-  .fever-patient-img {
-    margin: 0 auto;
-  }
 
   .centres-cards-grid {
     grid-template-columns: 1fr 1fr;
@@ -3988,54 +3930,6 @@ img, svg {
     text-align: center !important;
   }
 
-  /* Fever Season on Mobile (Screenshot 4) */
-  .fever-season-card {
-    flex-direction: column !important;
-    padding: 16px 14px !important;
-    border-radius: 20px !important;
-    background: #EBF4F9 !important;
-    overflow: hidden !important;
-  }
-
-  .fever-season-left {
-    display: flex !important;
-    flex-direction: row !important;
-    align-items: center !important;
-    gap: 16px !important;
-    margin-bottom: 16px !important;
-    width: 100% !important;
-  }
-
-  .fever-patient-img {
-    width: 92px !important;
-    height: 102px !important;
-    object-fit: cover !important;
-    border-radius: 16px !important;
-    order: 1 !important;
-    flex-shrink: 0 !important;
-  }
-
-  .fever-season-text-col {
-    order: 2 !important;
-    display: flex !important;
-    flex-direction: column !important;
-  }
-
-  .fever-eyebrow {
-    font-size: 13px !important;
-    font-weight: 700 !important;
-    color: #4A758C !important;
-    letter-spacing: 0.05em !important;
-    margin-bottom: 3px !important;
-  }
-
-  .fever-heading {
-    font-size: 26px !important;
-    font-weight: 800 !important;
-    color: #16465E !important;
-    margin-bottom: 0 !important;
-    line-height: 1.15 !important;
-  }
 
   /* Home Collection Slider on Mobile */
   .home-collection-slider-section {

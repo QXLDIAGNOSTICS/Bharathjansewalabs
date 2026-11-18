@@ -171,7 +171,7 @@ export default function Home({
       icon: '💇',
       testsText: 'Ferritin, TSH, Iron, Biotin',
       price: '₹100',
-      image: '/images/slides/hairfall_hero.jpg',
+      image: '/images/conditions/hair_fall.jpg',
       fallbackImage: '/images/slides/hero_hairfall.jpg', 
       testId: 'thyroid-profile' 
     }
@@ -192,36 +192,6 @@ export default function Home({
     { id: 'genetics', name: 'Genetics', image: 'https://d1wi3p9y2i20go.cloudfront.net/patient-app/10x-expirence/3X3+Vital+Organs/Genetics.png' }
   ];
 
-  // Fever Season Packages (Screenshot 5)
-  const feverPackages = [
-    {
-      id: 'dengue-cbc',
-      name: 'Dengue Profile - Rapid with CBC',
-      parametersCount: 27,
-      tat: '4-6 hours',
-      mrp: 850,
-      price: 499,
-      discount: '41% Off'
-    },
-    {
-      id: 'fever-comp',
-      name: 'Fever Profile - Comprehensive',
-      parametersCount: 69,
-      tat: 'Same day',
-      mrp: 3500,
-      price: 1499,
-      discount: '57% Off'
-    },
-    {
-      id: 'monsoon-panel',
-      name: 'Monsoon Fever Panel',
-      parametersCount: 68,
-      tat: 'Same day',
-      mrp: 2900,
-      price: 1199,
-      discount: '58% Off'
-    }
-  ];
 
   // Most Booked Individual Tests
   const bookedTests = [
@@ -1530,93 +1500,7 @@ export default function Home({
         </div>
       </section>
 
-      {/* 7. STAY AHEAD OF FEVER SEASON (Screenshot 4) */}
-      <section className="fever-season-section">
-        <div className="container">
-          <div className="fever-season-card">
-            
-            {/* Left side: Heading & Patient photo */}
-            <div className="fever-season-left">
-              <img 
-                src="/images/banners/fever_season.jpg" 
-                alt="Stay Ahead of Fever Season Care" 
-                className="fever-patient-img" 
-                onError={(e) => { e.currentTarget.src = "https://images.unsplash.com/photo-1584515979956-d9f6e5d09982?w=500&auto=format&fit=crop&q=80"; }}
-              />
-              <div className="fever-season-text-col">
-                <span className="fever-eyebrow">STAY AHEAD OF</span>
-                <h3 className="fever-heading">Fever season</h3>
-              </div>
-            </div>
 
-            {/* Right side: Fever Packages Carousel */}
-            <div className="horizontal-carousel">
-              {feverPackages.map((pkg) => {
-                const inCart = isInCart(pkg.id);
-                return (
-                  <div key={pkg.id} className="checkup-product-card" style={{ width: '280px', minWidth: '280px' }}>
-                    <div>
-                      <h4 className="checkup-card-title">{pkg.name}</h4>
-
-                      <div className="checkup-card-meta-row">
-                        <div className="meta-col">
-                          <div className="meta-icon-box">
-                            <Dna size={18} style={{ color: 'var(--brand-500)' }} />
-                          </div>
-                          <div className="meta-col-text">
-                            <span className="meta-sub-label">INCLUDES</span>
-                            <span className="meta-bold-val">{pkg.parametersCount} Parameters</span>
-                          </div>
-                        </div>
-
-                        <div className="meta-col">
-                          <div className="meta-icon-box">
-                            <FileText size={18} style={{ color: '#78716c' }} />
-                          </div>
-                          <div className="meta-col-text">
-                            <span className="meta-sub-label">REPORTS IN</span>
-                            <span className="meta-bold-val">{pkg.tat}</span>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-
-                    <div className="checkup-card-price-row">
-                      <div className="price-left">
-                        <div className="price-top-meta">
-                          <span className="strikethrough-price">₹{pkg.mrp}</span>
-                          <span className="discount-green-badge">
-                            {Math.round(((pkg.mrp - pkg.price) / pkg.mrp) * 100)}% Off
-                          </span>
-                        </div>
-                        <div className="main-price-val">₹{pkg.price}</div>
-                      </div>
-
-                      <button 
-                        type="button" 
-                        onClick={() => handleToggleCartItem(pkg)}
-                        className={`btn-brand-pill-add ${inCart ? 'in-cart' : ''}`}
-                        aria-label={`Add ${pkg.name} to cart`}
-                      >
-                        {inCart ? (
-                          <>
-                            <Check size={14} /> In cart
-                          </>
-                        ) : (
-                          <>
-                            <Plus size={14} /> Add
-                          </>
-                        )}
-                      </button>
-                    </div>
-                  </div>
-                );
-              })}
-            </div>
-
-          </div>
-        </div>
-      </section>
 
 
 
