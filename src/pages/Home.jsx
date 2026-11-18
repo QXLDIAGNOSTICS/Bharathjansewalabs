@@ -674,9 +674,10 @@ export default function Home({
                 tabIndex={0}
               >
                 <img 
-                  src="/images/banners/fever_season.jpg" 
+                  src="/images/slides/fever_hero.jpg" 
                   alt="Fever & Infection Screening" 
                   className="mobile-lifestyle-bg-img"
+                  style={{ objectPosition: 'center 15%' }}
                 />
                 <div className="mobile-lifestyle-scrim scrim-fever" />
                 <div className="mobile-lifestyle-content">
@@ -959,9 +960,10 @@ export default function Home({
                 tabIndex={0}
               >
                 <img 
-                  src="/images/banners/fever_season.jpg" 
+                  src="/images/slides/fever_hero.jpg" 
                   alt="Fever & Infection Screening" 
                   className="desktop-lifestyle-bg-img"
+                  style={{ objectPosition: 'center 15%' }}
                 />
                 <div className="desktop-lifestyle-scrim scrim-fever" />
                 <div className="desktop-lifestyle-content">
