@@ -28,14 +28,14 @@ export default function Footer({ setCurrentTab, openLegal }) {
             marginBottom: '3rem'
           }}>
             
-            {/* Column 1: Brand Logo, NABL Statement & Social Buttons */}
+            {/* Column 1: Brand Logo, Lab Statement & Social Buttons */}
             <div>
               <div style={{ marginBottom: '1.25rem' }}>
                 <img src="/logo.webp" alt="Bharath Jan Sewa Labs" style={{ height: '68px', objectFit: 'contain' }} />
               </div>
 
               <p style={{ fontSize: '0.925rem', lineHeight: '1.65', color: '#718096', marginBottom: '1.5rem', maxWidth: '340px' }}>
-                All our tests are conducted at <strong style={{ color: '#4A5568', fontWeight: 700 }}>NABL-accredited laboratories</strong> using fully automated systems to ensure accuracy and reliability.
+                All our tests are conducted at <strong style={{ color: '#4A5568', fontWeight: 700 }}>partner laboratories</strong> using fully automated systems to ensure accuracy and reliability.
               </p>
 
               {/* 5 Dark Square Social Buttons */}
@@ -192,7 +192,7 @@ export default function Footer({ setCurrentTab, openLegal }) {
             </div>
           </div>
 
-          {/* Clinical & Accreditation Transparency Notice */}
+          {/* Clinical & Laboratory Transparency Notice */}
           <div style={{
             background: '#F8FAFC',
             border: '1px solid #E2E8F0',
@@ -203,10 +203,10 @@ export default function Footer({ setCurrentTab, openLegal }) {
             lineHeight: 1.6,
             color: '#64748B'
           }}>
-            <strong style={{ color: '#334155' }}>Accreditation & Medical Disclosure: </strong>
-            Samples collected by Bharath Jan Sewa Labs collection centres are processed at designated partner laboratories. Laboratory accreditation details and the applicable scope of accredited testing are available on request. Collection centres are phlebotomy specimen collection desks and are not individually accredited laboratories. All educational material is provided for patient health awareness and does not substitute for qualified clinical consultation.
+            <strong style={{ color: '#334155' }}>Laboratory & Medical Disclosure: </strong>
+            Samples collected by Bharath Jan Sewa Labs collection centres are processed at designated partner laboratories. Details of the performing laboratory for any test are available on request. Collection centres are phlebotomy specimen collection desks and are not individually accredited laboratories. All educational material is provided for patient health awareness and does not substitute for qualified clinical consultation.
             <span onClick={() => setCurrentTab && setCurrentTab('quality')} style={{ color: '#0284C7', cursor: 'pointer', fontWeight: 700, marginLeft: '6px' }}>
-              Read Quality &amp; Partner Accreditation Details →
+              Read Quality &amp; Partner Laboratory Details →
             </span>
           </div>
 
@@ -274,7 +274,7 @@ export default function Footer({ setCurrentTab, openLegal }) {
                 <li><a href="#" onClick={(e) => { e.preventDefault(); setCurrentTab && setCurrentTab('centres'); }}>Centres</a></li>
                 <li><a href="#" onClick={(e) => { e.preventDefault(); setCurrentTab && setCurrentTab('blogs'); }}>Health Guide &amp; Blogs</a></li>
                 <li><a href="#" onClick={(e) => { e.preventDefault(); setCurrentTab && setCurrentTab('assistance'); }}>Diagnostic Assistance</a></li>
-                <li><a href="#" onClick={(e) => { e.preventDefault(); setCurrentTab && setCurrentTab('quality'); }}>Quality &amp; NABL Standards</a></li>
+                <li><a href="#" onClick={(e) => { e.preventDefault(); setCurrentTab && setCurrentTab('quality'); }}>Quality Standards</a></li>
               </ul>
             </div>
 
@@ -307,7 +307,7 @@ export default function Footer({ setCurrentTab, openLegal }) {
             <div className="mobile-footer-nav-col">
               <h4 className="mobile-footer-nav-heading">Policy</h4>
               <ul className="mobile-footer-nav-links">
-                <li><a href="#" onClick={(e) => { e.preventDefault(); openLegal && openLegal('quality'); }}>NABL Data</a></li>
+                <li><a href="#" onClick={(e) => { e.preventDefault(); openLegal && openLegal('quality'); }}>Lab Quality</a></li>
                 <li><a href="#" onClick={(e) => { e.preventDefault(); openLegal && openLegal('privacy'); }}>Responsible Disclosure</a></li>
                 <li><a href="#" onClick={(e) => { e.preventDefault(); openLegal && openLegal('terms'); }}>Vendor Code of Conduct</a></li>
                 <li><a href="#" onClick={(e) => { e.preventDefault(); openLegal && openLegal('biomedical'); }}>Biomedical Waste Disclosure</a></li>

@@ -109,7 +109,7 @@ export default function CartDrawer({ isOpen, onClose, cart, setCart, onProceedTo
                 Your cart is empty
               </h3>
               <p style={{ fontSize: '14px', marginBottom: '24px' }}>
-                Explore our NABL-accredited health checkups and blood tests at 50-70% lower rates.
+                Explore our affordable health checkups and blood tests at 50-70% lower rates.
               </p>
               <button 
                 type="button" 

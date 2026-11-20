@@ -325,7 +325,7 @@ export default function BlogsPage({ onBookTest }) {
                       Need to get this test done in Bengaluru?
                     </div>
                     <div style={{ fontSize: '0.875rem', color: '#CBD5E1' }}>
-                      NABL-accredited processing • Fast 4–8 hr report • Free home collection for ₹499+
+                      Partner-lab processing • Fast 4–8 hr report • Free home collection for ₹499+
                     </div>
                   </div>
 

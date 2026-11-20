@@ -28,7 +28,7 @@ export default function AboutPage({ setCurrentTab, openBookingWizard }) {
   const galleryImages = [
     { src: '/images/gallery/gallery-1.jpg', title: 'Automated Clinical Chemistry Analyzer' },
     { src: '/images/gallery/gallery-2.jpg', title: 'Barcoded Sample Accessioning Desk' },
-    { src: '/images/gallery/gallery-3.jpg', title: 'NABL Certified Reference Laboratory' },
+    { src: '/images/gallery/gallery-3.jpg', title: 'Partner Reference Laboratory' },
     { src: '/images/gallery/gallery-4.jpg', title: 'Fully Automated Hematology Counter' },
     { src: '/images/gallery/gallery-5.jpg', title: 'Cold-Chain Sample Transport Hub' },
     { src: '/images/gallery/gallery-6.jpg', title: 'Sterile Phlebotomy Collection Desk' },
@@ -90,7 +90,7 @@ export default function AboutPage({ setCurrentTab, openBookingWizard }) {
                 gap: '8px',
                 marginBottom: '1rem' 
               }}>
-                <ShieldCheck size={16} color="#EF4444" /> NABL ACCREDITED DIAGNOSTICS
+                <ShieldCheck size={16} color="#EF4444" /> AFFORDABLE DIAGNOSTICS
               </span>
 
               <h1 style={{ fontSize: '3rem', fontWeight: 900, color: 'white', lineHeight: 1.15, marginBottom: '1.25rem', letterSpacing: '-0.02em' }}>
@@ -98,7 +98,7 @@ export default function AboutPage({ setCurrentTab, openBookingWizard }) {
               </h1>
 
               <p style={{ color: '#94A3B8', fontSize: '1.1rem', lineHeight: 1.65, marginBottom: '2rem' }}>
-                Bharath Jan Sewa Labs (BJSL) was founded with a singular mission: to make world-class NABL-accredited diagnostic testing accessible and affordable to every family in Bengaluru. We combine 100% automated lab technology, painless home collection, and transparent pricing.
+                Bharath Jan Sewa Labs (BJSL) was founded with a singular mission: to make quality diagnostic testing accessible and affordable to every family in Bengaluru. We combine 100% automated lab technology, painless home collection, and transparent pricing.
               </p>
 
               <div style={{ display: 'flex', gap: '12px', flexWrap: 'wrap' }}>
@@ -165,7 +165,7 @@ export default function AboutPage({ setCurrentTab, openBookingWizard }) {
                   <Award size={24} color="#EF4444" />
                 </div>
                 <div>
-                  <div style={{ fontSize: '0.95rem', fontWeight: 900, color: '#0F172A' }}>NABL & ISO Certified</div>
+                  <div style={{ fontSize: '0.95rem', fontWeight: 900, color: '#0F172A' }}>Quality-Controlled Testing</div>
                   <div style={{ fontSize: '0.8rem', color: '#64748B', fontWeight: 700 }}>100% Quality Assured Tests</div>
                 </div>
               </div>
@@ -184,7 +184,7 @@ export default function AboutPage({ setCurrentTab, openBookingWizard }) {
           {[
             { label: 'Happy Patients Served', value: '500,000+', icon: Users, color: '#EF4444', bg: '#FFF1F2' },
             { label: 'Diagnostic Centres in Bengaluru', value: '10+', icon: MapPin, color: '#0284C7', bg: '#E0F2FE' },
-            { label: 'NABL Tests & Packages Offered', value: '500+', icon: Microscope, color: '#059669', bg: '#DCFCE7' },
+            { label: 'Tests & Packages Offered', value: '500+', icon: Microscope, color: '#059669', bg: '#DCFCE7' },
             { label: 'Diagnostic Report Accuracy', value: '99.8%', icon: ShieldCheck, color: '#7C3AED', bg: '#F3E8FF' }
           ].map((stat, i) => {
             const IconComp = stat.icon;
@@ -265,7 +265,7 @@ export default function AboutPage({ setCurrentTab, openBookingWizard }) {
                 <Microscope size={24} color="#0284C7" />
               </div>
               <h3 style={{ fontSize: '1.25rem', fontWeight: 900, color: '#0F172A', marginBottom: '0.75rem' }}>
-                Automated NABL Precision
+                Automated Precision
               </h3>
               <p style={{ color: '#64748B', fontSize: '0.95rem', lineHeight: 1.6 }}>
                 Our partner reference laboratories utilize fully automated Roche, Beckman Coulter, and Abbott clinical analyzers to eliminate manual errors and deliver gold-standard precision.
@@ -376,7 +376,7 @@ export default function AboutPage({ setCurrentTab, openBookingWizard }) {
               { step: '01', title: 'Easy Online Booking', desc: 'Select your package or test and pick your preferred date and morning slot.', icon: Clock },
               { step: '02', title: 'Painless Home Draw', desc: 'Vaccutainer-trained phlebotomist arrives at your door with sterile single-use kits.', icon: Stethoscope },
               { step: '03', title: 'Cold-Chain Transit', desc: 'Samples are barcoded and transported in temperature-sealed cooling carriers.', icon: Truck },
-              { step: '04', title: 'Automated Processing', desc: 'Processed at NABL-accredited reference lab with automated analyzers.', icon: Microscope },
+              { step: '04', title: 'Automated Processing', desc: 'Processed at partner reference lab with automated analyzers.', icon: Microscope },
               { step: '05', title: 'Instant Digital Report', desc: 'Receive your verified PDF report on WhatsApp & Patient Portal within hours.', icon: FileText }
             ].map((s, idx) => {
               const StepIcon = s.icon;

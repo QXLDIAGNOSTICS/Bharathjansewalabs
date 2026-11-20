@@ -32,6 +32,9 @@ Allow: /
 User-agent: PerplexityBot
 Allow: /
 
+User-agent: Perplexity-User
+Allow: /
+
 # Anthropic Claude Crawlers
 User-agent: Claude-SearchBot
 Allow: /

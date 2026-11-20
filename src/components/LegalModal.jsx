@@ -18,7 +18,7 @@ export default function LegalModal({ type, onClose }) {
           <p>When you book a blood test, doorstep sample collection, or health checkup package, we collect necessary personal details including your name, contact phone number, email address, home address, age, gender, and referring physician details.</p>
 
           <h4 style={{ color: '#0F172A', marginTop: '1.25rem', marginBottom: '0.5rem' }}>2. Use of Diagnostic Laboratory Data</h4>
-          <p>Your blood sample reports and diagnostic findings are processed under strict NABL laboratory guidelines. Test reports are encrypted and delivered directly to your registered WhatsApp number and email ID. We do not sell or share patient health records with third-party advertisers.</p>
+          <p>Your blood sample reports and diagnostic findings are processed under strict laboratory quality guidelines. Test reports are encrypted and delivered directly to your registered WhatsApp number and email ID. We do not sell or share patient health records with third-party advertisers.</p>
 
           <h4 style={{ color: '#0F172A', marginTop: '1.25rem', marginBottom: '0.5rem' }}>3. Sample Handling & Security</h4>
           <p>All biological specimens are barcode-tagged at the point of collection. Data stored in our Laboratory Information System (LIS) is protected with TLS 1.3 encryption and access-controlled by certified pathologists.</p>
@@ -37,7 +37,7 @@ export default function LegalModal({ type, onClose }) {
           <p>Welcome to Bharath Jan Sewa Labs. By accessing our services, visiting our collection hubs, or booking doorstep phlebotomy, you agree to comply with these terms.</p>
 
           <h4 style={{ color: '#0F172A', marginTop: '1.25rem', marginBottom: '0.5rem' }}>1. Diagnostic Service Scope</h4>
-          <p>Bharath Jan Sewa Labs provides specimen collection and diagnostic testing processed at NABL-accredited reference laboratories. Laboratory test reports are intended to assist registered medical practitioners and do not replace formal clinical consultation.</p>
+          <p>Bharath Jan Sewa Labs provides specimen collection and diagnostic testing processed at partner reference laboratories. Laboratory test reports are intended to assist registered medical practitioners and do not replace formal clinical consultation.</p>
 
           <h4 style={{ color: '#0F172A', marginTop: '1.25rem', marginBottom: '0.5rem' }}>2. Appointments & Fasting Protocols</h4>
           <p>Patients are responsible for following test preparation protocols (such as 10-12 hours fasting for Lipid/FBS/HbA1c profiles). BJSL is not liable for skewed test results resulting from non-compliance with fasting instructions.</p>

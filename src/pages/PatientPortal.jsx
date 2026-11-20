@@ -236,7 +236,7 @@ export default function PatientPortal({ onOpenReportViewer, openBookingWizard })
               fontWeight: 800,
               marginBottom: '1.25rem'
             }}>
-              <ShieldCheck size={16} /> 256-Bit Encrypted • NABL Patient Portal
+              <ShieldCheck size={16} /> 256-Bit Encrypted • Patient Portal
             </div>
 
             <h1 style={{
@@ -257,7 +257,7 @@ export default function PatientPortal({ onOpenReportViewer, openBookingWizard })
               lineHeight: 1.5
             }}>
               {authStep === 1 
-                ? 'Enter your mobile number and name to access your authentic NABL lab reports, view booked visits, and download certificates.'
+                ? 'Enter your mobile number and name to access your lab reports, view booked visits, and download certificates.'
                 : `We've sent a 4-digit verification code to +91 ${phone.replace(/\D/g, '').slice(-10)}.`}
             </p>
 
@@ -580,7 +580,7 @@ export default function PatientPortal({ onOpenReportViewer, openBookingWizard })
               </div>
               <div>
                 <strong style={{ color: '#0F172A', display: 'block', marginBottom: '2px' }}>⚡ Instant PDF</strong>
-                NABL QR-Verified Reports
+                QR-Verified Reports
               </div>
               <div>
                 <strong style={{ color: '#0F172A', display: 'block', marginBottom: '2px' }}>👨‍👩‍👧‍👦 Family Access</strong>
@@ -791,7 +791,7 @@ export default function PatientPortal({ onOpenReportViewer, openBookingWizard })
                       Patient: <strong style={{ color: '#071E33' }}>{currentUser.name}</strong> ({rep.age} Yrs, {rep.gender})
                     </div>
                     <div style={{ fontSize: '0.78rem', color: '#64748B', marginTop: '3px' }}>
-                      Authorized Pathologist: <strong>{rep.pathologist}</strong> • NABL Central Facility
+                      Authorized Pathologist: <strong>{rep.pathologist}</strong> • Partner Laboratory
                     </div>
                   </div>
 

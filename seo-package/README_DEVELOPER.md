@@ -57,7 +57,7 @@ For a purely static Vercel deployment, publish `site/` as output root and config
 - Verify that the same ₹20 glucose offer is applicable to each of fasting/PP/random as intended; confirm whether only **one** timed specimen is included.
 - Confirm actual assay variants, sample type, included analytes, specimen handling, test availability and any differential centre/home-collection fees.
 - **Medical safety check by a qualified laboratory physician:** all 66 descriptions and 1,056 answers should be reviewed, with an actual named reviewer and date on each live page only after approval. Do not fabricate a byline, accreditation certificate, results time, patient statistics or centre coverage.
-- Verify the performing laboratory's **current NABL scope for each particular examination**. The company's site says testing is processed at NABL-accredited laboratories; this does not imply every individual centre or every test is accredited.
+- Verify the performing laboratory's **current NABL scope for each particular examination**. The company's site says testing is processed at partner laboratories; this does not imply every individual centre or every test is accredited.
 - Review privacy, consent and secure collection of patient information before replacing WhatsApp enquiry with an on-page form/payment flow. HIV and VDRL enquiry messages intentionally do not include the sensitive test name.
 - For **troponin I, D-dimer and severe illness**, confirm urgent referral messaging and do not market home sample collection as a replacement for emergency care.
 - Confirm the collection-centre list and reconcile any mismatched hours/addresses on the existing site's directory page.

@@ -330,8 +330,8 @@ export default function Home({
       badgeColor: '#16A34A',
       badgeBg: '#F0FDF4',
       title: 'Same-Day Verified Reports on WhatsApp',
-      desc: 'Samples processed through verified NABL-accredited partner laboratories using calibrated automated diagnostic systems. Digital PDF reports sent directly to WhatsApp.',
-      points: ['Same-Day WhatsApp Delivery', 'Email PDF Backup Included', 'NABL Partner Processing'],
+      desc: 'Samples processed through partner diagnostic laboratories using calibrated automated diagnostic systems. Digital PDF reports sent directly to WhatsApp.',
+      points: ['Same-Day WhatsApp Delivery', 'Email PDF Backup Included', 'Partner Lab Processing'],
       ctaText: 'Inquire Report Delivery',
       ctaLink: 'https://wa.me/919805543143?text=Hello%20Bharath%20Jan%20Sewa%20Labs%2C%20I%20have%20a%20query%20about%20test%20reporting%20times'
     },
@@ -458,11 +458,11 @@ export default function Home({
   const diagnosticAssuranceSlides = [
     {
       id: 'slide-nabl-precision',
-      badge: '🔬 NABL Partner Standards',
+      badge: '🔬 Lab Quality Standards',
       badgeColor: '#0284C7',
       badgeBg: '#F0F9FF',
       title: 'Precision at Every Step: From Collection to Reports',
-      desc: 'All blood and urine specimens are collected using vacuum BD vacutainers, cold-chain preserved in temperature-monitored boxes, and analyzed on calibrated automated clinical chemistry analyzers at NABL accredited partner laboratories (MC-2849 / MC-3104).',
+      desc: 'All blood and urine specimens are collected using vacuum BD vacutainers, cold-chain preserved in temperature-monitored boxes, and analyzed on calibrated automated clinical chemistry analyzers at our partner diagnostic laboratories.',
       points: [
         'Sterile single-use vacuum vacutainers with barcode tracking',
         'Daily internal quality controls & multi-tier calibration',
@@ -1299,8 +1299,8 @@ export default function Home({
                   <Award size={24} />
                 </div>
                 <div className="trust-stat-text">
-                  <span className="trust-stat-label">OWN LABS</span>
-                  <span className="trust-stat-value">NABL, ICMR accredited</span>
+                  <span className="trust-stat-label">PARTNER LABS</span>
+                  <span className="trust-stat-value">Automated testing</span>
                 </div>
               </div>
 
@@ -1413,7 +1413,7 @@ export default function Home({
         </div>
       </section>
 
-      {/* MOBILE CIRCULAR CHECKUP CATEGORIES & NABL BADGE (Screenshot 2) */}
+      {/* MOBILE CIRCULAR CHECKUP CATEGORIES & QUALITY BADGE (Screenshot 2) */}
       <section className="mobile-circular-categories-section">
         <div className="container">
           <h2 className="section-main-heading" style={{ marginBottom: '16px' }}>Checkup Categories</h2>
@@ -1444,7 +1444,7 @@ export default function Home({
             ))}
           </div>
 
-          {/* NABL & EQAS Accredited Labs Banner Pill (Screenshot 2) */}
+          {/* Quality partner labs banner pill (Screenshot 2) */}
           <div 
             className="mobile-nabl-strip-pill" 
             onClick={() => {
@@ -1455,9 +1455,9 @@ export default function Home({
             tabIndex={0}
           >
             <div className="mobile-nabl-strip-left">
-              <span className="mobile-nabl-title">NABL & EQAS accredited labs</span>
+              <span className="mobile-nabl-title">Quality-controlled partner labs</span>
               <span className="mobile-nabl-sub">
-                6 advanced labs across 4 cities <ArrowRight size={13} style={{ display: 'inline', verticalAlign: 'middle', marginLeft: '4px' }} />
+                See our quality standards <ArrowRight size={13} style={{ display: 'inline', verticalAlign: 'middle', marginLeft: '4px' }} />
               </span>
             </div>
             <div className="mobile-nabl-badge-icon">
@@ -1974,9 +1974,9 @@ export default function Home({
               <div className="feature-icon-circle">
                 <Award size={24} />
               </div>
-              <h4 className="feature-title">NABL-Accredited Partner Testing</h4>
+              <h4 className="feature-title">Partner Laboratory Testing</h4>
               <p className="feature-text">
-                Samples collected across our network are processed through verified NABL-accredited partner laboratories where applicable, using automated systems and calibrated multi-stage controls.
+                Samples collected across our network are processed through our partner diagnostic laboratories, using automated systems and calibrated multi-stage controls.
               </p>
             </div>
 
@@ -2037,7 +2037,7 @@ export default function Home({
           </h2>
           
           <p style={{ fontSize: 'clamp(0.95rem, 1.8vw, 1.15rem)', color: '#CBD5E1', maxWidth: '780px', lineHeight: 1.6, margin: '0 0 1.75rem' }}>
-            High-quality diagnostic testing at transparent, budget-friendly prices, with samples processed through verified NABL-accredited partner laboratories where applicable.
+            High-quality diagnostic testing at transparent, budget-friendly prices, with samples processed through our partner diagnostic laboratories.
           </p>
 
           <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.75rem', alignItems: 'center', marginBottom: '2rem' }}>
@@ -2470,7 +2470,7 @@ export default function Home({
                 Why Bengaluru Families Choose Bharath Jan Sewa Labs
               </h3>
               <p className="assurance-subtitle">
-                Clinical precision, verified NABL partner lab testing, zero hidden markups, and gentle doorstep phlebotomy across 15+ Bengaluru hubs.
+                Clinical precision, partner lab testing, zero hidden markups, and gentle doorstep phlebotomy across 15+ Bengaluru hubs.
               </p>
             </div>
             <div className="assurance-nav-arrows">

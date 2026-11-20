@@ -33,7 +33,7 @@ export default function TestCard({ test, onSelect, onBook }) {
           </span>
 
           <span className="badge-safe-green">
-            <ShieldCheck size={13} /> NABL PARTNER LAB
+            <ShieldCheck size={13} /> PARTNER LAB
           </span>
         </div>
 
@@ -43,7 +43,7 @@ export default function TestCard({ test, onSelect, onBook }) {
         </h3>
 
         <p style={{ fontSize: '0.825rem', color: 'var(--text-secondary)', lineHeight: 1.5, marginBottom: '1rem' }}>
-          {test.shortDesc || 'Comprehensive diagnostic blood parameter analysis processed at NABL labs.'}
+          {test.shortDesc || 'Comprehensive diagnostic blood parameter analysis processed at partner laboratories.'}
         </p>
 
         {/* Specimen & Report Info Pill Box */}

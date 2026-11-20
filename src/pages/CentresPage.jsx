@@ -110,7 +110,7 @@ export default function CentresPage({ openBookingWizard }) {
               Our Diagnostic Centres &amp; Collection Hubs
             </h1>
             <p style={{ fontSize: '1.1rem', color: '#94A3B8' }}>
-              Walk in to any nearby BJSL collection hub or book convenient home sample collection across South, West, Central, and North Bengaluru. Samples processed through verified NABL-accredited partner laboratories.
+              Walk in to any nearby BJSL collection hub or book convenient home sample collection across South, West, Central, and North Bengaluru. Samples processed through partner diagnostic laboratories.
             </p>
           </div>
 
@@ -501,7 +501,7 @@ export default function CentresPage({ openBookingWizard }) {
           </div>
         </div>
 
-        {/* NABL Guarantee Banner */}
+        {/* Lab quality banner */}
         <div style={{
           background: 'linear-gradient(135deg, #ECFDF5 0%, #D1FAE5 100%)',
           borderRadius: '16px',
@@ -515,7 +515,7 @@ export default function CentresPage({ openBookingWizard }) {
         }}>
           <ShieldCheck size={28} color="#059669" style={{ flexShrink: 0 }} />
           <p style={{ fontSize: '0.95rem', fontWeight: 700, color: '#065F46', margin: 0 }}>
-            All our tests are conducted at NABL-accredited laboratories using fully automated systems to ensure accuracy and reliability.
+            All our tests are conducted at partner laboratories using fully automated systems to ensure accuracy and reliability.
           </p>
         </div>
 

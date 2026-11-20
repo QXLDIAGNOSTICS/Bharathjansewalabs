@@ -97,8 +97,18 @@ AFFORDABLE_TESTS_FAQS = [
     }
 ]
 
+# Hero images (>=1200px wide, required for Google Discover large previews).
+# Replace with original, topic-specific photography when available.
+DEFAULT_HERO = ("/images/banners/precision_lab.jpg", 1376, 768, "Automated diagnostic laboratory analyser and microscope")
+HERO_IMAGES = {
+    "affordable-blood-tests-india-delayed-diagnosis": ("/images/banners/bridging-divide.webp", 1256, 960, "Phlebotomist collecting a blood sample from a patient"),
+    "how-home-sample-collection-works": ("/images/banners/bridging-divide.webp", 1256, 960, "Phlebotomist collecting a blood sample from a patient"),
+}
+
 # Generate Individual Blog HTML Pages
 for p in posts:
+    hero_src, hero_w, hero_h, hero_alt = HERO_IMAGES.get(p["slug"], DEFAULT_HERO)
+    hero_url = f"{BASE_URL}{hero_src}"
     post_dir = os.path.join(out_dir, p["slug"])
     os.makedirs(post_dir, exist_ok=True)
     post_file = os.path.join(post_dir, "index.html")
@@ -123,6 +133,12 @@ for p in posts:
             "url": canonical_url,
             "mainEntityOfPage": canonical_url,
             "inLanguage": "en-IN",
+            "image": {
+                "@type": "ImageObject",
+                "url": hero_url,
+                "width": hero_w,
+                "height": hero_h
+            },
             "datePublished": f"{p['dateISO']}T09:00:00+05:30",
             "dateModified": f"{p['dateISO']}T09:00:00+05:30",
             "author": {
@@ -216,6 +232,14 @@ for p in posts:
   <meta property="og:url" content="{canonical_url}" />
   <meta property="og:site_name" content="Bharath Jan Sewa Labs" />
   <meta property="og:locale" content="en_IN" />
+  <meta property="og:image" content="{hero_url}" />
+  <meta property="og:image:width" content="{hero_w}" />
+  <meta property="og:image:height" content="{hero_h}" />
+  <meta property="og:image:alt" content="{hero_alt}" />
+  <meta property="article:published_time" content="{p['dateISO']}T09:00:00+05:30" />
+  <meta property="article:modified_time" content="{p['dateISO']}T09:00:00+05:30" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:image" content="{hero_url}" />
 
   <!-- Preconnect for performance -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -420,6 +444,10 @@ for p in posts:
       <span style="color:#059669; font-weight:700;">✓ Verified Clinical Article</span>
     </div>
 
+    <figure style="margin:1.5rem 0 2rem;">
+      <img src="{hero_src}" alt="{hero_alt}" width="{hero_w}" height="{hero_h}" fetchpriority="high" style="width:100%; height:auto; border-radius:16px; display:block;" />
+    </figure>
+
     <article class="article-body">
       {p['content']}
     </article>
@@ -427,7 +455,7 @@ for p in posts:
     <div class="cta-card">
       <div>
         <h3 style="color:white; margin:0 0 6px; font-size:1.3rem;">Need this test or full body checkup in Bengaluru?</h3>
-        <p style="color:#CBD5E1; margin:0; font-size:0.95rem;">NABL-accredited processing • Same-day 4–8 hr reporting • Free home collection for ₹499+</p>
+        <p style="color:#CBD5E1; margin:0; font-size:0.95rem;">Partner-lab processing • Same-day 4–8 hr reporting • Free home collection for ₹499+</p>
       </div>
       <a href="{wa_url}" class="btn-wa" target="_blank" rel="noopener noreferrer">
         Book on WhatsApp &rarr;
@@ -439,7 +467,7 @@ for p in posts:
   <footer>
     <div class="wrap">
       <p style="margin-bottom:0.5rem;"><strong>Bharath Jan Sewa Labs</strong> &bull; Bengaluru's Affordable Diagnostic Laboratory Network</p>
-      <p style="font-size:0.8rem; color:#94A3B8;">Accredited partner laboratory testing &bull; Verified specimen cold-chain &bull; Non-profit public healthcare</p>
+      <p style="font-size:0.8rem; color:#94A3B8;">Partner laboratory testing &bull; Verified specimen cold-chain &bull; Non-profit public healthcare</p>
       <p style="margin-top:1rem; font-size:0.8rem;">&copy; 2026 Bharath Jan Sewa Labs. All rights reserved.</p>
     </div>
   </footer>
@@ -596,7 +624,7 @@ blog_index_html = f"""<!DOCTYPE html>
   <footer>
     <div class="wrap">
       <p style="margin-bottom:0.5rem;"><strong>Bharath Jan Sewa Labs</strong> &bull; Bengaluru's Affordable Diagnostic Laboratory Network</p>
-      <p style="font-size:0.8rem; color:#94A3B8;">Accredited partner laboratory testing &bull; Verified specimen cold-chain &bull; Non-profit public healthcare</p>
+      <p style="font-size:0.8rem; color:#94A3B8;">Partner laboratory testing &bull; Verified specimen cold-chain &bull; Non-profit public healthcare</p>
       <p style="margin-top:1rem; font-size:0.8rem;">&copy; 2026 Bharath Jan Sewa Labs. All rights reserved.</p>
     </div>
   </footer>

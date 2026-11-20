@@ -85,7 +85,7 @@ export default function FranchisePage({ openFranchiseModal, onBookTest }) {
             <div style={{ background: '#FFF1F2', border: '1px solid #FECDD3', padding: '1.75rem', borderRadius: '18px' }}>
               <div style={{ fontSize: '0.85rem', color: '#991B1B', fontWeight: 800, textTransform: 'uppercase' }}>REQUIRED INVESTMENT</div>
               <div style={{ fontSize: '2rem', fontWeight: 900, color: '#EF4444', margin: '4px 0' }}>{FRANCHISE_INFO.investmentRange}</div>
-              <div style={{ fontSize: '0.825rem', color: '#059669', fontWeight: 800 }}>Low Capital Risk • Central NABL Lab</div>
+              <div style={{ fontSize: '0.825rem', color: '#059669', fontWeight: 800 }}>Low Capital Risk • Central Partner Lab</div>
             </div>
 
             <div style={{ background: '#F0F9FF', border: '1px solid #BAE6FD', padding: '1.75rem', borderRadius: '18px' }}>
@@ -115,7 +115,7 @@ export default function FranchisePage({ openFranchiseModal, onBookTest }) {
             {[
               { title: 'Local Collection Points', desc: 'Easy neighborhood access for fast walk-in blood sampling.' },
               { title: 'Mobile Vans Outreach', desc: 'Doorstep testing in remote zones and doorstep phlebotomy.' },
-              { title: 'NABL Certified Reference Lab', desc: 'Centralized high-precision automated laboratory processing.' },
+              { title: 'Partner Reference Lab', desc: 'Centralized high-precision automated laboratory processing.' },
               { title: '50–70% Lower Pricing', desc: 'Unbeatable affordable rates passing volume scale to patients.' },
               { title: 'App-Based Booking & Tracking', desc: 'Cloud LIS software for automated WhatsApp report dispatch.' }
             ].map((item, idx) => (

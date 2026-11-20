@@ -3,8 +3,8 @@
     {
       "id": "LAB-BLR-NABL-01",
       "name": "Associated Diagnostic Central Reference Lab",
-      "certificateNumber": "MC-2849",
-      "certificateValid": true,
+      "certificateNumber": null,
+      "certificateValid": false,
       "validUntil": "2027-08-31",
       "standard": "ISO 15189:2022",
       "city": "Bengaluru",
@@ -25,8 +25,8 @@
     {
       "id": "LAB-BLR-NABL-02",
       "name": "Advanced Clinical Genomics & Pathology Partner",
-      "certificateNumber": "MC-3104",
-      "certificateValid": true,
+      "certificateNumber": null,
+      "certificateValid": false,
       "validUntil": "2027-11-30",
       "standard": "ISO 15189:2022",
       "city": "Bengaluru",

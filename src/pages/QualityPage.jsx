@@ -15,7 +15,7 @@ export default function QualityPage() {
             Quality Framework &amp; Laboratory Standards
           </h1>
           <p style={{ fontSize: '1.1rem', color: '#475569', lineHeight: 1.65 }}>
-            Transparent disclosure of our testing protocols, specimen cold-chain logistics, and verified NABL-accredited laboratory partnerships.
+            Transparent disclosure of our testing protocols, specimen cold-chain logistics, and laboratory partnerships.
           </p>
         </div>
 
@@ -32,10 +32,10 @@ export default function QualityPage() {
               <ShieldCheck size={24} />
             </div>
             <h3 style={{ fontSize: '1.2rem', fontWeight: 800, color: '#0F172A', marginBottom: '0.5rem' }}>
-              NABL Partner Testing
+              Partner Lab Testing
             </h3>
             <p style={{ color: '#64748B', fontSize: '0.9rem', lineHeight: 1.6 }}>
-              All pathology investigations are analyzed at verified NABL-accredited reference laboratories under ISO 15189 standards (Certificate IDs: MC-2849, MC-3104).
+              All pathology investigations are analyzed at our partner reference laboratories on calibrated, automated analyzers. Performing-laboratory details are available on request.
             </p>
           </div>
 
@@ -87,7 +87,7 @@ export default function QualityPage() {
           boxShadow: '0 10px 30px -10px rgba(15, 23, 42, 0.05)'
         }}>
           <h2 style={{ fontSize: '1.4rem', fontWeight: 800, color: '#0F172A', marginBottom: '1rem' }}>
-            Accreditation &amp; Hub Distinction Disclosure
+            Collection Hub &amp; Laboratory Disclosure
           </h2>
           <p style={{ color: '#475569', fontSize: '0.95rem', lineHeight: 1.7, marginBottom: '1rem' }}>
             In compliance with national clinical establishment guidelines and truthful advertising ethics, Bharath Jan Sewa Labs maintains a clear distinction between its neighbourhood phlebotomy desks and performing laboratories:
@@ -97,7 +97,7 @@ export default function QualityPage() {
               <strong>Collection Centres:</strong> Our 10 centres across Bengaluru (Sanjaynagar, Peenya, Kengeri, Ittamadu, Subramanyapura, Jaraganahalli, RR Nagar, Basaveshwaranagar, Vijayanagar, KR Market) are patient service hubs equipped for hygienic phlebotomy specimen collection.
             </li>
             <li>
-              <strong>Testing Laboratories:</strong> All biological investigations are performed at designated, fully automated reference laboratories accredited by the National Accreditation Board for Testing and Calibration Laboratories (NABL) under ISO 15189 for their applicable test scopes.
+              <strong>Testing Laboratories:</strong> All biological investigations are performed at designated, fully automated partner reference laboratories. Details of the performing laboratory for any test are available on request.
             </li>
             <li>
               <strong>ICMR NEDL Alignment:</strong> Where indicated, our test profiles reference recommendations of the ICMR National Essential Diagnostics List (2025 Second Edition) as an educational public health benchmark.
@@ -106,7 +106,7 @@ export default function QualityPage() {
 
           <div style={{ borderTop: '1px solid #F1F5F9', paddingTop: '1.25rem', display: 'flex', flexWrap: 'wrap', gap: '1rem', alignItems: 'center' }}>
             <a 
-              href="https://wa.me/919805543143?text=Namaste%20BJSL,%20I%20have%20a%20query%20regarding%20your%20laboratory%20quality%20standards%20and%20accreditation%20scopes."
+              href="https://wa.me/919805543143?text=Namaste%20BJSL,%20I%20have%20a%20query%20regarding%20your%20laboratory%20quality%20standards%20and%20partner%20laboratories."
               target="_blank"
               rel="noopener noreferrer"
               style={{

@@ -51,7 +51,7 @@ export default function TestsCatalogue({ onSelectTest, onBookTest }) {
           <div>
             <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '4px' }}>
               <span style={{ fontSize: '0.8rem', fontWeight: 800, color: '#0284C7', textTransform: 'uppercase', letterSpacing: '0.05em' }}>
-                NABL Accredited Diagnostics
+                Affordable Diagnostics
               </span>
               <span style={{ color: '#94A3B8' }}>•</span>
               <span style={{ fontSize: '0.8rem', fontWeight: 700, color: '#16A34A', background: '#DCFCE7', padding: '2px 8px', borderRadius: '4px' }}>
@@ -500,7 +500,7 @@ export default function TestsCatalogue({ onSelectTest, onBookTest }) {
             }}>
               <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
                 <ShieldCheck size={16} color="#16A34A" />
-                <span>All diagnostic samples tested using fully automated analyzers at NABL accredited labs. Same-day digital reports via WhatsApp & portal.</span>
+                <span>All diagnostic samples tested using fully automated analyzers at partner laboratories. Same-day digital reports via WhatsApp & portal.</span>
               </div>
               <div style={{ fontWeight: 700, color: '#0F172A' }}>
                 Helpline: 9805543143 • Home Sample Collection Available Citywide

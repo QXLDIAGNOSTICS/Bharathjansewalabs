@@ -10,7 +10,7 @@ export default function ReportViewerModal({ report, onClose }) {
         <div className="modal-header">
           <div>
             <span style={{ fontSize: '0.75rem', fontWeight: 800, color: '#059669', background: '#D1FAE5', padding: '2px 8px', borderRadius: '4px' }}>
-              NABL ACCREDITED REPORT • VERIFIED
+              LABORATORY REPORT
             </span>
             <h3 style={{ fontSize: '1.25rem', fontWeight: 800, color: '#0F172A', marginTop: '4px' }}>
               Diagnostic Lab Report: {report.testName}
@@ -52,7 +52,7 @@ export default function ReportViewerModal({ report, onClose }) {
                   Central Reference Diagnostic Network
                 </div>
                 <div style={{ fontSize: '0.75rem', color: '#64748B' }}>
-                  Processing Facility: NABL Accredited Partner Lab (Cert: MC-2981)
+                  Processing Facility: Partner Diagnostic Laboratory
                 </div>
               </div>
               <div style={{ textAlign: 'right' }}>

@@ -75,7 +75,7 @@ export default function LegalPage({ activeTab = 'promo', setActiveTab, setCurren
             </h1>
 
             <p style={{ color: '#94A3B8', fontSize: '1.05rem', lineHeight: 1.6, marginBottom: '1.5rem' }}>
-              Bharath Jan Sewa Labs (BJSL) operates under strict NABL diagnostic quality protocols, patient data protection laws, and transparent pricing policies.
+              Bharath Jan Sewa Labs (BJSL) operates under strict diagnostic quality protocols, patient data protection laws, and transparent pricing policies.
             </p>
 
             <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', fontSize: '0.85rem', color: '#CBD5E1', fontWeight: 700 }}>
@@ -231,7 +231,7 @@ export default function LegalPage({ activeTab = 'promo', setActiveTab, setCurren
                     1. Diagnostic Scope & Medical Disclaimer
                   </h3>
                   <p>
-                    Bharath Jan Sewa Labs provides specimen collection and diagnostic testing processed at NABL-accredited partner laboratories. Laboratory test reports are designed to assist registered medical practitioners in clinical evaluation and do not substitute for direct medical diagnosis or emergency advice.
+                    Bharath Jan Sewa Labs provides specimen collection and diagnostic testing processed at partner laboratories. Laboratory test reports are designed to assist registered medical practitioners in clinical evaluation and do not substitute for direct medical diagnosis or emergency advice.
                   </p>
                 </div>
 

@@ -32,7 +32,7 @@ export default function DoctorsClinicsPage() {
             Reliable Diagnostics for Your Patients
           </h1>
           <p style={{ color: '#FFE4E6', fontSize: '1.05rem', maxWidth: '640px' }}>
-            Bharath Jan Sewa Labs provides general practitioners, clinical consultants, and nursing homes with high-precision NABL-accredited laboratory processing.
+            Bharath Jan Sewa Labs provides general practitioners, clinical consultants, and nursing homes with high-precision partner laboratory processing.
           </p>
         </div>
 

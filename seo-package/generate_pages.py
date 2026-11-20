@@ -49,7 +49,7 @@ def faqs(t):
         (f'Can the {n} test alone confirm or rule out a condition?', f'Not necessarily. {t["limitation"]} A clinician may use other tests, repeat measurements or examination depending on the situation.'),
         (f'When will my {n} report be ready?', 'Turnaround depends on collection time, processing laboratory, and whether verification or repeat testing is needed. Ask Bharath Jan Sewa Labs for the current estimated reporting time when booking; no fixed turnaround is promised here.'),
         (f'Can I request home sample collection for {n} in Bengaluru?', 'Ask the booking team whether home collection is suitable for this particular test and available at your pincode. Some tests require careful timing or rapid transport, so centre collection or urgent hospital testing may be more appropriate.'),
-        (f'Where can I book {n} and which laboratory processes it?', f'Bharath Jan Sewa Labs lists collection centres in Bengaluru, including {", ".join(centres[:4])} and other locations. Its website says samples are processed at NABL-accredited laboratories; ask for the performing laboratory and the specific test\'s current accredited scope. Collection centres are not automatically individually NABL-accredited.'),
+        (f'Where can I book {n} and which laboratory processes it?', f'Bharath Jan Sewa Labs lists collection centres in Bengaluru, including {", ".join(centres[:4])} and other locations. Ask the centre for the name of the performing laboratory for this test.'),
         (f'How can I book the {n} test at ₹{cost:,}?', 'Call ' + DISPLAY_PHONE + ' or use the booking link on this page. Tell the team the required test, preferred Bengaluru centre or home collection area, and your preferred date. Confirm the currently payable rate, test method, any collection charges and reporting time before proceeding.'),
     ]
 
@@ -85,7 +85,7 @@ def head(title, description, canonical, graph=None):
 
 
 def footer():
-    return f'''<footer class="footer"><div class="wrap"><div class="footergrid"><div><strong>Bharath Jan Sewa Labs</strong><p>Affordable diagnostic services in Bengaluru.</p><p>Medical information is educational, not personal medical advice.</p></div><div><strong>Contact</strong><p><a href="tel:+{PHONE}">{DISPLAY_PHONE}</a></p><p><a href="{CENTRES_URL}">Collection centres &amp; directions</a></p></div><div><strong>Important</strong><p>Promotional leaflet prices require confirmation. Verify the performing lab and the relevant NABL scope where applicable.</p></div></div><small>© Bharath Jan Sewa Labs. Page content should be reviewed by the lab medical team before production publication.</small></div></footer></body></html>'''
+    return f'''<footer class="footer"><div class="wrap"><div class="footergrid"><div><strong>Bharath Jan Sewa Labs</strong><p>Affordable diagnostic services in Bengaluru.</p><p>Medical information is educational, not personal medical advice.</p></div><div><strong>Contact</strong><p><a href="tel:+{PHONE}">{DISPLAY_PHONE}</a></p><p><a href="{CENTRES_URL}">Collection centres &amp; directions</a></p></div><div><strong>Important</strong><p>Promotional leaflet prices require confirmation. Ask for the performing laboratory details.</p></div></div><small>© Bharath Jan Sewa Labs. Page content should be reviewed by the lab medical team before production publication.</small></div></footer></body></html>'''
 
 
 def schema(t, faq):

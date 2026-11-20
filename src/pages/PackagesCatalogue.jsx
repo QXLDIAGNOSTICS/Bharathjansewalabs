@@ -122,13 +122,13 @@ export default function PackagesCatalogue({
         }}>
           <div style={{ maxWidth: '680px', position: 'relative', zIndex: 5 }}>
             <span style={{ background: 'white', color: '#EF4444', fontSize: '0.8rem', fontWeight: 900, padding: '4px 14px', borderRadius: '99px', textTransform: 'uppercase', letterSpacing: '0.05em', display: 'inline-flex', alignItems: 'center', gap: '6px' }}>
-              <ShieldCheck size={14} /> NABL ACCREDITED DIAGNOSTIC PACKAGES
+              <ShieldCheck size={14} /> DOCTOR-CURATED DIAGNOSTIC PACKAGES
             </span>
             <h1 style={{ fontSize: '2.8rem', fontWeight: 900, color: 'white', marginTop: '0.75rem', marginBottom: '0.75rem', lineHeight: 1.15 }}>
               Health Checkup Packages
             </h1>
             <p style={{ color: '#FFE4E6', fontSize: '1.05rem', lineHeight: 1.6 }}>
-              All our tests are conducted at NABL-accredited laboratories using fully automated systems to ensure accuracy and reliability. Rates are 50–70% lower than market prices with free doorstep sample collection.
+              All our tests are conducted at partner laboratories using fully automated systems to ensure accuracy and reliability. Rates are 50–70% lower than market prices with free doorstep sample collection.
             </p>
           </div>
         </div>

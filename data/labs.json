@@ -3,16 +3,16 @@
     {
       "labId": "LAB-BLR-NABL-01",
       "name": "Associated Central Reference Laboratory Bangalore",
-      "nablCertificate": "MC-2849",
-      "status": "Active & Verified",
+      "nablCertificate": null,
+      "status": "UNVERIFIED - certificate not on file",
       "scope": "Clinical Biochemistry, Haematology, Clinical Pathology",
       "address": "Industrial Suburb, Yeshwanthpur / Rajajinagar, Bengaluru 560022"
     },
     {
       "labId": "LAB-BLR-NABL-02",
       "name": "Advanced Specialized Immunoassay & Molecular Lab",
-      "nablCertificate": "MC-3104",
-      "status": "Active & Verified",
+      "nablCertificate": null,
+      "status": "UNVERIFIED - certificate not on file",
       "scope": "Immunoassay, Serology, Molecular Diagnostics",
       "address": "Bannerghatta Main Road, Bengaluru 560076"
     }

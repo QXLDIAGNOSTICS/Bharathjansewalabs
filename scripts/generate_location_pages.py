@@ -24,7 +24,7 @@ LOCALITIES = [
         "hasPhysicalCentre": True,
         "centreAddress": "House 36, 23rd Cross Road, Manjunath Nagar, Ittamadu, Banashankari 3rd Stage, Bengaluru - 560085",
         "turnaround": "Same Day (Typically 4-8 Hours)",
-        "metaDesc": "Book affordable blood tests in Banashankari, Bengaluru (PIN: 560085, 560070). CBC ₹160, Sugar ₹20, HbA1c ₹260, Thyroid ₹190. Doorstep collection & NABL partner lab testing."
+        "metaDesc": "Book affordable blood tests in Banashankari, Bengaluru (PIN: 560085, 560070). CBC ₹160, Sugar ₹20, HbA1c ₹260, Thyroid ₹190. Doorstep collection & partner lab testing."
     },
     {
         "id": "ittamadu",
@@ -122,7 +122,7 @@ LOCALITIES = [
         "hasPhysicalCentre": False,
         "centreAddress": "Served by Kengeri BDA Hub & Doorstep Phlebotomy Teams",
         "turnaround": "Same Day (Typically 4-8 Hours)",
-        "metaDesc": "Home blood collection in RR Nagar (Rajarajeshwari Nagar), Bengaluru (560098). NABL partner lab testing, same day PDF reports. Full body checkup packages from ₹796."
+        "metaDesc": "Home blood collection in RR Nagar (Rajarajeshwari Nagar), Bengaluru (560098). partner lab testing, same day PDF reports. Full body checkup packages from ₹796."
     },
     {
         "id": "peenya",
@@ -192,7 +192,7 @@ LOCALITIES = [
         "hasPhysicalCentre": False,
         "centreAddress": "Doorstep Sample Collection Service across BTM & Bommanahalli",
         "turnaround": "Same Day (Typically 4-8 Hours)",
-        "metaDesc": "Home blood collection in BTM Layout & Bommanahalli, Bengaluru (560068, 560076). Reliable routine tests & health checkups processed via verified NABL partner labs."
+        "metaDesc": "Home blood collection in BTM Layout & Bommanahalli, Bengaluru (560068, 560076). Reliable routine tests & health checkups processed via partner laboratories."
     },
     {
         "id": "hsr-layout",
@@ -334,7 +334,7 @@ def generate_locality_page(loc):
                         "name": "Which laboratory processes samples collected from patients?",
                         "acceptedAnswer": {
                             "@type": "Answer",
-                            "text": "Samples collected by Bharath Jan Sewa Labs are transported via validated temperature-controlled cold-chain boxes and processed through verified NABL-accredited partner laboratories where applicable to ensure clinical precision."
+                            "text": "Samples collected by Bharath Jan Sewa Labs are transported via validated temperature-controlled cold-chain boxes and processed through our partner diagnostic laboratories to ensure clinical precision."
                         }
                     }
                 ]
@@ -466,7 +466,7 @@ def generate_locality_page(loc):
     <section class="content">
       <h2>Approved Blood Test Prices for {name} Patients</h2>
       <p>
-        All tests are provided at approved, transparent tariffs without hidden collection markups. Samples are processed through verified NABL-accredited partner laboratories where applicable.
+        All tests are provided at approved, transparent tariffs without hidden collection markups. Samples are processed through our partner diagnostic laboratories.
       </p>
 
       <div class="geo-grid">
@@ -479,14 +479,14 @@ def generate_locality_page(loc):
     </section>
 
     <section class="content">
-      <h2>Quality and Accreditation Assurance</h2>
+      <h2>Quality Assurance</h2>
       <p>
         At Bharath Jan Sewa Labs, we believe diagnostic affordability should never compromise clinical precision:
       </p>
       <ul>
         <li><strong>Certified Phlebotomy:</strong> Trained and vaccinated healthcare professionals collect samples using sterile single-use vacuum collection tubes.</li>
         <li><strong>Temperature-Controlled Cold Chain:</strong> Samples are immediately placed into calibrated cold-chain containers to prevent analyte degradation during transit.</li>
-        <li><strong>NABL Partner Laboratories:</strong> Routine and specialized testing panels are processed through verified NABL-accredited partner facilities with automated robotic analyzers and strict quality controls.</li>
+        <li><strong>Partner Laboratories:</strong> Routine and specialized testing panels are processed through partner laboratory facilities with automated robotic analyzers and strict quality controls.</li>
         <li><strong>Same-Day Digital Delivery:</strong> Verified diagnostic reports are delivered directly to your WhatsApp and Email within hours of laboratory processing.</li>
       </ul>
       <div class="disclaimer">
@@ -548,8 +548,8 @@ def generate_locality_page(loc):
         <p>Southeast &amp; Central: BTM Layout, HSR Layout, KR Market</p>
       </div>
       <div>
-        <strong>Accreditation Notice</strong>
-        <p>High-quality diagnostic testing at transparent, budget-friendly prices, with samples processed through verified NABL-accredited partner laboratories where applicable.</p>
+        <strong>Laboratory Notice</strong>
+        <p>High-quality diagnostic testing at transparent, budget-friendly prices, with samples processed through our partner diagnostic laboratories.</p>
         <small>&copy; 2026 Bharath Jan Sewa Labs. All rights reserved.</small>
       </div>
     </div>
@@ -708,8 +708,8 @@ def generate_directory_index():
         <p>Southeast &amp; Central: BTM Layout, HSR Layout, KR Market</p>
       </div>
       <div>
-        <strong>Accreditation Notice</strong>
-        <p>High-quality diagnostic testing at transparent, budget-friendly prices, with samples processed through verified NABL-accredited partner laboratories where applicable.</p>
+        <strong>Laboratory Notice</strong>
+        <p>High-quality diagnostic testing at transparent, budget-friendly prices, with samples processed through our partner diagnostic laboratories.</p>
         <small>&copy; 2026 Bharath Jan Sewa Labs. All rights reserved.</small>
       </div>
     </div>

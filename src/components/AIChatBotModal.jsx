@@ -146,13 +146,13 @@ export default function AIChatBotModal({ isOpen, onClose, onBookTest }) {
       const lower = query.toLowerCase();
 
       if (lower.includes('package') || lower.includes('offer') || lower.includes('full body') || lower.includes('checkup')) {
-        botText = 'We offer comprehensive doctor-curated health packages with in-house NABL certified testing! Our most popular is the Chirayu Full Body Check PRIME (71 Vital Parameters) at ₹796 (MRP ₹2,388 - 66% OFF) with FREE doorstep sample collection across Bengaluru.';
+        botText = 'We offer comprehensive doctor-curated health packages with partner-laboratory testing! Our most popular is the Chirayu Full Body Check PRIME (71 Vital Parameters) at ₹796 (MRP ₹2,388 - 66% OFF) with FREE doorstep sample collection across Bengaluru.';
         recommended = HEALTH_PACKAGES[0];
       } else if (lower.includes('home collection') || lower.includes('doorstep') || lower.includes('pickup') || lower.includes('sample')) {
         botText = 'Yes! We provide 100% FREE doorstep sample collection across all areas of Bengaluru. Our certified phlebotomists arrive with temperature-controlled 4°C cold-chain bags and single-use sterile vacutainers.';
         recommended = HEALTH_PACKAGES[0];
       } else if (lower.includes('where') || lower.includes('located') || lower.includes('lab') || lower.includes('centre') || lower.includes('address')) {
-        botText = 'Our central NABL Reference Lab is located at HSR Layout / Koramangala, Bengaluru with 10 active diagnostic and collection centres across Indiranagar, Jayanagar, Whitefield, Malleshwaram, Rajajinagar, Electronic City, and Yelahanka.';
+        botText = 'Our partner reference laboratory is located at HSR Layout / Koramangala, Bengaluru with 10 active diagnostic and collection centres across Indiranagar, Jayanagar, Whitefield, Malleshwaram, Rajajinagar, Electronic City, and Yelahanka.';
       } else if (lower.includes('cbc') || lower.includes('complete blood count') || lower.includes('hemoglobin')) {
         botText = 'A Complete Blood Count (CBC) tests 27 vital blood parameters including Hemoglobin, RBC, WBC count, Platelets, MCV, MCH, and differential count. At BJSL, a CBC test is only ₹160 with same-day reports within 6 hours!';
       } else if (lower.includes('how long') || lower.includes('report') || lower.includes('turnaround') || lower.includes('tat')) {
@@ -160,7 +160,7 @@ export default function AIChatBotModal({ isOpen, onClose, onBookTest }) {
       } else if (lower.includes('fasting') || lower.includes('rules') || lower.includes('eat') || lower.includes('food')) {
         botText = 'For Full Body Health Checkups and Fasting Blood Sugar / Lipid Profiles, 10-12 hours of overnight fasting is recommended (drinking plain water is allowed). For routine CBC, Dengue, or Thyroid tests, no fasting is required.';
       } else {
-        botText = `Thank you for asking! At Bharath Jan Sewa Labs (NABL MC-6849), all diagnostic tests are performed at 50-70% lower transparent rates with MD doctor guidance. Would you like to book a test or speak to our healthcare counselor?`;
+        botText = `Thank you for asking! At Bharath Jan Sewa Labs, all diagnostic tests are performed at 50-70% lower transparent rates with MD doctor guidance. Would you like to book a test or speak to our healthcare counselor?`;
         recommended = HEALTH_PACKAGES[0];
       }
 

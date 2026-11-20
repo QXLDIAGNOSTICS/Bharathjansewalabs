@@ -17,7 +17,7 @@ export const COMPANY_INFO = {
   name: 'Bharath Jan Sewa Labs (BJSL)',
   headline: 'Affordable Blood Tests & Health Checkups in Bengaluru',
   positioning: 'Diagnostics with Dignity — Affordable Blood Tests. Reliable Results. Near You.',
-  supportingMessage: 'High-quality diagnostic testing at transparent, budget-friendly prices, with samples processed through verified NABL-accredited partner laboratories where applicable.',
+  supportingMessage: 'High-quality diagnostic testing at transparent, budget-friendly prices, with samples processed through our partner diagnostic laboratories.',
   campaignConcept: 'Uncompromised Quality. Everyday Affordable Prices.',
   mission: 'Making reliable clinical diagnostics genuinely affordable, transparent, and accessible across every neighbourhood in Bengaluru.',
   phone: '+91 98055 43143',
@@ -25,7 +25,7 @@ export const COMPANY_INFO = {
   email: 'contact@bharathjansewalabs.com',
   hours: 'Mon - Sat: 07:00 AM - 08:00 PM | Sun: 07:00 AM - 02:00 PM',
   pricingClaim: 'Direct, transparent pricing with discounts up to 60–73% off standard comparison rates.',
-  accreditationNote: 'Samples processed through verified NABL-accredited partner laboratories with cold-chain transport.',
+  accreditationNote: 'Samples processed through partner diagnostic laboratories with cold-chain transport.',
   lastUpdated: TODAY_FORMATTED
 };
 
@@ -2108,7 +2108,7 @@ export const GOOGLE_REVIEWS = [
     rating: 5,
     date: '2 weeks ago',
     centre: 'Kengeri Centre',
-    text: 'Blood sample collection was smooth, prompt, and painless. Phlebotomist came at 7:00 AM as scheduled. Got report on WhatsApp by afternoon. Rates are 60% lower than corporate chain labs with NABL partner accuracy!',
+    text: 'Blood sample collection was smooth, prompt, and painless. Phlebotomist came at 7:00 AM as scheduled. Got report on WhatsApp by afternoon. Rates are 60% lower than corporate chain labs!',
     verified: true
   },
   {
@@ -2144,7 +2144,7 @@ export const GOOGLE_REVIEWS = [
     rating: 5,
     date: '1 week ago',
     centre: 'Banashankari Centre',
-    text: 'Extremely impressed with the home sample collection service. Phlebotomist was very hygienic and wore full protective gear. Got accurate NABL test results in just 5 hours on WhatsApp!',
+    text: 'Extremely impressed with the home sample collection service. Phlebotomist was very hygienic and wore full protective gear. Got accurate test results in just 5 hours on WhatsApp!',
     verified: true
   },
   {
@@ -2171,7 +2171,7 @@ export const GOOGLE_REVIEWS = [
     rating: 5,
     date: '1 month ago',
     centre: 'Peenya Hub',
-    text: 'As a consulting doctor, I regularly recommend BJSL to my patients. Their NABL reference lab quality and automated analyzer reports are consistently accurate and trustworthy.',
+    text: 'As a consulting doctor, I regularly recommend BJSL to my patients. Their lab quality and automated analyzer reports are consistently accurate and trustworthy.',
     verified: true
   },
   {
@@ -2216,8 +2216,8 @@ export const FAQS = [
   {
     question: 'Where are blood samples processed and tested?',
     q: 'Where are blood samples processed and tested?',
-    answer: 'Samples collected through BJSL collection centres and home visits across Bangalore are safely transported under temperature-controlled cold chains to associated, fully NABL-accredited reference laboratory facilities with automated robotics.',
-    a: 'Samples collected through BJSL collection centres and home visits across Bangalore are safely transported under temperature-controlled cold chains to associated, fully NABL-accredited reference laboratory facilities with automated robotics.'
+    answer: 'Samples collected through BJSL collection centres and home visits across Bangalore are safely transported under temperature-controlled cold chains to associated partner reference laboratory facilities with automated robotics.',
+    a: 'Samples collected through BJSL collection centres and home visits across Bangalore are safely transported under temperature-controlled cold chains to associated partner reference laboratory facilities with automated robotics.'
   },
   {
     question: 'Is doorstep home sample collection really free?',
@@ -2418,9 +2418,7 @@ export const BLOG_POSTS = [
       <h3>Does a Lower Test Price Mean Lower Laboratory Quality?</h3>
       <p>Not necessarily. Price alone is not a reliable measure of diagnostic quality.</p>
       <p>Laboratory quality depends on appropriate methods, validated equipment, trained personnel, internal quality control, external quality assessment, sample handling, transportation conditions and competent medical reporting.</p>
-      <p>Accreditation to ISO 15189 through NABL provides an established framework for evaluating medical laboratory competence within a defined scope.</p>
-      <p>BJSL states that its sample collection network uses partner laboratories with NABL accreditation where applicable. Patients should verify the identity of the performing laboratory and whether their specific investigation is included in its accredited scope.</p>
-      <p>A collection centre should not be assumed to hold independent NABL accreditation merely because it sends samples to an accredited laboratory.</p>
+      <p>Patients can ask any collection centre, including BJSL, for the name of the laboratory that will perform their test.</p>
       <p>Affordability and quality must work together. The objective is not simply to make a test inexpensive, but to ensure that patients receive clinically useful and reliable results at a transparent cost.</p>
 
       <h3>Why Transparent Pricing Helps Patients</h3>
@@ -2557,7 +2555,7 @@ export const BLOG_POSTS = [
           <tr style="border-bottom:1px solid #E2E8F0"><td style="padding:4px 0; font-weight:700">Fasting Needed:</td><td>No Fasting Required (Can be taken anytime)</td></tr>
           <tr style="border-bottom:1px solid #E2E8F0"><td style="padding:4px 0; font-weight:700">Report Turnaround:</td><td>Same Day (4 to 8 hours)</td></tr>
           <tr style="border-bottom:1px solid #E2E8F0"><td style="padding:4px 0; font-weight:700">Home Collection:</td><td>Available across Bengaluru</td></tr>
-          <tr><td style="padding:4px 0; font-weight:700">Test Price:</td><td>₹260 (NABL Accredited Lab Processing)</td></tr>
+          <tr><td style="padding:4px 0; font-weight:700">Test Price:</td><td>₹260</td></tr>
         </table>
       </div>
 
@@ -2696,7 +2694,7 @@ export const BLOG_POSTS = [
     excerpt: 'Step-by-step guide to booking certified phlebotomists for free doorstep blood collection across Bangalore.',
     content: `
       <h3>Safe, Hygienic Doorstep Phlebotomy:</h3>
-      <p>All BJSL home collection visits utilize sterile, single-use disposable Vacutainer needle systems opened right in front of the patient. Samples are immediately sealed in temperature-controlled cold-chain carrier boxes to maintain specimen integrity en route to NABL-accredited processing labs.</p>
+      <p>All BJSL home collection visits utilize sterile, single-use disposable Vacutainer needle systems opened right in front of the patient. Samples are immediately sealed in temperature-controlled cold-chain carrier boxes to maintain specimen integrity en route to partner processing laboratories.</p>
     `,
     image: '🛵',
     relatedTests: ['chirayu-prime', 'cbc-test']
@@ -2908,8 +2906,8 @@ export const BLOG_POSTS = [
 
 export const SEO_METADATA = {
   title: 'Bharath Jan Sewa Labs (BJSL) | Diagnostics with Dignity, For Every Indian',
-  description: 'Book blood tests, full body health checkups & diagnostic packages with NABL-accredited processing, transparent pricing 50-70% lower than market rates, and free home sample collection across Bangalore.',
-  keywords: 'Bharath Jan Sewa Labs, BJSL, blood test Bangalore, full body checkup Bangalore, home sample collection, Chirayu checkup, NABL accredited lab, HbA1c test, CBC test price, diagnostic centre Sanjaynagar, Peenya, Kengeri, Banashankari',
+  description: 'Book blood tests, full body health checkups & diagnostic packages with Partner-lab processing, transparent pricing 50-70% lower than market rates, and free home sample collection across Bangalore.',
+  keywords: 'Bharath Jan Sewa Labs, BJSL, blood test Bangalore, full body checkup Bangalore, home sample collection, Chirayu checkup, HbA1c test, CBC test price, diagnostic centre Sanjaynagar, Peenya, Kengeri, Banashankari',
   siteUrl: 'https://bharathjansewalabs.com',
   author: 'Bharath Jan Sewa Labs Pvt. Ltd.',
   lastModified: TODAY_FORMATTED
@@ -2917,12 +2915,12 @@ export const SEO_METADATA = {
 
 export const FRANCHISE_INFO = {
   heroTitle: 'Own a Bharath Jan Sewa Labs Diagnostic Collection Centre',
-  heroSubtitle: 'Join India’s fastest-growing affordable diagnostic network. High margin business model with complete laboratory operational support, logistics, and NABL processing.',
+  heroSubtitle: 'Join India’s fastest-growing affordable diagnostic network. High margin business model with complete laboratory operational support, logistics, and partner-laboratory processing.',
   investmentRange: '₹5 Lakhs – ₹12 Lakhs',
   spaceRequired: '250 – 500 Sq. Ft.',
   paybackPeriod: '10 – 14 Months',
   benefits: [
-    'No expensive heavy laboratory equipment capital expenditure — samples dispatched to central NABL reference lab',
+    'No expensive heavy laboratory equipment capital expenditure — samples dispatched to a central partner reference lab',
     'Exclusive territorial rights for your designated PIN code / locality',
     'Full Laboratory Information System (LIS) cloud software & barcode scanner setup',
     'Marketing, digital branding, local doctor engagement support',
@@ -2944,9 +2942,9 @@ export const MOCK_USER_REPORTS = [
     patientName: 'Patient Record',
     age: 34,
     gender: 'Male',
-    status: 'Report Ready (NABL Verified)',
+    status: 'Report Ready',
     pathologist: 'Dr. Ananya Rao, MD (Pathology)',
-    labLocation: 'BJSL NABL Central Lab, Sanjaynagar',
+    labLocation: 'Partner Laboratory',
     summary: 'Normal Thyroid (TSH 2.1 mIU/L), HbA1c 5.4% (Normal), Borderline Vitamin D (22 ng/mL).',
     parameters: [
       { name: 'Hemoglobin (Hb)', result: '14.8 g/dL', reference: '13.0 - 17.0 g/dL', status: 'Normal' },
@@ -2964,9 +2962,9 @@ export const MOCK_USER_REPORTS = [
     patientName: 'Patient Record',
     age: 34,
     gender: 'Male',
-    status: 'Report Ready (NABL Verified)',
+    status: 'Report Ready',
     pathologist: 'Dr. Rajesh Vardhan, Consultant Pathologist',
-    labLocation: 'BJSL NABL Central Lab, Sanjaynagar',
+    labLocation: 'Partner Laboratory',
     summary: 'All CBC blood cell counts within healthy reference intervals.',
     parameters: [
       { name: 'Hemoglobin (Hb)', result: '15.1 g/dL', reference: '13.0 - 17.0 g/dL', status: 'Normal' },

@@ -54,7 +54,7 @@ export default function PackageCard({
             <Sparkles size={12} color="white" /> {discountPercent}% OFF
           </span>
           <span className="badge-safe-green">
-            <ShieldCheck size={14} /> NABL PARTNER LAB
+            <ShieldCheck size={14} /> PARTNER LAB
           </span>
         </div>
 
@@ -64,7 +64,7 @@ export default function PackageCard({
         </h3>
 
         <p style={{ fontSize: '0.85rem', color: 'var(--text-secondary)', lineHeight: 1.55, marginBottom: '1.25rem' }}>
-          {pkg.tagline || 'All tests conducted at NABL-accredited labs with fully automated precision systems.'}
+          {pkg.tagline || 'All tests conducted at partner laboratories with fully automated precision systems.'}
         </p>
 
         {/* Specular Liquid Glass Price Box */}
