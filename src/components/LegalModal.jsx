@@ -56,7 +56,7 @@ export default function LegalModal({ type, onClose }) {
       icon: <Gift size={24} color="#EF4444" />,
       body: (
         <div>
-          <p>Special promotional pricing (50–70% lower than market rates) applies to all Chirayu Full Body Checkup packages booked online or at BJSL Bangalore collection hubs.</p>
+          <p>Published package prices apply to Chirayu Full Body Checkup packages booked online or at BJSL Bangalore collection centres. Any home collection charge is shown separately before you confirm.</p>
 
           <h4 style={{ color: '#0F172A', marginTop: '1.25rem', marginBottom: '0.5rem' }}>1. Promotional Discount Rates</h4>
           <p>Displayed prices (e.g. Chirayu PRIME at ₹796 instead of ₹2,388, Chirayu MASTER at ₹1,566 instead of ₹5,698, and ALL IN ONE at ₹6,366 instead of ₹16,630) represent pre-applied promotional rates.</p>

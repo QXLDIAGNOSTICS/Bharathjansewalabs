@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Stethoscope, ShieldCheck, FileText, Truck, Clock, CheckCircle2, Send } from 'lucide-react';
+import { Stethoscope, ShieldCheck, FileText, Truck, Clock, CheckCircle2, Send, MessageSquare } from 'lucide-react';
 
 export default function DoctorsClinicsPage() {
   const [submitted, setSubmitted] = useState(false);

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import PackageCard from '../components/PackageCard';
 import { HEALTH_PACKAGES } from '../data/mockData';
-import { ArrowRight, SlidersHorizontal, ShieldCheck, Sparkles, CheckCircle2, ChevronRight } from 'lucide-react';
+import { ArrowRight, SlidersHorizontal, ShieldCheck, Sparkles, CheckCircle2, ChevronRight, Phone } from 'lucide-react';
 
 export default function PackagesCatalogue({ 
   onSelectTest, 
@@ -128,7 +128,7 @@ export default function PackagesCatalogue({
               Health Checkup Packages
             </h1>
             <p style={{ color: '#FFE4E6', fontSize: '1.05rem', lineHeight: 1.6 }}>
-              All our tests are conducted at partner laboratories using fully automated systems to ensure accuracy and reliability. Rates are 50–70% lower than market prices with free doorstep sample collection.
+              All our tests are conducted at partner laboratories using fully automated systems to ensure accuracy and reliability. Prices are published and transparent, with doorstep sample collection available in serviceable areas.
             </p>
           </div>
         </div>

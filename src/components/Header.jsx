@@ -91,9 +91,9 @@ export default function Header({
       name: 'Bengaluru (All Areas)',
       area: 'Entire Bengaluru Urban',
       pincode: 'All Pincodes',
-      address: 'Citywide 60-Minute Doorstep Blood & Urine Sample Collection Dispatch',
+      address: 'Doorstep Blood & Urine Sample Collection (availability confirmed by PIN code)',
       coverage: 'Hebbal, Whitefield, Indiranagar, Jayanagar, Koramangala, Yelahanka, Electronic City & all Bengaluru zones',
-      tag: '⚡ 60-min Live',
+      tag: 'Doorstep collection',
       displayName: 'Bangalore (All Hubs)'
     },
     ...CENTRES.map((c) => ({
@@ -103,7 +103,7 @@ export default function Header({
       pincode: c.pincode,
       address: c.address,
       coverage: c.homeCollectionCoverage ? c.homeCollectionCoverage.join(', ') : '',
-      tag: '⚡ 60-min Live Hub',
+      tag: 'Collection centre',
       displayName: `${c.area}, Bangalore`
     }))
   ];
@@ -449,7 +449,7 @@ export default function Header({
                     Select Operational Location & Lab Hub
                   </h3>
                   <div style={{ fontSize: '0.8rem', color: '#64748B', marginTop: '2px' }}>
-                    10 Certified Diagnostic Centres & 60-min Doorstep Collection across Bengaluru
+                    10 Sample Collection Centres & Doorstep Collection across Bengaluru
                   </div>
                 </div>
               </div>
@@ -559,7 +559,7 @@ export default function Header({
               {filteredLocations.length === 0 && (
                 <div style={{ textAlign: 'center', padding: '2.5rem 1rem', color: '#64748B' }}>
                   <p style={{ fontWeight: 700, color: '#0F172A', marginBottom: '4px', fontSize: '1rem' }}>No exact match found for "{locationSearchQuery}"</p>
-                  <p style={{ fontSize: '0.875rem' }}>Our 60-min doorstep sample collection covers all Bengaluru pincodes.</p>
+                  <p style={{ fontSize: '0.875rem' }}>Call or WhatsApp us to confirm doorstep collection availability for your PIN code.</p>
                   <button 
                     onClick={() => {
                       setSelectedCity('Bangalore (All Hubs)');

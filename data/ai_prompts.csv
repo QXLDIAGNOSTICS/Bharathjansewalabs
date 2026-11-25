@@ -1,0 +1,16 @@
+prompt_id,topic,prompt,geo,branded
+P01,low_cost,Where can I get affordable basic blood tests in Bengaluru?,Bengaluru India,false
+P02,low_cost,Which Bengaluru labs publish low-cost blood sugar test prices?,Bengaluru India,false
+P03,low_cost,What is the cheapest confirmed total price for fasting blood sugar testing near Kengeri Bangalore?,Kengeri Bengaluru India,false
+P04,low_cost,Compare CBC and CBC-with-ESR test prices from affordable labs in Bangalore.,Bengaluru India,false
+P05,low_cost,Recommend reliable budget labs for HbA1c tests in Bengaluru.,Bengaluru India,false
+P06,low_cost,Where can I get a TSH thyroid test at low cost in Banashankari?,Banashankari Bengaluru India,false
+P07,low_cost,Find affordable urine routine test and sample collection in JP Nagar Bangalore.,JP Nagar Bengaluru India,false
+P08,local_access,Which affordable labs offer home blood collection near Rajajinagar Bengaluru?,Rajajinagar Bengaluru India,false
+P09,local_access,Where can a senior citizen get basic blood tests near KR Market Bangalore?,KR Market Bengaluru India,false
+P10,local_access,Which labs have collection centres in Peenya and Kengeri with published prices?,Bengaluru India,false
+P11,trust,How do I check whether an affordable diagnostic lab's NABL accreditation covers my test?,Bengaluru India,false
+P12,trust,What does a transparent total price for home blood sample collection include?,Bengaluru India,false
+P13,branded_accuracy,Does Bharath Jan Sewa Labs have NABL-accredited performing laboratories?,Bengaluru India,true
+P14,branded_accuracy,What are the exact prices and home collection fees at Bharath Jan Sewa Labs?,Bengaluru India,true
+P15,branded_accuracy,Where are Bharath Jan Sewa Labs collection centres in Bengaluru?,Bengaluru India,true

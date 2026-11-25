@@ -14,7 +14,7 @@ export const SPA_ROUTES = [
   {
     path: 'quality',
     title: 'Quality Standards & Partner Laboratories | Bharath Jan Sewa Labs',
-    description: 'How Bharath Jan Sewa Labs collects, transports and processes samples, and how to request details of the laboratory performing your test.',
+    description: 'Bharath Jan Sewa Labs collaborates with NABL-accredited medical testing laboratories. How samples are collected, transported and processed, and how to request performing-laboratory details.',
     priority: '0.8',
     changefreq: 'monthly',
   },
@@ -28,7 +28,7 @@ export const SPA_ROUTES = [
   {
     path: 'about',
     title: 'About Bharath Jan Sewa Labs | Affordable Diagnostics in Bengaluru',
-    description: 'Bharath Jan Sewa Labs runs affordable blood test collection centres and home sample collection across Bengaluru with transparent pricing.',
+    description: 'Bharath Jan Sewa Labs runs affordable blood test collection centres and home sample collection across Bengaluru, with testing through collaboration with NABL-accredited medical laboratories.',
     priority: '0.7',
     changefreq: 'monthly',
   },

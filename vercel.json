@@ -3,6 +3,17 @@
   "trailingSlash": true,
   "redirects": [
     {
+      "source": "/:path*",
+      "has": [
+        {
+          "type": "host",
+          "value": "www.bharathjansewalabs.com"
+        }
+      ],
+      "destination": "https://bharathjansewalabs.com/:path*",
+      "permanent": true
+    },
+    {
       "source": "/our-centres",
       "destination": "/our-centres/",
       "permanent": true
@@ -15,7 +26,7 @@
   ],
   "rewrites": [
     {
-      "source": "/((?!tests/|locations/|our-centres/|blog/|images/|assets/|favicon|logo|robots\\.txt|sitemap.*\\.xml|llms.*\\.txt).*)",
+      "source": "/((?!tests/|tests-under-|tests-above-|locations/|our-centres/|blog/|images/|assets/|favicon|logo|robots\\.txt|sitemap.*\\.xml|llms.*\\.txt).*)",
       "destination": "/index.html"
     }
   ],

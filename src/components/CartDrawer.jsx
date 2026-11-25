@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { SHOW_REFERENCE_PRICES, HOME_COLLECTION_FEE, FREE_HOME_COLLECTION_MIN_ORDER } from '../config/pricing';
 import { X, Trash2, Zap, Calendar, Check, ArrowRight, ShieldCheck, FileText, Phone } from 'lucide-react';
 import { COMPANY_INFO } from '../data/mockData';
 
@@ -50,7 +51,7 @@ export default function CartDrawer({ isOpen, onClose, cart, setCart, onProceedTo
   };
 
   const subtotal = cart.reduce((sum, item) => sum + (item.price || 0), 0);
-  const origTotal = cart.reduce((sum, item) => sum + (item.mrp || item.origPrice || item.price * 1.5 || 0), 0);
+  const origTotal = cart.reduce((sum, item) => sum + (item.mrp || item.price || 0), 0);
   const discountSavings = Math.max(0, origTotal - subtotal);
 
   let couponDiscount = 0;
@@ -63,15 +64,15 @@ export default function CartDrawer({ isOpen, onClose, cart, setCart, onProceedTo
   }
 
   const hardcopyFee = includeHardcopy ? 99 : 0;
-  const homeCollectionFee = collectionMode === 'home' ? (subtotal >= 499 ? 0 : 100) : 0;
+  const homeCollectionFee = collectionMode === 'home' ? (subtotal >= FREE_HOME_COLLECTION_MIN_ORDER ? 0 : HOME_COLLECTION_FEE) : 0;
   const finalPayable = Math.max(0, subtotal - couponDiscount + hardcopyFee + homeCollectionFee);
 
   const handleWhatsAppCheckout = () => {
     const itemsList = cart.map((item, idx) => `  ${idx + 1}. *${item.name || item.title}* (₹${item.price})`).join('%0A');
     const modeText = collectionMode === 'home' 
-      ? `🏠 Doorstep Home Collection (${homeCollectionFee === 0 ? 'FREE for orders ₹499+' : '₹100 convenience fee for orders under ₹499'})` 
+      ? `🏠 Doorstep Home Collection (${homeCollectionFee === 0 ? `FREE for orders ₹${FREE_HOME_COLLECTION_MIN_ORDER}+` : `₹${HOME_COLLECTION_FEE} convenience fee for orders under ₹${FREE_HOME_COLLECTION_MIN_ORDER}`})` 
       : '🏥 Walk-in Sample Collection (100% FREE at all 10 BJSL Hubs)';
-    const slotText = selectedSlot === 'instant' ? '⚡ Instant 60-Min Phlebotomist' : '🗓️ Scheduled Morning Slot (7:00 AM - 10:00 AM)';
+    const slotText = selectedSlot === 'instant' ? '⚡ Earliest available slot (to be confirmed)' : '🗓️ Scheduled Morning Slot (7:00 AM - 10:00 AM)';
     const couponInfo = appliedCoupon ? `%0A🎟️ *Coupon Applied:* ${appliedCoupon.code} (-₹${couponDiscount})` : '';
     const hardcopyInfo = includeHardcopy ? '%0A📄 *Printed Report Delivery:* Included (+₹99)' : '';
     const msg = `*Namaste Bharath Jan Sewa Labs!*%0A%0A🩺 *New Blood Test Booking Request:*%0A${itemsList}%0A${couponInfo}${hardcopyInfo}%0A%0A📍 *Collection Method:* ${modeText}%0A💰 *Total Amount Payable:* ₹${finalPayable} (Pay after collection)%0A⏱️ *Preferred Slot:* ${slotText}%0A📍 *City:* Bengaluru%0A%0APlease confirm my appointment and collection arrangements.`;
@@ -109,7 +110,7 @@ export default function CartDrawer({ isOpen, onClose, cart, setCart, onProceedTo
                 Your cart is empty
               </h3>
               <p style={{ fontSize: '14px', marginBottom: '24px' }}>
-                Explore our affordable health checkups and blood tests at 50-70% lower rates.
+                Explore our affordable health checkups and blood tests at transparent, published prices.
               </p>
               <button 
                 type="button" 
@@ -130,7 +131,7 @@ export default function CartDrawer({ isOpen, onClose, cart, setCart, onProceedTo
                       <div>
                         <div className="cart-item-title">{item.name || item.title}</div>
                         <div style={{ fontSize: '12px', color: 'var(--ink-500)', marginTop: '2px' }}>
-                          Includes {item.parametersCount || item.parameters || 1} Parameters • Reports in {item.tat || '6 hours'}
+                          Includes {item.parametersCount || item.parameters || 1} Parameters • Reports: {item.tat || 'timing confirmed at booking'}
                         </div>
                       </div>
                       <button 
@@ -144,9 +145,11 @@ export default function CartDrawer({ isOpen, onClose, cart, setCart, onProceedTo
                     </div>
                     <div className="cart-item-bottom">
                       <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                        {SHOW_REFERENCE_PRICES && item.mrp > item.price && (
                         <span style={{ fontSize: '12px', textDecoration: 'line-through', color: 'var(--ink-400)' }}>
-                          ₹{item.mrp || item.origPrice || (item.price * 1.5).toFixed(0)}
+                          ₹{item.mrp}
                         </span>
+                        )}
                         <span className="cart-item-price">₹{item.price}</span>
                       </div>
                       <span style={{ fontSize: '11px', color: 'var(--green-600)', fontWeight: 700, background: 'var(--green-50)', padding: '2px 8px', borderRadius: '99px' }}>
@@ -235,9 +238,9 @@ export default function CartDrawer({ isOpen, onClose, cart, setCart, onProceedTo
                       style={{ marginTop: '3px' }}
                     />
                     <div>
-                      <div style={{ fontWeight: 700 }}>⚡ 60-Min Instant Dispatch (Fastest)</div>
+                      <div style={{ fontWeight: 700 }}>⚡ Earliest Available Slot</div>
                       <div style={{ fontSize: '12px', color: 'var(--ink-500)' }}>
-                        Certified eMedic arrives at your Bangalore doorstep within 60 minutes
+                        Phlebotomist visit at the earliest available time — arrival time confirmed by our team
                       </div>
                     </div>
                   </label>
@@ -330,6 +333,7 @@ export default function CartDrawer({ isOpen, onClose, cart, setCart, onProceedTo
         {cart.length > 0 && (
           <div className="drawer-footer">
             <div className="bill-summary">
+              {SHOW_REFERENCE_PRICES && discountSavings > 0 && (<>
               <div className="bill-row">
                 <span>Total Test MRP</span>
                 <span>₹{origTotal.toFixed(0)}</span>
@@ -338,6 +342,7 @@ export default function CartDrawer({ isOpen, onClose, cart, setCart, onProceedTo
                 <span>Bharath Jan Sewa Lab Subsidy</span>
                 <span>-₹{discountSavings.toFixed(0)}</span>
               </div>
+              </>)}
               {appliedCoupon && (
                 <div className="bill-row" style={{ color: 'var(--green-600)' }}>
                   <span>Coupon ({appliedCoupon.code})</span>
@@ -353,7 +358,7 @@ export default function CartDrawer({ isOpen, onClose, cart, setCart, onProceedTo
               <div className="bill-row">
                 <span>{collectionMode === 'home' ? 'Home Sample Collection' : 'Centre Walk-in Sample Collection'}</span>
                 <span style={{ color: homeCollectionFee === 0 ? 'var(--green-600)' : 'var(--ink-800)', fontWeight: 700 }}>
-                  {homeCollectionFee === 0 ? 'FREE' : '+₹100'}
+                  {homeCollectionFee === 0 ? 'FREE' : `+₹${homeCollectionFee}`}
                 </span>
               </div>
               <div className="bill-row total">

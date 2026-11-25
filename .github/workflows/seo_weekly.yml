@@ -1,0 +1,37 @@
+name: BJSL weekly verified SEO reports
+on:
+  workflow_dispatch:
+  schedule:
+    # Monday 09:00 IST = Monday 03:30 UTC. This job has no AI paid calls.
+    - cron: '30 3 * * 1'
+permissions:
+  contents: read
+jobs:
+  report:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: '3.12' }
+      - run: pip install -r requirements.txt
+      - run: mkdir -p reports && python scripts/site_audit.py --out reports/site_audit.csv || true
+      - name: Run GSC report if secret configured
+        env:
+          GOOGLE_APPLICATION_CREDENTIALS: ${{ runner.temp }}/gsc.json
+          GSC_SITE_URL: ${{ secrets.GSC_SITE_URL }}
+          GSC_SERVICE_ACCOUNT_JSON: ${{ secrets.GSC_SERVICE_ACCOUNT_JSON }}
+        run: |
+          if [ -n "$GSC_SITE_URL" ] && [ -n "$GSC_SERVICE_ACCOUNT_JSON" ]; then
+            printf '%s' "$GSC_SERVICE_ACCOUNT_JSON" > "$GOOGLE_APPLICATION_CREDENTIALS"
+            chmod 600 "$GOOGLE_APPLICATION_CREDENTIALS"
+            python scripts/gsc_baseline.py --out reports
+            rm "$GOOGLE_APPLICATION_CREDENTIALS"
+          else
+            echo 'BJSL GSC is not connected; verified ranking report skipped.'
+          fi
+      - run: python scripts/ai_citation_report.py --input data/ai_observations.csv --out reports
+      - uses: actions/upload-artifact@v4
+        with:
+          name: bjsl-weekly-seo-evidence
+          path: reports/
+          retention-days: 30

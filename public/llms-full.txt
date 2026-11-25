@@ -3,7 +3,9 @@
 Canonical Domain: https://bharathjansewalabs.com/
 Contact: +91 98055 43143 | contact@bharathjansewalabs.com
 Location: Bengaluru, Karnataka, India
-Mission: High-quality diagnostic testing at transparent, budget-friendly prices, with samples processed through our partner diagnostic laboratories.
+Mission: High-quality diagnostic testing at transparent, budget-friendly prices.
+Accreditation Statement (authoritative): Bharath Jan Sewa Labs collaborates with NABL-accredited medical testing laboratories to provide affordable, accessible and quality-focused diagnostic services. Samples are collected through our network and processed at collaborating laboratories. Accredited testing is undertaken in accordance with the respective laboratory’s approved scope of accreditation under ISO 15189.
+Compliance: Bharath Jan Sewa Labs and its collection centres do not hold NABL accreditation themselves; ICMR does not accredit laboratories. ICMR's NEDL is not an accreditation or certification programme.
 
 ---
 

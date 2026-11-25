@@ -39,6 +39,9 @@ const wrap = (items) =>
 const main = [
   entry('/', null, 'daily', '1.0'),
   entry('/tests/', path.join(pub, 'tests/index.html'), 'daily', '0.95'),
+  ...['tests-under-50', 'tests-under-100', 'tests-under-200', 'tests-under-300', 'tests-under-500', 'tests-above-500']
+    .filter((s) => fs.existsSync(path.join(pub, s, 'index.html')))
+    .map((s) => entry(`/${s}/`, path.join(pub, s, 'index.html'), 'weekly', '0.9')),
   entry('/our-centres/', path.join(pub, 'our-centres/index.html'), 'weekly', '0.95'),
   entry('/locations/', path.join(pub, 'locations/index.html'), 'weekly', '0.9'),
   entry('/blog/', path.join(pub, 'blog/index.html'), 'daily', '0.95'),

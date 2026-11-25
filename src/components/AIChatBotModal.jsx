@@ -1,4 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
+import { SHOW_REFERENCE_PRICES } from '../config/pricing';
 import { 
   Bot, 
   X, 
@@ -125,7 +126,7 @@ export default function AIChatBotModal({ isOpen, onClose, onBookTest }) {
       const botResponse = {
         id: Date.now() + 1,
         sender: 'bot',
-        text: `📄 Thank you! I have received your medical file "${file.name}". Our MD Pathologists are reviewing it to recommend the exact required blood tests with our 50-70% lower subsidized rates. Our healthcare advisor can also assist you on WhatsApp (+91 98055 43143).`,
+        text: `📄 Thank you! I have received your medical file "${file.name}". Our MD Pathologists are reviewing it to recommend the exact required blood tests at our published BJSL rates. Our healthcare advisor can also assist you on WhatsApp (+91 98055 43143).`,
         recommendedPkg: HEALTH_PACKAGES[0]
       };
       setMessages(prev => [...prev, botResponse]);
@@ -149,18 +150,18 @@ export default function AIChatBotModal({ isOpen, onClose, onBookTest }) {
         botText = 'We offer comprehensive doctor-curated health packages with partner-laboratory testing! Our most popular is the Chirayu Full Body Check PRIME (71 Vital Parameters) at ₹796 (MRP ₹2,388 - 66% OFF) with FREE doorstep sample collection across Bengaluru.';
         recommended = HEALTH_PACKAGES[0];
       } else if (lower.includes('home collection') || lower.includes('doorstep') || lower.includes('pickup') || lower.includes('sample')) {
-        botText = 'Yes! We provide 100% FREE doorstep sample collection across all areas of Bengaluru. Our certified phlebotomists arrive with temperature-controlled 4°C cold-chain bags and single-use sterile vacutainers.';
+        botText = 'Yes, doorstep sample collection is available in many Bengaluru areas — please share your PIN code so we can confirm availability and any collection charge. Our certified phlebotomists arrive with temperature-controlled 4°C cold-chain bags and single-use sterile vacutainers.';
         recommended = HEALTH_PACKAGES[0];
       } else if (lower.includes('where') || lower.includes('located') || lower.includes('lab') || lower.includes('centre') || lower.includes('address')) {
-        botText = 'Our partner reference laboratory is located at HSR Layout / Koramangala, Bengaluru with 10 active diagnostic and collection centres across Indiranagar, Jayanagar, Whitefield, Malleshwaram, Rajajinagar, Electronic City, and Yelahanka.';
+        botText = 'We have 10 sample collection centres in Bengaluru: Sanjaynagar, Peenya, Kengeri, Ittamadu, Subramanyapura, Jaraganahalli, RR Nagar, Basaveshwaranagar, Vijayanagar and KR Market. Samples are processed at collaborating NABL-accredited medical laboratories; performing-laboratory details are available on request.';
       } else if (lower.includes('cbc') || lower.includes('complete blood count') || lower.includes('hemoglobin')) {
-        botText = 'A Complete Blood Count (CBC) tests 27 vital blood parameters including Hemoglobin, RBC, WBC count, Platelets, MCV, MCH, and differential count. At BJSL, a CBC test is only ₹160 with same-day reports within 6 hours!';
+        botText = 'A Complete Blood Count (CBC) tests 27 vital blood parameters including Hemoglobin, RBC, WBC count, Platelets, MCV, MCH, and differential count. At BJSL, CBC with ESR is listed at ₹160; report timing varies by test and will be confirmed when you book.';
       } else if (lower.includes('how long') || lower.includes('report') || lower.includes('turnaround') || lower.includes('tat')) {
-        botText = 'Our digital reports are processed by MD pathologists and delivered on the SAME DAY within 4 to 8 hours directly to your WhatsApp and Email in PDF format. You can also view them anytime on the BJSL Patient Portal.';
+        botText = 'Our digital reports are processed by MD pathologists and for most routine tests are usually delivered the same day (timing varies by test) directly to your WhatsApp and Email in PDF format. You can also view them anytime on the BJSL Patient Portal.';
       } else if (lower.includes('fasting') || lower.includes('rules') || lower.includes('eat') || lower.includes('food')) {
         botText = 'For Full Body Health Checkups and Fasting Blood Sugar / Lipid Profiles, 10-12 hours of overnight fasting is recommended (drinking plain water is allowed). For routine CBC, Dengue, or Thyroid tests, no fasting is required.';
       } else {
-        botText = `Thank you for asking! At Bharath Jan Sewa Labs, all diagnostic tests are performed at 50-70% lower transparent rates with MD doctor guidance. Would you like to book a test or speak to our healthcare counselor?`;
+        botText = `Thank you for asking! At Bharath Jan Sewa Labs, tests are offered at published, transparent BJSL rates, with testing through collaboration with NABL-accredited medical laboratories. Would you like to book a test or speak to our healthcare counselor?`;
         recommended = HEALTH_PACKAGES[0];
       }
 
@@ -373,7 +374,7 @@ export default function AIChatBotModal({ isOpen, onClose, onBookTest }) {
                     {msg.recommendedPkg.name}
                   </div>
                   <div style={{ fontSize: '12px', color: '#DC2626', fontWeight: 850, marginTop: '2px' }}>
-                    ₹{msg.recommendedPkg.price} <span style={{ textDecoration: 'line-through', color: '#94A3B8', fontWeight: 500 }}>₹{msg.recommendedPkg.mrp}</span>
+                    ₹{msg.recommendedPkg.price} {SHOW_REFERENCE_PRICES && <span style={{ textDecoration: 'line-through', color: '#94A3B8', fontWeight: 500 }}>₹{msg.recommendedPkg.mrp}</span>}
                   </div>
                 </div>
                 <button

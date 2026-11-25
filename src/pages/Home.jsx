@@ -1,4 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
+import { SHOW_REFERENCE_PRICES } from '../config/pricing';
+import TestPriceSlider from '../components/TestPriceSlider';
 import { 
   ChevronRight, 
   ChevronLeft, 
@@ -496,7 +498,7 @@ export default function Home({
       points: [
         'Fasting Blood Sugar at ₹20, Urine Routine at ₹50',
         'CBC + ESR at ₹160, HbA1c at ₹260, Lipid Profile at ₹260',
-        'No hospital markup: 50% to 70% savings on routine tests'
+        'Transparent, published prices on routine tests'
       ],
       ctaText: 'View All 66 Test Rates',
       ctaLink: '/tests/'
@@ -1361,7 +1363,7 @@ export default function Home({
                           </div>
                           <div className="meta-col-text">
                             <span className="meta-sub-label">REPORTS IN</span>
-                            <span className="meta-bold-val">{pkg.tat || '6 hours'}</span>
+                            <span className="meta-bold-val">{pkg.tat || 'Varies by test'}</span>
                           </div>
                         </div>
                       </div>
@@ -1370,10 +1372,12 @@ export default function Home({
                     <div className="checkup-card-price-row">
                       <div className="price-left">
                         <div className="price-top-meta">
+                          {SHOW_REFERENCE_PRICES && (<>
                           <span className="strikethrough-price">₹{pkg.mrp}</span>
                           <span className="discount-green-badge">
                             {Math.round(((pkg.mrp - pkg.price) / pkg.mrp) * 100)}% Off
                           </span>
+                          </>)}
                         </div>
                         <div className="main-price-val">₹{pkg.price}</div>
                       </div>
@@ -1455,7 +1459,7 @@ export default function Home({
             tabIndex={0}
           >
             <div className="mobile-nabl-strip-left">
-              <span className="mobile-nabl-title">Quality-controlled partner labs</span>
+              <span className="mobile-nabl-title">Testing through NABL-accredited laboratory partners</span>
               <span className="mobile-nabl-sub">
                 See our quality standards <ArrowRight size={13} style={{ display: 'inline', verticalAlign: 'middle', marginLeft: '4px' }} />
               </span>
@@ -1616,8 +1620,10 @@ export default function Home({
                     <div className="checkup-card-price-row">
                       <div className="price-left">
                         <div className="price-top-meta">
+                          {SHOW_REFERENCE_PRICES && (<>
                           <span className="strikethrough-price">₹{test.mrp}</span>
                           <span className="discount-green-badge">{test.discount}</span>
+                          </>)}
                         </div>
                         <div className="main-price-val">₹{test.price}</div>
                       </div>
@@ -1984,9 +1990,9 @@ export default function Home({
               <div className="feature-icon-circle">
                 <Zap size={24} />
               </div>
-              <h4 className="feature-title">Free 60-Min Doorstep Phlebotomy</h4>
+              <h4 className="feature-title">Doorstep Sample Collection</h4>
               <p className="feature-text">
-                Certified, vaccinated eMedics arrive with sterile, single-use vacuum tubes across Bangalore within 60 minutes.
+                Trained phlebotomists arrive with sterile, single-use vacuum tubes at a confirmed time slot, in serviceable Bengaluru areas.
               </p>
             </div>
 
@@ -1994,9 +2000,9 @@ export default function Home({
               <div className="feature-icon-circle">
                 <Clock size={24} />
               </div>
-              <h4 className="feature-title">Fast 6-Hour Digital Reports</h4>
+              <h4 className="feature-title">Digital Reports</h4>
               <p className="feature-text">
-                Verified pathology reports delivered straight to your WhatsApp and registered email in just 6 hours.
+                Doctor-authorised reports delivered to your WhatsApp and registered email. Most routine tests are reported the same day; timing varies by test.
               </p>
             </div>
 
@@ -2006,7 +2012,7 @@ export default function Home({
               </div>
               <h4 className="feature-title">Affordable Direct Pricing</h4>
               <p className="feature-text">
-                Non-profit public health model delivering authentic diagnostic screenings at 50% to 70% lower prices.
+                Transparent, published prices for essential diagnostic tests, starting at ₹20.
               </p>
             </div>
           </div>
@@ -2037,7 +2043,7 @@ export default function Home({
           </h2>
           
           <p style={{ fontSize: 'clamp(0.95rem, 1.8vw, 1.15rem)', color: '#CBD5E1', maxWidth: '780px', lineHeight: 1.6, margin: '0 0 1.75rem' }}>
-            High-quality diagnostic testing at transparent, budget-friendly prices, with samples processed through our partner diagnostic laboratories.
+            Affordable Diagnostic Services. Testing Through NABL-Accredited Laboratory Partners.
           </p>
 
           <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.75rem', alignItems: 'center', marginBottom: '2rem' }}>
@@ -2262,8 +2268,10 @@ export default function Home({
 
                   <div className="highlights-card-price-box">
                     <span className="highlights-card-price">₹{slide.price}</span>
+                    {SHOW_REFERENCE_PRICES && (<>
                     <span className="highlights-card-mrp">₹{slide.mrp}</span>
                     <span className="highlights-card-discount">{slide.discount}</span>
+                    </>)}
                   </div>
 
                   <div className="highlights-card-tests-list">
@@ -2313,150 +2321,8 @@ export default function Home({
         </div>
       </section>
 
-      {/* 11. SEO DIRECTORY LINKS: 66 INDIVIDUAL DIAGNOSTIC TESTS IN BENGALURU */}
-      <section className="seo-tests-directory-section" aria-label="Affordable lab tests" style={{ background: '#F8FAFC', padding: '4rem 0', borderTop: '1px solid #E2E8F0' }}>
-        <div className="container">
-          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', flexWrap: 'wrap', gap: '1rem', marginBottom: '2rem' }}>
-            <div>
-              <span className="split-eyebrow" style={{ color: '#0284C7' }}>OFFICIAL SEO DIRECTORY</span>
-              <h2 className="section-main-heading" style={{ marginBottom: '6px' }}>
-                Affordable Diagnostic Tests in Bengaluru
-              </h2>
-              <p style={{ color: '#64748B', fontSize: '0.95rem', maxWidth: '700px', margin: 0 }}>
-                Every single test below is published under its canonical SEO page with transparent leaflet comparison rates, specimen guidance, preparation rules, and 16 medically verified patient FAQs.
-              </p>
-            </div>
-            <a 
-              href="/tests/" 
-              style={{
-                display: 'inline-flex',
-                alignItems: 'center',
-                gap: '8px',
-                padding: '10px 20px',
-                borderRadius: '12px',
-                background: '#0F172A',
-                color: 'white',
-                fontWeight: 800,
-                fontSize: '0.9rem',
-                textDecoration: 'none',
-                boxShadow: '0 4px 12px rgba(15,23,42,0.15)'
-              }}
-            >
-              <span>Explore All 66 Test Prices Directory</span>
-              <ArrowRight size={16} />
-            </a>
-          </div>
-
-          <div style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))',
-            gap: '10px'
-          }}>
-            {[
-              { name: 'Complete Blood Count with ESR (CBC + ESR)', price: '₹160', url: '/tests/cbc-esr-test/' },
-              { name: 'Blood Glucose (Fasting, PP or Random)', price: '₹20', url: '/tests/blood-sugar-test/' },
-              { name: 'Glycated Haemoglobin (HbA1c)', price: '₹260', url: '/tests/hba1c-test/' },
-              { name: 'Lipid Profile Panel', price: '₹260', url: '/tests/lipid-profile-test/' },
-              { name: 'Liver Function Test (LFT)', price: '₹360', url: '/tests/liver-function-test/' },
-              { name: 'Serum Creatinine', price: '₹50', url: '/tests/serum-creatinine-test/' },
-              { name: 'Blood Urea / BUN', price: '₹50', url: '/tests/blood-urea-test/' },
-              { name: 'Urine Routine & Microscopy', price: '₹50', url: '/tests/urine-routine-microscopy-test/' },
-              { name: 'Thyroid-Stimulating Hormone (TSH)', price: '₹100', url: '/tests/tsh-test/' },
-              { name: 'Thyroid Function Test (Total T3, T4 & TSH)', price: '₹190', url: '/tests/thyroid-function-test-total/' },
-              { name: 'Serum Electrolytes (Na, K, Cl)', price: '₹190', url: '/tests/serum-electrolytes-test/' },
-              { name: 'ABO Blood Group & Rh Typing', price: '₹90', url: '/tests/blood-group-rh-test/' },
-              { name: 'Vitamin D 25-Hydroxy', price: '₹660', url: '/tests/vitamin-d-test/' },
-              { name: 'Vitamin B12 (Cobalamin)', price: '₹440', url: '/tests/vitamin-b12-test/' },
-              { name: 'Serum Ferritin', price: '₹460', url: '/tests/ferritin-test/' },
-              { name: 'Iron Studies (Iron, TIBC, Saturation)', price: '₹250', url: '/tests/iron-studies-test/' },
-              { name: 'C-Reactive Protein (CRP), Quantitative', price: '₹250', url: '/tests/crp-test/' },
-              { name: 'Serum Uric Acid', price: '₹50', url: '/tests/uric-acid-test/' },
-              { name: 'Serum Calcium, Total', price: '₹60', url: '/tests/serum-calcium-test/' },
-              { name: 'Serum Phosphate', price: '₹90', url: '/tests/serum-phosphate-test/' },
-              { name: 'Total Immunoglobulin E (IgE)', price: '₹630', url: '/tests/total-ige-test/' },
-              { name: 'Hepatitis B Surface Antigen (HBsAg)', price: '₹250', url: '/tests/hbsag-test/' },
-              { name: 'Hepatitis C Antibody (Anti-HCV)', price: '₹400', url: '/tests/anti-hcv-test/' },
-              { name: 'HIV 1/2 Antigen-Antibody, 4th Gen', price: '₹250', url: '/tests/hiv-fourth-generation-test/' },
-              { name: 'Dengue NS1 Antigen & IgM/IgG ELISA', price: '₹450', url: '/tests/dengue-ns1-igm-igg-test/' },
-              { name: 'Malaria Rapid Antigen (HRP2/pLDH)', price: '₹200', url: '/tests/malaria-antigen-test/' },
-              { name: 'Prothrombin Time / INR', price: '₹190', url: '/tests/pt-inr-test/' },
-              { name: 'Activated Partial Thromboplastin Time (aPTT)', price: '₹260', url: '/tests/aptt-test/' },
-              { name: 'D-Dimer', price: '₹660', url: '/tests/d-dimer-test/' },
-              { name: 'Lactate Dehydrogenase (LDH)', price: '₹120', url: '/tests/ldh-test/' },
-              { name: 'Serum Amylase', price: '₹160', url: '/tests/serum-amylase-test/' },
-              { name: 'Serum Lipase', price: '₹250', url: '/tests/serum-lipase-test/' },
-              { name: 'Creatine Phosphokinase (CK/CPK), Total', price: '₹260', url: '/tests/cpk-total-test/' },
-              { name: 'Rheumatoid Factor (RF)', price: '₹200', url: '/tests/rheumatoid-factor-test/' },
-              { name: 'Anti-Streptolysin O (ASO) Titre', price: '₹200', url: '/tests/aso-titre-test/' },
-              { name: 'Serum Prolactin', price: '₹400', url: '/tests/prolactin-test/' },
-              { name: 'Follicle-Stimulating Hormone (FSH)', price: '₹400', url: '/tests/fsh-test/' },
-              { name: 'Luteinising Hormone (LH)', price: '₹400', url: '/tests/lh-test/' },
-              { name: 'Total Testosterone', price: '₹460', url: '/tests/total-testosterone-test/' },
-              { name: 'Beta hCG (Quantitative)', price: '₹460', url: '/tests/beta-hcg-test/' },
-              { name: 'Carcinoembryonic Antigen (CEA)', price: '₹600', url: '/tests/cea-test/' },
-              { name: 'Cancer Antigen 125 (CA-125)', price: '₹600', url: '/tests/ca-125-test/' },
-              { name: 'Urine Albumin-Creatinine Ratio (ACR)', price: '₹360', url: '/tests/urine-acr-test/' },
-              { name: 'Prostate-Specific Antigen (PSA), Total', price: '₹400', url: '/tests/total-psa-test/' },
-              { name: 'Folic Acid (Serum Folate)', price: '₹560', url: '/tests/serum-folate-test/' },
-              { name: 'VDRL Test', price: '₹220', url: '/tests/vdrl-test/' },
-              { name: 'TyphiDot IgM/IgG', price: '₹550', url: '/tests/typhidot-test/' },
-              { name: 'Thyroid Function Panel (Free T3, Free T4, TSH)', price: '₹330', url: '/tests/thyroid-function-test-free/' },
-              { name: 'Platelet Count', price: '₹100', url: '/tests/platelet-count-test/' },
-              { name: 'Haemoglobin (Hb)', price: '₹60', url: '/tests/haemoglobin-test/' },
-              { name: 'Complete Haemogram (CBC, ESR & PS)', price: '₹230', url: '/tests/complete-haemogram-ps-test/' },
-              { name: 'Absolute Eosinophil Count (AEC)', price: '₹100', url: '/tests/aec-test/' },
-              { name: 'Bilirubin, Total & Direct', price: '₹120', url: '/tests/bilirubin-total-direct-test/' },
-              { name: 'Serum Magnesium', price: '₹200', url: '/tests/serum-magnesium-test/' },
-              { name: 'Serum Iron', price: '₹160', url: '/tests/serum-iron-test/' },
-              { name: 'Alanine Aminotransferase (ALT / SGPT)', price: '₹60', url: '/tests/alt-sgpt-test/' },
-              { name: 'Aspartate Aminotransferase (AST / SGOT)', price: '₹60', url: '/tests/ast-sgot-test/' },
-              { name: 'Anti-Thyroid Peroxidase Antibodies (Anti-TPO)', price: '₹560', url: '/tests/anti-tpo-test/' },
-              { name: 'Potassium (Serum / Plasma)', price: '₹80', url: '/tests/potassium-test/' },
-              { name: 'Renal Profile (Urea, Creatinine, Uric, Lyts)', price: '₹320', url: '/tests/renal-profile-test/' },
-              { name: 'LDL Cholesterol, Direct', price: '₹120', url: '/tests/direct-ldl-test/' },
-              { name: 'Troponin I, Quantitative', price: '₹760', url: '/tests/troponin-i-test/' },
-              { name: 'Serum Cortisol (AM / PM)', price: '₹500', url: '/tests/cortisol-test/' },
-              { name: 'Gamma-Glutamyl Transferase (GGT)', price: '₹200', url: '/tests/ggt-test/' },
-              { name: 'Serum Total Protein', price: '₹50', url: '/tests/total-protein-test/' },
-              { name: 'Ionised Calcium', price: '₹260', url: '/tests/ionised-calcium-test/' }
-            ].map(test => (
-              <a 
-                key={test.url}
-                href={test.url}
-                style={{
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'space-between',
-                  padding: '9px 12px',
-                  background: 'white',
-                  borderRadius: '10px',
-                  border: '1px solid #E2E8F0',
-                  color: '#1E293B',
-                  textDecoration: 'none',
-                  fontSize: '0.85rem',
-                  fontWeight: 600,
-                  transition: 'all 0.15s ease'
-                }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.borderColor = '#0284C7';
-                  e.currentTarget.style.boxShadow = '0 2px 8px rgba(2,132,199,0.1)';
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.borderColor = '#E2E8F0';
-                  e.currentTarget.style.boxShadow = 'none';
-                }}
-              >
-                <span style={{ overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap', paddingRight: '8px' }}>
-                  {test.name}
-                </span>
-                <span style={{ color: '#0284C7', fontWeight: 800, flexShrink: 0 }}>
-                  {test.price}
-                </span>
-              </a>
-            ))}
-          </div>
-        </div>
-      </section>
+      {/* 11. AFFORDABLE TEST PRICES — price-band slider linking to test pages and dedicated price pages */}
+      <TestPriceSlider />
 
       {/* 12. DIAGNOSTIC ASSURANCE & PATIENT TRUST SLIDES (Slide immediately above "Latest Health Insights & Diagnostic Guides") */}
       <section className="patient-assurance-slider-section" id="assurance-slides">
@@ -2732,7 +2598,7 @@ export default function Home({
               ) : (
                 <>
                   <p style={{ fontSize: '13.5px', color: 'var(--ink-600)', marginBottom: '16px', lineHeight: '1.5' }}>
-                    Attach your doctor's prescription photo or PDF. We will automatically select the prescribed tests at 50-70% subsidized rates and schedule your 60-min home sample collection.
+                    Attach your doctor's prescription photo or PDF. We will automatically select the prescribed tests at our published BJSL rates and arrange home sample collection where available.
                   </p>
 
                   {/* Dropzone */}

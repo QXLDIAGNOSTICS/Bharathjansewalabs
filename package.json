@@ -9,7 +9,8 @@
     "preview": "vite preview",
     "server": "node server.js",
     "start": "vite",
-    "lint": "eslint ."
+    "lint": "eslint .",
+    "generate:price-pages": "node scripts/generate-price-band-pages.mjs && node scripts/generate-sitemaps.mjs"
   },
   "dependencies": {
     "lucide-react": "^0.344.0",

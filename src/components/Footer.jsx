@@ -204,7 +204,7 @@ export default function Footer({ setCurrentTab, openLegal }) {
             color: '#64748B'
           }}>
             <strong style={{ color: '#334155' }}>Laboratory & Medical Disclosure: </strong>
-            Samples collected by Bharath Jan Sewa Labs collection centres are processed at designated partner laboratories. Details of the performing laboratory for any test are available on request. Collection centres are phlebotomy specimen collection desks and are not individually accredited laboratories. All educational material is provided for patient health awareness and does not substitute for qualified clinical consultation.
+            Diagnostic testing through collaboration with NABL-accredited medical laboratories. Bharath Jan Sewa Labs is not itself an NABL-accredited laboratory. Samples collected by Bharath Jan Sewa Labs collection centres are processed at designated partner laboratories. Details of the performing laboratory for any test are available on request. Collection centres are phlebotomy specimen collection desks and are not individually accredited laboratories. Accreditation applies only to the performing laboratory and the tests within its approved scope. All educational material is provided for patient health awareness and does not substitute for qualified clinical consultation.
             <span onClick={() => setCurrentTab && setCurrentTab('quality')} style={{ color: '#0284C7', cursor: 'pointer', fontWeight: 700, marginLeft: '6px' }}>
               Read Quality &amp; Partner Laboratory Details →
             </span>

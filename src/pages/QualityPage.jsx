@@ -17,6 +17,9 @@ export default function QualityPage() {
           <p style={{ fontSize: '1.1rem', color: '#475569', lineHeight: 1.65 }}>
             Transparent disclosure of our testing protocols, specimen cold-chain logistics, and laboratory partnerships.
           </p>
+          <p style={{ fontSize: '1rem', color: '#334155', lineHeight: 1.65, marginTop: '1rem', fontWeight: 600 }}>
+            Bharath Jan Sewa Labs collaborates with NABL-accredited medical testing laboratories to provide affordable, accessible and quality-focused diagnostic services. Samples are collected through our network and processed at collaborating laboratories. Accredited testing is undertaken in accordance with the respective laboratory’s approved scope of accreditation under ISO 15189.
+          </p>
         </div>
 
         {/* 4 Pillars of Laboratory Quality */}
@@ -35,7 +38,7 @@ export default function QualityPage() {
               Partner Lab Testing
             </h3>
             <p style={{ color: '#64748B', fontSize: '0.9rem', lineHeight: 1.6 }}>
-              All pathology investigations are analyzed at our partner reference laboratories on calibrated, automated analyzers. Performing-laboratory details are available on request.
+              Samples are processed at collaborating NABL-accredited medical testing laboratories. Accreditation covers only the tests within each performing laboratory’s approved ISO 15189 scope; performing-laboratory details are available on request.
             </p>
           </div>
 
@@ -97,10 +100,10 @@ export default function QualityPage() {
               <strong>Collection Centres:</strong> Our 10 centres across Bengaluru (Sanjaynagar, Peenya, Kengeri, Ittamadu, Subramanyapura, Jaraganahalli, RR Nagar, Basaveshwaranagar, Vijayanagar, KR Market) are patient service hubs equipped for hygienic phlebotomy specimen collection.
             </li>
             <li>
-              <strong>Testing Laboratories:</strong> All biological investigations are performed at designated, fully automated partner reference laboratories. Details of the performing laboratory for any test are available on request.
+              <strong>Testing Laboratories:</strong> Investigations are performed at collaborating NABL-accredited medical testing laboratories. Bharath Jan Sewa Labs and its collection centres are not themselves NABL accredited, and not every test is necessarily within a performing laboratory’s accredited scope. Details of the performing laboratory and its accreditation scope for any test are available on request.
             </li>
             <li>
-              <strong>ICMR NEDL Alignment:</strong> Where indicated, our test profiles reference recommendations of the ICMR National Essential Diagnostics List (2025 Second Edition) as an educational public health benchmark.
+              <strong>ICMR NEDL Alignment:</strong> Where indicated, our test profiles reference recommendations of the ICMR National Essential Diagnostics List (2025 Second Edition) as an educational public health benchmark. The NEDL is a national guidance list, not an accreditation or certification programme.
             </li>
           </ul>
 

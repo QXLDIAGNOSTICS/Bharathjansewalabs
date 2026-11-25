@@ -1,4 +1,5 @@
 import React from 'react';
+import { SHOW_REFERENCE_PRICES } from '../config/pricing';
 import { ShieldCheck, Clock, ArrowRight, Droplet, FileCheck } from 'lucide-react';
 
 export default function TestCard({ test, onSelect, onBook }) {
@@ -74,12 +75,14 @@ export default function TestCard({ test, onSelect, onBook }) {
           <span style={{ fontSize: '1.8rem', fontWeight: 900, color: 'var(--text-primary)', letterSpacing: '-0.02em' }}>
             ₹{test.price.toLocaleString('en-IN')}
           </span>
+          {SHOW_REFERENCE_PRICES && test.mrp > test.price && (<>
           <span style={{ fontSize: '0.9rem', color: 'var(--text-muted)', textDecoration: 'line-through', fontWeight: 500 }}>
             ₹{test.mrp.toLocaleString('en-IN')}
           </span>
           <span style={{ fontSize: '0.8rem', color: '#059669', fontWeight: 800, background: 'rgba(236, 253, 245, 0.9)', padding: '2px 8px', borderRadius: '6px', border: '1px solid #A7F3D0' }}>
             {discountPercent}% OFF
           </span>
+          </>)}
         </div>
       </div>
 
@@ -117,7 +120,7 @@ export default function TestCard({ test, onSelect, onBook }) {
               paddingTop: '2px'
             }}
           >
-            <span>SEO Page & 16 FAQs</span>
+            <span>Test details & FAQs</span>
             <ArrowRight size={12} />
           </a>
         )}

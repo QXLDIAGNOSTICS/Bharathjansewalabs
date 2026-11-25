@@ -28,7 +28,8 @@ const spaRouteHtml = {
         .replace(/(<meta property="og:title" content=")[^"]*"/, `$1${title}"`)
         .replace(/(<meta property="og:description" content=")[^"]*"/, `$1${desc}"`)
         .replace(/(<meta name="twitter:title" content=")[^"]*"/, `$1${title}"`)
-        .replace(/(<meta name="twitter:description" content=")[^"]*"/, `$1${desc}"`);
+        .replace(/(<meta name="twitter:description" content=")[^"]*"/, `$1${desc}"`)
+        .replace(/<main data-prerender="true"><h1>[\s\S]*?<\/h1><p>[\s\S]*?<\/p>/, `<main data-prerender="true"><h1>${escapeAttr(r.title.split(' | ')[0])}</h1><p>${desc} Diagnostic testing through collaboration with NABL-accredited medical laboratories.</p>`);
       const dir = path.join(dist, r.path);
       fs.mkdirSync(dir, { recursive: true });
       fs.writeFileSync(path.join(dir, 'index.html'), html);

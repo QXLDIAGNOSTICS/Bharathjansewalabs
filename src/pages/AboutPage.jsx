@@ -98,7 +98,10 @@ export default function AboutPage({ setCurrentTab, openBookingWizard }) {
               </h1>
 
               <p style={{ color: '#94A3B8', fontSize: '1.1rem', lineHeight: 1.65, marginBottom: '2rem' }}>
-                Bharath Jan Sewa Labs (BJSL) was founded with a singular mission: to make quality diagnostic testing accessible and affordable to every family in Bengaluru. We combine 100% automated lab technology, painless home collection, and transparent pricing.
+                Bharath Jan Sewa Labs (BJSL) was founded with a singular mission: to make quality diagnostic testing accessible and affordable to every family in Bengaluru. We combine automated laboratory testing, painless home collection, and transparent pricing.
+              </p>
+              <p style={{ color: '#CBD5E1', fontSize: '0.98rem', lineHeight: 1.65, marginBottom: '2rem' }}>
+                Bharath Jan Sewa Labs collaborates with NABL-accredited medical testing laboratories to provide affordable, accessible and quality-focused diagnostic services. Samples are collected through our network and processed at collaborating laboratories. Accredited testing is undertaken in accordance with the respective laboratory’s approved scope of accreditation under ISO 15189.
               </p>
 
               <div style={{ display: 'flex', gap: '12px', flexWrap: 'wrap' }}>
@@ -278,7 +281,7 @@ export default function AboutPage({ setCurrentTab, openBookingWizard }) {
                 <Activity size={24} color="#059669" />
               </div>
               <h3 style={{ fontSize: '1.25rem', fontWeight: 900, color: '#0F172A', marginBottom: '0.75rem' }}>
-                50% - 70% Cost Savings
+                Transparent, Affordable Prices
               </h3>
               <p style={{ color: '#64748B', fontSize: '0.95rem', lineHeight: 1.6 }}>
                 By streamlining lab operations and working at scale across Bengaluru, we pass maximum cost savings directly to patients without compromising test quality.

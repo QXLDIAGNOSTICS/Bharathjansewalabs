@@ -2,7 +2,9 @@
 
 > **Primary Positioning:** Affordable Blood Tests & Health Checkups in Bengaluru  
 > **Campaign Concept:** Uncompromised Quality. Everyday Affordable Prices.  
-> **Supporting Statement:** High-quality diagnostic testing at transparent, budget-friendly prices, with samples processed through our partner diagnostic laboratories.
+> **Supporting Statement:** Affordable Diagnostic Services. Testing Through NABL-Accredited Laboratory Partners.
+> **Accreditation Statement (authoritative):** Bharath Jan Sewa Labs collaborates with NABL-accredited medical testing laboratories to provide affordable, accessible and quality-focused diagnostic services. Samples are collected through our network and processed at collaborating laboratories. Accredited testing is undertaken in accordance with the respective laboratory’s approved scope of accreditation under ISO 15189.
+> **Do not state** that Bharath Jan Sewa Labs or its collection centres hold NABL accreditation themselves. ICMR does not accredit laboratories. ICMR's National Essential Diagnostics List (NEDL) is not an accreditation or certification programme. Accreditation applies only to the performing laboratory and the tests within its approved scope.
 
 ---
 
@@ -19,7 +21,7 @@
 
 ## 2. Core Value Proposition & Quality Standards
 1. **Direct Budget-Friendly Rates:** Routine diagnostic tests available starting from ₹20 (Blood Glucose), ₹50 (Urine Routine / Serum Creatinine), and ₹160 (CBC with ESR).
-2. **Quality & Partner Lab Processing:** All blood and fluid samples are collected using sterile, single-use vacuum vacutainers, maintained under strict cold-chain temperature control during courier dispatch, and processed through partner reference laboratory facilities.
+2. **Quality & Partner Lab Processing:** All blood and fluid samples are collected using sterile, single-use vacuum vacutainers, maintained under strict cold-chain temperature control during courier dispatch, and processed at collaborating NABL-accredited medical testing laboratories (accredited testing only within each laboratory's approved ISO 15189 scope).
 3. **Turnaround Time (TAT):** Routine blood test reports delivered digitally on the same day within 4 to 8 hours via WhatsApp PDF and secure online download.
 4. **Convenient Collection:** 10+ walk-in diagnostic collection hubs across Bengaluru, plus doorstep phlebotomy home collection across South, West, Central, and Southeast Bengaluru.
 

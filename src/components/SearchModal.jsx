@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { SHOW_REFERENCE_PRICES } from '../config/pricing';
 import { X, Search, Droplet, ArrowRight, ShieldCheck } from 'lucide-react';
 import { INDIVIDUAL_TESTS, HEALTH_PACKAGES } from '../data/mockData';
 
@@ -91,7 +92,7 @@ export default function SearchModal({ isOpen, onClose, onSelectTest, onBookTest 
 
                 <div style={{ textAlign: 'right', flexShrink: 0 }}>
                   <div style={{ marginBottom: '6px' }}>
-                    <span style={{ textDecoration: 'line-through', color: '#94A3B8', fontSize: '0.8rem', marginRight: '6px' }}>₹{item.mrp}</span>
+                    {SHOW_REFERENCE_PRICES && item.mrp > item.price && <span style={{ textDecoration: 'line-through', color: '#94A3B8', fontSize: '0.8rem', marginRight: '6px' }}>₹{item.mrp}</span>}
                     <span style={{ fontSize: '1.25rem', fontWeight: 800, color: '#071E33' }}>₹{item.price}</span>
                   </div>
                   <button 

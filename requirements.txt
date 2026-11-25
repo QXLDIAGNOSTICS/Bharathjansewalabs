@@ -1,0 +1,5 @@
+requests>=2.32,<3
+beautifulsoup4>=4.12,<5
+lxml>=5,<7
+google-auth>=2.35,<4
+google-analytics-data>=0.18,<1

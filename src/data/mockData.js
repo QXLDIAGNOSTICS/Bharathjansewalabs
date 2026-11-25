@@ -17,7 +17,7 @@ export const COMPANY_INFO = {
   name: 'Bharath Jan Sewa Labs (BJSL)',
   headline: 'Affordable Blood Tests & Health Checkups in Bengaluru',
   positioning: 'Diagnostics with Dignity — Affordable Blood Tests. Reliable Results. Near You.',
-  supportingMessage: 'High-quality diagnostic testing at transparent, budget-friendly prices, with samples processed through our partner diagnostic laboratories.',
+  supportingMessage: 'Affordable Diagnostic Services. Testing Through NABL-Accredited Laboratory Partners.',
   campaignConcept: 'Uncompromised Quality. Everyday Affordable Prices.',
   mission: 'Making reliable clinical diagnostics genuinely affordable, transparent, and accessible across every neighbourhood in Bengaluru.',
   phone: '+91 98055 43143',
@@ -2208,8 +2208,8 @@ export const FAQS = [
     a: 'Yes, you can easily reschedule or cancel your test booking at zero fee anytime up to 1 hour prior to your scheduled slot directly from your account or by WhatsApp / calling our Bangalore care desk.'
   },
   {
-    question: 'How does Bharath Jan Sewa Labs provide tests at 50–70% lower prices?',
-    q: 'How does Bharath Jan Sewa Labs provide tests at 50–70% lower prices?',
+    question: 'How does Bharath Jan Sewa Labs keep test prices affordable?',
+    q: 'How does Bharath Jan Sewa Labs keep test prices affordable?',
     answer: 'BJSL operates on a lean, high-volume centralized laboratory model. By eliminating marketing overheads and passing operational scale directly to patients, we deliver high-grade diagnostic testing at transparent, affordable prices.',
     a: 'BJSL operates on a lean, high-volume centralized laboratory model. By eliminating marketing overheads and passing operational scale directly to patients, we deliver high-grade diagnostic testing at transparent, affordable prices.'
   },
@@ -2906,7 +2906,7 @@ export const BLOG_POSTS = [
 
 export const SEO_METADATA = {
   title: 'Bharath Jan Sewa Labs (BJSL) | Diagnostics with Dignity, For Every Indian',
-  description: 'Book blood tests, full body health checkups & diagnostic packages with Partner-lab processing, transparent pricing 50-70% lower than market rates, and free home sample collection across Bangalore.',
+  description: 'Book blood tests, full body health checkups & diagnostic packages with Partner-lab processing, transparent pricing and home sample collection in serviceable Bangalore areas. Testing through collaboration with NABL-accredited medical laboratories.',
   keywords: 'Bharath Jan Sewa Labs, BJSL, blood test Bangalore, full body checkup Bangalore, home sample collection, Chirayu checkup, HbA1c test, CBC test price, diagnostic centre Sanjaynagar, Peenya, Kengeri, Banashankari',
   siteUrl: 'https://bharathjansewalabs.com',
   author: 'Bharath Jan Sewa Labs Pvt. Ltd.',

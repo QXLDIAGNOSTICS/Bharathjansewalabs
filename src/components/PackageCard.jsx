@@ -1,4 +1,5 @@
 import React from 'react';
+import { SHOW_REFERENCE_PRICES } from '../config/pricing';
 import { ShieldCheck, CheckCircle2, Clock, ArrowRight, Activity, ChevronRight, Sparkles } from 'lucide-react';
 
 export default function PackageCard({ 
@@ -51,7 +52,7 @@ export default function PackageCard({
             alignItems: 'center',
             gap: '4px'
           }}>
-            <Sparkles size={12} color="white" /> {discountPercent}% OFF
+            <Sparkles size={12} color="white" /> {SHOW_REFERENCE_PRICES ? `${discountPercent}% OFF` : 'TRANSPARENT PRICE'}
           </span>
           <span className="badge-safe-green">
             <ShieldCheck size={14} /> PARTNER LAB
@@ -80,14 +81,16 @@ export default function PackageCard({
             boxShadow: 'inset 0 1px 0 rgba(255, 255, 255, 0.9)'
           }}
         >
-          <div style={{ fontSize: '0.725rem', fontWeight: 800, color: 'var(--text-muted)', textTransform: 'uppercase', marginBottom: '4px', letterSpacing: '0.05em' }}>SPECIAL OFFER PRICE</div>
+          <div style={{ fontSize: '0.725rem', fontWeight: 800, color: 'var(--text-muted)', textTransform: 'uppercase', marginBottom: '4px', letterSpacing: '0.05em' }}>BJSL PRICE</div>
           <div style={{ display: 'flex', alignItems: 'baseline', gap: '10px' }}>
             <span style={{ fontSize: '2.1rem', fontWeight: 900, color: 'var(--text-primary)', letterSpacing: '-0.02em' }}>
               ₹{pkg.price.toLocaleString('en-IN')}
             </span>
+            {SHOW_REFERENCE_PRICES && pkg.mrp > pkg.price && (
             <span style={{ fontSize: '1rem', color: 'var(--text-muted)', textDecoration: 'line-through', fontWeight: 600 }}>
               ₹{pkg.mrp.toLocaleString('en-IN')}
             </span>
+            )}
           </div>
           <div style={{ fontSize: '0.8rem', color: '#059669', fontWeight: 800, marginTop: '4px', display: 'flex', alignItems: 'center', gap: '4px' }}>
             ✓ Includes {pkg.parametersCount || 71} Parameters Screened

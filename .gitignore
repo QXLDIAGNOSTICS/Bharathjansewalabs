@@ -22,3 +22,8 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# SEO report outputs
+reports/
+.env
+__pycache__/

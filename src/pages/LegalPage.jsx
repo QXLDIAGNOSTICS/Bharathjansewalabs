@@ -161,7 +161,7 @@ export default function LegalPage({ activeTab = 'promo', setActiveTab, setCurren
                   <Gift size={18} /> Pre-Applied Promotional Pricing Standard
                 </div>
                 <p style={{ color: '#7F1D1D', fontSize: '0.925rem', lineHeight: 1.6, margin: 0 }}>
-                  Special promotional pricing (50%–70% lower than market rates) applies automatically to all Chirayu Full Body Checkup packages booked online at <strong>bharathjansewalabs.com</strong> or at any BJSL Bengaluru collection hub.
+                  Published package prices apply to all Chirayu Full Body Checkup packages booked online at <strong>bharathjansewalabs.com</strong> or at any BJSL Bengaluru collection hub.
                 </p>
               </div>
 

@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { SHOW_REFERENCE_PRICES, HOME_COLLECTION_FEE, FREE_HOME_COLLECTION_MIN_ORDER } from '../config/pricing';
 import { 
   X, 
   MapPin, 
@@ -47,9 +48,9 @@ export default function BookingWizardModal({
 
   // Pricing math
   const subtotal = cart.reduce((acc, item) => acc + item.price, 0);
-  const totalMrp = cart.reduce((acc, item) => acc + item.mrp, 0);
+  const totalMrp = cart.reduce((acc, item) => acc + (item.mrp || item.price), 0);
   const totalSavings = totalMrp - subtotal;
-  const homeCollectionFee = (subtotal >= 499 || bookingType === 'centre') ? 0 : 50;
+  const homeCollectionFee = (subtotal >= FREE_HOME_COLLECTION_MIN_ORDER || bookingType === 'centre') ? 0 : HOME_COLLECTION_FEE;
   const finalPayable = subtotal + homeCollectionFee;
 
   const handleRemoveFromCart = (id) => {
@@ -315,7 +316,7 @@ export default function BookingWizardModal({
             <div style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
               <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
                 <h4 style={{ fontSize: '1.1rem', fontWeight: 900, color: '#0F172A' }}>Selected Diagnostic Tests ({cart.length})</h4>
-                <span className="badge-pink-tag">Save ₹{totalSavings}</span>
+                {SHOW_REFERENCE_PRICES && totalSavings > 0 && <span className="badge-pink-tag">Save ₹{totalSavings}</span>}
               </div>
 
               {cart.length === 0 ? (
@@ -342,7 +343,7 @@ export default function BookingWizardModal({
                       <div style={{ display: 'flex', alignItems: 'center', gap: '1.25rem' }}>
                         <div>
                           <div style={{ fontSize: '1.2rem', fontWeight: 900, color: '#0F172A' }}>₹{item.price}</div>
-                          <div style={{ fontSize: '0.75rem', color: '#94A3B8', textDecoration: 'line-through' }}>₹{item.mrp}</div>
+                          {SHOW_REFERENCE_PRICES && item.mrp > item.price && <div style={{ fontSize: '0.75rem', color: '#94A3B8', textDecoration: 'line-through' }}>₹{item.mrp}</div>}
                         </div>
                         <button onClick={() => handleRemoveFromCart(item.id)} style={{ background: '#FFF1F2', color: '#EF4444', border: 'none', padding: '8px', borderRadius: '10px' }}>
                           <Trash2 size={18} />
@@ -404,7 +405,7 @@ export default function BookingWizardModal({
                   <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.9rem', color: '#475569', marginTop: '4px' }}>
                     <span>Doorstep Phlebotomist Collection Fee:</span>
                     <span style={{ fontWeight: 800, color: '#059669' }}>
-                      {homeCollectionFee === 0 ? 'FREE (₹0)' : '₹50'}
+                      {homeCollectionFee === 0 ? 'FREE (₹0)' : `₹${homeCollectionFee}`}
                     </span>
                   </div>
                   <div style={{ borderTop: '1px solid #FECDD3', marginTop: '10px', paddingTop: '10px', display: 'flex', justifyContent: 'space-between', fontSize: '1.3rem', fontWeight: 900, color: '#0F172A' }}>

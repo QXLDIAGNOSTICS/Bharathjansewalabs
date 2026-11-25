@@ -1,0 +1,21 @@
+priority,theme,query,primary_url,intent,evidence_status
+P0,blood glucose,blood sugar test price bangalore,/tests/blood-sugar-test/,transactional,research_priority_not_volume_claim
+P0,blood glucose,fasting blood sugar test near me,/tests/blood-sugar-test/,transactional,research_priority_not_volume_claim
+P0,CBC,cbc test price bangalore,/tests/cbc-esr-test/,transactional,cbc_esr_not_identical_to_cbc
+P0,CBC,cbc with esr test price bangalore,/tests/cbc-esr-test/,transactional,research_priority_not_volume_claim
+P0,urine,urine routine test price bangalore,/tests/urine-routine-microscopy-test/,transactional,research_priority_not_volume_claim
+P0,creatinine,serum creatinine test price bangalore,/tests/serum-creatinine-test/,transactional,research_priority_not_volume_claim
+P0,diabetes,hba1c test price bangalore,/tests/hba1c-test/,transactional,research_priority_not_volume_claim
+P0,thyroid,tsh test price bangalore,/tests/tsh-test/,transactional,research_priority_not_volume_claim
+P1,lipid,lipid profile test price bangalore,/tests/lipid-profile-test/,transactional,research_priority_not_volume_claim
+P1,liver,lft test price bangalore,/tests/liver-function-test/,transactional,research_priority_not_volume_claim
+P1,affordability,affordable blood tests in bangalore,/tests/,commercial,research_priority_not_volume_claim
+P1,affordability,low cost diagnostic laboratory bangalore,/tests/,commercial,research_priority_not_volume_claim
+P1,home collection,blood test at home bangalore,/our-centres/,commercial,requires_verified_coverage
+P1,local,affordable lab kengeri,/locations/kengeri/,local,requires_verified_centre
+P1,local,blood tests near kr market,/locations/kr-market/,local,requires_verified_centre
+P1,local,diagnostic lab peenya,/locations/peenya/,local,requires_verified_centre
+P1,local,blood collection banashankari,/locations/banashankari/,local,requires_verified_centre
+P1,local,blood test jp nagar,/locations/jp-nagar/,local,requires_verified_coverage
+P2,quality,is bjsl nabl accredited,/quality/,reputation,must_verify_lab_specific_scope
+P2,help,cheap prescribed blood tests family bangalore,/affordable-testing-assistance/,informational,requires_approved_assistance_policy

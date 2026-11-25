@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { SHOW_REFERENCE_PRICES } from '../config/pricing';
 import { X, Droplet, Clock, ShieldCheck, MapPin, CheckCircle2, HelpCircle, Code } from 'lucide-react';
 
 export default function TestDetailModal({ item, onClose, onBook }) {
@@ -67,8 +68,10 @@ export default function TestDetailModal({ item, onClose, onBook }) {
               <div style={{ fontSize: '0.8rem', color: '#0369A1', fontWeight: 700 }}>BJSL Transparent Pricing</div>
               <div style={{ display: 'flex', alignItems: 'baseline', gap: '8px' }}>
                 <span style={{ fontSize: '1.8rem', fontWeight: 800, color: '#071E33' }}>₹{item.price}</span>
+                {SHOW_REFERENCE_PRICES && item.mrp > item.price && (<>
                 <span style={{ textDecoration: 'line-through', color: '#64748B', fontSize: '0.95rem' }}>MRP ₹{item.mrp}</span>
                 <span className="badge-savings">Save ₹{item.mrp - item.price}</span>
+                </>)}
               </div>
             </div>
 

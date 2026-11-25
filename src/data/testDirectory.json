@@ -1,0 +1,464 @@
+[
+ {
+  "slug": "cbc-esr-test",
+  "name": "Complete Blood Count with ESR (CBC + ESR)",
+  "category": "Haematology",
+  "summary": "Counts red cells, white cells and platelets and measures erythrocyte sedimentation rate.",
+  "price": 160
+ },
+ {
+  "slug": "blood-sugar-test",
+  "name": "Blood Glucose (Fasting, PP or Random)",
+  "category": "Diabetes",
+  "summary": "Measures glucose in plasma at a specified collection time.",
+  "price": 20
+ },
+ {
+  "slug": "hba1c-test",
+  "name": "Glycated Haemoglobin (HbA1c)",
+  "category": "Diabetes",
+  "summary": "Estimates average blood-glucose exposure over roughly the preceding 2–3 months.",
+  "price": 260
+ },
+ {
+  "slug": "lipid-profile-test",
+  "name": "Lipid Profile",
+  "category": "Heart health",
+  "summary": "Assesses cholesterol fractions and triglycerides to support cardiovascular risk assessment.",
+  "price": 260
+ },
+ {
+  "slug": "liver-function-test",
+  "name": "Liver Function Test (LFT)",
+  "category": "Liver health",
+  "summary": "Panel listed as ALT, AST, ALP, GGT, total/direct bilirubin, albumin and protein.",
+  "price": 360
+ },
+ {
+  "slug": "serum-creatinine-test",
+  "name": "Serum Creatinine",
+  "category": "Kidney health",
+  "summary": "Measures blood creatinine, which is commonly used to estimate kidney filtration (eGFR).",
+  "price": 50
+ },
+ {
+  "slug": "blood-urea-test",
+  "name": "Blood Urea / BUN",
+  "category": "Kidney health",
+  "summary": "Measures urea nitrogen or urea in blood; reporting units vary by laboratory.",
+  "price": 50
+ },
+ {
+  "slug": "urine-routine-microscopy-test",
+  "name": "Urine Routine & Microscopy",
+  "category": "Urine and kidney",
+  "summary": "Checks urine chemistry and microscopic elements such as red/white cells, crystals and casts.",
+  "price": 50
+ },
+ {
+  "slug": "tsh-test",
+  "name": "Thyroid-Stimulating Hormone (TSH)",
+  "category": "Thyroid",
+  "summary": "Measures TSH, a pituitary hormone used to assess thyroid regulation.",
+  "price": 100
+ },
+ {
+  "slug": "thyroid-function-test-total",
+  "name": "Thyroid Function Test (Total T3, T4 & TSH)",
+  "category": "Thyroid",
+  "summary": "Measures total T3, total T4 and TSH as listed in the offer.",
+  "price": 190
+ },
+ {
+  "slug": "serum-electrolytes-test",
+  "name": "Serum Electrolytes (Na, K, Cl)",
+  "category": "Kidney health",
+  "summary": "Measures sodium, potassium and chloride in blood.",
+  "price": 190
+ },
+ {
+  "slug": "blood-group-rh-test",
+  "name": "ABO Blood Group & Rh Typing",
+  "category": "Blood typing",
+  "summary": "Determines ABO blood group and RhD status.",
+  "price": 90
+ },
+ {
+  "slug": "vitamin-d-test",
+  "name": "Vitamin D 25-Hydroxy",
+  "category": "Vitamins",
+  "summary": "Measures serum 25-hydroxyvitamin D, the usual marker of vitamin D status.",
+  "price": 660
+ },
+ {
+  "slug": "vitamin-b12-test",
+  "name": "Vitamin B12 (Cobalamin)",
+  "category": "Vitamins",
+  "summary": "Measures vitamin B12 in serum.",
+  "price": 440
+ },
+ {
+  "slug": "ferritin-test",
+  "name": "Serum Ferritin",
+  "category": "Iron and anaemia",
+  "summary": "Measures ferritin, a marker of iron stores that can also rise with inflammation.",
+  "price": 460
+ },
+ {
+  "slug": "iron-studies-test",
+  "name": "Iron Studies (Iron, TIBC, Saturation)",
+  "category": "Iron and anaemia",
+  "summary": "Measures iron, iron-binding capacity and calculated transferrin saturation as listed.",
+  "price": 250
+ },
+ {
+  "slug": "crp-test",
+  "name": "C-Reactive Protein (CRP), Quantitative",
+  "category": "Inflammation",
+  "summary": "Measures C-reactive protein, a nonspecific inflammatory marker.",
+  "price": 250
+ },
+ {
+  "slug": "uric-acid-test",
+  "name": "Serum Uric Acid",
+  "category": "Kidney and metabolism",
+  "summary": "Measures urate in blood.",
+  "price": 50
+ },
+ {
+  "slug": "serum-calcium-test",
+  "name": "Serum Calcium, Total",
+  "category": "Bone and minerals",
+  "summary": "Measures total blood calcium, including protein-bound and free calcium.",
+  "price": 60
+ },
+ {
+  "slug": "serum-phosphate-test",
+  "name": "Serum Phosphate",
+  "category": "Bone and minerals",
+  "summary": "Measures inorganic phosphate in blood.",
+  "price": 90
+ },
+ {
+  "slug": "total-ige-test",
+  "name": "Total Immunoglobulin E (IgE)",
+  "category": "Allergy",
+  "summary": "Measures total IgE concentration in serum.",
+  "price": 630
+ },
+ {
+  "slug": "hbsag-test",
+  "name": "Hepatitis B Surface Antigen (HBsAg)",
+  "category": "Infection screening",
+  "summary": "Detects hepatitis B surface antigen in blood.",
+  "price": 250
+ },
+ {
+  "slug": "anti-hcv-test",
+  "name": "Hepatitis C Antibody (Anti-HCV)",
+  "category": "Infection screening",
+  "summary": "Detects antibodies to hepatitis C virus.",
+  "price": 400
+ },
+ {
+  "slug": "hiv-fourth-generation-test",
+  "name": "HIV 1/2 Antigen-Antibody, Fourth Generation",
+  "category": "Infection screening",
+  "summary": "Screens for HIV-1/2 antibodies and p24 antigen using a fourth-generation assay.",
+  "price": 250
+ },
+ {
+  "slug": "dengue-ns1-igm-igg-test",
+  "name": "Dengue NS1 Antigen & IgM/IgG Antibodies (ELISA)",
+  "category": "Fever and infection",
+  "summary": "Tests dengue NS1 antigen and dengue IgM/IgG antibodies as listed in the combination offer.",
+  "price": 450
+ },
+ {
+  "slug": "malaria-antigen-test",
+  "name": "Malaria Rapid Antigen (HRP2/pLDH)",
+  "category": "Fever and infection",
+  "summary": "Uses rapid antigens to support detection of malaria parasites.",
+  "price": 200
+ },
+ {
+  "slug": "pt-inr-test",
+  "name": "Prothrombin Time / INR",
+  "category": "Coagulation",
+  "summary": "Measures clotting time via the extrinsic pathway and reports INR where applicable.",
+  "price": 190
+ },
+ {
+  "slug": "aptt-test",
+  "name": "Activated Partial Thromboplastin Time (aPTT)",
+  "category": "Coagulation",
+  "summary": "Measures clotting time through the intrinsic/common pathways.",
+  "price": 260
+ },
+ {
+  "slug": "d-dimer-test",
+  "name": "D-Dimer",
+  "category": "Coagulation",
+  "summary": "Measures fibrin breakdown products in blood.",
+  "price": 660
+ },
+ {
+  "slug": "ldh-test",
+  "name": "Lactate Dehydrogenase (LDH)",
+  "category": "Enzymes",
+  "summary": "Measures LDH, an enzyme found in many tissues.",
+  "price": 120
+ },
+ {
+  "slug": "serum-amylase-test",
+  "name": "Serum Amylase",
+  "category": "Pancreas",
+  "summary": "Measures serum amylase enzyme activity.",
+  "price": 160
+ },
+ {
+  "slug": "serum-lipase-test",
+  "name": "Serum Lipase",
+  "category": "Pancreas",
+  "summary": "Measures lipase enzyme activity.",
+  "price": 250
+ },
+ {
+  "slug": "cpk-total-test",
+  "name": "Creatine Phosphokinase (CK/CPK), Total",
+  "category": "Muscle",
+  "summary": "Measures total creatine kinase enzyme activity.",
+  "price": 260
+ },
+ {
+  "slug": "rheumatoid-factor-test",
+  "name": "Rheumatoid Factor (RF)",
+  "category": "Autoimmune",
+  "summary": "Measures rheumatoid factor antibodies.",
+  "price": 200
+ },
+ {
+  "slug": "aso-titre-test",
+  "name": "Anti-Streptolysin O (ASO) Titre",
+  "category": "Infection and immunology",
+  "summary": "Measures antibodies against streptolysin O following group A streptococcal exposure.",
+  "price": 200
+ },
+ {
+  "slug": "prolactin-test",
+  "name": "Serum Prolactin",
+  "category": "Hormones",
+  "summary": "Measures prolactin hormone in blood.",
+  "price": 400
+ },
+ {
+  "slug": "fsh-test",
+  "name": "Follicle-Stimulating Hormone (FSH)",
+  "category": "Hormones",
+  "summary": "Measures pituitary follicle-stimulating hormone.",
+  "price": 400
+ },
+ {
+  "slug": "lh-test",
+  "name": "Luteinising Hormone (LH)",
+  "category": "Hormones",
+  "summary": "Measures pituitary luteinising hormone.",
+  "price": 400
+ },
+ {
+  "slug": "total-testosterone-test",
+  "name": "Total Testosterone",
+  "category": "Hormones",
+  "summary": "Measures total testosterone including protein-bound hormone.",
+  "price": 460
+ },
+ {
+  "slug": "beta-hcg-test",
+  "name": "Beta hCG (Quantitative)",
+  "category": "Pregnancy and hormones",
+  "summary": "Measures beta human chorionic gonadotropin in blood.",
+  "price": 460
+ },
+ {
+  "slug": "cea-test",
+  "name": "Carcinoembryonic Antigen (CEA)",
+  "category": "Tumour markers",
+  "summary": "Measures CEA, a tumour-associated marker used mainly in specified monitoring contexts.",
+  "price": 600
+ },
+ {
+  "slug": "ca-125-test",
+  "name": "Cancer Antigen 125 (CA-125)",
+  "category": "Tumour markers",
+  "summary": "Measures CA-125 protein in blood.",
+  "price": 600
+ },
+ {
+  "slug": "urine-acr-test",
+  "name": "Urine Albumin-Creatinine Ratio (ACR)",
+  "category": "Kidney health",
+  "summary": "Measures urinary albumin relative to creatinine to assess albumin leakage.",
+  "price": 360
+ },
+ {
+  "slug": "total-psa-test",
+  "name": "Prostate-Specific Antigen (PSA), Total",
+  "category": "Men's health",
+  "summary": "Measures total PSA in blood.",
+  "price": 400
+ },
+ {
+  "slug": "serum-folate-test",
+  "name": "Folic Acid (Serum Folate)",
+  "category": "Vitamins",
+  "summary": "Measures folate concentration in serum.",
+  "price": 560
+ },
+ {
+  "slug": "vdrl-test",
+  "name": "VDRL Test",
+  "category": "Infection screening",
+  "summary": "Performs a non-treponemal serological test used in syphilis evaluation.",
+  "price": 220
+ },
+ {
+  "slug": "typhidot-test",
+  "name": "TyphiDot IgM/IgG",
+  "category": "Fever and infection",
+  "summary": "Detects IgM/IgG antibodies related to Salmonella Typhi.",
+  "price": 550
+ },
+ {
+  "slug": "thyroid-function-test-free",
+  "name": "Thyroid Function Panel (Free T3, Free T4, TSH)",
+  "category": "Thyroid",
+  "summary": "Measures free T3, free T4 and TSH.",
+  "price": 330
+ },
+ {
+  "slug": "platelet-count-test",
+  "name": "Platelet Count",
+  "category": "Haematology",
+  "summary": "Counts platelets in blood.",
+  "price": 100
+ },
+ {
+  "slug": "haemoglobin-test",
+  "name": "Haemoglobin (Hb)",
+  "category": "Haematology",
+  "summary": "Measures haemoglobin concentration in blood.",
+  "price": 60
+ },
+ {
+  "slug": "complete-haemogram-ps-test",
+  "name": "Complete Haemogram (CBC, ESR & Peripheral Smear)",
+  "category": "Haematology",
+  "summary": "Combines CBC, ESR and peripheral-smear examination as advertised.",
+  "price": 230
+ },
+ {
+  "slug": "aec-test",
+  "name": "Absolute Eosinophil Count (AEC)",
+  "category": "Haematology",
+  "summary": "Measures absolute eosinophil concentration in blood.",
+  "price": 100
+ },
+ {
+  "slug": "bilirubin-total-direct-test",
+  "name": "Bilirubin, Total & Direct",
+  "category": "Liver health",
+  "summary": "Measures total and direct bilirubin; indirect may be calculated from the difference.",
+  "price": 120
+ },
+ {
+  "slug": "serum-magnesium-test",
+  "name": "Serum Magnesium",
+  "category": "Bone and minerals",
+  "summary": "Measures magnesium concentration in blood.",
+  "price": 200
+ },
+ {
+  "slug": "serum-iron-test",
+  "name": "Serum Iron",
+  "category": "Iron and anaemia",
+  "summary": "Measures circulating serum iron concentration.",
+  "price": 160
+ },
+ {
+  "slug": "alt-sgpt-test",
+  "name": "Alanine Aminotransferase (ALT / SGPT)",
+  "category": "Liver health",
+  "summary": "Measures ALT enzyme activity in blood.",
+  "price": 60
+ },
+ {
+  "slug": "ast-sgot-test",
+  "name": "Aspartate Aminotransferase (AST / SGOT)",
+  "category": "Liver health",
+  "summary": "Measures AST enzyme activity in blood.",
+  "price": 60
+ },
+ {
+  "slug": "anti-tpo-test",
+  "name": "Anti-Thyroid Peroxidase Antibodies (Anti-TPO)",
+  "category": "Thyroid",
+  "summary": "Measures antibodies against thyroid peroxidase.",
+  "price": 560
+ },
+ {
+  "slug": "potassium-test",
+  "name": "Potassium (Serum / Plasma)",
+  "category": "Kidney health",
+  "summary": "Measures potassium electrolyte concentration.",
+  "price": 80
+ },
+ {
+  "slug": "renal-profile-test",
+  "name": "Renal Profile (Urea, Creatinine, Uric Acid, Electrolytes)",
+  "category": "Kidney health",
+  "summary": "Panel advertised as urea, creatinine, uric acid and electrolytes.",
+  "price": 320
+ },
+ {
+  "slug": "direct-ldl-test",
+  "name": "LDL Cholesterol, Direct",
+  "category": "Heart health",
+  "summary": "Directly measures low-density lipoprotein cholesterol.",
+  "price": 120
+ },
+ {
+  "slug": "troponin-i-test",
+  "name": "Troponin I, Quantitative",
+  "category": "Cardiac markers",
+  "summary": "Measures cardiac troponin I concentration.",
+  "price": 760
+ },
+ {
+  "slug": "cortisol-test",
+  "name": "Serum Cortisol (AM / PM)",
+  "category": "Hormones",
+  "summary": "Measures cortisol at a specified morning or evening collection time.",
+  "price": 500
+ },
+ {
+  "slug": "ggt-test",
+  "name": "Gamma-Glutamyl Transferase (GGT)",
+  "category": "Liver health",
+  "summary": "Measures GGT enzyme activity in blood.",
+  "price": 200
+ },
+ {
+  "slug": "total-protein-test",
+  "name": "Serum Total Protein",
+  "category": "Liver and nutrition",
+  "summary": "Measures total serum protein, mainly albumin and globulins.",
+  "price": 50
+ },
+ {
+  "slug": "ionised-calcium-test",
+  "name": "Ionised Calcium",
+  "category": "Bone and minerals",
+  "summary": "Measures physiologically active unbound calcium in blood.",
+  "price": 260
+ }
+]

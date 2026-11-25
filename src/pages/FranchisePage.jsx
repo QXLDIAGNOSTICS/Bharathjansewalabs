@@ -116,7 +116,7 @@ export default function FranchisePage({ openFranchiseModal, onBookTest }) {
               { title: 'Local Collection Points', desc: 'Easy neighborhood access for fast walk-in blood sampling.' },
               { title: 'Mobile Vans Outreach', desc: 'Doorstep testing in remote zones and doorstep phlebotomy.' },
               { title: 'Partner Reference Lab', desc: 'Centralized high-precision automated laboratory processing.' },
-              { title: '50–70% Lower Pricing', desc: 'Unbeatable affordable rates passing volume scale to patients.' },
+              { title: 'Affordable Published Pricing', desc: 'Transparent, affordable rates that pass operational scale on to patients.' },
               { title: 'App-Based Booking & Tracking', desc: 'Cloud LIS software for automated WhatsApp report dispatch.' }
             ].map((item, idx) => (
               <div key={idx} style={{ background: '#F8FAFC', padding: '1.25rem 1.5rem', borderRadius: '16px', border: '1px solid #E2E8F0', display: 'flex', gap: '1rem', alignItems: 'flex-start' }}>

@@ -1,4 +1,5 @@
 import React from 'react';
+import { SHOW_REFERENCE_PRICES } from '../config/pricing';
 import { X, Check, Minus, ShoppingBag } from 'lucide-react';
 
 export default function CompareModal({ comparedPackages, onClose, onBookPackage, onRemove }) {
@@ -34,9 +35,11 @@ export default function CompareModal({ comparedPackages, onClose, onBookPackage,
                     <div style={{ fontSize: '1.25rem', fontWeight: 800, color: '#0284C7' }}>
                       ₹{pkg.price}
                     </div>
+                    {SHOW_REFERENCE_PRICES && pkg.mrp > pkg.price && (
                     <div style={{ fontSize: '0.75rem', color: '#64748B', textDecoration: 'line-through' }}>
                       MRP ₹{pkg.mrp}
                     </div>
+                    )}
                     <div style={{ margin: '8px 0' }}>
                       <button 
                         onClick={() => onBookPackage(pkg)}
